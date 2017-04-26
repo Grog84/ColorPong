@@ -2,5 +2,311 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esMain</name>
-    <events />
+    <events>
+        <variable constant="0" name="MINIMUM_BOUNCE_ANGLE" sid="587425702189030" static="0" type="number">20</variable>
+        <event-block sid="758188841546597">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="992054801398873" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="442583035801206" type="PlayerTile">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="624256473189959" type="BossTile">
+                    <param id="0" name="Pin to">Boss</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="863539221780094" type="Ball">
+                    <param id="0" name="Angle">30</param>
+                </action>
+                <action id="-10" name="Set value" sid="142651113424601" type="Ball">
+                    <param id="0" name="Instance variable">AngleOfMotion</param>
+                    <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="101681450318497" title="Ball">
+            <sub-events>
+                <event-block sid="907938863127842">
+                    <conditions>
+                        <condition id="0" name="On function" sid="723366545423572" type="Function">
+                            <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="AngDiff" sid="538906074038547" static="0" type="number">0</variable>
+                        <event-block sid="259834043363755">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="297985418338997" type="System">
+                                    <param id="0" name="Variable">AngDiff</param>
+                                    <param id="1" name="Value">abs(Function.Param(0)) - 90</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="549065035683505">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="770808408655788" type="System">
+                                    <param id="0" name="First value">abs(AngDiff)</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">MINIMUM_BOUNCE_ANGLE</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="547566193801455">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="627659523072833" type="System">
+                                            <param id="0" name="First value">Function.Param(0)</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                        <condition id="-14" name="Compare variable" sid="423720170777066" type="System">
+                                            <param id="0" name="Variable">AngDiff</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="951920504913653" type="Ball">
+                                            <param id="0" name="Angle">90.0 + MINIMUM_BOUNCE_ANGLE</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="718100889095372">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="446154294174496" type="System">
+                                            <param id="0" name="First value">Function.Param(0)</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                        <condition id="-14" name="Compare variable" sid="653512479688437" type="System">
+                                            <param id="0" name="Variable">AngDiff</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="629446381366128" type="Ball">
+                                            <param id="0" name="Angle">90 - MINIMUM_BOUNCE_ANGLE</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="694478475496864">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="606304946601597" type="System">
+                                            <param id="0" name="First value">Function.Param(0)</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                        <condition id="-14" name="Compare variable" sid="130223282783890" type="System">
+                                            <param id="0" name="Variable">AngDiff</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="676598689763938" type="Ball">
+                                            <param id="0" name="Angle">-90 + MINIMUM_BOUNCE_ANGLE</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="204321991979057">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="124642088714873" type="System">
+                                            <param id="0" name="First value">Function.Param(0)</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                        <condition id="-14" name="Compare variable" sid="337312914650029" type="System">
+                                            <param id="0" name="Variable">AngDiff</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="638143626723339" type="Ball">
+                                            <param id="0" name="Angle">-90 - MINIMUM_BOUNCE_ANGLE</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="679665481826187">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="717940392490903" type="System">
+                                    <param id="0" name="First value">abs(Function.Param(0))</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">180 - MINIMUM_BOUNCE_ANGLE</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="764684554272595">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="943038523851853" type="System">
+                                            <param id="0" name="First value">Function.Param(0)</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="189662064100264" type="Ball">
+                                            <param id="0" name="Angle">-180 + MINIMUM_BOUNCE_ANGLE</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="294795730223865">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="538482087824233" type="System">
+                                            <param id="0" name="First value">Function.Param(0)</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="256924450464394" type="Ball">
+                                            <param id="0" name="Angle">180.0 - MINIMUM_BOUNCE_ANGLE</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="415944910885854">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="535652021648869" type="Ball">
+                            <param id="0" name="Object">PlayerTile</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="4" name="Bounce off object" sid="963634381634463" type="Ball">
+                            <param id="0" name="Object">PlayerTile</param>
+                        </action>
+                        <action id="0" name="Call function" sid="813536222269454" type="Function">
+                            <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
+                            <param id="1" name="Parameter {n}">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="308148696278656" type="Ball">
+                            <param id="0" name="Instance variable">AngleOfMotion</param>
+                            <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="774683494668504">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="890650387489173" type="Ball">
+                            <param id="0" name="Object">BossTile</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="4" name="Bounce off object" sid="575133862953822" type="Ball">
+                            <param id="0" name="Object">BossTile</param>
+                        </action>
+                        <action id="0" name="Call function" sid="178307778183626" type="Function">
+                            <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
+                            <param id="1" name="Parameter {n}">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="323844821775295" type="Ball">
+                            <param id="0" name="Instance variable">AngleOfMotion</param>
+                            <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="180181669724449">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="205725911828666" type="Ball">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="4" name="Bounce off object" sid="108931658904064" type="Ball">
+                            <param id="0" name="Object">Player</param>
+                        </action>
+                        <action id="0" name="Call function" sid="372346354110809" type="Function">
+                            <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
+                            <param id="1" name="Parameter {n}">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="444628307829652" type="Ball">
+                            <param id="0" name="Instance variable">AngleOfMotion</param>
+                            <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="551995818554645">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="621177993776753" type="Ball">
+                            <param id="0" name="Object">OuterBoundary</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="4" name="Bounce off object" sid="185593535866965" type="Ball">
+                            <param id="0" name="Object">OuterBoundary</param>
+                        </action>
+                        <action id="0" name="Call function" sid="278326418932521" type="Function">
+                            <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
+                            <param id="1" name="Parameter {n}">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="663970270484037" type="Ball">
+                            <param id="0" name="Instance variable">AngleOfMotion</param>
+                            <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="376083745073240">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="436652228598210" type="Ball">
+                            <param id="0" name="Object">Boss</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="4" name="Bounce off object" sid="176555929067949" type="Ball">
+                            <param id="0" name="Object">Boss</param>
+                        </action>
+                        <action id="0" name="Call function" sid="589126952385542" type="Function">
+                            <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
+                            <param id="1" name="Parameter {n}">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="256218129079283" type="Ball">
+                            <param id="0" name="Instance variable">AngleOfMotion</param>
+                            <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="147484257559068" title="Player">
+            <sub-events>
+                <event-block sid="830816203211058">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="181429058921114" type="Player">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="Y co-ordinate">40</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="442374442241959" type="Player">
+                            <param id="0" name="Y">40</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="136461759534548">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="542024477645175" type="Player">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Y co-ordinate">LayoutHeight - 40</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="741193287731245" type="Player">
+                            <param id="0" name="Y">LayoutHeight - 40</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
 </c2eventsheet>

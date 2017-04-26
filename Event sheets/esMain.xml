@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esMain</name>
     <events>
+        <variable constant="0" name="IMMUNE" sid="861598876970046" static="0" type="number">0</variable>
         <variable constant="0" name="MINIMUM_BOUNCE_ANGLE" sid="587425702189030" static="0" type="number">20</variable>
         <event-block sid="758188841546597">
             <conditions>
@@ -371,12 +372,12 @@
                     <conditions>
                         <condition id="-2" name="Compare Y" sid="181429058921114" type="Player">
                             <param id="0" name="Comparison">2</param>
-                            <param id="1" name="Y co-ordinate">20 * Player.TopTilesNbr</param>
+                            <param id="1" name="Y co-ordinate">20 * Player.TopTilesNbr +10</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-2" name="Set Y" sid="442374442241959" type="Player">
-                            <param id="0" name="Y">20.0 * Player.TopTilesNbr</param>
+                            <param id="0" name="Y">20.0 * Player.TopTilesNbr +10</param>
                         </action>
                     </actions>
                 </event-block>
@@ -384,12 +385,12 @@
                     <conditions>
                         <condition id="-2" name="Compare Y" sid="742023477624473" type="Player">
                             <param id="0" name="Comparison">4</param>
-                            <param id="1" name="Y co-ordinate">LayoutHeight - (20.0 * Player.BotTilesNbr)</param>
+                            <param id="1" name="Y co-ordinate">LayoutHeight - (20.0 * Player.BotTilesNbr) - 10</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-2" name="Set Y" sid="643023236984426" type="Player">
-                            <param id="0" name="Y">LayoutHeight - (20.0*Player.BotTilesNbr)</param>
+                            <param id="0" name="Y">LayoutHeight - (20.0*Player.BotTilesNbr) -10</param>
                         </action>
                     </actions>
                 </event-block>
@@ -405,6 +406,28 @@
                     <actions>
                         <action id="5" name="Set frame" sid="519032307380836" type="Player">
                             <param id="0" name="Frame number">Stripes.AnimationFrame +1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="613520390226525">
+                    <conditions>
+                        <condition behavior="Flash" id="0" name="Is flashing" sid="434530177895633" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="535034126780890" type="System">
+                            <param id="0" name="Variable">IMMUNE</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="708316784298301">
+                    <conditions>
+                        <condition behavior="Flash" id="1" name="On flash ended" sid="497060111229152" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="451680229833609" type="System">
+                            <param id="0" name="Variable">IMMUNE</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -534,7 +557,11 @@
                         <condition id="0" name="On collision with another object" sid="456079109415558" type="Enemies">
                             <param id="0" name="Object">Player</param>
                         </condition>
-                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="183559301206213" type="Player" />
+                        <condition id="-14" name="Compare variable" sid="183559301206213" type="System">
+                            <param id="0" name="Variable">IMMUNE</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
                     </conditions>
                     <actions />
                     <sub-events>
@@ -586,7 +613,11 @@
                         <condition id="0" name="On collision with another object" sid="164402277133534" type="Enemies">
                             <param id="0" name="Object">PlayerTile</param>
                         </condition>
-                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="435590866779486" type="Player" />
+                        <condition id="-14" name="Compare variable" sid="942069370747308" type="System">
+                            <param id="0" name="Variable">IMMUNE</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Call function" sid="169543799664038" type="Function">
@@ -602,6 +633,10 @@
                             <param id="0" name="&apos;On&apos; time">0.1</param>
                             <param id="1" name="&apos;Off&apos; time">0.1</param>
                             <param id="2" name="Duration">1.0</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="999730291763421" type="Player">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -637,6 +672,11 @@
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">0</param>
                                 </condition>
+                                <condition id="-14" name="Compare variable" sid="118888439432756" type="System">
+                                    <param id="0" name="Variable">IMMUNE</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="0" name="Call function" sid="782640644255281" type="Function">
@@ -645,6 +685,10 @@
                                 </action>
                                 <action id="-12" name="Subtract from" sid="508401556615590" type="Player">
                                     <param id="0" name="Instance variable">TopTilesNbr</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="470893585998351" type="System">
+                                    <param id="0" name="Variable">IMMUNE</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
@@ -661,6 +705,11 @@
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">1</param>
                                 </condition>
+                                <condition id="-14" name="Compare variable" sid="683861305867764" type="System">
+                                    <param id="0" name="Variable">IMMUNE</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="0" name="Call function" sid="802853385677079" type="Function">
@@ -669,6 +718,10 @@
                                 </action>
                                 <action id="-12" name="Subtract from" sid="510497164207160" type="Player">
                                     <param id="0" name="Instance variable">TopTilesNbr</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="668120976096091" type="System">
+                                    <param id="0" name="Variable">IMMUNE</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
@@ -695,7 +748,12 @@
                                 <condition id="-7" name="Compare instance variable" sid="309870028168437" type="PlayerTile">
                                     <param id="0" name="Instance variable">ID</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">2</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="772085455087715" type="System">
+                                    <param id="0" name="Variable">IMMUNE</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -705,6 +763,10 @@
                                 </action>
                                 <action id="-12" name="Subtract from" sid="993365101756798" type="Player">
                                     <param id="0" name="Instance variable">BotTilesNbr</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="526472668263533" type="System">
+                                    <param id="0" name="Variable">IMMUNE</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
@@ -719,7 +781,12 @@
                                 <condition id="-7" name="Compare instance variable" sid="390922798924667" type="PlayerTile">
                                     <param id="0" name="Instance variable">ID</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">3</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="720429603614936" type="System">
+                                    <param id="0" name="Variable">IMMUNE</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -729,6 +796,10 @@
                                 </action>
                                 <action id="-12" name="Subtract from" sid="576019211755767" type="Player">
                                     <param id="0" name="Instance variable">BotTilesNbr</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="759689977785166" type="System">
+                                    <param id="0" name="Variable">IMMUNE</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>

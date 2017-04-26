@@ -33,6 +33,20 @@
                     <param id="1" name="Mode">1</param>
                 </action>
             </actions>
+            <sub-events>
+                <event-block sid="200164990458201">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="152881982444357" type="System">
+                            <param id="0" name="Object">Stripes</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="299334676620077" type="Stripes">
+                            <param id="0" name="Frame number">Self.StartingFrame</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-group description="" sid="101681450318497" title="Ball">
             <sub-events>
@@ -222,6 +236,10 @@
                             <param id="0" name="Instance variable">AngleOfMotion</param>
                             <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
                         </action>
+                        <action id="0" name="Call function" sid="903286885278085" type="Function">
+                            <param id="0" name="Name">&quot;SetBallFrame&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="180181669724449">
@@ -281,6 +299,25 @@
                         <action id="-10" name="Set value" sid="256218129079283" type="Ball">
                             <param id="0" name="Instance variable">AngleOfMotion</param>
                             <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                        <action id="0" name="Call function" sid="487009651227583" type="Function">
+                            <param id="0" name="Name">&quot;SetBallFrame&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="113090814670616">
+                    <conditions>
+                        <condition behavior="Bullet" id="0" name="Compare speed" sid="746489451601565" type="Ball">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Speed">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="638344975741486" type="Ball">
+                            <param id="0" name="Object">Tail</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -373,5 +410,27 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block sid="298161036534975">
+            <conditions>
+                <condition id="0" name="On function" sid="699554391423105" type="Function">
+                    <param id="0" name="Name">&quot;SetBallFrame&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="799283697751922">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="698161101213311" type="Boss">
+                            <param id="0" name="Object">Stripes</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="376584504459245" type="Ball">
+                            <param id="0" name="Frame number">Stripes.AnimationFrame + 1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
     </events>
 </c2eventsheet>

@@ -11,6 +11,7 @@
     <saved-with-version>24400</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
@@ -18,6 +19,7 @@
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
     </used-behaviors>
@@ -54,9 +56,21 @@
         </object-type>
         <object-type name="PlayerTile" sid="551126096200063">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="ID" sid="415312285389810" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Pin" sid="549967173261456">
                     <behavior id="Pin" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="974024706643500">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="Fade" sid="431568790765827">
+                    <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="Flash" sid="231097578427236">
+                    <behavior id="Flash" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
@@ -99,13 +113,24 @@
         </object-type>
         <object-type name="Player" sid="709622493692337">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Health" sid="882285193591071" type="number" />
+                <instance-variable name="TopTilesNbr" sid="338576171036149" type="number" />
+                <instance-variable name="BotTilesNbr" sid="339299664810381" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="133056056980896">
                     <behavior id="EightDir" />
                 </behavior-type>
+                <behavior-type name="Flash" sid="330990285266793">
+                    <behavior id="Flash" />
+                </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="768830819215779" speed="5">
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="768830819215779" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -208,6 +233,9 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Keyboard" sid="893177438347215">
+            <plugin id="Keyboard" />
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="110717795313248">
@@ -229,6 +257,7 @@
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="18" />
+        <global-instance type="Keyboard" uid="30" />
     </global-instances>
     <sounds-folder />
     <music-folder />

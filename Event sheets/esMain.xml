@@ -371,25 +371,40 @@
                     <conditions>
                         <condition id="-2" name="Compare Y" sid="181429058921114" type="Player">
                             <param id="0" name="Comparison">2</param>
-                            <param id="1" name="Y co-ordinate">40</param>
+                            <param id="1" name="Y co-ordinate">20 * Player.TopTilesNbr</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-2" name="Set Y" sid="442374442241959" type="Player">
-                            <param id="0" name="Y">40</param>
+                            <param id="0" name="Y">20.0 * Player.TopTilesNbr</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="891877842304012">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="742023477624473" type="Player">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Y co-ordinate">LayoutHeight - (20.0 * Player.BotTilesNbr)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="643023236984426" type="Player">
+                            <param id="0" name="Y">LayoutHeight - (20.0*Player.BotTilesNbr)</param>
                         </action>
                     </actions>
                 </event-block>
                 <event-block sid="136461759534548">
                     <conditions>
-                        <condition id="-2" name="Compare Y" sid="542024477645175" type="Player">
-                            <param id="0" name="Comparison">4</param>
-                            <param id="1" name="Y co-ordinate">LayoutHeight - 40</param>
+                        <condition id="0" name="On key pressed" sid="542024477645175" type="Keyboard">
+                            <param id="0" name="Key">32 (Barra Spaziatrice)</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="527619573096573" type="Player">
+                            <param id="0" name="Object">Stripes</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-2" name="Set Y" sid="741193287731245" type="Player">
-                            <param id="0" name="Y">LayoutHeight - 40</param>
+                        <action id="5" name="Set frame" sid="519032307380836" type="Player">
+                            <param id="0" name="Frame number">Stripes.AnimationFrame +1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -459,7 +474,7 @@
                         <event-block sid="799176609009405">
                             <conditions>
                                 <condition id="-6" name="Every X seconds" sid="163655938268964" type="System">
-                                    <param id="0" name="Interval (seconds)">3</param>
+                                    <param id="0" name="Interval (seconds)">5</param>
                                 </condition>
                                 <condition id="-16" name="Pick random instance" sid="770578885586070" type="System">
                                     <param id="0" name="Object">RearSpawningPoints</param>
@@ -479,7 +494,7 @@
                         <event-block sid="192952406988881">
                             <conditions>
                                 <condition id="-6" name="Every X seconds" sid="313581139289543" type="System">
-                                    <param id="0" name="Interval (seconds)">5</param>
+                                    <param id="0" name="Interval (seconds)">8</param>
                                 </condition>
                                 <condition id="-16" name="Pick random instance" sid="195181247517740" type="System">
                                     <param id="0" name="Object">LateralSpawningPoints</param>
@@ -514,7 +529,233 @@
                         </event-block>
                     </sub-events>
                 </event-group>
+                <event-block sid="760486196412829">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="456079109415558" type="Enemies">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="183559301206213" type="Player" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="332210450281323">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="612776060198338" type="Player">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="842543071876156" type="Function">
+                                    <param id="0" name="Name">&quot;DestroyOneTile&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action behavior="Flash" id="0" name="Flash" sid="255327552350360" type="Player">
+                                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                    <param id="2" name="Duration">1.0</param>
+                                </action>
+                                <action behavior="Flash" id="0" name="Flash" sid="989483114114665" type="PlayerTile">
+                                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                    <param id="2" name="Duration">1.0</param>
+                                </action>
+                                <action id="-12" name="Subtract from" sid="432051106078341" type="Player">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="400188513856903">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="253541131630489" type="Player">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="211189965522220" type="Player" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="652827894820083">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="164402277133534" type="Enemies">
+                            <param id="0" name="Object">PlayerTile</param>
+                        </condition>
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="435590866779486" type="Player" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="169543799664038" type="Function">
+                            <param id="0" name="Name">&quot;DestroyOneTile&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="313030001095130" type="Player">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">1.0</param>
+                        </action>
+                        <action behavior="Flash" id="0" name="Flash" sid="103471659971481" type="PlayerTile">
+                            <param id="0" name="&apos;On&apos; time">0.1</param>
+                            <param id="1" name="&apos;Off&apos; time">0.1</param>
+                            <param id="2" name="Duration">1.0</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
+        <event-block sid="720382468014078">
+            <conditions>
+                <condition id="0" name="On function" sid="922239390053753" type="Function">
+                    <param id="0" name="Name">&quot;DestroyOneTile&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="802969619344553">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="626140502369524" type="Player">
+                            <param id="0" name="Instance variable">TopTilesNbr</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">Player.BotTilesNbr</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="693593899018119">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="920819828029637" type="Player">
+                                    <param id="0" name="Instance variable">TopTilesNbr</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="733847674420134" type="PlayerTile">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="782640644255281" type="Function">
+                                    <param id="0" name="Name">&quot;EjectTile&quot;</param>
+                                    <param id="1" name="Parameter {n}">PlayerTile.UID{###}-1</param>
+                                </action>
+                                <action id="-12" name="Subtract from" sid="508401556615590" type="Player">
+                                    <param id="0" name="Instance variable">TopTilesNbr</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="193859312602079">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="374668549375702" type="Player">
+                                    <param id="0" name="Instance variable">TopTilesNbr</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="395619021175079" type="PlayerTile">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="802853385677079" type="Function">
+                                    <param id="0" name="Name">&quot;EjectTile&quot;</param>
+                                    <param id="1" name="Parameter {n}">PlayerTile.UID{###}-1</param>
+                                </action>
+                                <action id="-12" name="Subtract from" sid="510497164207160" type="Player">
+                                    <param id="0" name="Instance variable">TopTilesNbr</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="873976511818812">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="818683181697705" type="Player">
+                            <param id="0" name="Instance variable">BotTilesNbr</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">Player.TopTilesNbr</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="161928845912992">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="289173182448248" type="Player">
+                                    <param id="0" name="Instance variable">BotTilesNbr</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="309870028168437" type="PlayerTile">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="720248096260351" type="Function">
+                                    <param id="0" name="Name">&quot;EjectTile&quot;</param>
+                                    <param id="1" name="Parameter {n}">PlayerTile.UID{###}1</param>
+                                </action>
+                                <action id="-12" name="Subtract from" sid="993365101756798" type="Player">
+                                    <param id="0" name="Instance variable">BotTilesNbr</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="877101102913817">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="680271405565767" type="Player">
+                                    <param id="0" name="Instance variable">BotTilesNbr</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="390922798924667" type="PlayerTile">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="660355755434220" type="Function">
+                                    <param id="0" name="Name">&quot;EjectTile&quot;</param>
+                                    <param id="1" name="Parameter {n}">PlayerTile.UID{###}1</param>
+                                </action>
+                                <action id="-12" name="Subtract from" sid="576019211755767" type="Player">
+                                    <param id="0" name="Instance variable">BotTilesNbr</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="768396142987267">
+            <conditions>
+                <condition id="0" name="On function" sid="746875725184245" type="Function">
+                    <param id="0" name="Name">&quot;EjectTile&quot;</param>
+                </condition>
+                <condition id="-14" name="Pick by unique ID" sid="533568250586975" type="PlayerTile">
+                    <param id="0" name="Unique ID">Function.Param(0)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="1" name="Unpin" sid="565127481534308" type="PlayerTile" />
+                <action behavior="Bullet" id="5" name="Set enabled" sid="288289213985304" type="PlayerTile">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="740789703870908" type="PlayerTile">
+                    <param id="0" name="Angle">random(40, 140) * Function.Param(1)</param>
+                </action>
+                <action behavior="Fade" id="1" name="Start fade" sid="157731483959953" type="PlayerTile" />
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

@@ -179,12 +179,52 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
+                        <event-block sid="529346637667782">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="288849406917039" type="System">
+                                    <param id="0" name="First value">abs(Function.Param(0))</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">180 - MINIMUM_BOUNCE_ANGLE</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="838285970832136">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="650623456413131" type="System">
+                                            <param id="0" name="First value">Function.Param(0)</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="677395705522282" type="Ball">
+                                            <param id="0" name="Angle">-180 + MINIMUM_BOUNCE_ANGLE</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="181606373615305">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="478392337772354" type="System">
+                                            <param id="0" name="First value">Function.Param(0)</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="504851453449492" type="Ball">
+                                            <param id="0" name="Angle">180.0 - MINIMUM_BOUNCE_ANGLE</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
                         <event-block sid="679665481826187">
                             <conditions>
                                 <condition id="-8" name="Compare two values" sid="717940392490903" type="System">
                                     <param id="0" name="First value">abs(Function.Param(0))</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Second value">180 - MINIMUM_BOUNCE_ANGLE</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">MINIMUM_BOUNCE_ANGLE</param>
                                 </condition>
                             </conditions>
                             <actions />
@@ -199,7 +239,7 @@
                                     </conditions>
                                     <actions>
                                         <action behavior="Bullet" id="3" name="Set angle of motion" sid="189662064100264" type="Ball">
-                                            <param id="0" name="Angle">-180 + MINIMUM_BOUNCE_ANGLE</param>
+                                            <param id="0" name="Angle">-MINIMUM_BOUNCE_ANGLE</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -213,33 +253,13 @@
                                     </conditions>
                                     <actions>
                                         <action behavior="Bullet" id="3" name="Set angle of motion" sid="256924450464394" type="Ball">
-                                            <param id="0" name="Angle">180.0 - MINIMUM_BOUNCE_ANGLE</param>
+                                            <param id="0" name="Angle">MINIMUM_BOUNCE_ANGLE</param>
                                         </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
                         </event-block>
                     </sub-events>
-                </event-block>
-                <event-block sid="415944910885854">
-                    <conditions>
-                        <condition id="0" name="On collision with another object" sid="535652021648869" type="Ball">
-                            <param id="0" name="Object">PlayerTile</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="Bullet" id="4" name="Bounce off object" sid="963634381634463" type="Ball">
-                            <param id="0" name="Object">PlayerTile</param>
-                        </action>
-                        <action id="0" name="Call function" sid="813536222269454" type="Function">
-                            <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
-                            <param id="1" name="Parameter {n}">Ball.Bullet.AngleOfMotion</param>
-                        </action>
-                        <action id="-10" name="Set value" sid="308148696278656" type="Ball">
-                            <param id="0" name="Instance variable">AngleOfMotion</param>
-                            <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
-                        </action>
-                    </actions>
                 </event-block>
                 <event-block sid="774683494668504">
                     <conditions>
@@ -291,19 +311,78 @@
                             <param id="0" name="Object">Player</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action behavior="Bullet" id="4" name="Bounce off object" sid="108931658904064" type="Ball">
-                            <param id="0" name="Object">Player</param>
-                        </action>
-                        <action id="0" name="Call function" sid="372346354110809" type="Function">
-                            <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
-                            <param id="1" name="Parameter {n}">Ball.Bullet.AngleOfMotion</param>
-                        </action>
-                        <action id="-10" name="Set value" sid="444628307829652" type="Ball">
-                            <param id="0" name="Instance variable">AngleOfMotion</param>
-                            <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="722716492613725">
+                            <conditions>
+                                <condition id="-8" inverted="1" name="Compare two values" sid="662495707168477" type="System">
+                                    <param id="0" name="First value">Ball.AnimationFrame</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">Player.Color</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="4" name="Bounce off object" sid="793272137712354" type="Ball">
+                                    <param id="0" name="Object">Player</param>
+                                </action>
+                                <action id="0" name="Call function" sid="124389003289859" type="Function">
+                                    <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
+                                    <param id="1" name="Parameter {n}">Ball.Bullet.AngleOfMotion</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="231385204841775" type="Ball">
+                                    <param id="0" name="Instance variable">AngleOfMotion</param>
+                                    <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
+                                </action>
+                                <action id="0" name="Call function" sid="137052164013282" type="Function">
+                                    <param id="0" name="Name">&quot;DestroyOneTile&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action behavior="Flash" id="0" name="Flash" sid="493863531226389" type="Player">
+                                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                    <param id="2" name="Duration">1.0</param>
+                                </action>
+                                <action behavior="Flash" id="0" name="Flash" sid="435354491858116" type="PlayerTile">
+                                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                    <param id="2" name="Duration">1.0</param>
+                                </action>
+                                <action id="-12" name="Subtract from" sid="953936226619807" type="Player">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-6" name="Set height" sid="810156378475075" type="Player">
+                                    <param id="0" name="Height">Player.Height - PlayerTile.Height</param>
+                                </action>
+                                <action id="0" name="Call function" sid="992728799622754" type="Function">
+                                    <param id="0" name="Name">&quot;RecenterPlayer&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="704266438245040">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="467056452247324" type="System">
+                                    <param id="0" name="First value">Ball.AnimationFrame</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">Player.Color</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="4" name="Bounce off object" sid="223458339248697" type="Ball">
+                                    <param id="0" name="Object">Player</param>
+                                </action>
+                                <action id="0" name="Call function" sid="624106187723958" type="Function">
+                                    <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
+                                    <param id="1" name="Parameter {n}">Ball.Bullet.AngleOfMotion</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="807973288871026" type="Ball">
+                                    <param id="0" name="Instance variable">AngleOfMotion</param>
+                                    <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="551995818554645">
                     <conditions>
@@ -349,18 +428,31 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="113090814670616">
+                <event-block sid="616240306503920">
                     <conditions>
-                        <condition behavior="Bullet" id="0" name="Compare speed" sid="746489451601565" type="Ball">
+                        <condition behavior="Bullet" id="0" name="Compare speed" sid="782640578565818" type="Ball">
                             <param id="0" name="Comparison">4</param>
                             <param id="1" name="Speed">0</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Spawn another object" sid="638344975741486" type="Ball">
+                        <action id="0" name="Spawn another object" sid="888688541187964" type="Ball">
                             <param id="0" name="Object">Tail</param>
                             <param id="1" name="Layer">0</param>
                             <param id="2" name="Image point">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="113090814670616">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="746489451601565" type="Ball">
+                            <param id="0" name="Object">Rear</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="638344975741486" type="Function">
+                            <param id="0" name="Name">&quot;RespawnBall&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                     </actions>
                 </event-block>
@@ -368,46 +460,70 @@
         </event-group>
         <event-group description="" sid="147484257559068" title="Player">
             <sub-events>
-                <event-block sid="830816203211058">
-                    <conditions>
-                        <condition id="-2" name="Compare Y" sid="181429058921114" type="Player">
-                            <param id="0" name="Comparison">2</param>
-                            <param id="1" name="Y co-ordinate">20 * Player.TopTilesNbr +10</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-2" name="Set Y" sid="442374442241959" type="Player">
-                            <param id="0" name="Y">20.0 * Player.TopTilesNbr +10</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="891877842304012">
-                    <conditions>
-                        <condition id="-2" name="Compare Y" sid="742023477624473" type="Player">
-                            <param id="0" name="Comparison">4</param>
-                            <param id="1" name="Y co-ordinate">LayoutHeight - (20.0 * Player.BotTilesNbr) - 10</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-2" name="Set Y" sid="643023236984426" type="Player">
-                            <param id="0" name="Y">LayoutHeight - (20.0*Player.BotTilesNbr) -10</param>
-                        </action>
-                    </actions>
-                </event-block>
                 <event-block sid="136461759534548">
                     <conditions>
                         <condition id="0" name="On key pressed" sid="542024477645175" type="Keyboard">
                             <param id="0" name="Key">32 (Barra Spaziatrice)</param>
                         </condition>
-                        <condition id="1" name="Is overlapping another object" sid="527619573096573" type="Player">
-                            <param id="0" name="Object">Stripes</param>
-                        </condition>
                     </conditions>
-                    <actions>
-                        <action id="5" name="Set frame" sid="519032307380836" type="Player">
-                            <param id="0" name="Frame number">Stripes.AnimationFrame +1</param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="268955607000948">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="835601363262019" type="Player">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Y co-ordinate">Stripes.Height</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="486467609061854" type="PlayerTile">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="141074980094201" type="Player">
+                                    <param id="0" name="Instance variable">Color</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="319647222308919">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="669135505573295" type="Player">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Y co-ordinate">Stripes.Height</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="560317256451754" type="Player">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Y co-ordinate">2.0 * Stripes.Height</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="255781507972505" type="PlayerTile">
+                                    <param id="0" name="Frame number">2</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="832209222440846" type="Player">
+                                    <param id="0" name="Instance variable">Color</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="156052286356562">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="483625276363024" type="Player">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Y co-ordinate">2.0 * Stripes.Height</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="519032307380836" type="PlayerTile">
+                                    <param id="0" name="Frame number">3</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="745892581096386" type="Player">
+                                    <param id="0" name="Instance variable">Color</param>
+                                    <param id="1" name="Value">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="613520390226525">
                     <conditions>
@@ -465,7 +581,7 @@
                         </condition>
                         <condition id="-2" name="Compare Y" sid="247663570459880" type="BallY">
                             <param id="0" name="Comparison">3</param>
-                            <param id="1" name="Y co-ordinate">600 - (Boss.TileLength * Boss.BotTiles + Boss.TileLength * 0.5)</param>
+                            <param id="1" name="Y co-ordinate">LayoutHeight - (Boss.TileLength * Boss.BotTiles + Boss.TileLength * 0.5)</param>
                         </condition>
                         <condition behavior="Pin" id="0" inverted="1" name="Is pinned" sid="821274774800316" type="Boss" />
                     </conditions>
@@ -480,7 +596,7 @@
                     <conditions>
                         <condition id="-2" name="Compare Y" sid="962913255335445" type="BallY">
                             <param id="0" name="Comparison">4</param>
-                            <param id="1" name="Y co-ordinate">600 - (Boss.TileLength * Boss.BotTiles + Boss.TileLength * 0.5)</param>
+                            <param id="1" name="Y co-ordinate">LayoutHeight - (Boss.TileLength * Boss.BotTiles + Boss.TileLength * 0.5)</param>
                         </condition>
                         <condition behavior="Pin" id="0" name="Is pinned" sid="605671054847153" type="Boss" />
                     </conditions>
@@ -565,6 +681,19 @@
                     </conditions>
                     <actions />
                     <sub-events>
+                        <event-block sid="400188513856903">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="253541131630489" type="Player">
+                                    <param id="0" name="Instance variable">Health</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="211189965522220" type="Player" />
+                                <action id="-9" name="Destroy" sid="658769610655559" type="PlayerTile" />
+                            </actions>
+                        </event-block>
                         <event-block sid="332210450281323">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="612776060198338" type="Player">
@@ -592,53 +721,16 @@
                                     <param id="0" name="Instance variable">Health</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="400188513856903">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="253541131630489" type="Player">
-                                    <param id="0" name="Instance variable">Health</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">1</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Destroy" sid="211189965522220" type="Player" />
+                                <action id="-6" name="Set height" sid="271995937506637" type="Player">
+                                    <param id="0" name="Height">Player.Height - PlayerTile.Height</param>
+                                </action>
+                                <action id="0" name="Call function" sid="612700152416544" type="Function">
+                                    <param id="0" name="Name">&quot;RecenterPlayer&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
-                </event-block>
-                <event-block sid="652827894820083">
-                    <conditions>
-                        <condition id="0" name="On collision with another object" sid="164402277133534" type="Enemies">
-                            <param id="0" name="Object">PlayerTile</param>
-                        </condition>
-                        <condition id="-14" name="Compare variable" sid="942069370747308" type="System">
-                            <param id="0" name="Variable">IMMUNE</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Call function" sid="169543799664038" type="Function">
-                            <param id="0" name="Name">&quot;DestroyOneTile&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
-                        </action>
-                        <action behavior="Flash" id="0" name="Flash" sid="313030001095130" type="Player">
-                            <param id="0" name="&apos;On&apos; time">0.1</param>
-                            <param id="1" name="&apos;Off&apos; time">0.1</param>
-                            <param id="2" name="Duration">1.0</param>
-                        </action>
-                        <action behavior="Flash" id="0" name="Flash" sid="103471659971481" type="PlayerTile">
-                            <param id="0" name="&apos;On&apos; time">0.1</param>
-                            <param id="1" name="&apos;Off&apos; time">0.1</param>
-                            <param id="2" name="Duration">1.0</param>
-                        </action>
-                        <action id="-12" name="Subtract from" sid="999730291763421" type="Player">
-                            <param id="0" name="Instance variable">Health</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                    </actions>
                 </event-block>
             </sub-events>
         </event-group>
@@ -827,6 +919,70 @@
                 </action>
                 <action behavior="Fade" id="1" name="Start fade" sid="157731483959953" type="PlayerTile" />
             </actions>
+        </event-block>
+        <event-block sid="875177740363895">
+            <conditions>
+                <condition id="0" name="On function" sid="358010128240512" type="Function">
+                    <param id="0" name="Name">&quot;RespawnBall&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="115163455832776" type="Ball">
+                    <param id="0" name="X">Boss.X - Ball.Width/2.0 - Boss.Width/2.0</param>
+                    <param id="1" name="Y">Boss.Y</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="299741739887756" type="Ball">
+                    <param id="0" name="Angle">-45</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="229224495076852">
+            <conditions>
+                <condition id="0" name="On function" sid="151856360375434" type="Function">
+                    <param id="0" name="Name">&quot;RecenterPlayer&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="646104205575323">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="185818972258829" type="Player">
+                            <param id="0" name="Instance variable">TopTilesNbr</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">Player.BotTilesNbr</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pin" id="1" name="Unpin" sid="103844944514481" type="PlayerTile" />
+                        <action id="-2" name="Set Y" sid="798867057784115" type="Player">
+                            <param id="0" name="Y">Player.Y - PlayerTile.Height/2.0</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="253102150051632" type="PlayerTile">
+                            <param id="0" name="Pin to">Player</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="978434229041004">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="688823588089076" type="Player">
+                            <param id="0" name="Instance variable">TopTilesNbr</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">Player.BotTilesNbr</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pin" id="1" name="Unpin" sid="648795059000155" type="PlayerTile" />
+                        <action id="-2" name="Set Y" sid="268074292626253" type="Player">
+                            <param id="0" name="Y">Player.Y + PlayerTile.Height/2.0</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="627964631136826" type="PlayerTile">
+                            <param id="0" name="Pin to">Player</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

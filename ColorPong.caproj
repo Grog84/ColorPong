@@ -21,6 +21,7 @@
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
     </used-behaviors>
     <used-effects />
@@ -28,8 +29,8 @@
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>800</width>
-        <height>600</height>
+        <width>1600</width>
+        <height>900</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
@@ -74,7 +75,10 @@
                 </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="583693710898180" speed="5">
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="583693710898180" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.55" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.55" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.55" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.55" />
                 </animation>
             </animation-folder>
@@ -117,6 +121,7 @@
                 <instance-variable name="Health" sid="882285193591071" type="number" />
                 <instance-variable name="TopTilesNbr" sid="338576171036149" type="number" />
                 <instance-variable name="BotTilesNbr" sid="339299664810381" type="number" />
+                <instance-variable name="Color" sid="346603489000620" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="133056056980896">
@@ -125,12 +130,12 @@
                 <behavior-type name="Flash" sid="330990285266793">
                     <behavior id="Flash" />
                 </behavior-type>
+                <behavior-type name="BoundToLayout" sid="982789300387671">
+                    <behavior id="bound" />
+                </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="768830819215779" speed="0">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="768830819215779" speed="0">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -235,6 +240,14 @@
         </object-type>
         <object-type name="Keyboard" sid="893177438347215">
             <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Rear" sid="142843833225750">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="715504402400336" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families>

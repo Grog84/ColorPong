@@ -14,10 +14,6 @@
                     <param id="0" name="Pin to">Player</param>
                     <param id="1" name="Mode">1</param>
                 </action>
-                <action behavior="Pin" id="0" name="Pin to object" sid="624256473189959" type="BossTile">
-                    <param id="0" name="Pin to">Boss</param>
-                    <param id="1" name="Mode">1</param>
-                </action>
                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="863539221780094" type="Ball">
                     <param id="0" name="Angle">30</param>
                 </action>
@@ -33,16 +29,40 @@
                     <param id="0" name="Pin to">BallY</param>
                     <param id="1" name="Mode">1</param>
                 </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="910448268116844" type="BossGlow">
+                    <param id="0" name="Pin to">Boss</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="450579019980350" type="PlayerGlow">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">0</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="842526279341935" type="BallGlow">
+                    <param id="0" name="Pin to">Ball</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
             </actions>
             <sub-events>
-                <event-block sid="200164990458201">
+                <event-block sid="843047667479536">
                     <conditions>
-                        <condition id="-11" name="For Each" sid="152881982444357" type="System">
+                        <condition id="-11" name="For Each" sid="409738749343476" type="System">
                             <param id="0" name="Object">Stripes</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="5" name="Set frame" sid="299334676620077" type="Stripes">
+                        <action id="5" name="Set frame" sid="212914505291194" type="Stripes">
+                            <param id="0" name="Frame number">Self.StartingFrame</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="200164990458201">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="152881982444357" type="System">
+                            <param id="0" name="Object">StripesGlow</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="299334676620077" type="StripesGlow">
                             <param id="0" name="Frame number">Self.StartingFrame</param>
                         </action>
                     </actions>
@@ -67,6 +87,9 @@
                             </conditions>
                             <actions>
                                 <action id="5" name="Set frame" sid="376584504459245" type="Ball">
+                                    <param id="0" name="Frame number">Stripes.AnimationFrame + 1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="795624468609845" type="BallGlow">
                                     <param id="0" name="Frame number">Stripes.AnimationFrame + 1</param>
                                 </action>
                             </actions>
@@ -261,30 +284,6 @@
                         </event-block>
                     </sub-events>
                 </event-block>
-                <event-block sid="774683494668504">
-                    <conditions>
-                        <condition id="0" name="On collision with another object" sid="890650387489173" type="Ball">
-                            <param id="0" name="Object">BossTile</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="Bullet" id="4" name="Bounce off object" sid="575133862953822" type="Ball">
-                            <param id="0" name="Object">BossTile</param>
-                        </action>
-                        <action id="0" name="Call function" sid="178307778183626" type="Function">
-                            <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
-                            <param id="1" name="Parameter {n}">Ball.Bullet.AngleOfMotion</param>
-                        </action>
-                        <action id="-10" name="Set value" sid="323844821775295" type="Ball">
-                            <param id="0" name="Instance variable">AngleOfMotion</param>
-                            <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
-                        </action>
-                        <action id="0" name="Call function" sid="903286885278085" type="Function">
-                            <param id="0" name="Name">&quot;SetBallFrame&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
-                        </action>
-                    </actions>
-                </event-block>
                 <event-block sid="406623457510579">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="523880862988457" type="Ball">
@@ -353,6 +352,9 @@
                                 </action>
                                 <action id="-6" name="Set height" sid="810156378475075" type="Player">
                                     <param id="0" name="Height">Player.Height - PlayerTile.Height</param>
+                                </action>
+                                <action id="-6" name="Set height" sid="953224479367792" type="PlayerGlow">
+                                    <param id="0" name="Height">PlayerGlow.Height - PlayerTile.Height</param>
                                 </action>
                                 <action id="0" name="Call function" sid="992728799622754" type="Function">
                                     <param id="0" name="Name">&quot;RecenterPlayer&quot;</param>
@@ -476,7 +478,7 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="5" name="Set frame" sid="486467609061854" type="PlayerTile">
+                                <action id="5" name="Set frame" sid="486467609061854" type="PlayerGlow">
                                     <param id="0" name="Frame number">1</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="141074980094201" type="Player">
@@ -497,7 +499,7 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="5" name="Set frame" sid="255781507972505" type="PlayerTile">
+                                <action id="5" name="Set frame" sid="255781507972505" type="PlayerGlow">
                                     <param id="0" name="Frame number">2</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="832209222440846" type="Player">
@@ -514,7 +516,7 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="5" name="Set frame" sid="519032307380836" type="PlayerTile">
+                                <action id="5" name="Set frame" sid="519032307380836" type="PlayerGlow">
                                     <param id="0" name="Frame number">3</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="745892581096386" type="Player">
@@ -723,6 +725,9 @@
                                 </action>
                                 <action id="-6" name="Set height" sid="271995937506637" type="Player">
                                     <param id="0" name="Height">Player.Height - PlayerTile.Height</param>
+                                </action>
+                                <action id="-6" name="Set height" sid="355008979492069" type="PlayerGlow">
+                                    <param id="0" name="Height">PlayerGlow.Height - PlayerTile.Height</param>
                                 </action>
                                 <action id="0" name="Call function" sid="612700152416544" type="Function">
                                     <param id="0" name="Name">&quot;RecenterPlayer&quot;</param>

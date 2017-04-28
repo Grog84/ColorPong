@@ -22,7 +22,7 @@
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
-        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
     </used-behaviors>
     <used-effects>
@@ -127,8 +127,8 @@
                 <behavior-type name="Flash" sid="330990285266793">
                     <behavior id="Flash" />
                 </behavior-type>
-                <behavior-type name="BoundToLayout" sid="982789300387671">
-                    <behavior id="bound" />
+                <behavior-type name="Rotate" sid="355501288321472">
+                    <behavior id="Rotate" />
                 </behavior-type>
             </behaviors>
             <animation-folder>

@@ -586,9 +586,10 @@
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="Flash" />
-                        <behavior-instance type="BoundToLayout">
+                        <behavior-instance type="Rotate">
                             <properties>
-                                <bound-by>Edge</bound-by>
+                                <speed>0</speed>
+                                <acceleration>0</acceleration>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>

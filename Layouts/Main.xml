@@ -1105,6 +1105,49 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
+                <instance type="SpriteFont" uid="35">
+                    <properties>
+                        <character-width>16</character-width>
+                        <character-height>16</character-height>
+                        <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
+                        <text>250025</text>
+                        <scale>5</scale>
+                        <initial-visibility>Visible</initial-visibility>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Top</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <character-spacing>0</character-spacing>
+                        <line-height>0</line-height>
+                    </properties>
+                    <effect-instances>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>255</b-replace>
+                                <b-source>0</b-source>
+                                <g-replace>255</g-replace>
+                                <g-source>0</g-source>
+                                <r-replace>255</r-replace>
+                                <r-source>0</r-source>
+                                <tolerance>1</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>395</x>
+                        <y>-378</y>
+                        <z>0</z>
+                        <width>913</width>
+                        <height>249</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>

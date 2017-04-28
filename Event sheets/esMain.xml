@@ -79,6 +79,7 @@
                     </conditions>
                     <actions />
                     <sub-events>
+                        <variable constant="0" name="FrameNbr" sid="279723358451411" static="0" type="number">0</variable>
                         <event-block sid="799283697751922">
                             <conditions>
                                 <condition id="1" name="Is overlapping another object" sid="698161101213311" type="Boss">
@@ -86,11 +87,15 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action id="-9" name="Set value" sid="106672140892966" type="System">
+                                    <param id="0" name="Variable">FrameNbr</param>
+                                    <param id="1" name="Value">int(random(1, 4))</param>
+                                </action>
                                 <action id="5" name="Set frame" sid="376584504459245" type="Ball">
-                                    <param id="0" name="Frame number">Stripes.AnimationFrame + 1</param>
+                                    <param id="0" name="Frame number">FrameNbr</param>
                                 </action>
                                 <action id="5" name="Set frame" sid="795624468609845" type="BallGlow">
-                                    <param id="0" name="Frame number">Stripes.AnimationFrame + 1</param>
+                                    <param id="0" name="Frame number">FrameNbr</param>
                                 </action>
                             </actions>
                         </event-block>

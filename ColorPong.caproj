@@ -29,14 +29,15 @@
     <used-effects>
         <effect author="Scirra" id="blurhorizontal">Blur Horizontal</effect>
         <effect author="Scirra" id="blurvertical">Blur Vertical</effect>
+        <effect author="Scirra" id="radialblur">Radial blur</effect>
         <effect author="Scirra" id="replacecolor">Replace color</effect>
     </used-effects>
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
     <window-size>
-        <width>1600</width>
-        <height>900</height>
+        <width>1650</width>
+        <height>1250</height>
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
@@ -57,10 +58,6 @@
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder>
-        <object-type name="TiledBackground" sid="260955393134589">
-            <plugin id="TiledBg" />
-            <texture />
-        </object-type>
         <object-type name="PlayerTile" sid="551126096200063">
             <plugin id="Sprite" />
             <instance-variables>
@@ -121,8 +118,6 @@
                 <instance-variable name="TopTilesNbr" sid="338576171036149" type="number" />
                 <instance-variable name="BotTilesNbr" sid="339299664810381" type="number" />
                 <instance-variable name="Color" sid="346603489000620" type="number" />
-                <instance-variable name="Rotating" sid="335680599874876" type="boolean" />
-                <instance-variable name="HasToRecenter" sid="789628490008687" type="boolean" />
                 <instance-variable comment='Possible Values: &quot;Top&quot;, &quot;Bot&quot;' name="LastEjected" sid="305043134859005" type="string" />
                 <instance-variable name="TopMostID" sid="478404547252518" type="number" />
                 <instance-variable name="BotMostID" sid="631216812762024" type="number" />
@@ -343,11 +338,184 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="SpriteFont" sid="644288229372933">
-            <plugin id="Spritefont2" />
+        <object-type name="radialBianco" sid="107158754151322">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="140386142429713" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\dbga_46\Desktop\Immagini\Pong images\radialbianco.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.4656" />
+                            <point x="0.52303" y="0.5" />
+                            <point x="0.5" y="0.5368" />
+                            <point x="0.468485" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="radialnero" sid="919975450777072">
+            <plugin id="Sprite" />
+            <effects>
+                <effect-type name="BlurVertical">
+                    <effect id="blurvertical" />
+                </effect-type>
+                <effect-type name="BlurHorizontal">
+                    <effect id="blurhorizontal" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="725458756072765" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\dbga_46\Desktop\Immagini\Pong images\radialnero.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bgNero" sid="580976455539454">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="PONGERINO" sid="240804750145509">
+            <plugin id="Sprite" />
+            <effects>
+                <effect-type name="BlurHorizontal">
+                    <effect id="blurhorizontal" />
+                </effect-type>
+                <effect-type name="BlurVertical">
+                    <effect id="blurvertical" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="910410144844296" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.510204" original-source="C:\Users\dbga_46\Desktop\SpriteFont_ObelusCompact_Medium_(36)_[1,1,1,1]_18x30.png">
+                        <collision-poly>
+                            <point x="0.0632184" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0" />
+                            <point x="0.178161" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="STORYMODE" sid="857261670071048">
+            <plugin id="Sprite" />
+            <effects>
+                <effect-type name="BlurHorizontal">
+                    <effect id="blurhorizontal" />
+                </effect-type>
+                <effect-type name="BlurVertical">
+                    <effect id="blurvertical" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="320613124455458" speed="5">
+                    <frame duration="1" hotspotX="0.501416" hotspotY="0.510204" original-source="C:\Users\dbga_46\Desktop\SpriteFont_ObelusCompact_Medium_(36)_[1,1,1,1]_18x30.png">
+                        <collision-poly>
+                            <point x="0.0424929" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0" />
+                            <point x="0.155807" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ARCADEMODE" sid="625871661475899">
+            <plugin id="Sprite" />
+            <effects>
+                <effect-type name="BlurHorizontal">
+                    <effect id="blurhorizontal" />
+                </effect-type>
+                <effect-type name="BlurVertical">
+                    <effect id="blurvertical" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="160268609549544" speed="5">
+                    <frame duration="1" hotspotX="0.501312" hotspotY="0.5" original-source="C:\Users\dbga_46\Desktop\SpriteFont_ObelusCompact_Medium_(36)_[1,1,1,1]_18x30.png">
+                        <collision-poly>
+                            <point x="0.0866142" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0" />
+                            <point x="0.191601" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BkgStripes" sid="180600706406750">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\dbga_46\Desktop\Immagini\Pong images\linea.png" />
+        </object-type>
+        <object-type name="SelectBar" sid="513972660995364">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Sine" sid="857466792999948">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="330691233754554" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Frame" sid="217941265179093">
+            <plugin id="Sprite" />
+            <effects>
+                <effect-type name="BlurHorizontal">
+                    <effect id="blurhorizontal" />
+                </effect-type>
+                <effect-type name="BlurVertical">
+                    <effect id="blurvertical" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="717836193198891" speed="5">
+                    <frame duration="1" hotspotX="0.500308" hotspotY="0.500541" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ExtGlowCircle" sid="691700355195150">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="550704144506439">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
             <effects>
                 <effect-type name="ReplaceColor">
                     <effect id="replacecolor" />
+                </effect-type>
+                <effect-type name="RadialBlur">
+                    <effect id="radialblur" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="600653000785575" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SCORE" sid="751636162444418">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="ID" sid="594156696049640" type="number" />
+            </instance-variables>
+            <effects>
+                <effect-type name="ReplaceColor">
+                    <effect id="replacecolor" />
+                </effect-type>
+                <effect-type name="BlurVertical">
+                    <effect id="blurvertical" />
+                </effect-type>
+                <effect-type name="BlurHorizontal">
+                    <effect id="blurhorizontal" />
                 </effect-type>
             </effects>
             <texture />
@@ -366,10 +534,12 @@
         </family>
     </families>
     <layout-folder>
-        <layout>Main.xml</layout>
+        <layout>Arcade.xml</layout>
+        <layout>Menu.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>esMain.xml</event-sheet>
+        <event-sheet>esArcade.xml</event-sheet>
+        <event-sheet>esMenu.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="18" />

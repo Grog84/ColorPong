@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>esMenu</name>
+    <events>
+        <variable constant="0" name="ArcadeModeY" sid="355110049591499" static="0" type="number">675</variable>
+        <variable constant="0" name="StoryModeY" sid="388454732573628" static="0" type="number">550</variable>
+        <event-block sid="531203452287816">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="344033699531235" type="Keyboard">
+                    <param id="0" name="Key">40 (Down arrow)</param>
+                </condition>
+                <condition id="-2" name="Compare Y" sid="212674720536442" type="SelectBar">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Y co-ordinate">StoryModeY</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="256764777922733" type="SelectBar">
+                    <param id="0" name="Y">ArcadeModeY</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="562922629197821">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="540282159196628" type="Keyboard">
+                    <param id="0" name="Key">38 (Up arrow)</param>
+                </condition>
+                <condition id="-2" name="Compare Y" sid="473206227821571" type="SelectBar">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Y co-ordinate">ArcadeModeY</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="531028636018863" type="SelectBar">
+                    <param id="0" name="Y">StoryModeY</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="356364236513467">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="330141070686595" type="Keyboard">
+                    <param id="0" name="Key">32 (Barra Spaziatrice)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="214772623893845">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="897130564318555" type="SelectBar">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">ArcadeModeY</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="182671957235969" type="System">
+                            <param id="0" name="Layout">Arcade</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

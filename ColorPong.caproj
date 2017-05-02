@@ -23,6 +23,7 @@
         <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
     </used-behaviors>
     <used-effects>
@@ -64,6 +65,7 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="ID" sid="415312285389810" type="number" />
+                <instance-variable name="IsEmitted" sid="540769411224650" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Pin" sid="549967173261456">
@@ -75,8 +77,8 @@
                 <behavior-type name="Fade" sid="431568790765827">
                     <behavior id="Fade" />
                 </behavior-type>
-                <behavior-type name="Flash" sid="231097578427236">
-                    <behavior id="Flash" />
+                <behavior-type name="Sine" sid="214410773843486">
+                    <behavior id="Sin" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
@@ -119,6 +121,11 @@
                 <instance-variable name="TopTilesNbr" sid="338576171036149" type="number" />
                 <instance-variable name="BotTilesNbr" sid="339299664810381" type="number" />
                 <instance-variable name="Color" sid="346603489000620" type="number" />
+                <instance-variable name="Rotating" sid="335680599874876" type="boolean" />
+                <instance-variable name="HasToRecenter" sid="789628490008687" type="boolean" />
+                <instance-variable comment='Possible Values: &quot;Top&quot;, &quot;Bot&quot;' name="LastEjected" sid="305043134859005" type="string" />
+                <instance-variable name="TopMostID" sid="478404547252518" type="number" />
+                <instance-variable name="BotMostID" sid="631216812762024" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="133056056980896">

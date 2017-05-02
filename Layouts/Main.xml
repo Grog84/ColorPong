@@ -572,6 +572,11 @@
                         <TopTilesNbr>2</TopTilesNbr>
                         <BotTilesNbr>2</BotTilesNbr>
                         <Color>0</Color>
+                        <Rotating>false</Rotating>
+                        <HasToRecenter>false</HasToRecenter>
+                        <LastEjected>&quot;None&quot;</LastEjected>
+                        <TopMostID>0</TopMostID>
+                        <BotMostID>3</BotMostID>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -654,6 +659,7 @@
                     </properties>
                     <instance-variables>
                         <ID>0</ID>
+                        <IsEmitted>false</IsEmitted>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Pin" />
@@ -676,7 +682,19 @@
                                 <destroy>After fade out</destroy>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Flash" />
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Opacity</movement>
+                                <wave>Sine</wave>
+                                <period>0.3</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>50</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -751,6 +769,7 @@
                     </properties>
                     <instance-variables>
                         <ID>1</ID>
+                        <IsEmitted>false</IsEmitted>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Pin" />
@@ -773,7 +792,19 @@
                                 <destroy>After fade out</destroy>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Flash" />
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Opacity</movement>
+                                <wave>Sine</wave>
+                                <period>0.3</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>50</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -799,6 +830,7 @@
                     </properties>
                     <instance-variables>
                         <ID>2</ID>
+                        <IsEmitted>false</IsEmitted>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Pin" />
@@ -821,7 +853,19 @@
                                 <destroy>After fade out</destroy>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Flash" />
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Opacity</movement>
+                                <wave>Sine</wave>
+                                <period>0.3</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>50</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -847,6 +891,7 @@
                     </properties>
                     <instance-variables>
                         <ID>3</ID>
+                        <IsEmitted>false</IsEmitted>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Pin" />
@@ -869,7 +914,19 @@
                                 <destroy>After fade out</destroy>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Flash" />
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Opacity</movement>
+                                <wave>Sine</wave>
+                                <period>0.3</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>50</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -1030,6 +1087,7 @@
                     </properties>
                     <instance-variables>
                         <ID>-1</ID>
+                        <IsEmitted>false</IsEmitted>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Pin" />
@@ -1052,7 +1110,19 @@
                                 <destroy>After fade out</destroy>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="Flash" />
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Opacity</movement>
+                                <wave>Sine</wave>
+                                <period>0.3</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>50</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -1137,8 +1207,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>395</x>
-                        <y>-378</y>
+                        <x>397</x>
+                        <y>-340</y>
                         <z>0</z>
                         <width>913</width>
                         <height>249</height>

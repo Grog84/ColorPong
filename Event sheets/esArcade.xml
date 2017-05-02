@@ -122,6 +122,68 @@
                 </action>
             </actions>
         </event-block>
+        <event-group description="" sid="810046280579958" title="VisualEffects">
+            <sub-events>
+                <event-block sid="911844760597168">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="642271928977610" type="System">
+                            <param id="0" name="Interval (seconds)">0.7</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="455325570768455">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="120052276275433" type="spawn">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">int(random(12))</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="820264099552587" type="spawn">
+                                    <param id="0" name="Object">stella1</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="302567334116870">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="932247017913618" type="spawn">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">int(random(12))</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="197535593054846" type="spawn">
+                                    <param id="0" name="Object">stella1</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="229978483611310">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="575610858623737" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="848319499852720" type="stella1">
+                            <param id="0" name="Object">stella2</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="366552205389365" type="stella2">
+                            <param id="0" name="Object">stella1</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="" sid="101681450318497" title="Ball">
             <sub-events>
                 <event-block sid="298161036534975">

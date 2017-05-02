@@ -56,6 +56,10 @@
                         <action id="-2" name="Go to layout" sid="182671957235969" type="System">
                             <param id="0" name="Layout">Arcade</param>
                         </action>
+                        <action id="-9" name="Set value" sid="619655342278770" type="System">
+                            <param id="0" name="Variable">GameTime</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>

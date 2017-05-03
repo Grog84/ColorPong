@@ -377,8 +377,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2211</x>
-                        <y>1254</y>
+                        <x>1650</x>
+                        <y>1184</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -405,8 +405,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2211</x>
-                        <y>1180</y>
+                        <x>1650</x>
+                        <y>1110</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -433,8 +433,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2211</x>
-                        <y>1106</y>
+                        <x>1650</x>
+                        <y>1036</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -461,8 +461,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2211</x>
-                        <y>1032</y>
+                        <x>1650</x>
+                        <y>962</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -489,8 +489,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2211</x>
-                        <y>958</y>
+                        <x>1650</x>
+                        <y>888</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -517,8 +517,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2211</x>
-                        <y>882</y>
+                        <x>1650</x>
+                        <y>812</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -545,8 +545,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2211</x>
-                        <y>807</y>
+                        <x>1650</x>
+                        <y>737</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -573,8 +573,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2211</x>
-                        <y>733</y>
+                        <x>1650</x>
+                        <y>663</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -601,8 +601,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2211</x>
-                        <y>659</y>
+                        <x>1650</x>
+                        <y>589</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -629,8 +629,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2211</x>
-                        <y>585</y>
+                        <x>1650</x>
+                        <y>515</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -657,8 +657,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2211</x>
-                        <y>511</y>
+                        <x>1650</x>
+                        <y>441</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -685,8 +685,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>2211</x>
-                        <y>435</y>
+                        <x>1650</x>
+                        <y>365</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -903,6 +903,7 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -1011,6 +1012,210 @@
                         <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>0.100000001</opacity>
+                    </world>
+                </instance>
+                <instance type="Kamikaze" uid="67">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <KamikazeSpeed>400</KamikazeSpeed>
+                        <BaseSpeed>100</BaseSpeed>
+                        <KamikazeDistance>800</KamikazeDistance>
+                        <VibrationTime>2</VibrationTime>
+                        <IsKamikaze>0</IsKamikaze>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>1</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1883.5</x>
+                        <y>847</y>
+                        <z>0</z>
+                        <width>71</width>
+                        <height>71</height>
+                        <depth>0</depth>
+                        <hotspotX>0.478873253</hotspotX>
+                        <hotspotY>0.507042229</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Kamikaze" uid="68">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <KamikazeSpeed>400</KamikazeSpeed>
+                        <BaseSpeed>100</BaseSpeed>
+                        <KamikazeDistance>800</KamikazeDistance>
+                        <VibrationTime>2</VibrationTime>
+                        <IsKamikaze>0</IsKamikaze>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>400</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1882.5</x>
+                        <y>847</y>
+                        <z>0</z>
+                        <width>71</width>
+                        <height>71</height>
+                        <depth>0</depth>
+                        <hotspotX>0.478873253</hotspotX>
+                        <hotspotY>0.507042229</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="shuriken" uid="69">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <RotationSpeed>180</RotationSpeed>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Rotate">
+                            <properties>
+                                <speed>360</speed>
+                                <acceleration>0</acceleration>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Pin" />
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>1</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1808</x>
+                        <y>1033</y>
+                        <z>0</z>
+                        <width>75</width>
+                        <height>75</height>
+                        <depth>0</depth>
+                        <hotspotX>0.506667018</hotspotX>
+                        <hotspotY>0.506667018</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="shuriken" uid="70">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <RotationSpeed>180</RotationSpeed>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Rotate">
+                            <properties>
+                                <speed>360</speed>
+                                <acceleration>0</acceleration>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Pin" />
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1808</x>
+                        <y>1033</y>
+                        <z>0</z>
+                        <width>75</width>
+                        <height>75</height>
+                        <depth>0</depth>
+                        <hotspotX>0.506667018</hotspotX>
+                        <hotspotY>0.506667018</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="ShurikenBase" uid="71">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Speed>400</Speed>
+                        <ArrivalPointY>0</ArrivalPointY>
+                        <TopOrBotSpawn>0</TopOrBotSpawn>
+                        <TotalX>0</TotalX>
+                        <CurrentX>0</CurrentX>
+                        <RotationSpeed>15</RotationSpeed>
+                        <SpriteID>0</SpriteID>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Rotate">
+                            <properties>
+                                <speed>0</speed>
+                                <acceleration>0</acceleration>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>0</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1806</x>
+                        <y>1128</y>
+                        <z>0</z>
+                        <width>10</width>
+                        <height>10</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
                     </world>
                 </instance>
             </instances>

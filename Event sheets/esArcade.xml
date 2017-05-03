@@ -3,8 +3,10 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esArcade</name>
     <events>
+        <variable constant="0" name="SpawnShuriken" sid="112103926454049" static="0" type="number">0</variable>
+        <variable constant="0" name="SpawnKamikaze" sid="123396074125826" static="0" type="number">0</variable>
         <variable constant="0" name="SpawnCuboRotante" sid="403779563706876" static="0" type="number">0</variable>
-        <variable constant="0" name="SpecialEnemiesTypeNbr" sid="509305964104404" static="0" type="number">1</variable>
+        <variable constant="0" name="SpecialEnemiesTypeNbr" sid="509305964104404" static="0" type="number">3</variable>
         <variable constant="0" name="SpecialEnemyType" sid="190215179780222" static="0" type="number">0</variable>
         <variable constant="0" name="MaxSpecialEnemiesNbr" sid="625328798260974" static="0" type="number">1</variable>
         <variable constant="0" name="SpecialEnemiesOnScreen" sid="323556725505910" static="0" type="number">0</variable>
@@ -121,17 +123,69 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-group description="" disabled="1" sid="810046280579958" title="VisualEffects">
+        <event-block sid="152825831933545">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="772584242790046" type="System">
+                    <param id="0" name="First value">GameTime</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Second value">5</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="151674293512775" type="System">
+                    <param id="0" name="Variable">SpecialEnemiesOnScreen</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="702864445493722">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="653886672203945" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="185844288184488" type="System">
+                    <param id="0" name="Variable">SpecialEnemiesOnScreen</param>
+                    <param id="1" name="Value">SpecialEnemies.Count</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="810046280579958" title="VisualEffects">
             <sub-events>
-                <event-block disabled="1" sid="911844760597168">
+                <event-block sid="911844760597168">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="642271928977610" type="System">
-                            <param id="0" name="Interval (seconds)">0.7</param>
+                            <param id="0" name="Interval (seconds)">random(7, 1) * 0.1</param>
                         </condition>
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block disabled="1" sid="455325570768455">
+                        <event-block sid="788033911766191">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="851820795119070" type="spawn">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">int(random(12))</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="397337902758912" type="spawn">
+                                    <param id="0" name="Object">stella1</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="496011021746506">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="388629647570254" type="System">
+                                            <param id="0" name="Seconds">random(0, 3) * 0.1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="455325570768455">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="120052276275433" type="spawn">
                                     <param id="0" name="Instance variable">ID</param>
@@ -149,17 +203,17 @@
                         </event-block>
                     </sub-events>
                 </event-block>
-                <event-block disabled="1" sid="229978483611310">
+                <event-block sid="229978483611310">
                     <conditions>
-                        <condition id="-1" name="Every tick" sid="575610858623737" type="System" />
+                        <condition disabled="1" id="-1" name="Every tick" sid="575610858623737" type="System" />
                     </conditions>
                     <actions>
-                        <action id="0" name="Spawn another object" sid="848319499852720" type="stella1">
+                        <action disabled="1" id="0" name="Spawn another object" sid="848319499852720" type="stella1">
                             <param id="0" name="Object">stella2</param>
                             <param id="1" name="Layer">0</param>
                             <param id="2" name="Image point">0</param>
                         </action>
-                        <action id="-4" name="Set position to another object" sid="366552205389365" type="stella2">
+                        <action disabled="1" id="-4" name="Set position to another object" sid="366552205389365" type="stella2">
                             <param id="0" name="Object">stella1</param>
                             <param id="1" name="Image point (optional)">0</param>
                         </action>
@@ -386,12 +440,12 @@
                 <event-block sid="406623457510579">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="523880862988457" type="Ball">
-                            <param id="0" name="Object">Enemies</param>
+                            <param id="0" name="Object">BallInteractiveEnemies</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action behavior="Bullet" id="4" name="Bounce off object" sid="762760643258049" type="Ball">
-                            <param id="0" name="Object">Enemies</param>
+                            <param id="0" name="Object">BallInteractiveEnemies</param>
                         </action>
                         <action id="0" name="Call function" sid="701728601796014" type="Function">
                             <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
@@ -807,17 +861,47 @@
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="148003505177616">
+                        <event-block sid="519354201328558">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="716231801634740" type="System">
+                                <condition id="-8" name="Compare two values" sid="868703142062057" type="System">
                                     <param id="0" name="First value">Function.Param(0)</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Second value">0</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-9" name="Set value" sid="612623921100050" type="System">
+                                <action id="-10" name="Add to" sid="235660763808323" type="System">
                                     <param id="0" name="Variable">SpawnCuboRotante</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="148003505177616">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="716231801634740" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="612623921100050" type="System">
+                                    <param id="0" name="Variable">SpawnKamikaze</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="905087063387743">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="197848404174276" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="451796890558770" type="System">
+                                    <param id="0" name="Variable">SpawnShuriken</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
@@ -827,7 +911,7 @@
                 <event-block sid="626787679586745">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="479580126085777" type="System">
-                            <param id="0" name="Interval (seconds)">1.0</param>
+                            <param id="0" name="Interval (seconds)">2.0</param>
                         </condition>
                         <condition id="-8" name="Compare two values" sid="299977676678636" type="System">
                             <param id="0" name="First value">MaxSpecialEnemiesNbr</param>
@@ -849,12 +933,256 @@
                             <param id="0" name="Name">&quot;SpawnSpecialEnemy&quot;</param>
                             <param id="1" name="Parameter {n}">EnemyType</param>
                         </action>
-                        <action id="-10" name="Add to" sid="706560853148517" type="System">
-                            <param id="0" name="Variable">SpecialEnemiesOnScreen</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
                     </actions>
                 </event-block>
+                <event-group description="" sid="725520327828317" title="Shuriken">
+                    <sub-events>
+                        <variable constant="0" name="SpawnPoint" sid="626390411319223" static="0" type="number">0</variable>
+                        <event-block sid="226022757231225">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="296436720034975" type="System">
+                                    <param id="0" name="Variable">SpawnShuriken</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="443653713403616" type="System">
+                                    <param id="0" name="Variable">SpawnPoint</param>
+                                    <param id="1" name="Value">int(random(spawn.Count))</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="997560078342208">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="850501552617610" type="LateralSpawningPoints">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">SpawnPoint</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-11" name="Subtract from" sid="598025909824704" type="System">
+                                            <param id="0" name="Variable">SpawnShuriken</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="307797892615796" type="LateralSpawningPoints">
+                                            <param id="0" name="Object">ShurikenBase</param>
+                                            <param id="1" name="Layer">3</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="827593505404070" type="ShurikenBase">
+                                            <param id="0" name="Instance variable">TopOrBotSpawn</param>
+                                            <param id="1" name="Value">SpawnPoint % 2</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="699212830465636" type="LateralSpawningPoints">
+                                            <param id="0" name="Object">shuriken</param>
+                                            <param id="1" name="Layer">3</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action behavior="Pin" id="0" name="Pin to object" sid="330627770570099" type="shuriken">
+                                            <param id="0" name="Pin to">ShurikenBase</param>
+                                            <param id="1" name="Mode">0</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="795874761937876" type="ShurikenBase">
+                                            <param id="0" name="Instance variable">TotalX</param>
+                                            <param id="1" name="Value">Self.X + 60</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="572444314950968" type="ShurikenBase">
+                                            <param id="0" name="Instance variable">SpriteID</param>
+                                            <param id="1" name="Value">shuriken.UID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="283330578075620">
+                            <conditions>
+                                <condition id="-18" name="On created" sid="223360529838702" type="ShurikenBase" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="742556205465646" type="System">
+                                    <param id="0" name="Seconds">2.0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <variable constant="0" name="MinY" sid="638747807139077" static="0" type="number">400</variable>
+                                <variable constant="0" name="MaxY" sid="875724992757043" static="0" type="number">1000</variable>
+                                <event-block sid="645535849525194">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="326996540000664" type="ShurikenBase">
+                                            <param id="0" name="Instance variable">TopOrBotSpawn</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="325198103869475" type="ShurikenBase">
+                                            <param id="0" name="Instance variable">ArrivalPointY</param>
+                                            <param id="1" name="Value">int(random(MinY+300, MaxY+500))</param>
+                                        </action>
+                                        <action behavior="Rotate" id="0" name="Set speed" sid="338183091637065" type="shuriken">
+                                            <param id="0" name="Speed">Self.RotationSpeed</param>
+                                        </action>
+                                        <action id="-22" name="Set angle toward position" sid="260772543194407" type="ShurikenBase">
+                                            <param id="0" name="X">0</param>
+                                            <param id="1" name="Y">Self.ArrivalPointY</param>
+                                        </action>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="443337908253227" type="ShurikenBase">
+                                            <param id="0" name="Angle">Self.Angle</param>
+                                        </action>
+                                        <action behavior="Rotate" id="0" name="Set speed" sid="820854932845818" type="ShurikenBase">
+                                            <param id="0" name="Speed">Self.RotationSpeed</param>
+                                        </action>
+                                        <action behavior="Bullet" id="0" name="Set speed" sid="995615709138608" type="ShurikenBase">
+                                            <param id="0" name="Speed">Self.Speed</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="620140511265426">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="344336044958106" type="ShurikenBase">
+                                            <param id="0" name="Instance variable">TopOrBotSpawn</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="575880269138956" type="ShurikenBase">
+                                            <param id="0" name="Instance variable">ArrivalPointY</param>
+                                            <param id="1" name="Value">int(random(MinY-400, MaxY))</param>
+                                        </action>
+                                        <action behavior="Rotate" id="0" name="Set speed" sid="734254138483934" type="shuriken">
+                                            <param id="0" name="Speed">-Self.RotationSpeed</param>
+                                        </action>
+                                        <action id="-22" name="Set angle toward position" sid="629312615026538" type="ShurikenBase">
+                                            <param id="0" name="X">0</param>
+                                            <param id="1" name="Y">Self.ArrivalPointY</param>
+                                        </action>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="744062868501533" type="ShurikenBase">
+                                            <param id="0" name="Angle">Self.Angle</param>
+                                        </action>
+                                        <action behavior="Rotate" id="0" name="Set speed" sid="413031600493848" type="ShurikenBase">
+                                            <param id="0" name="Speed">-1*Self.RotationSpeed</param>
+                                        </action>
+                                        <action behavior="Bullet" id="0" name="Set speed" sid="730776740295862" type="ShurikenBase">
+                                            <param id="0" name="Speed">Self.Speed</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="311270246136083">
+                            <conditions>
+                                <condition id="-19" name="On destroyed" sid="688467870795449" type="ShurikenBase" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="177674810739339">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="701403792094983" type="shuriken">
+                                            <param id="0" name="Unique ID">ShurikenBase.SpriteID</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="300111349513506" type="shuriken" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="445794789271117" title="Kamikaze">
+                    <sub-events>
+                        <variable constant="0" name="SpawnPoint" sid="296672980087044" static="0" type="number">0</variable>
+                        <event-block sid="804421677543469">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="802841283257179" type="System">
+                                    <param id="0" name="Variable">SpawnKamikaze</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="334635768515077" type="System">
+                                    <param id="0" name="Variable">SpawnPoint</param>
+                                    <param id="1" name="Value">int(random(spawn.Count))</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="725628419664340">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="656831541186611" type="spawn">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">SpawnPoint</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-11" name="Subtract from" sid="343786631698152" type="System">
+                                            <param id="0" name="Variable">SpawnKamikaze</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="447236105248751" type="spawn">
+                                            <param id="0" name="Object">Kamikaze</param>
+                                            <param id="1" name="Layer">3</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action behavior="Bullet" id="0" name="Set speed" sid="536089353216411" type="Kamikaze">
+                                            <param id="0" name="Speed">Self.BaseSpeed</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="313271960361290">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="595405326648628" type="System">
+                                    <param id="0" name="Object">Kamikaze</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="616939866572850" type="System">
+                                    <param id="0" name="First value">distance(Kamikaze.X, Kamikaze.Y, Player.X, Player.Y)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">Kamikaze.KamikazeDistance</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="331869203374141" type="Kamikaze">
+                                    <param id="0" name="Instance variable">IsKamikaze</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="676072945738062" type="Kamikaze">
+                                    <param id="0" name="Instance variable">IsKamikaze</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="875343072345593" type="Kamikaze">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="970451521476502" type="Kamikaze">
+                                    <param id="0" name="Speed">20</param>
+                                </action>
+                                <action id="3" name="Start" sid="402937767297513" type="Kamikaze">
+                                    <param id="0" name="From">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="357932342246267" type="System">
+                                    <param id="0" name="Seconds">Kamikaze.VibrationTime</param>
+                                </action>
+                                <action id="2" name="Stop" sid="126718079825993" type="Kamikaze" />
+                                <action id="5" name="Set frame" sid="504165067507406" type="Kamikaze">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action id="-22" name="Set angle toward position" sid="186078822040617" type="Kamikaze">
+                                    <param id="0" name="X">Player.X</param>
+                                    <param id="1" name="Y">Player.Y</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="179923915324462" type="Kamikaze">
+                                    <param id="0" name="Speed">Self.KamikazeSpeed</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
                 <event-group description="" sid="475895630802488" title="CuboRotante">
                     <sub-events>
                         <variable constant="0" name="SpawnPoint" sid="739028496470154" static="0" type="number">0</variable>
@@ -882,6 +1210,10 @@
                                         </condition>
                                     </conditions>
                                     <actions>
+                                        <action id="-11" name="Subtract from" sid="397117522342021" type="System">
+                                            <param id="0" name="Variable">SpawnCuboRotante</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
                                         <action id="0" name="Spawn another object" sid="319216606625395" type="LateralSpawningPoints">
                                             <param id="0" name="Object">cuboRotanteBase</param>
                                             <param id="1" name="Layer">0</param>
@@ -899,10 +1231,6 @@
                                         <action id="-10" name="Set value" sid="477416395218781" type="cuboRotanteBase">
                                             <param id="0" name="Instance variable">SpriteUID</param>
                                             <param id="1" name="Value">cuboRotante.UID</param>
-                                        </action>
-                                        <action id="-9" name="Set value" sid="397117522342021" type="System">
-                                            <param id="0" name="Variable">SpawnCuboRotante</param>
-                                            <param id="1" name="Value">0</param>
                                         </action>
                                     </actions>
                                     <sub-events>
@@ -951,10 +1279,6 @@
                             <actions>
                                 <action id="-9" name="Destroy" sid="912550839465398" type="cuboRotanteBase" />
                                 <action id="-9" name="Destroy" sid="615492602339897" type="cuboRotante" />
-                                <action id="-11" name="Subtract from" sid="876186404870498" type="System">
-                                    <param id="0" name="Variable">SpecialEnemiesOnScreen</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="712894007144416">
@@ -970,10 +1294,6 @@
                             <actions>
                                 <action id="-9" name="Destroy" sid="754699344607277" type="cuboRotanteBase" />
                                 <action id="-9" name="Destroy" sid="898971790184360" type="cuboRotante" />
-                                <action id="-11" name="Subtract from" sid="204628203842639" type="System">
-                                    <param id="0" name="Variable">SpecialEnemiesOnScreen</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
                             </actions>
                         </event-block>
                     </sub-events>

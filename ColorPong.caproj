@@ -105,10 +105,67 @@
                     <behavior-type name="Bullet" sid="913929797434193">
                         <behavior id="Bullet" />
                     </behavior-type>
+                    <behavior-type name="DestroyOutsideLayout" sid="818804900570611">
+                        <behavior id="destroy" />
+                    </behavior-type>
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="913844128078375" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Kamikaze" sid="381619654420178">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="KamikazeSpeed" sid="348358390044488" type="number" />
+                    <instance-variable name="BaseSpeed" sid="771234637208453" type="number" />
+                    <instance-variable name="KamikazeDistance" sid="189624208044102" type="number" />
+                    <instance-variable name="VibrationTime" sid="687805626523168" type="number" />
+                    <instance-variable name="IsKamikaze" sid="923841740926537" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Bullet" sid="912876898533086">
+                        <behavior id="Bullet" />
+                    </behavior-type>
+                    <behavior-type name="DestroyOutsideLayout" sid="977129061306391">
+                        <behavior id="destroy" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="4" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="737464536917323" speed="0">
+                        <frame duration="1" hotspotX="0.478873" hotspotY="0.507042">
+                            <collision-poly>
+                                <point x="0.859155" y="0.84507" />
+                                <point x="0.126761" y="0.84507" />
+                                <point x="0.126761" y="0.140845" />
+                                <point x="0.859155" y="0.140845" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.478873" hotspotY="0.309859">
+                            <collision-poly>
+                                <point x="0.859155" y="0.84507" />
+                                <point x="0.126761" y="0.84507" />
+                                <point x="0.126761" y="0.140845" />
+                                <point x="0.859155" y="0.140845" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.478873" hotspotY="0.507042">
+                            <collision-poly>
+                                <point x="0.859155" y="0.84507" />
+                                <point x="0.126761" y="0.84507" />
+                                <point x="0.126761" y="0.140845" />
+                                <point x="0.859155" y="0.140845" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.478873" hotspotY="0.704225">
+                            <collision-poly>
+                                <point x="0.859155" y="0.84507" />
+                                <point x="0.126761" y="0.84507" />
+                                <point x="0.126761" y="0.140845" />
+                                <point x="0.859155" y="0.140845" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -642,9 +699,74 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="shuriken" sid="742330464191621">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="RotationSpeed" sid="696671012358675" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Rotate" sid="618744029625721">
+                    <behavior id="Rotate" />
+                </behavior-type>
+                <behavior-type name="Pin" sid="834407218297476">
+                    <behavior id="Pin" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="207200742764231">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="738087224221670" speed="5">
+                    <frame duration="1" hotspotX="0.506667" hotspotY="0.506667" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ShurikenBase" sid="210737811633894">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Speed" sid="331633267578267" type="number" />
+                <instance-variable name="ArrivalPointY" sid="963495840664491" type="number" />
+                <instance-variable comment="0 is spawning ID even; 1 is spawning  ID odd" name="TopOrBotSpawn" sid="890806413154019" type="number" />
+                <instance-variable name="TotalX" sid="815778648838379" type="number" />
+                <instance-variable name="CurrentX" sid="561612648625611" type="number" />
+                <instance-variable name="RotationSpeed" sid="385990256136374" type="number" />
+                <instance-variable name="SpriteID" sid="300621073338317" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Rotate" sid="550601866100770">
+                    <behavior id="Rotate" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="454183660696601">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="373190132016907">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="791898694597051" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="110717795313248">
+            <members>
+                <member>cuboRotante</member>
+                <member>EvilBlock</member>
+                <member>Kamikaze</member>
+                <member>shuriken</member>
+            </members>
+        </family>
+        <family name="SpecialEnemies" plugin-id="Sprite" sid="907810436450964">
+            <members>
+                <member>cuboRotante</member>
+                <member>Kamikaze</member>
+                <member>shuriken</member>
+            </members>
+        </family>
+        <family name="BallInteractiveEnemies" plugin-id="Sprite" sid="487426960247484">
             <members>
                 <member>cuboRotante</member>
                 <member>EvilBlock</member>

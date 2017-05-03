@@ -115,40 +115,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="radialnero" uid="44">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <effect-instances>
-                        <effect-instance type="BlurVertical">
-                            <parameters>
-                                <intensity>1</intensity>
-                            </parameters>
-                        </effect-instance>
-                        <effect-instance type="BlurHorizontal">
-                            <parameters>
-                                <intensity>1</intensity>
-                            </parameters>
-                        </effect-instance>
-                    </effect-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>0</x>
-                        <y>0</y>
-                        <z>0</z>
-                        <width>1650</width>
-                        <height>1250</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>0.5</opacity>
-                    </world>
-                </instance>
                 <instance type="BallY" uid="19">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -169,28 +135,6 @@
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="radialBianco" uid="45">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <blend-mode>1</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>0</x>
-                        <y>0</y>
-                        <z>0</z>
-                        <width>1650</width>
-                        <height>1250</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>0.100000001</opacity>
                     </world>
                 </instance>
                 <instance type="Tail" uid="23">
@@ -427,11 +371,14 @@
                     <instance-variables>
                         <ID>11</ID>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1670</x>
-                        <y>1178</y>
+                        <x>2211</x>
+                        <y>1254</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -452,11 +399,14 @@
                     <instance-variables>
                         <ID>10</ID>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1670</x>
-                        <y>1104</y>
+                        <x>2211</x>
+                        <y>1180</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -477,11 +427,14 @@
                     <instance-variables>
                         <ID>9</ID>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1670</x>
-                        <y>1030</y>
+                        <x>2211</x>
+                        <y>1106</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -502,11 +455,14 @@
                     <instance-variables>
                         <ID>8</ID>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1670</x>
-                        <y>956</y>
+                        <x>2211</x>
+                        <y>1032</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -527,11 +483,14 @@
                     <instance-variables>
                         <ID>7</ID>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1670</x>
-                        <y>882</y>
+                        <x>2211</x>
+                        <y>958</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -552,11 +511,14 @@
                     <instance-variables>
                         <ID>6</ID>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1670</x>
-                        <y>806</y>
+                        <x>2211</x>
+                        <y>882</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -577,11 +539,14 @@
                     <instance-variables>
                         <ID>5</ID>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1670</x>
-                        <y>731</y>
+                        <x>2211</x>
+                        <y>807</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -602,11 +567,14 @@
                     <instance-variables>
                         <ID>4</ID>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1670</x>
-                        <y>657</y>
+                        <x>2211</x>
+                        <y>733</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -627,11 +595,14 @@
                     <instance-variables>
                         <ID>3</ID>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1670</x>
-                        <y>583</y>
+                        <x>2211</x>
+                        <y>659</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -652,11 +623,14 @@
                     <instance-variables>
                         <ID>2</ID>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1670</x>
-                        <y>509</y>
+                        <x>2211</x>
+                        <y>585</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -677,11 +651,14 @@
                     <instance-variables>
                         <ID>1</ID>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1670</x>
-                        <y>435</y>
+                        <x>2211</x>
+                        <y>511</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -702,11 +679,14 @@
                     <instance-variables>
                         <ID>0</ID>
                     </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1670</x>
-                        <y>359</y>
+                        <x>2211</x>
+                        <y>435</y>
                         <z>0</z>
                         <width>66</width>
                         <height>72</height>
@@ -885,6 +865,7 @@
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="Pin" />
+                        <behavior-instance type="DestroyOutsideLayout" />
                     </behavior-instances>
                     <blend-mode>1</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -936,6 +917,100 @@
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>0</opacity>
+                    </world>
+                </instance>
+            </instances>
+            <effects />
+        </layer>
+        <layer name="BkgTransprency1" sid="375733125846842">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>1</transparent>
+            <parallax>
+                <x>1</x>
+                <y>1</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <global>0</global>
+            <use-render-cells>0</use-render-cells>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
+            <instances>
+                <instance type="radialnero" uid="44">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <effect-instances>
+                        <effect-instance type="BlurVertical">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="BlurHorizontal">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>0</x>
+                        <y>0</y>
+                        <z>0</z>
+                        <width>1650</width>
+                        <height>1250</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>0.5</opacity>
+                    </world>
+                </instance>
+            </instances>
+            <effects />
+        </layer>
+        <layer name="BkgTransparency2" sid="418006754244696">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>1</transparent>
+            <parallax>
+                <x>1</x>
+                <y>1</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <global>0</global>
+            <use-render-cells>0</use-render-cells>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
+            <instances>
+                <instance type="radialBianco" uid="45">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>1</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>0</x>
+                        <y>0</y>
+                        <z>0</z>
+                        <width>1650</width>
+                        <height>1250</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>0.100000001</opacity>
                     </world>
                 </instance>
             </instances>

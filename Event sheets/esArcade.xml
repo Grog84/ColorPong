@@ -78,11 +78,18 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="861391561456438">
+        <event-block sid="818812852262170">
             <conditions>
-                <condition id="-1" name="Every tick" sid="404113572523755" type="System" />
+                <condition id="-6" name="Every X seconds" sid="220575863222875" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
             </conditions>
-            <actions />
+            <actions>
+                <action id="-10" name="Add to" sid="684620883040108" type="System">
+                    <param id="0" name="Variable">GameTime</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
             <sub-events>
                 <event-block sid="500346532001561">
                     <conditions>
@@ -114,22 +121,9 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="818812852262170">
-            <conditions>
-                <condition id="-6" name="Every X seconds" sid="220575863222875" type="System">
-                    <param id="0" name="Interval (seconds)">1.0</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-10" name="Add to" sid="684620883040108" type="System">
-                    <param id="0" name="Variable">GameTime</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-group description="" sid="810046280579958" title="VisualEffects">
+        <event-group description="" disabled="1" sid="810046280579958" title="VisualEffects">
             <sub-events>
-                <event-block sid="911844760597168">
+                <event-block disabled="1" sid="911844760597168">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="642271928977610" type="System">
                             <param id="0" name="Interval (seconds)">0.7</param>
@@ -137,7 +131,7 @@
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="455325570768455">
+                        <event-block disabled="1" sid="455325570768455">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="120052276275433" type="spawn">
                                     <param id="0" name="Instance variable">ID</param>
@@ -153,25 +147,9 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="302567334116870">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="932247017913618" type="spawn">
-                                    <param id="0" name="Instance variable">ID</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">int(random(12))</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Spawn another object" sid="197535593054846" type="spawn">
-                                    <param id="0" name="Object">stella1</param>
-                                    <param id="1" name="Layer">0</param>
-                                    <param id="2" name="Image point">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
                     </sub-events>
                 </event-block>
-                <event-block sid="229978483611310">
+                <event-block disabled="1" sid="229978483611310">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="575610858623737" type="System" />
                     </conditions>
@@ -964,7 +942,7 @@
                             <conditions>
                                 <condition id="-2" name="Compare Y" sid="825276119116137" type="cuboRotanteBase">
                                     <param id="0" name="Comparison">2</param>
-                                    <param id="1" name="Y co-ordinate">FRAMEOFFSET-50</param>
+                                    <param id="1" name="Y co-ordinate">FRAMEOFFSET -20</param>
                                 </condition>
                                 <condition id="-14" name="Pick by unique ID" sid="731076521650022" type="cuboRotante">
                                     <param id="0" name="Unique ID">cuboRotanteBase.SpriteUID</param>
@@ -983,7 +961,7 @@
                             <conditions>
                                 <condition id="-2" name="Compare Y" sid="123827394226800" type="cuboRotanteBase">
                                     <param id="0" name="Comparison">4</param>
-                                    <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height + 50</param>
+                                    <param id="1" name="Y co-ordinate">1240</param>
                                 </condition>
                                 <condition id="-14" name="Pick by unique ID" sid="670437243173520" type="cuboRotante">
                                     <param id="0" name="Unique ID">cuboRotanteBase.SpriteUID</param>

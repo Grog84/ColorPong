@@ -56,7 +56,7 @@
         <prop name="Pause on unfocus">No</prop>
         <prop name="Physics engine">Box2D asm.js</prop>
         <prop name="Preload sounds">Yes</prop>
-        <prop name="Preview browser">(default)</prop>
+        <prop name="Preview browser">Chrome</prop>
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
@@ -751,6 +751,7 @@
                 <instance-variable name="SpawnPointID" sid="371423467338284" type="number" />
                 <instance-variable name="InitialX" sid="374551642610384" type="number" />
                 <instance-variable name="InitialY" sid="171598166554231" type="number" />
+                <instance-variable comment="0 horizontal // 1 vertical" name="TravellingDirection" sid="870623648228090" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="DestroyOutsideLayout" sid="623648066107480">
@@ -773,25 +774,28 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="snakeTail" sid="496603849853924">
+        <object-type name="snakeTail" sid="581343102764118">
             <plugin id="Sprite" />
             <instance-variables>
-                <instance-variable name="AnglesNbr" sid="135747556095635" type="number" />
-                <instance-variable name="Xtranslation" sid="135224317863281" type="number" />
-                <instance-variable name="Ytranslation" sid="685085609429759" type="number" />
-                <instance-variable name="Speed" sid="326232533403100" type="number" />
-                <instance-variable name="NbrOfReplicate" sid="381370994716456" type="number" />
+                <instance-variable name="AnglesNbr" sid="690178439616583" type="number" />
+                <instance-variable name="Xtranslation" sid="161666423302610" type="number" />
+                <instance-variable name="Ytranslation" sid="759865046343279" type="number" />
+                <instance-variable name="Speed" sid="433071697587695" type="number" />
+                <instance-variable name="SpawnPointID" sid="135528733184587" type="number" />
+                <instance-variable name="InitialX" sid="728059353795610" type="number" />
+                <instance-variable name="InitialY" sid="512477399096572" type="number" />
+                <instance-variable name="TravellingDirection" sid="965660278346176" type="number" />
             </instance-variables>
             <behaviors>
-                <behavior-type name="DestroyOutsideLayout" sid="887326150275261">
+                <behavior-type name="DestroyOutsideLayout" sid="313095526181517">
                     <behavior id="destroy" />
                 </behavior-type>
-                <behavior-type name="CustomMovement" sid="439588416354573">
+                <behavior-type name="CustomMovement" sid="715983073506185">
                     <behavior id="custom" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="727778724091371" speed="5">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="622433341292763" speed="5">
                     <frame duration="1" hotspotX="0.507042" hotspotY="0.507042">
                         <collision-poly>
                             <point x="0.323944" y="0.323944" />

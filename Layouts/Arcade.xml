@@ -854,6 +854,48 @@
                         <opacity>0</opacity>
                     </world>
                 </instance>
+                <instance type="snakeTail" uid="24">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <AnglesNbr>1</AnglesNbr>
+                        <Xtranslation>0</Xtranslation>
+                        <Ytranslation>0</Ytranslation>
+                        <Speed>200</Speed>
+                        <SpawnPointID>0</SpawnPointID>
+                        <InitialX>0</InitialX>
+                        <InitialY>0</InitialY>
+                        <TravellingDirection>0</TravellingDirection>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="CustomMovement">
+                            <properties>
+                                <stepping-mode>None</stepping-mode>
+                                <pixels-per-step>5</pixels-per-step>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>2217</x>
+                        <y>552</y>
+                        <z>0</z>
+                        <width>71</width>
+                        <height>71</height>
+                        <depth>0</depth>
+                        <hotspotX>0.507041991</hotspotX>
+                        <hotspotY>0.507041991</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>
@@ -1168,6 +1210,7 @@
                         <SpawnPointID>0</SpawnPointID>
                         <InitialX>0</InitialX>
                         <InitialY>0</InitialY>
+                        <TravellingDirection>0</TravellingDirection>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="DestroyOutsideLayout" />
@@ -1210,6 +1253,7 @@
                         <SpawnPointID>0</SpawnPointID>
                         <InitialX>0</InitialX>
                         <InitialY>0</InitialY>
+                        <TravellingDirection>0</TravellingDirection>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="DestroyOutsideLayout" />
@@ -1226,45 +1270,6 @@
                     <world>
                         <x>1795</x>
                         <y>1235</y>
-                        <z>0</z>
-                        <width>71</width>
-                        <height>71</height>
-                        <depth>0</depth>
-                        <hotspotX>0.507042229</hotspotX>
-                        <hotspotY>0.507042229</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="snakeTail" uid="24">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <AnglesNbr>0</AnglesNbr>
-                        <Xtranslation>0</Xtranslation>
-                        <Ytranslation>0</Ytranslation>
-                        <Speed>0</Speed>
-                        <NbrOfReplicate>0</NbrOfReplicate>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="DestroyOutsideLayout" />
-                        <behavior-instance type="CustomMovement">
-                            <properties>
-                                <stepping-mode>None</stepping-mode>
-                                <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>1901</x>
-                        <y>973</y>
                         <z>0</z>
                         <width>71</width>
                         <height>71</height>

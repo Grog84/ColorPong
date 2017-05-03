@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esArcade</name>
     <events>
+        <variable constant="0" name="TimeBeforeSpecial" sid="707526383413928" static="0" type="number">2</variable>
         <variable constant="0" name="SpawnSnake" sid="361146526715732" static="0" type="number">0</variable>
         <variable constant="0" name="SpawnShuriken" sid="112103926454049" static="0" type="number">0</variable>
         <variable constant="0" name="SpawnKamikaze" sid="123396074125826" static="0" type="number">0</variable>
@@ -892,17 +893,32 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="905087063387743">
+                        <event-block sid="915166825786587">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="197848404174276" type="System">
+                                <condition id="-8" name="Compare two values" sid="623824034377912" type="System">
                                     <param id="0" name="First value">Function.Param(0)</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Second value">2</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Add to" sid="451796890558770" type="System">
+                                <action id="-10" name="Add to" sid="375994493556250" type="System">
                                     <param id="0" name="Variable">SpawnShuriken</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="905087063387743">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="197848404174276" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="451796890558770" type="System">
+                                    <param id="0" name="Variable">SpawnSnake</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
@@ -922,13 +938,17 @@
                         <condition id="-14" name="Compare variable" sid="910129021885421" type="System">
                             <param id="0" name="Variable">GameTime</param>
                             <param id="1" name="Comparison">4</param>
-                            <param id="2" name="Value">10</param>
+                            <param id="2" name="Value">TimeBeforeSpecial</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Set value" sid="762461891115612" type="System">
+                        <action disabled="1" id="-9" name="Set value" sid="762461891115612" type="System">
                             <param id="0" name="Variable">EnemyType</param>
                             <param id="1" name="Value">int(random(SpecialEnemiesTypeNbr))</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="535127959312313" type="System">
+                            <param id="0" name="Variable">EnemyType</param>
+                            <param id="1" name="Value">3</param>
                         </action>
                         <action id="0" name="Call function" sid="856373367031841" type="Function">
                             <param id="0" name="Name">&quot;SpawnSpecialEnemy&quot;</param>
@@ -950,7 +970,7 @@
                             <actions>
                                 <action id="-9" name="Set value" sid="763939432288786" type="System">
                                     <param id="0" name="Variable">SpawnPoint</param>
-                                    <param id="1" name="Value">int(random(spawn.Count))</param>
+                                    <param id="1" name="Value">choose(1,3,8,10)</param>
                                 </action>
                             </actions>
                             <sub-events>
@@ -993,11 +1013,157 @@
                                 <condition id="-18" name="On created" sid="113727894612815" type="snakeHead" />
                             </conditions>
                             <actions>
+                                <action id="-16" name="Wait" sid="327045749794265" type="System">
+                                    <param id="0" name="Seconds">2</param>
+                                </action>
                                 <action id="-10" name="Set value" sid="410532033373331" type="snakeHead">
                                     <param id="0" name="Instance variable">Xtranslation</param>
-                                    <param id="1" name="Value">random(400, 800)</param>
+                                    <param id="1" name="Value">random(400, 1000)</param>
+                                </action>
+                                <action behavior="CustomMovement" id="12" name="Set enabled" sid="623056116130203" type="snakeHead">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="CustomMovement" id="6" name="Set angle of motion" sid="487461012227806" type="snakeHead">
+                                    <param id="0" name="Angle">0</param>
+                                </action>
+                                <action behavior="CustomMovement" id="2" name="Set speed" sid="900306228078380" type="snakeHead">
+                                    <param id="0" name="Which">1</param>
+                                    <param id="1" name="Speed">-self.Speed</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="141722907360644" type="snakeHead">
+                                    <param id="0" name="Instance variable">Ytranslation</param>
+                                    <param id="1" name="Value">random(200, 500)</param>
                                 </action>
                             </actions>
+                        </event-block>
+                        <event-block sid="868994527177658">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="158119668387639" type="System">
+                                    <param id="0" name="Object">snakeHead</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="974567370913116" type="System">
+                                    <param id="0" name="First value">abs(snakeHead.X - snakeHead.InitialX)</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">snakeHead.Xtranslation</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="CustomMovement" id="0" name="Stop" sid="635875627473703" type="snakeHead" />
+                            </actions>
+                            <sub-events>
+                                <event-block sid="647713629403310">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="810807653439570" type="snakeHead">
+                                            <param id="0" name="Instance variable">SpawnPointID</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="CustomMovement" id="2" name="Set speed" sid="958444501542198" type="snakeHead">
+                                            <param id="0" name="Which">2</param>
+                                            <param id="1" name="Speed">-Self.Speed</param>
+                                        </action>
+                                        <action id="-12" name="Subtract from" sid="523225213391749" type="snakeHead">
+                                            <param id="0" name="Instance variable">AnglesNbr</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="146170272855830">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="983393259396841" type="snakeHead">
+                                            <param id="0" name="Instance variable">SpawnPointID</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="CustomMovement" id="2" name="Set speed" sid="671443119305107" type="snakeHead">
+                                            <param id="0" name="Which">2</param>
+                                            <param id="1" name="Speed">Self.Speed</param>
+                                        </action>
+                                        <action id="-12" name="Subtract from" sid="671224913662284" type="snakeHead">
+                                            <param id="0" name="Instance variable">AnglesNbr</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="195344551601338">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="344479968815377" type="System">
+                                    <param id="0" name="Object">snakeHead</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="389053981275698" type="System">
+                                    <param id="0" name="First value">abs(snakeHead.Y - snakeHead.InitialY)</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">snakeHead.Ytranslation</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="CustomMovement" id="0" name="Stop" sid="549229383930745" type="snakeHead" />
+                                <action behavior="CustomMovement" id="2" name="Set speed" sid="488554953750471" type="snakeHead">
+                                    <param id="0" name="Which">1</param>
+                                    <param id="1" name="Speed">-Self.Speed</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="717959486343772">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="602742274729988" type="snakeHead">
+                                            <param id="0" name="Instance variable">AnglesNbr</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="353952105905492" type="snakeHead">
+                                            <param id="0" name="Instance variable">InitialX</param>
+                                            <param id="1" name="Value">self.X</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="386522207015913" type="snakeHead">
+                                            <param id="0" name="Instance variable">InitialY</param>
+                                            <param id="1" name="Value">Self.Y</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="206300592969512" type="snakeHead">
+                                            <param id="0" name="Instance variable">Xtranslation</param>
+                                            <param id="1" name="Value">random(300, abs(Self.X - Player.X ) - 300)</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="911918897406802">
+                                            <conditions>
+                                                <condition id="-2" name="Compare Y" sid="390615342856661" type="snakeHead">
+                                                    <param id="0" name="Comparison">2</param>
+                                                    <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="614545770970281" type="snakeHead">
+                                                    <param id="0" name="Instance variable">Ytranslation</param>
+                                                    <param id="1" name="Value">random(200, Frame.Height - 100)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="118095493651953">
+                                            <conditions>
+                                                <condition id="-2" name="Compare Y" sid="114736238584893" type="snakeHead">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="866030881664778" type="snakeHead">
+                                                    <param id="0" name="Instance variable">Ytranslation</param>
+                                                    <param id="1" name="Value">-random(200,  Frame.Height - 100)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-group>

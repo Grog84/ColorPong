@@ -1061,8 +1061,8 @@
                         <width>75</width>
                         <height>75</height>
                         <depth>0</depth>
-                        <hotspotX>0.506667018</hotspotX>
-                        <hotspotY>0.506667018</hotspotY>
+                        <hotspotX>0.50666666</hotspotX>
+                        <hotspotY>0.50666666</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -1096,8 +1096,8 @@
                         <width>75</width>
                         <height>75</height>
                         <depth>0</depth>
-                        <hotspotX>0.506667018</hotspotX>
-                        <hotspotY>0.506667018</hotspotY>
+                        <hotspotX>0.50666666</hotspotX>
+                        <hotspotY>0.50666666</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -1175,7 +1175,7 @@
                             <properties>
                                 <stepping-mode>None</stepping-mode>
                                 <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Enabled</initial-state>
+                                <initial-state>Disabled</initial-state>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
@@ -1188,8 +1188,8 @@
                         <width>71</width>
                         <height>71</height>
                         <depth>0</depth>
-                        <hotspotX>0.507041991</hotspotX>
-                        <hotspotY>0.507041991</hotspotY>
+                        <hotspotX>0.507042229</hotspotX>
+                        <hotspotY>0.507042229</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -1217,7 +1217,7 @@
                             <properties>
                                 <stepping-mode>None</stepping-mode>
                                 <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Enabled</initial-state>
+                                <initial-state>Disabled</initial-state>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
@@ -1230,8 +1230,8 @@
                         <width>71</width>
                         <height>71</height>
                         <depth>0</depth>
-                        <hotspotX>0.507041991</hotspotX>
-                        <hotspotY>0.507041991</hotspotY>
+                        <hotspotX>0.507042229</hotspotX>
+                        <hotspotY>0.507042229</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -1269,8 +1269,8 @@
                         <width>71</width>
                         <height>71</height>
                         <depth>0</depth>
-                        <hotspotX>0.507041991</hotspotX>
-                        <hotspotY>0.507041991</hotspotY>
+                        <hotspotX>0.507042229</hotspotX>
+                        <hotspotY>0.507042229</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

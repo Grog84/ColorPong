@@ -24,6 +24,7 @@
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
+        <behavior author="Scirra" id="custom" version="1">Custom Movement</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
     </used-behaviors>
     <used-effects>
@@ -612,16 +613,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="RearSpawningPoints" sid="701527897279636">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="508795123807318" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                        <image-point name="SpawningPoint" x="0" y="0.5" />
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="LateralSpawningPoints" sid="702735398444530">
             <plugin id="Sprite" />
             <instance-variables>
@@ -749,6 +740,69 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="snakeHead" sid="165306284251717">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="AnglesNbr" sid="520015515461195" type="number" />
+                <instance-variable name="Xtranslation" sid="976677770928807" type="number" />
+                <instance-variable name="Ytranslation" sid="560537387516973" type="number" />
+                <instance-variable name="Speed" sid="390294844089953" type="number" />
+                <instance-variable name="NbrOfReplicate" sid="416526297424194" type="number" />
+                <instance-variable name="SpawnPointID" sid="371423467338284" type="number" />
+                <instance-variable name="InitialX" sid="374551642610384" type="number" />
+                <instance-variable name="InitialY" sid="171598166554231" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="DestroyOutsideLayout" sid="623648066107480">
+                    <behavior id="destroy" />
+                </behavior-type>
+                <behavior-type name="CustomMovement" sid="844971239891705">
+                    <behavior id="custom" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="424330496359557" speed="5">
+                    <frame duration="1" hotspotX="0.507042" hotspotY="0.507042">
+                        <collision-poly>
+                            <point x="0.323944" y="0.323944" />
+                            <point x="0.676056" y="0.323944" />
+                            <point x="0.676056" y="0.676056" />
+                            <point x="0.323944" y="0.676056" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="snakeTail" sid="496603849853924">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="AnglesNbr" sid="135747556095635" type="number" />
+                <instance-variable name="Xtranslation" sid="135224317863281" type="number" />
+                <instance-variable name="Ytranslation" sid="685085609429759" type="number" />
+                <instance-variable name="Speed" sid="326232533403100" type="number" />
+                <instance-variable name="NbrOfReplicate" sid="381370994716456" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="DestroyOutsideLayout" sid="887326150275261">
+                    <behavior id="destroy" />
+                </behavior-type>
+                <behavior-type name="CustomMovement" sid="439588416354573">
+                    <behavior id="custom" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="727778724091371" speed="5">
+                    <frame duration="1" hotspotX="0.507042" hotspotY="0.507042">
+                        <collision-poly>
+                            <point x="0.323944" y="0.323944" />
+                            <point x="0.676056" y="0.323944" />
+                            <point x="0.676056" y="0.676056" />
+                            <point x="0.323944" y="0.676056" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="110717795313248">
@@ -757,6 +811,8 @@
                 <member>EvilBlock</member>
                 <member>Kamikaze</member>
                 <member>shuriken</member>
+                <member>snakeHead</member>
+                <member>snakeTail</member>
             </members>
         </family>
         <family name="SpecialEnemies" plugin-id="Sprite" sid="907810436450964">
@@ -764,6 +820,7 @@
                 <member>cuboRotante</member>
                 <member>Kamikaze</member>
                 <member>shuriken</member>
+                <member>snakeHead</member>
             </members>
         </family>
         <family name="BallInteractiveEnemies" plugin-id="Sprite" sid="487426960247484">

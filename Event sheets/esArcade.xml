@@ -3,10 +3,11 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esArcade</name>
     <events>
+        <variable constant="0" name="SpawnSnake" sid="361146526715732" static="0" type="number">0</variable>
         <variable constant="0" name="SpawnShuriken" sid="112103926454049" static="0" type="number">0</variable>
         <variable constant="0" name="SpawnKamikaze" sid="123396074125826" static="0" type="number">0</variable>
         <variable constant="0" name="SpawnCuboRotante" sid="403779563706876" static="0" type="number">0</variable>
-        <variable constant="0" name="SpecialEnemiesTypeNbr" sid="509305964104404" static="0" type="number">3</variable>
+        <variable constant="0" name="SpecialEnemiesTypeNbr" sid="509305964104404" static="0" type="number">4</variable>
         <variable constant="0" name="SpecialEnemyType" sid="190215179780222" static="0" type="number">0</variable>
         <variable constant="0" name="MaxSpecialEnemiesNbr" sid="625328798260974" static="0" type="number">1</variable>
         <variable constant="0" name="SpecialEnemiesOnScreen" sid="323556725505910" static="0" type="number">0</variable>
@@ -935,6 +936,71 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-group description="" sid="836517305754571" title="Snake">
+                    <sub-events>
+                        <variable constant="0" name="SpawnPoint" sid="495109853182760" static="0" type="number">0</variable>
+                        <event-block sid="413313614815234">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="798650759749468" type="System">
+                                    <param id="0" name="Variable">SpawnSnake</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="763939432288786" type="System">
+                                    <param id="0" name="Variable">SpawnPoint</param>
+                                    <param id="1" name="Value">int(random(spawn.Count))</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="891619781687514">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="363313308703044" type="spawn">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">SpawnPoint</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-11" name="Subtract from" sid="584979264006481" type="System">
+                                            <param id="0" name="Variable">SpawnSnake</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="103650159848287" type="spawn">
+                                            <param id="0" name="Object">snakeHead</param>
+                                            <param id="1" name="Layer">3</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="419201922082479" type="snakeHead">
+                                            <param id="0" name="Instance variable">SpawnPointID</param>
+                                            <param id="1" name="Value">SpawnPoint</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="274579153915399" type="snakeHead">
+                                            <param id="0" name="Instance variable">InitialX</param>
+                                            <param id="1" name="Value">self.X</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="296699521605374" type="snakeHead">
+                                            <param id="0" name="Instance variable">InitialY</param>
+                                            <param id="1" name="Value">self.Y</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="128043377350775">
+                            <conditions>
+                                <condition id="-18" name="On created" sid="113727894612815" type="snakeHead" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="410532033373331" type="snakeHead">
+                                    <param id="0" name="Instance variable">Xtranslation</param>
+                                    <param id="1" name="Value">random(400, 800)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
                 <event-group description="" sid="725520327828317" title="Shuriken">
                     <sub-events>
                         <variable constant="0" name="SpawnPoint" sid="626390411319223" static="0" type="number">0</variable>

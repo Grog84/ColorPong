@@ -15,7 +15,6 @@
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
-        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
@@ -821,10 +820,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="snakeExplosion" sid="124550679541249">
-            <plugin id="Particles" />
-            <texture />
-        </object-type>
         <object-type name="LocalStorage" sid="110912164991848">
             <plugin id="LocalStorage" />
         </object-type>
@@ -890,6 +885,29 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="slidingDoors" sid="210129344527412">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Speed" sid="919256468669843" type="number" />
+                <instance-variable name="WaitTime" sid="711420981704419" type="number" />
+                <instance-variable comment="0 TopDown // 1 DownUp" name="TopOrDown" sid="736732890637179" type="number" />
+                <instance-variable name="MovementBeforeStop" sid="545185927911398" type="number" />
+                <instance-variable name="TopOrDown_" sid="212706968199746" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="CustomMovement" sid="192457605941662">
+                    <behavior id="custom" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="657093973361676">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="701410664174161" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="110717795313248">
@@ -898,6 +916,7 @@
                 <member>EvilBlock</member>
                 <member>Kamikaze</member>
                 <member>shuriken</member>
+                <member>slidingDoors</member>
                 <member>snakeHead</member>
                 <member>snakeTail</member>
             </members>
@@ -907,6 +926,7 @@
                 <member>cuboRotante</member>
                 <member>Kamikaze</member>
                 <member>shuriken</member>
+                <member>slidingDoors</member>
                 <member>snakeHead</member>
             </members>
         </family>
@@ -914,6 +934,7 @@
             <members>
                 <member>cuboRotante</member>
                 <member>EvilBlock</member>
+                <member>slidingDoors</member>
             </members>
         </family>
     </families>

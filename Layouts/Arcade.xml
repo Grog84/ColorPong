@@ -1286,6 +1286,84 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
+                <instance type="slidingDoors" uid="92">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Speed>0</Speed>
+                        <WaitTime>3</WaitTime>
+                        <TopOrDown>0</TopOrDown>
+                        <MovementBeforeStop>400</MovementBeforeStop>
+                        <TopOrDown_>0</TopOrDown_>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="CustomMovement">
+                            <properties>
+                                <stepping-mode>None</stepping-mode>
+                                <pixels-per-step>5</pixels-per-step>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>1</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-250.5</x>
+                        <y>606</y>
+                        <z>0</z>
+                        <width>30</width>
+                        <height>200</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="slidingDoors" uid="93">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Speed>0</Speed>
+                        <WaitTime>3</WaitTime>
+                        <TopOrDown>0</TopOrDown>
+                        <MovementBeforeStop>400</MovementBeforeStop>
+                        <TopOrDown_>0</TopOrDown_>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="CustomMovement">
+                            <properties>
+                                <stepping-mode>None</stepping-mode>
+                                <pixels-per-step>5</pixels-per-step>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-253.5</x>
+                        <y>606</y>
+                        <z>0</z>
+                        <width>30</width>
+                        <height>200</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>
@@ -2050,45 +2128,6 @@
                         <depth>0</depth>
                         <hotspotX>0.514285743</hotspotX>
                         <hotspotY>0.514285743</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="snakeExplosion" uid="25">
-                    <properties>
-                        <rate>5</rate>
-                        <spray-cone>360</spray-cone>
-                        <type>Continuous spray</type>
-                        <initial-particle-properties></initial-particle-properties>
-                        <speed>200</speed>
-                        <size>32</size>
-                        <opacity>100</opacity>
-                        <grow-rate>0</grow-rate>
-                        <x-randomiser>0</x-randomiser>
-                        <y-randomiser>0</y-randomiser>
-                        <speed-randomiser->0</speed-randomiser->
-                        <size-randomiser>0</size-randomiser>
-                        <grow-rate-randomiser>0</grow-rate-randomiser>
-                        <particle-lifetime-properties></particle-lifetime-properties>
-                        <acceleration>-150</acceleration>
-                        <gravity>0</gravity>
-                        <angle-randomiser>0</angle-randomiser>
-                        <speed-randomiser>800</speed-randomiser>
-                        <opacity-randomiser>0</opacity-randomiser>
-                        <destroy-mode>Fade to invisible</destroy-mode>
-                        <timeout>1</timeout>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>-256</x>
-                        <y>857</y>
-                        <z>0</z>
-                        <width>128</width>
-                        <height>128</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

@@ -1030,6 +1030,10 @@
                                     <param id="0" name="Instance variable">Ytranslation</param>
                                     <param id="1" name="Value">random(200, 500)</param>
                                 </action>
+                                <action id="-10" name="Set value" sid="929258840265012" type="snakeHead">
+                                    <param id="0" name="Instance variable">NextTurnX</param>
+                                    <param id="1" name="Value">self.InitialX - self.Xtranslation</param>
+                                </action>
                                 <action behavior="CustomMovement" id="12" name="Set enabled" sid="274770460373875" type="snakeHead">
                                     <param id="0" name="State">1</param>
                                 </action>
@@ -1040,11 +1044,45 @@
                                     <param id="0" name="Which">1</param>
                                     <param id="1" name="Speed">-self.Speed</param>
                                 </action>
+                                <action id="-9" name="Set value" sid="113414062738177" type="System">
+                                    <param id="0" name="Variable">SnakeIsActive</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
                                 <action id="0" name="Call function" sid="358058996945514" type="Function">
                                     <param id="0" name="Name">&quot;SpawnTail&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="932031215124772">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="666362188517504" type="snakeHead">
+                                            <param id="0" name="Comparison">5</param>
+                                            <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height/2.0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="802497289354560" type="snakeHead">
+                                            <param id="0" name="Instance variable">NextTurnY</param>
+                                            <param id="1" name="Value">self.InitialY - self.Ytranslation</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="756271631026207">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="790196125976735" type="snakeHead">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height/2.0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="326850740738039" type="snakeHead">
+                                            <param id="0" name="Instance variable">NextTurnY</param>
+                                            <param id="1" name="Value">self.InitialY + self.Ytranslation</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="278885642242893">
                             <conditions>
@@ -1149,8 +1187,8 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-16" name="Wait" sid="967878424808852" type="System">
-                                            <param id="0" name="Seconds">0.5</param>
+                                        <action id="-16" name="Wait" sid="327045749794265" type="System">
+                                            <param id="0" name="Seconds">0.2 * loopindex(&quot;TailIDX&quot;)</param>
                                         </action>
                                         <action id="0" name="Call function" sid="841185559404156" type="Function">
                                             <param id="0" name="Name">&quot;SpawnTailPiece&quot;</param>
@@ -1182,18 +1220,6 @@
                                             <param id="1" name="Layer">3</param>
                                             <param id="2" name="Image point">1</param>
                                         </action>
-                                        <action id="-10" name="Set value" sid="535858464674614" type="snakeTail">
-                                            <param id="0" name="Instance variable">SpawnPointID</param>
-                                            <param id="1" name="Value">SpawnPoint</param>
-                                        </action>
-                                        <action id="-10" name="Set value" sid="698329924969329" type="snakeTail">
-                                            <param id="0" name="Instance variable">InitialX</param>
-                                            <param id="1" name="Value">self.X</param>
-                                        </action>
-                                        <action id="-10" name="Set value" sid="786429406011894" type="snakeTail">
-                                            <param id="0" name="Instance variable">InitialY</param>
-                                            <param id="1" name="Value">self.Y</param>
-                                        </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
@@ -1203,8 +1229,20 @@
                                 <condition id="-18" name="On created" sid="113727894612815" type="snakeTail" />
                             </conditions>
                             <actions>
-                                <action id="-16" name="Wait" sid="327045749794265" type="System">
-                                    <param id="0" name="Seconds">1.0</param>
+                                <action id="-16" name="Wait" sid="993483301910467" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="535858464674614" type="snakeTail">
+                                    <param id="0" name="Instance variable">SpawnPointID</param>
+                                    <param id="1" name="Value">SpawnPoint</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="698329924969329" type="snakeTail">
+                                    <param id="0" name="Instance variable">InitialX</param>
+                                    <param id="1" name="Value">self.X</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="786429406011894" type="snakeTail">
+                                    <param id="0" name="Instance variable">InitialY</param>
+                                    <param id="1" name="Value">self.Y</param>
                                 </action>
                                 <action behavior="CustomMovement" id="12" name="Set enabled" sid="623056116130203" type="snakeTail">
                                     <param id="0" name="State">1</param>
@@ -1224,6 +1262,14 @@
                                     <param id="0" name="Instance variable">Ytranslation</param>
                                     <param id="1" name="Value">snakeHead.Ytranslation</param>
                                 </action>
+                                <action id="-10" name="Set value" sid="468423404013296" type="snakeTail">
+                                    <param id="0" name="Instance variable">NextTurnX</param>
+                                    <param id="1" name="Value">snakeHead.NextTurnX</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="129574427270185" type="snakeTail">
+                                    <param id="0" name="Instance variable">NextTurnY</param>
+                                    <param id="1" name="Value">snakeHead.NextTurnY</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="138951560109629">
@@ -1232,9 +1278,9 @@
                                     <param id="0" name="Object">snakeTail</param>
                                 </condition>
                                 <condition id="-8" name="Compare two values" sid="386601907931987" type="System">
-                                    <param id="0" name="First value">abs(snakeTail.X - snakeTail.InitialX)</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Second value">snakeTail.Xtranslation</param>
+                                    <param id="0" name="First value">abs(snakeTail.X - snakeTail.NextTurnX)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">3</param>
                                 </condition>
                                 <condition id="-7" name="Compare instance variable" sid="971455432355707" type="snakeTail">
                                     <param id="0" name="Instance variable">TravellingDirection</param>
@@ -1249,7 +1295,7 @@
                                 <event-block sid="360229851148091">
                                     <conditions>
                                         <condition id="-2" name="Compare Y" sid="624608460652725" type="snakeTail">
-                                            <param id="0" name="Comparison">3</param>
+                                            <param id="0" name="Comparison">5</param>
                                             <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height/2.0</param>
                                         </condition>
                                     </conditions>
@@ -1267,7 +1313,7 @@
                                 <event-block sid="242331250758180">
                                     <conditions>
                                         <condition id="-2" name="Compare Y" sid="237544995964533" type="snakeTail">
-                                            <param id="0" name="Comparison">4</param>
+                                            <param id="0" name="Comparison">2</param>
                                             <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height/2.0</param>
                                         </condition>
                                     </conditions>
@@ -1290,9 +1336,9 @@
                                     <param id="0" name="Object">snakeTail</param>
                                 </condition>
                                 <condition id="-8" name="Compare two values" sid="445549250163579" type="System">
-                                    <param id="0" name="First value">abs(snakeHead.Y - snakeHead.InitialY)</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Second value">snakeHead.Ytranslation</param>
+                                    <param id="0" name="First value">abs(snakeTail.Y - snakeTail.NextTurnY)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">3</param>
                                 </condition>
                                 <condition id="-7" name="Compare instance variable" sid="903416706434567" type="snakeTail">
                                     <param id="0" name="Instance variable">TravellingDirection</param>
@@ -1310,6 +1356,38 @@
                                     <param id="0" name="Instance variable">TravellingDirection</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="849428054693751">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="908895807161569" type="System">
+                                    <param id="0" name="First value">snakeHead.Count + snakeTail.Count</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="279695801829121" type="System">
+                                    <param id="0" name="Variable">SnakeIsActive</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="292637921565925">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="530809387695312" type="System">
+                                    <param id="0" name="First value">snakeTail.Count</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="312766006420669" type="System">
+                                    <param id="0" name="Variable">SnakeIsActive</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="662341113582337" type="snakeTail" />
                             </actions>
                         </event-block>
                     </sub-events>

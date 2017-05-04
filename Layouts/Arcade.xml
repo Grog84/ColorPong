@@ -870,6 +870,8 @@
                         <InitialX>0</InitialX>
                         <InitialY>0</InitialY>
                         <TravellingDirection>0</TravellingDirection>
+                        <NextTurnX>0</NextTurnX>
+                        <NextTurnY>0</NextTurnY>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="DestroyOutsideLayout" />
@@ -890,8 +892,8 @@
                         <width>71</width>
                         <height>71</height>
                         <depth>0</depth>
-                        <hotspotX>0.507041991</hotspotX>
-                        <hotspotY>0.507041991</hotspotY>
+                        <hotspotX>0.507042229</hotspotX>
+                        <hotspotY>0.507042229</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -1211,6 +1213,8 @@
                         <InitialX>0</InitialX>
                         <InitialY>0</InitialY>
                         <TravellingDirection>0</TravellingDirection>
+                        <NextTurnX>0</NextTurnX>
+                        <NextTurnY>0</NextTurnY>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="DestroyOutsideLayout" />
@@ -1254,6 +1258,8 @@
                         <InitialX>0</InitialX>
                         <InitialY>0</InitialY>
                         <TravellingDirection>0</TravellingDirection>
+                        <NextTurnX>0</NextTurnX>
+                        <NextTurnY>0</NextTurnY>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="DestroyOutsideLayout" />

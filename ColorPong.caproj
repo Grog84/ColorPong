@@ -752,6 +752,8 @@
                 <instance-variable name="InitialX" sid="374551642610384" type="number" />
                 <instance-variable name="InitialY" sid="171598166554231" type="number" />
                 <instance-variable comment="0 horizontal // 1 vertical" name="TravellingDirection" sid="870623648228090" type="number" />
+                <instance-variable name="NextTurnX" sid="590579963407767" type="number" />
+                <instance-variable name="NextTurnY" sid="733514331126265" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="DestroyOutsideLayout" sid="623648066107480">
@@ -785,6 +787,8 @@
                 <instance-variable name="InitialX" sid="728059353795610" type="number" />
                 <instance-variable name="InitialY" sid="512477399096572" type="number" />
                 <instance-variable name="TravellingDirection" sid="965660278346176" type="number" />
+                <instance-variable name="NextTurnX" sid="262954880362265" type="number" />
+                <instance-variable name="NextTurnY" sid="285352838853128" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="DestroyOutsideLayout" sid="313095526181517">

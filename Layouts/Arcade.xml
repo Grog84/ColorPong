@@ -898,6 +898,47 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
+                <instance type="slidingDoorsMirror" uid="25">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Speed>300</Speed>
+                        <WaitTime>3</WaitTime>
+                        <MovementBeforeStop>350</MovementBeforeStop>
+                        <HasStopped>0</HasStopped>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>300</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-319</x>
+                        <y>606</y>
+                        <z>0</z>
+                        <width>30</width>
+                        <height>200</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>
@@ -1294,21 +1335,23 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <Speed>0</Speed>
                         <WaitTime>3</WaitTime>
-                        <TopOrDown>0</TopOrDown>
-                        <MovementBeforeStop>400</MovementBeforeStop>
-                        <TopOrDown_>0</TopOrDown_>
+                        <MovementBeforeStop>350</MovementBeforeStop>
+                        <Speed>300</Speed>
+                        <HasStopped>0</HasStopped>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="CustomMovement">
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Bullet">
                             <properties>
-                                <stepping-mode>None</stepping-mode>
-                                <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Disabled</initial-state>
+                                <speed>300</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="DestroyOutsideLayout" />
                     </behavior-instances>
                     <blend-mode>1</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -1333,21 +1376,23 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <Speed>0</Speed>
                         <WaitTime>3</WaitTime>
-                        <TopOrDown>0</TopOrDown>
-                        <MovementBeforeStop>400</MovementBeforeStop>
-                        <TopOrDown_>0</TopOrDown_>
+                        <MovementBeforeStop>350</MovementBeforeStop>
+                        <Speed>300</Speed>
+                        <HasStopped>0</HasStopped>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="CustomMovement">
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Bullet">
                             <properties>
-                                <stepping-mode>None</stepping-mode>
-                                <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Disabled</initial-state>
+                                <speed>300</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="DestroyOutsideLayout" />
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>

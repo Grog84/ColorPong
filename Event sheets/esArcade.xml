@@ -1030,143 +1030,76 @@
                 </event-block>
                 <event-group description="" sid="867239374571230" title="SlidingDoors">
                     <sub-events>
-                        <variable constant="0" name="SpawnPoint" sid="958921481052800" static="0" type="number">0</variable>
                         <event-block sid="117122975895892">
                             <conditions>
-                                <condition breakpoint="1" id="-14" name="Compare variable" sid="933325585557112" type="System">
+                                <condition id="-14" name="Compare variable" sid="933325585557112" type="System">
                                     <param id="0" name="Variable">SpawnSlidingDoors</param>
                                     <param id="1" name="Comparison">5</param>
                                     <param id="2" name="Value">1</param>
                                 </condition>
                             </conditions>
-                            <actions>
-                                <action id="-9" name="Set value" sid="569345512191422" type="System">
-                                    <param id="0" name="Variable">SpawnPoint</param>
-                                    <param id="1" name="Value">int(random(LateralSpawningPoints.Count))</param>
-                                </action>
-                            </actions>
+                            <actions />
                             <sub-events>
+                                <variable constant="0" name="GetPair" sid="891731946230918" static="0" type="number">0</variable>
+                                <event-block sid="514053586366081">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="854940789900519" type="System">
+                                            <param id="0" name="Variable">GetPair</param>
+                                            <param id="1" name="Value">int(random(2))</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
                                 <event-block sid="617187704416940">
                                     <conditions>
                                         <condition id="-7" name="Compare instance variable" sid="120761416886538" type="LateralSpawningPoints">
                                             <param id="0" name="Instance variable">ID</param>
                                             <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">SpawnPoint</param>
+                                            <param id="2" name="Value">GetPair * 2.0</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-11" name="Subtract from" sid="954908687086439" type="System">
-                                            <param id="0" name="Variable">SpawnSlidingDoors</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
                                         <action id="0" name="Spawn another object" sid="104403706430352" type="LateralSpawningPoints">
                                             <param id="0" name="Object">slidingDoors</param>
                                             <param id="1" name="Layer">3</param>
                                             <param id="2" name="Image point">1</param>
                                         </action>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="218423412307673" type="slidingDoors">
+                                            <param id="0" name="Angle">90</param>
+                                        </action>
+                                        <action behavior="Bullet" id="0" name="Set speed" sid="609357636318116" type="slidingDoors">
+                                            <param id="0" name="Speed">self.Speed</param>
+                                        </action>
                                     </actions>
-                                    <sub-events>
-                                        <event-block sid="932839733097708">
-                                            <conditions>
-                                                <condition id="-8" name="Compare two values" sid="386861271776797" type="System">
-                                                    <param id="0" name="First value">SpawnPoint % 2</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Second value">0</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-10" name="Set value" sid="480323901884722" type="slidingDoors">
-                                                    <param id="0" name="Instance variable">TopOrDown</param>
-                                                    <param id="1" name="Value">1</param>
-                                                </action>
-                                                <action id="-10" name="Set value" sid="405386105030595" type="slidingDoors">
-                                                    <param id="0" name="Instance variable">TopOrDown_</param>
-                                                    <param id="1" name="Value">1</param>
-                                                </action>
-                                            </actions>
-                                            <sub-events>
-                                                <event-block sid="986894783546227">
-                                                    <conditions>
-                                                        <condition id="-7" name="Compare instance variable" sid="895960060088157" type="LateralSpawningPoints">
-                                                            <param id="0" name="Instance variable">ID</param>
-                                                            <param id="1" name="Comparison">0</param>
-                                                            <param id="2" name="Value">SpawnPoint+1</param>
-                                                        </condition>
-                                                    </conditions>
-                                                    <actions>
-                                                        <action id="0" name="Spawn another object" sid="304026730650218" type="LateralSpawningPoints">
-                                                            <param id="0" name="Object">slidingDoors</param>
-                                                            <param id="1" name="Layer">3</param>
-                                                            <param id="2" name="Image point">1</param>
-                                                        </action>
-                                                        <action id="-10" name="Set value" sid="312311033496109" type="slidingDoors">
-                                                            <param id="0" name="Instance variable">TopOrDown</param>
-                                                            <param id="1" name="Value">-1</param>
-                                                        </action>
-                                                        <action id="-10" name="Set value" sid="390966280022469" type="slidingDoors">
-                                                            <param id="0" name="Instance variable">TopOrDown_</param>
-                                                            <param id="1" name="Value">-1</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                            </sub-events>
-                                        </event-block>
-                                        <event-block sid="325641129842208">
-                                            <conditions>
-                                                <condition id="-8" name="Compare two values" sid="195764907880869" type="System">
-                                                    <param id="0" name="First value">SpawnPoint % 2</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Second value">1</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-10" name="Set value" sid="329730709522869" type="slidingDoors">
-                                                    <param id="0" name="Instance variable">TopOrDown</param>
-                                                    <param id="1" name="Value">-1</param>
-                                                </action>
-                                                <action id="-10" name="Set value" sid="380718746204153" type="slidingDoors">
-                                                    <param id="0" name="Instance variable">TopOrDown_</param>
-                                                    <param id="1" name="Value">-1</param>
-                                                </action>
-                                            </actions>
-                                            <sub-events>
-                                                <event-block sid="278694260884453">
-                                                    <conditions>
-                                                        <condition id="-7" name="Compare instance variable" sid="160226174314497" type="LateralSpawningPoints">
-                                                            <param id="0" name="Instance variable">ID</param>
-                                                            <param id="1" name="Comparison">0</param>
-                                                            <param id="2" name="Value">SpawnPoint-1</param>
-                                                        </condition>
-                                                    </conditions>
-                                                    <actions>
-                                                        <action id="0" name="Spawn another object" sid="664581814998230" type="LateralSpawningPoints">
-                                                            <param id="0" name="Object">slidingDoors</param>
-                                                            <param id="1" name="Layer">3</param>
-                                                            <param id="2" name="Image point">1</param>
-                                                        </action>
-                                                        <action id="-10" name="Set value" sid="286058452206509" type="slidingDoors">
-                                                            <param id="0" name="Instance variable">TopOrDown</param>
-                                                            <param id="1" name="Value">1</param>
-                                                        </action>
-                                                        <action id="-10" name="Set value" sid="295933118743871" type="slidingDoors">
-                                                            <param id="0" name="Instance variable">TopOrDown_</param>
-                                                            <param id="1" name="Value">1</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                            </sub-events>
-                                        </event-block>
-                                    </sub-events>
                                 </event-block>
-                                <event-block sid="165817108512476">
+                                <event-block sid="175609831314145">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="410826183878634" type="LateralSpawningPoints">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">GetPair * 2.0 + 1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="657799276446716" type="LateralSpawningPoints">
+                                            <param id="0" name="Object">slidingDoorsMirror</param>
+                                            <param id="1" name="Layer">3</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="659621173569452" type="slidingDoorsMirror">
+                                            <param id="0" name="Angle">-90</param>
+                                        </action>
+                                        <action behavior="Bullet" id="0" name="Set speed" sid="107354120956752" type="slidingDoorsMirror">
+                                            <param id="0" name="Speed">Self.Speed</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="528173653650854">
                                     <conditions />
                                     <actions>
-                                        <action behavior="CustomMovement" id="12" name="Set enabled" sid="983698127159075" type="slidingDoors">
-                                            <param id="0" name="State">1</param>
-                                        </action>
-                                        <action behavior="CustomMovement" id="2" name="Set speed" sid="344668105277308" type="slidingDoors">
-                                            <param id="0" name="Which">2</param>
-                                            <param id="1" name="Speed">self.Speed * Self.TopOrDown</param>
+                                        <action id="-11" name="Subtract from" sid="954908687086439" type="System">
+                                            <param id="0" name="Variable">SpawnSlidingDoors</param>
+                                            <param id="1" name="Value">1</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -1174,68 +1107,80 @@
                         </event-block>
                         <event-block sid="404609547707597">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="683612077904686" type="slidingDoors">
-                                    <param id="0" name="Instance variable">TopOrDown</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">1</param>
-                                </condition>
                                 <condition id="-2" name="Compare Y" sid="450905995610311" type="slidingDoors">
                                     <param id="0" name="Comparison">5</param>
                                     <param id="1" name="Y co-ordinate">FRAMEOFFSET + Self.MovementBeforeStop</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Set value" sid="492495133594502" type="slidingDoors">
-                                    <param id="0" name="Instance variable">TopOrDown</param>
-                                    <param id="1" name="Value">0</param>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="301228647644701" type="slidingDoors">
+                                    <param id="0" name="Speed">0</param>
                                 </action>
-                                <action behavior="CustomMovement" id="0" name="Stop" sid="251249567241668" type="slidingDoors" />
+                                <action id="-10" name="Set value" sid="648764178845751" type="slidingDoors">
+                                    <param id="0" name="Instance variable">HasStopped</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="214074836226722">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="782058600360488" type="slidingDoors">
-                                    <param id="0" name="Instance variable">TopOrDown</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">-1</param>
-                                </condition>
-                                <condition id="-2" name="Compare Y" sid="467730981861168" type="slidingDoors">
+                                <condition id="-2" name="Compare Y" sid="467730981861168" type="slidingDoorsMirror">
                                     <param id="0" name="Comparison">3</param>
                                     <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height - Self.MovementBeforeStop</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Set value" sid="546881488868975" type="slidingDoors">
-                                    <param id="0" name="Instance variable">TopOrDown</param>
-                                    <param id="1" name="Value">0</param>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="863288345181307" type="slidingDoorsMirror">
+                                    <param id="0" name="Speed">0</param>
                                 </action>
-                                <action behavior="CustomMovement" id="0" name="Stop" sid="471095353466969" type="slidingDoors" />
+                                <action id="-10" name="Set value" sid="576955000169794" type="slidingDoorsMirror">
+                                    <param id="0" name="Instance variable">HasStopped</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="583751498179211">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="146136161370976" type="slidingDoors">
-                                    <param id="0" name="Instance variable">TopOrDown</param>
+                                <condition id="-7" name="Compare instance variable" sid="491118775156400" type="slidingDoors">
+                                    <param id="0" name="Instance variable">HasStopped</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">0</param>
+                                    <param id="2" name="Value">1</param>
                                 </condition>
                             </conditions>
                             <actions>
                                 <action id="-16" name="Wait" sid="331350811210161" type="System">
                                     <param id="0" name="Seconds">slidingDoors.WaitTime</param>
                                 </action>
-                                <action behavior="CustomMovement" id="2" name="Set speed" sid="275922864116160" type="slidingDoors">
-                                    <param id="0" name="Which">2</param>
-                                    <param id="1" name="Speed">self.Speed * Self.TopOrDown_</param>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="430926917798677" type="slidingDoors">
+                                    <param id="0" name="Speed">Self.Speed</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="265852857213756" type="slidingDoors">
+                                    <param id="0" name="Angle">90</param>
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block any="1" sid="762466386950485">
+                        <event-block sid="968775741200708">
                             <conditions>
-                                <condition id="-2" name="Compare Y" sid="297786581042694" type="slidingDoors">
-                                    <param id="0" name="Comparison">2</param>
-                                    <param id="1" name="Y co-ordinate">FRAMEOFFSET -20</param>
+                                <condition id="-7" name="Compare instance variable" sid="826014031581778" type="slidingDoorsMirror">
+                                    <param id="0" name="Instance variable">HasStopped</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
                                 </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="158518564569823" type="System">
+                                    <param id="0" name="Seconds">slidingDoorsMirror.WaitTime</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="472034394449273" type="slidingDoorsMirror">
+                                    <param id="0" name="Speed">self.Speed</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="822431538317807" type="slidingDoorsMirror">
+                                    <param id="0" name="Angle">-90</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="762466386950485">
+                            <conditions>
                                 <condition id="-2" name="Compare Y" sid="845723440637937" type="slidingDoors">
                                     <param id="0" name="Comparison">4</param>
                                     <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height +30</param>
@@ -1243,6 +1188,17 @@
                             </conditions>
                             <actions>
                                 <action id="-9" name="Destroy" sid="958612079701282" type="slidingDoors" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="324075455084545">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="404826582267638" type="slidingDoorsMirror">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Y co-ordinate">FRAMEOFFSET -20</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="956244998633408" type="slidingDoorsMirror" />
                             </actions>
                         </event-block>
                     </sub-events>
@@ -2322,13 +2278,5 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-block sid="153847447992949">
-            <conditions>
-                <condition disabled="1" id="0" name="On function" sid="792264288388640" type="Function">
-                    <param id="0" name="Name">&quot;FadeToLeaderboard&quot;</param>
-                </condition>
-            </conditions>
-            <actions />
-        </event-block>
     </events>
 </c2eventsheet>

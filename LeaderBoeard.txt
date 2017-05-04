@@ -1,9 +1,5 @@
-xxxPROxxx;
-100;
-|
-Tizio;
-90;
-|
+xxxPROxxx;100;|
+Tizio;90;|
 Caio;
 80;
 |

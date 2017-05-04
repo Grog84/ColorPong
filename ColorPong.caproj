@@ -849,6 +849,47 @@
         <object-type name="InsertName" sid="439756608264463">
             <plugin id="TextBox" />
         </object-type>
+        <object-type name="TextProgress" sid="985961793240612">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="InitialX" sid="953392087896384" type="number" />
+                <instance-variable name="StepSize" sid="270136901528824" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Sine" sid="115048575389965">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="412991604423530" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="newScore" sid="366609925904687">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="HighlightScore" sid="282096810500420">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="609746241432372">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <effects>
+                <effect-type name="BlurHorizontal">
+                    <effect id="blurhorizontal" />
+                </effect-type>
+                <effect-type name="BlurVertical">
+                    <effect id="blurvertical" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="815077573959934" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="110717795313248">

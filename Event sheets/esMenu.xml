@@ -3,8 +3,25 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esMenu</name>
     <events>
+        <variable constant="0" name="MenuTotalFadeTime" sid="646520636158706" static="0" type="number">4</variable>
+        <variable constant="0" name="MenuFadeTime" sid="356001933636255" static="0" type="number">0</variable>
         <variable constant="0" name="ArcadeModeY" sid="355110049591499" static="0" type="number">675</variable>
         <variable constant="0" name="StoryModeY" sid="388454732573628" static="0" type="number">550</variable>
+        <event-block sid="352679033760656">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="385319328629667" type="System" />
+            </conditions>
+            <actions>
+                <action id="-18" name="Set layer opacity" sid="837344069749676" type="System">
+                    <param id="0" name="Layer">3</param>
+                    <param id="1" name="Opacity">100</param>
+                </action>
+                <action id="-9" name="Set value" sid="878079557992031" type="System">
+                    <param id="0" name="Variable">MenuFadeTime</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="531203452287816">
             <conditions>
                 <condition id="0" name="On key pressed" sid="344033699531235" type="Keyboard">
@@ -63,6 +80,49 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="214669361310747">
+            <conditions>
+                <condition id="0" name="On function" sid="141436632034518" type="Function">
+                    <param id="0" name="Name">&quot;DecreaseLayoutOpacity&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="timeRatio" sid="811287631805583" static="0" type="number">0</variable>
+                <event-block sid="645696369141721">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="845550248635447" type="System">
+                            <param id="0" name="Variable">timeRatio</param>
+                            <param id="1" name="Value">MenuFadeTime/MenuTotalFadeTime</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="538845522650461" type="System">
+                            <param id="0" name="Layer">3</param>
+                            <param id="1" name="Opacity">100.0 - timeRatio*timeRatio*100.0</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="775325937328752" type="System">
+                            <param id="0" name="Variable">MenuFadeTime</param>
+                            <param id="1" name="Value">dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="886733641804242">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="223669112707565" type="System">
+                    <param id="0" name="First value">LayerOpacity(3)</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Second value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="888101969399883" type="Function">
+                    <param id="0" name="Name">&quot;DecreaseLayoutOpacity&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>

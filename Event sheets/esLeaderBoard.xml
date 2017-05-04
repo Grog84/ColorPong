@@ -3,6 +3,14 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esLeaderBoard</name>
     <events>
+        <variable constant="1" name="LEADERBOARDOFFSET" sid="967936865960446" static="0" type="number">565</variable>
+        <variable constant="0" name="TriggerBackToMenu" sid="124421542187688" static="0" type="number">0</variable>
+        <variable constant="0" name="LayoutTotalFadeTime" sid="259495989496878" static="0" type="number">8</variable>
+        <variable constant="0" name="LayoutFadeTime" sid="341520575483924" static="0" type="number">0</variable>
+        <variable constant="0" name="NewScoreCreated" sid="353999096911625" static="0" type="number">0</variable>
+        <variable constant="0" name="NewScorePos" sid="111314920466879" static="0" type="number">-1</variable>
+        <variable constant="0" name="NewScore" sid="743211744192757" static="0" type="number">0</variable>
+        <variable constant="0" name="arrayPointer" sid="169703728324835" static="0" type="number">0</variable>
         <variable constant="0" name="WaitForLeaderBoardLoad" sid="332580055198005" static="0" type="number">0</variable>
         <event-block sid="220317488270437">
             <conditions>
@@ -13,7 +21,81 @@
                     <param id="0" name="Tag">&quot;ReadLeader&quot;</param>
                     <param id="1" name="File">LeaderBoeard.txt</param>
                 </action>
+                <action id="7" name="Set CSS style" sid="806290158635166" type="InsertName">
+                    <param id="0" name="Property name">&quot;opacity&quot;</param>
+                    <param id="1" name="Value">&quot;0&quot;</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="742552375075728" type="System">
+                    <param id="0" name="Layer">2</param>
+                    <param id="1" name="Opacity">0</param>
+                </action>
+                <action id="-3" name="Set position" sid="799589732481974" type="HighlightScore">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">-500</param>
+                </action>
+                <action id="-9" name="Set value" sid="616755959413728" type="System">
+                    <param id="0" name="Variable">LayoutFadeTime</param>
+                    <param id="1" name="Value">0</param>
+                </action>
             </actions>
+            <sub-events>
+                <event-block sid="102131876914634">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="382390366667352" type="LeaderBoardText">
+                            <param id="0" name="Instance variable">ID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Append text" sid="888381721170135" type="LeaderBoardText">
+                            <param id="0" name="Text">newline</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="489549909819163">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="697985632621569" type="LeaderBoardText">
+                            <param id="0" name="Instance variable">ID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Append text" sid="725305043206629" type="LeaderBoardText">
+                            <param id="0" name="Text">newline</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="429190352133691">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="181954643281143" type="LeaderBoardText">
+                            <param id="0" name="Instance variable">ID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Append text" sid="180058696978601" type="LeaderBoardText">
+                            <param id="0" name="Text">newline</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="457996788395877">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="521442664739373" type="LeaderBoardText">
+                            <param id="0" name="Instance variable">ID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">11</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="267931216832505" type="LeaderBoardText">
+                            <param id="0" name="Text">GameScore</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="411414753387936">
             <conditions>
@@ -52,10 +134,6 @@
                 <event-block sid="208636692858261">
                     <conditions />
                     <actions>
-                        <action id="0" name="Call function" sid="360983180163538" type="Function">
-                            <param id="0" name="Name">&quot;PrintLeaderBoard&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
-                        </action>
                         <action id="-9" name="Set value" sid="198346867552878" type="System">
                             <param id="0" name="Variable">WaitForLeaderBoardLoad</param>
                             <param id="1" name="Value">1</param>
@@ -72,29 +150,221 @@
             </conditions>
             <actions />
             <sub-events>
-                <variable constant="0" name="i" sid="426575905930500" static="0" type="number">0</variable>
-                <event-block sid="105687880263603">
+                <event-block sid="585821258293104">
                     <conditions>
-                        <condition id="-10" name="For" sid="872254656282231" type="System">
-                            <param id="0" name="Name">&quot;EntryIDX&quot;</param>
-                            <param id="1" name="Start index">0</param>
-                            <param id="2" name="End index">9</param>
+                        <condition id="-14" name="Compare variable" sid="865379020740158" type="System">
+                            <param id="0" name="Variable">NewScore</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
                         </condition>
-                        <condition id="-7" name="Compare instance variable" sid="942149168536564" type="LeaderBoardText">
-                            <param id="0" name="Instance variable">ID</param>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="954430131779619">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="716018020962889" type="LeaderBoardText">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="290685903643991" type="LeaderBoardText">
+                                    <param id="0" name="Text">&quot;RANK&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="773882984290151">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="213172107513277" type="LeaderBoardText">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="764316927268306" type="LeaderBoardText">
+                                    <param id="0" name="Text">&quot;PLAYER&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="383651583951041">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="899933407906457" type="LeaderBoardText">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="744173472435115" type="LeaderBoardText">
+                                    <param id="0" name="Text">&quot;SCORE&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="375000302130971">
+                            <conditions>
+                                <condition id="-10" name="For" sid="892830447292831" type="System">
+                                    <param id="0" name="Name">&quot;EntryIDX&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">9</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="349280540206164">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="753333108838378" type="LeaderBoardText">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Append text" sid="287396494720250" type="LeaderBoardText">
+                                            <param id="0" name="Text">newline &amp; loopindex+1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="259096467645755">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="639722281823238" type="LeaderBoardText">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Append text" sid="444280551915065" type="LeaderBoardText">
+                                            <param id="0" name="Text">newline &amp;highScore.At(loopindex, 0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="448629019134871">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="263681030253704" type="LeaderBoardText">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Append text" sid="306098327360014" type="LeaderBoardText">
+                                            <param id="0" name="Text">newline &amp; highScore.At(loopindex, 1) </param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="288966031229261">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="172109719901034" type="System">
+                            <param id="0" name="Variable">NewScore</param>
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">1</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="1" name="Append text" sid="261721967909667" type="LeaderBoardText">
-                            <param id="0" name="Text">newline &amp; loopindex+1 &amp; &quot;. &quot; &amp; highScore.At(i, 0) &amp; &quot; &quot;&amp; highScore.At(i, 1) </param>
-                        </action>
-                        <action id="-10" name="Add to" sid="478238564098991" type="System">
-                            <param id="0" name="Variable">i</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="962765284639534">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="686905173713482" type="LeaderBoardText">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="580242326207208" type="LeaderBoardText">
+                                    <param id="0" name="Text">&quot;RANK&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="798022970217666">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="226721912200490" type="LeaderBoardText">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="135858459883382" type="LeaderBoardText">
+                                    <param id="0" name="Text">&quot;PLAYER&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="492454926313633">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="585676316669001" type="LeaderBoardText">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="800118296206547" type="LeaderBoardText">
+                                    <param id="0" name="Text">&quot;SCORE&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="105687880263603">
+                            <conditions>
+                                <condition id="-10" name="For" sid="872254656282231" type="System">
+                                    <param id="0" name="Name">&quot;EntryIDX&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">9</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="704426607170501">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="942149168536564" type="LeaderBoardText">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Append text" sid="261721967909667" type="LeaderBoardText">
+                                            <param id="0" name="Text">newline &amp; loopindex+1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="357355575055518">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="708347580833327" type="LeaderBoardText">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Append text" sid="110224853662391" type="LeaderBoardText">
+                                            <param id="0" name="Text">newline &amp;newScore.At(loopindex, 0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="943632973098888">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="848213660577927" type="LeaderBoardText">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Append text" sid="803594687713663" type="LeaderBoardText">
+                                            <param id="0" name="Text">newline &amp; newScore.At(loopindex, 1) </param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
@@ -106,27 +376,417 @@
                     <param id="2" name="Value">1</param>
                 </condition>
             </conditions>
-            <actions />
+            <actions>
+                <action id="0" name="Call function" sid="360983180163538" type="Function">
+                    <param id="0" name="Name">&quot;PrintLeaderBoard&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
             <sub-events>
                 <event-block sid="597217133183038">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="925970008273995" type="System">
                             <param id="0" name="Variable">GameScore</param>
                             <param id="1" name="Comparison">5</param>
-                            <param id="2" name="Value">highScore.At(0,9)</param>
+                            <param id="2" name="Value">highScore.At(9,1)</param>
                         </condition>
+                        <condition id="-4" name="Trigger once while true" sid="954416355308399" type="System" />
                     </conditions>
                     <actions>
-                        <action id="3" name="Set visible" sid="522477162300557" type="InsertName">
+                        <action id="4" name="Set enabled" sid="872326109195035" type="InsertName">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="487172993627264" type="TextProgress">
                             <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="265228155269979" type="highScore">
+                            <param id="0" name="X">9</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">GameScore</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="702504396126963" type="highScore">
+                            <param id="0" name="X">9</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">InsertName.Text</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="264435181611607" type="System">
+                            <param id="0" name="Variable">arrayPointer</param>
+                            <param id="1" name="Value">9</param>
+                        </action>
+                        <action id="0" name="Call function" sid="889681441426616" type="Function">
+                            <param id="0" name="Name">&quot;CreateNewLeaderBoard&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="379387997014285" type="System">
+                            <param id="0" name="Variable">NewScore</param>
+                            <param id="1" name="Value">1</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="509612827965591">
+            </sub-events>
+        </event-block>
+        <event-block sid="363825622836613">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="228912641290705" type="System" />
+                <condition id="-7" name="Compare instance variable" sid="778997933954498" type="LeaderBoardText">
+                    <param id="0" name="Instance variable">ID</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">12</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="101321457386657" type="System">
+                    <param id="0" name="Variable">GameScore</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">highScore.At(9,1)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="824471457759655" type="System">
+                    <param id="0" name="Variable">NewScoreCreated</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="6" name="Set focused" sid="703793488181881" type="InsertName" />
+                <action id="0" name="Set text" sid="779901577783097" type="LeaderBoardText">
+                    <param id="0" name="Text">InsertName.Text</param>
+                </action>
+                <action id="-1" name="Set X" sid="578532521776269" type="TextProgress">
+                    <param id="0" name="X">min(Self.InitialX + len(InsertName.Text) * self.StepSize, Self.InitialX + 9 * self.StepSize)</param>
+                </action>
+                <action id="3" name="Set at XY" sid="925521754192571" type="newScore">
+                    <param id="0" name="X">NewScorePos</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">InsertName.Text</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="585726897781436">
+            <conditions>
+                <condition id="-8" name="Compare two values" sid="352214361890162" type="System">
+                    <param id="0" name="First value">len(InsertName.Text)</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Second value">10</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="705680003241617" type="System">
+                    <param id="0" name="Variable">GameScore</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">highScore.At(9,1)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="256567042489554" type="InsertName">
+                    <param id="0" name="Text">left(InsertName.Text, 9)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="576754225754669">
+            <conditions>
+                <condition id="0" name="On function" sid="220363618660855" type="Function">
+                    <param id="0" name="Name">&quot;CreateNewLeaderBoard&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="LeftIDX" sid="573107307851946" static="0" type="number">0</variable>
+                <event-block sid="374568970735976">
                     <conditions>
-                        <condition id="-22" name="Else" sid="704780260781909" type="System" />
+                        <condition id="-10" name="For" sid="109207726127250" type="System">
+                            <param id="0" name="Name">&quot;IDX&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">8</param>
+                        </condition>
                     </conditions>
                     <actions />
+                    <sub-events>
+                        <event-block sid="261791361246249">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="837588826857202" type="System">
+                                    <param id="0" name="First value">int(highScore.At(loopindex(&quot;IDX&quot;), 1))</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">GameScore</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set at XY" sid="143034322553697" type="newScore">
+                                    <param id="0" name="X">loopindex(&quot;IDX&quot;)</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">highScore.At(loopindex(&quot;IDX&quot;), 0)</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="130516567671635" type="newScore">
+                                    <param id="0" name="X">loopindex(&quot;IDX&quot;)</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">highScore.At(loopindex(&quot;IDX&quot;), 1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="671999298241187">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="388904669747090" type="System">
+                                    <param id="0" name="First value">int(highScore.At(loopindex(&quot;IDX&quot;), 1))</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">GameScore</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="750757396568988" type="System">
+                                    <param id="0" name="Variable">LeftIDX</param>
+                                    <param id="1" name="Value">loopindex(&quot;IDX&quot;)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="662281024862615" type="System">
+                                    <param id="0" name="Variable">NewScorePos</param>
+                                    <param id="1" name="Value">LeftIDX</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="681496481452419" type="newScore">
+                                    <param id="0" name="X">loopindex(&quot;IDX&quot;)</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">&quot;&quot;</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="458182391385617" type="newScore">
+                                    <param id="0" name="X">loopindex(&quot;IDX&quot;)</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">GameScore</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="523842758571956" type="newScore">
+                                    <param id="0" name="X">loopindex(&quot;IDX&quot;) + 1</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">highScore.At(loopindex(&quot;IDX&quot;), 0)</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="642617858247420" type="newScore">
+                                    <param id="0" name="X">loopindex(&quot;IDX&quot;) +1</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">highScore.At(loopindex(&quot;IDX&quot;), 1)</param>
+                                </action>
+                                <action id="-24" name="Stop loop" sid="704741520597606" type="System" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="697631342346534">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="605370546176405" type="System">
+                                    <param id="0" name="First value">int(highScore.At(loopindex(&quot;IDX&quot;), 1))</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Second value">GameScore</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="854890682838922" type="System">
+                                    <param id="0" name="Variable">LeftIDX</param>
+                                    <param id="1" name="Value">loopindex(&quot;IDX&quot;) </param>
+                                </action>
+                                <action id="-9" name="Set value" sid="553618685053944" type="System">
+                                    <param id="0" name="Variable">NewScorePos</param>
+                                    <param id="1" name="Value">LeftIDX</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="398300040217500" type="newScore">
+                                    <param id="0" name="X">loopindex(&quot;IDX&quot;)</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">&quot;&quot;</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="413984998541893" type="newScore">
+                                    <param id="0" name="X">loopindex(&quot;IDX&quot;)</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">GameScore</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="688378816751477" type="newScore">
+                                    <param id="0" name="X">loopindex(&quot;IDX&quot;) + 1</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">highScore.At(loopindex(&quot;IDX&quot;), 0)</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="334602385673852" type="newScore">
+                                    <param id="0" name="X">loopindex(&quot;IDX&quot;) +1</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">highScore.At(loopindex(&quot;IDX&quot;), 1)</param>
+                                </action>
+                                <action id="-24" name="Stop loop" sid="517319426542435" type="System" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="358753303220629">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="163840080773152" type="System">
+                            <param id="0" name="Variable">LeftIDX</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">8</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set at XY" sid="582187137323718" type="newScore">
+                            <param id="0" name="X">9</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">&quot;&quot;</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="420354148140179" type="newScore">
+                            <param id="0" name="X">9</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">GameScore</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="969168515463234">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="900464710571241" type="System">
+                            <param id="0" name="Variable">LeftIDX</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">8</param>
+                        </condition>
+                        <condition id="-10" name="For" sid="964837252978278" type="System">
+                            <param id="0" name="Name">&quot;IDX2&quot;</param>
+                            <param id="1" name="Start index">LeftIDX+2</param>
+                            <param id="2" name="End index">9</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set at XY" sid="641025910515538" type="newScore">
+                            <param id="0" name="X">loopindex(&quot;IDX2&quot;)</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">highScore.At(loopindex(&quot;IDX2&quot;)-1, 0)</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="168472908605287" type="newScore">
+                            <param id="0" name="X">loopindex(&quot;IDX2&quot;)</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">highScore.At(loopindex(&quot;IDX2&quot;)-1, 1)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="501369568708595">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="530076580471906" type="System">
+                            <param id="0" name="Variable">NewScoreCreated</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="573852873209126">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="763644821852201" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="715639378152641" type="System">
+                    <param id="0" name="Variable">NewScoreCreated</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="862467746956525" type="System">
+                    <param id="0" name="Variable">WaitForLeaderBoardLoad</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="3" name="Set at XY" sid="628870804801014" type="newScore">
+                    <param id="0" name="X">NewScorePos</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">InsertName.Text</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="471985294932088">
+                    <conditions>
+                        <condition id="-10" name="For" sid="574691975223034" type="System">
+                            <param id="0" name="Name">&quot;IDX&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">9</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set at XY" sid="445864896912756" type="highScore">
+                            <param id="0" name="X">loopindex(&quot;IDX&quot;)</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">newScore.At(loopindex(&quot;IDX&quot;), 0)</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="437603617902610" type="highScore">
+                            <param id="0" name="X">loopindex(&quot;IDX&quot;)</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">newScore.At(loopindex(&quot;IDX&quot;), 1)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="733935817083347">
+                    <conditions />
+                    <actions>
+                        <action id="-3" name="Set position" sid="323280942476138" type="HighlightScore">
+                            <param id="0" name="X">LayoutWidth / 2.0</param>
+                            <param id="1" name="Y">LEADERBOARDOFFSET + NewScorePos * 47</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="265237066916743" type="System">
+                            <param id="0" name="Variable">TriggerBackToMenu</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="813709743270415" type="System">
+                            <param id="0" name="Variable">NewScorePos</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="435506765132723">
+            <conditions>
+                <condition id="-17" name="Compare opacity" sid="490211422808046" type="System">
+                    <param id="0" name="Layer">2</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Opacity">100</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="102235627312543" type="System">
+                    <param id="0" name="Variable">TriggerBackToMenu</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="290904555547430" type="Function">
+                    <param id="0" name="Name">&quot;IncreaseLayoutOpacity&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="436171167538992">
+            <conditions>
+                <condition id="-17" name="Compare opacity" sid="431769277700614" type="System">
+                    <param id="0" name="Layer">2</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Opacity">100</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Fade" id="1" name="Start fade" sid="491854697734834" type="HighlightScore" />
+            </actions>
+        </event-block>
+        <event-block sid="469334432227942">
+            <conditions>
+                <condition behavior="Fade" id="0" name="On fade-out finished" sid="843392391228646" type="HighlightScore" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="421981709290070" type="System">
+                    <param id="0" name="Layout">Menu</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="655142061073892">
+            <conditions>
+                <condition id="0" name="On function" sid="468505548979704" type="Function">
+                    <param id="0" name="Name">&quot;IncreaseLayoutOpacity&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="timeRatio" sid="829531735130573" static="0" type="number">0</variable>
+                <event-block sid="163729390536321">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="424740137308350" type="System">
+                            <param id="0" name="Variable">timeRatio</param>
+                            <param id="1" name="Value">LayoutFadeTime/LayoutTotalFadeTime</param>
+                        </action>
+                        <action id="-18" name="Set layer opacity" sid="150122211213048" type="System">
+                            <param id="0" name="Layer">2</param>
+                            <param id="1" name="Opacity">timeRatio*timeRatio*100.0</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="536524182433092" type="System">
+                            <param id="0" name="Variable">LayoutFadeTime</param>
+                            <param id="1" name="Value">dt</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-block>

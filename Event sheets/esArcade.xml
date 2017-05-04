@@ -607,6 +607,26 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="583676228056037">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="386866263537743" type="Ball">
+                            <param id="0" name="Object">snakeHead</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="643661095854615" type="snakeHead" />
+                    </actions>
+                </event-block>
+                <event-block sid="207513529418128">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="902036780741761" type="Ball">
+                            <param id="0" name="Object">snakeTail</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="522866619168785" type="snakeTail" />
+                    </actions>
+                </event-block>
                 <event-block sid="616240306503920">
                     <conditions>
                         <condition behavior="Bullet" id="0" name="Compare speed" sid="782640578565818" type="Ball">
@@ -717,6 +737,28 @@
                         <action id="-9" name="Destroy" sid="555729443777461" type="PlayerGlow" />
                         <action id="-9" name="Destroy" sid="658769610655559" type="PlayerTile" />
                     </actions>
+                    <sub-events>
+                        <event-block sid="463285320728685">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="613162914460403" type="SCORE">
+                                    <param id="0" name="Instance variable">ID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Set opacity" sid="921027406256693" type="SCORE">
+                                    <param id="0" name="Opacity">100</param>
+                                </action>
+                                <action behavior="Sine" id="0" name="Set active" sid="525278723587877" type="SCORE">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="744147769028895" type="System">
+                                    <param id="0" name="Seconds">3.0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="989125210263068">
                     <conditions>
@@ -2050,5 +2092,13 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block sid="153847447992949">
+            <conditions>
+                <condition disabled="1" id="0" name="On function" sid="792264288388640" type="Function">
+                    <param id="0" name="Name">&quot;FadeToLeaderboard&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
     </events>
 </c2eventsheet>

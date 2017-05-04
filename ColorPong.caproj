@@ -10,10 +10,15 @@
     <unique-id>22ryjta749ref</unique-id>
     <saved-with-version>24400</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
     <used-behaviors>
@@ -370,6 +375,11 @@
                 <instance-variables>
                     <instance-variable name="ID" sid="594156696049640" type="number" />
                 </instance-variables>
+                <behaviors>
+                    <behavior-type name="Sine" sid="380829310969275">
+                        <behavior id="Sin" />
+                    </behavior-type>
+                </behaviors>
                 <effects>
                     <effect-type name="ReplaceColor">
                         <effect id="replacecolor" />
@@ -811,6 +821,34 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="snakeExplosion" sid="124550679541249">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="LocalStorage" sid="110912164991848">
+            <plugin id="LocalStorage" />
+        </object-type>
+        <object-type name="LeaderBoardText" sid="126701365875346">
+            <plugin id="Spritefont2" />
+            <instance-variables>
+                <instance-variable name="ID" sid="155284519293149" type="number" />
+            </instance-variables>
+            <effects>
+                <effect-type name="ReplaceColor">
+                    <effect id="replacecolor" />
+                </effect-type>
+            </effects>
+            <texture original-source="C:\Users\dbga_55\Downloads\SpriteFont_ObelusCompact_Medium_(36).png" />
+        </object-type>
+        <object-type global="1" name="highScore" sid="529663189551254">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="AJAX" sid="452400358970256">
+            <plugin id="AJAX" />
+        </object-type>
+        <object-type name="InsertName" sid="439756608264463">
+            <plugin id="TextBox" />
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="110717795313248">
@@ -841,14 +879,18 @@
     <layout-folder>
         <layout>Arcade.xml</layout>
         <layout>Menu.xml</layout>
+        <layout>LeaderBoard.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>esArcade.xml</event-sheet>
         <event-sheet>esMenu.xml</event-sheet>
+        <event-sheet>esLeaderBoard.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="18" />
         <global-instance type="Keyboard" uid="30" />
+        <global-instance type="LocalStorage" uid="26" />
+        <global-instance type="AJAX" uid="81" />
     </global-instances>
     <sounds-folder />
     <music-folder />
@@ -861,5 +903,6 @@
             <file name="icon-256.png" />
             <file name="loading-logo.png" />
         </file-folder>
+        <file name="LeaderBoeard.txt" />
     </files-folder>
 </c2project>

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>esLeaderBoard</name>
+    <events>
+        <variable constant="0" name="WaitForLeaderBoardLoad" sid="332580055198005" static="0" type="number">0</variable>
+        <event-block sid="220317488270437">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="868296539117051" type="System" />
+            </conditions>
+            <actions>
+                <action id="1" name="Request project file" sid="516808246073156" type="AJAX">
+                    <param id="0" name="Tag">&quot;ReadLeader&quot;</param>
+                    <param id="1" name="File">LeaderBoeard.txt</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="411414753387936">
+            <conditions>
+                <condition id="0" name="On completed" sid="115085549926439" type="AJAX">
+                    <param id="0" name="Tag">&quot;ReadLeader&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="i" sid="542013117858930" static="0" type="number">0</variable>
+                <event-block sid="544307733970278">
+                    <conditions>
+                        <condition id="-10" name="For" sid="212902616092006" type="System">
+                            <param id="0" name="Name">&quot;EntryIDX&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">9</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set at XY" sid="647373627028056" type="highScore">
+                            <param id="0" name="X">i</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Value">tokenat(tokenat(AJAX.LastData, i, &quot;|&quot;),0,&quot;;&quot;)</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="375329482688593" type="highScore">
+                            <param id="0" name="X">i</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">tokenat(tokenat(AJAX.LastData, i, &quot;|&quot;),1,&quot;;&quot;)</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="842253866985781" type="System">
+                            <param id="0" name="Variable">i</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="208636692858261">
+                    <conditions />
+                    <actions>
+                        <action id="0" name="Call function" sid="360983180163538" type="Function">
+                            <param id="0" name="Name">&quot;PrintLeaderBoard&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="198346867552878" type="System">
+                            <param id="0" name="Variable">WaitForLeaderBoardLoad</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="615155255858018">
+            <conditions>
+                <condition id="0" name="On function" sid="617459357333958" type="Function">
+                    <param id="0" name="Name">&quot;PrintLeaderBoard&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="i" sid="426575905930500" static="0" type="number">0</variable>
+                <event-block sid="105687880263603">
+                    <conditions>
+                        <condition id="-10" name="For" sid="872254656282231" type="System">
+                            <param id="0" name="Name">&quot;EntryIDX&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">9</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="942149168536564" type="LeaderBoardText">
+                            <param id="0" name="Instance variable">ID</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Append text" sid="261721967909667" type="LeaderBoardText">
+                            <param id="0" name="Text">newline &amp; loopindex+1 &amp; &quot;. &quot; &amp; highScore.At(i, 0) &amp; &quot; &quot;&amp; highScore.At(i, 1) </param>
+                        </action>
+                        <action id="-10" name="Add to" sid="478238564098991" type="System">
+                            <param id="0" name="Variable">i</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="491397620763313">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="910656042344721" type="System">
+                    <param id="0" name="Variable">WaitForLeaderBoardLoad</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="597217133183038">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="925970008273995" type="System">
+                            <param id="0" name="Variable">GameScore</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">highScore.At(0,9)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set visible" sid="522477162300557" type="InsertName">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="509612827965591">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="704780260781909" type="System" />
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

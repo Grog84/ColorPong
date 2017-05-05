@@ -870,6 +870,7 @@
                         <TypeID>3</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
+                        <Score>1</Score>
                         <AnglesNbr>1</AnglesNbr>
                         <Xtranslation>0</Xtranslation>
                         <Ytranslation>0</Ytranslation>
@@ -1168,6 +1169,7 @@
                         <TypeID>1</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
+                        <Score>2</Score>
                         <KamikazeSpeed>400</KamikazeSpeed>
                         <BaseSpeed>100</BaseSpeed>
                         <KamikazeDistance>800</KamikazeDistance>
@@ -1213,6 +1215,7 @@
                         <TypeID>1</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
+                        <Score>2</Score>
                         <KamikazeSpeed>400</KamikazeSpeed>
                         <BaseSpeed>100</BaseSpeed>
                         <KamikazeDistance>800</KamikazeDistance>
@@ -1258,6 +1261,7 @@
                         <TypeID>2</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
+                        <Score>2</Score>
                         <RotationSpeed>720</RotationSpeed>
                     </instance-variables>
                     <behavior-instances>
@@ -1296,6 +1300,7 @@
                         <TypeID>2</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
+                        <Score>2</Score>
                         <RotationSpeed>720</RotationSpeed>
                     </instance-variables>
                     <behavior-instances>
@@ -1384,6 +1389,7 @@
                         <TypeID>3</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
+                        <Score>2</Score>
                         <AnglesNbr>1</AnglesNbr>
                         <Xtranslation>0</Xtranslation>
                         <Ytranslation>0</Ytranslation>
@@ -1432,6 +1438,7 @@
                         <TypeID>3</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
+                        <Score>2</Score>
                         <AnglesNbr>1</AnglesNbr>
                         <Xtranslation>0</Xtranslation>
                         <Ytranslation>0</Ytranslation>
@@ -2460,6 +2467,7 @@
                         <TypeID>-1</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
+                        <Score>1</Score>
                         <EvilGlowUID>0</EvilGlowUID>
                     </instance-variables>
                     <behavior-instances>

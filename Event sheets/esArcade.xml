@@ -19,13 +19,16 @@
         <variable constant="0" name="SpawnGate" sid="607519077574694" static="0" type="number">0</variable>
         <variable constant="0" name="SnakeIsActive" sid="991281326800542" static="0" type="number">0</variable>
         <comment>SpawningDriversVariables</comment>
+        <variable constant="0" name="RegularSpawningTime" sid="139991081392705" static="0" type="number">5</variable>
         <variable constant="0" name="SpecialEnemiesOnScreen" sid="323556725505910" static="0" type="number">0</variable>
-        <variable constant="0" name="TimeBeforeSpecial" sid="707526383413928" static="0" type="number">2</variable>
+        <variable constant="0" name="TimeBeforeSpecial" sid="707526383413928" static="0" type="number">15</variable>
+        <variable constant="0" name="TimeBeforeRegular" sid="293113276657476" static="0" type="number">10</variable>
         <variable constant="0" name="SpecialEnemiesTypeNbr" sid="509305964104404" static="0" type="number">7</variable>
         <variable constant="0" name="MaxSpecialEnemiesNbr" sid="625328798260974" static="0" type="number">1</variable>
         <comment>Time/Score</comment>
         <variable constant="0" name="GameTime" sid="403259355992123" static="0" type="number">0</variable>
         <variable constant="0" name="GameScore" sid="313863900724160" static="0" type="number">0</variable>
+        <variable constant="0" name="BallLost" sid="198489624363281" static="0" type="number">3</variable>
         <comment>CONSTANT VARIABLES</comment>
         <variable constant="1" name="FrameOffset" sid="225801414137167" static="0" type="number">315</variable>
         <variable comment="seconds" constant="0" name="IMMUNE_TIME" sid="273482141318713" static="0" type="number">2</variable>
@@ -504,6 +507,10 @@
                             <param id="2" name="Loop">0</param>
                             <param id="3" name="Volume">-15</param>
                             <param id="1" name="Tag (optional)">&quot;destroyed_enemy&quot;</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="297812142262852" type="System">
+                            <param id="0" name="Variable">GameScore</param>
+                            <param id="1" name="Value">DestructibleEnemies.Score</param>
                         </action>
                         <action id="-9" name="Destroy" sid="185109920442254" type="DestructibleEnemies" />
                     </actions>
@@ -2910,10 +2917,15 @@
                         <event-block sid="799176609009405">
                             <conditions>
                                 <condition id="-6" name="Every X seconds" sid="163655938268964" type="System">
-                                    <param id="0" name="Interval (seconds)">5</param>
+                                    <param id="0" name="Interval (seconds)">RegularSpawningTime</param>
                                 </condition>
                                 <condition id="-16" name="Pick random instance" sid="770578885586070" type="System">
                                     <param id="0" name="Object">spawn</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="372077957240530" type="System">
+                                    <param id="0" name="First value">GameTime</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">TimeBeforeRegular</param>
                                 </condition>
                             </conditions>
                             <actions>

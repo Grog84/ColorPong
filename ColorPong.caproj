@@ -1193,6 +1193,9 @@
                 <member>snakeHead</member>
                 <member>snakeTail</member>
             </members>
+            <instance-variables>
+                <instance-variable name="Score" sid="213769008900894" type="number" />
+            </instance-variables>
         </family>
     </families>
     <layout-folder>

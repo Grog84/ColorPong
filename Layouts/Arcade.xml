@@ -791,6 +791,11 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <TypeID>0</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Rotate">
                             <properties>
@@ -862,6 +867,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>3</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <AnglesNbr>1</AnglesNbr>
                         <Xtranslation>0</Xtranslation>
                         <Ytranslation>0</Ytranslation>
@@ -906,6 +914,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>4</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <Speed>300</Speed>
                         <WaitTime>3</WaitTime>
                         <MovementBeforeStop>350</MovementBeforeStop>
@@ -946,6 +957,11 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <TypeID>5</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Rotate">
                             <properties>
@@ -978,6 +994,11 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <TypeID>5</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Rotate">
                             <properties>
@@ -1144,6 +1165,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>1</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <KamikazeSpeed>400</KamikazeSpeed>
                         <BaseSpeed>100</BaseSpeed>
                         <KamikazeDistance>800</KamikazeDistance>
@@ -1186,6 +1210,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>1</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <KamikazeSpeed>400</KamikazeSpeed>
                         <BaseSpeed>100</BaseSpeed>
                         <KamikazeDistance>800</KamikazeDistance>
@@ -1228,6 +1255,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>2</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <RotationSpeed>180</RotationSpeed>
                     </instance-variables>
                     <behavior-instances>
@@ -1263,6 +1293,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>2</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <RotationSpeed>180</RotationSpeed>
                     </instance-variables>
                     <behavior-instances>
@@ -1348,6 +1381,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>3</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <AnglesNbr>1</AnglesNbr>
                         <Xtranslation>0</Xtranslation>
                         <Ytranslation>0</Ytranslation>
@@ -1393,6 +1429,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>3</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <AnglesNbr>1</AnglesNbr>
                         <Xtranslation>0</Xtranslation>
                         <Ytranslation>0</Ytranslation>
@@ -1438,6 +1477,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>4</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <WaitTime>3</WaitTime>
                         <MovementBeforeStop>350</MovementBeforeStop>
                         <Speed>300</Speed>
@@ -1479,6 +1521,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>4</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <WaitTime>3</WaitTime>
                         <MovementBeforeStop>350</MovementBeforeStop>
                         <Speed>300</Speed>
@@ -1520,6 +1565,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>6</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <FirstStop>1200</FirstStop>
                         <SecondStop>900</SecondStop>
                         <ThirdStop>600</ThirdStop>
@@ -1547,7 +1595,7 @@
                         <y>285</y>
                         <z>0</z>
                         <width>20</width>
-                        <height>180</height>
+                        <height>240</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -1563,6 +1611,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>6</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <FirstStop>1200</FirstStop>
                         <SecondStop>900</SecondStop>
                         <ThirdStop>600</ThirdStop>
@@ -1590,7 +1641,7 @@
                         <y>285</y>
                         <z>0</z>
                         <width>20</width>
-                        <height>180</height>
+                        <height>240</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -1606,6 +1657,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>7</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <FirstStop>1200</FirstStop>
                         <SecondStop>900</SecondStop>
                         <ThirdStop>600</ThirdStop>
@@ -1636,7 +1690,7 @@
                         <height>35</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.514285982</hotspotY>
+                        <hotspotY>0.514285743</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -1649,6 +1703,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>7</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <FirstStop>1200</FirstStop>
                         <SecondStop>900</SecondStop>
                         <ThirdStop>600</ThirdStop>
@@ -1679,7 +1736,7 @@
                         <height>35</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.514285982</hotspotY>
+                        <hotspotY>0.514285743</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -1692,6 +1749,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>7</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <FirstStop>1200</FirstStop>
                         <SecondStop>900</SecondStop>
                         <ThirdStop>600</ThirdStop>
@@ -1722,7 +1782,7 @@
                         <height>35</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.514285982</hotspotY>
+                        <hotspotY>0.514285743</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -1735,6 +1795,9 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
+                        <TypeID>7</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
                         <FirstStop>1200</FirstStop>
                         <SecondStop>900</SecondStop>
                         <ThirdStop>600</ThirdStop>
@@ -1765,7 +1828,7 @@
                         <height>35</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.514285982</hotspotY>
+                        <hotspotY>0.514285743</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -2093,7 +2156,8 @@
                     <instance-variables>
                         <AngleOfMotion>0</AngleOfMotion>
                         <SpeedBase>400</SpeedBase>
-                        <SpeedXL>600</SpeedXL>
+                        <SpeedXL>200</SpeedXL>
+                        <WaitForNewSpeedUp>0</WaitForNewSpeedUp>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Bullet">
@@ -2392,6 +2456,12 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <TypeID>-1</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
+                        <EvilGlowUID>0</EvilGlowUID>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Bullet">
                             <properties>
@@ -2540,6 +2610,44 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
+                <instance type="EvilBlockGlow" uid="103">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Pin" />
+                    </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="BlurHorizontal">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="BlurVertical">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1913</x>
+                        <y>166</y>
+                        <z>0</z>
+                        <width>40</width>
+                        <height>40</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>
@@ -2559,6 +2667,40 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
+                <instance type="cornice" uid="105">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <effect-instances>
+                        <effect-instance type="BlurHorizontal">
+                            <parameters>
+                                <intensity>0</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="BlurVertical">
+                            <parameters>
+                                <intensity>0</intensity>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>0</x>
+                        <y>0</y>
+                        <z>0</z>
+                        <width>1650</width>
+                        <height>1250</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
                 <instance type="SCORE" uid="31">
                     <properties>
                         <character-width>16</character-width>
@@ -2914,6 +3056,54 @@
                         <opacity>0</opacity>
                     </world>
                 </instance>
+                <instance type="Blur" uid="104">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Pin" />
+                    </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="BlurHorizontal">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="BlurVertical">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>0</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>0</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>0</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>2.55</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-225</x>
+                        <y>1251</y>
+                        <z>0</z>
+                        <width>200</width>
+                        <height>200</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>
@@ -2941,8 +3131,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>0</x>
-                        <y>0</y>
+                        <x>7</x>
+                        <y>12</y>
                         <z>0</z>
                         <width>1650</width>
                         <height>1250</height>

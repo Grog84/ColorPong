@@ -659,6 +659,24 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="551361243673207">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="834543621087827" type="Ball">
+                            <param id="0" name="Instance variable">WaitForNewSpeedUp</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="583774387333070" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="274157150068383" type="Ball">
+                            <param id="0" name="Instance variable">WaitForNewSpeedUp</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="147484257559068" title="Player">
@@ -1055,19 +1073,434 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action disabled="1" id="-9" name="Set value" sid="762461891115612" type="System">
+                        <action id="-9" name="Set value" sid="762461891115612" type="System">
                             <param id="0" name="Variable">EnemyType</param>
                             <param id="1" name="Value">int(random(SpecialEnemiesTypeNbr))</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="535127959312313" type="System">
-                            <param id="0" name="Variable">EnemyType</param>
-                            <param id="1" name="Value">6</param>
                         </action>
                         <action id="0" name="Call function" sid="856373367031841" type="Function">
                             <param id="0" name="Name">&quot;SpawnSpecialEnemy&quot;</param>
                             <param id="1" name="Parameter {n}">EnemyType</param>
                         </action>
                     </actions>
+                </event-block>
+                <event-block sid="134884265328871">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="262656324677127" type="Enemies" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="498080455840486" type="Enemies">
+                            <param id="0" name="Object">ExtGlowCircle</param>
+                            <param id="1" name="Layer">Self.LayerNumber</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="808186890530787" type="ExtGlowCircle">
+                            <param id="0" name="Pin to">Enemies</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="775495336336947" type="Function">
+                            <param id="0" name="Name">&quot;SetGlowSizeAndColor&quot;</param>
+                            <param id="1" name="Parameter {n}">Enemies.TypeID{###}ExtGlowCircle.UID</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="297586418061857" type="Enemies">
+                            <param id="0" name="Instance variable">GlowUID</param>
+                            <param id="1" name="Value">ExtGlowCircle.UID</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="196177728378130" type="Enemies">
+                            <param id="0" name="Object">Blur</param>
+                            <param id="1" name="Layer">Self.LayerNumber</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="-29" name="Move to object" sid="833965775208226" type="Blur">
+                            <param id="0" name="Where">1</param>
+                            <param id="1" name="Object">Enemies</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="251050023200321" type="Blur">
+                            <param id="0" name="Pin to">Enemies</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="392002105175260" type="Function">
+                            <param id="0" name="Name">&quot;SetBlurShape&quot;</param>
+                            <param id="1" name="Parameter {n}">Enemies.TypeID{###}Blur.UID</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="693181314779000" type="Enemies">
+                            <param id="0" name="Instance variable">BlurUID</param>
+                            <param id="1" name="Value">Blur.UID</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="493299626957030">
+                    <conditions>
+                        <condition id="-19" name="On destroyed" sid="446497881314709" type="Enemies" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="123833875936739">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="619713821895797" type="Blur">
+                                    <param id="0" name="Unique ID">Enemies.BlurUID</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="731912806890999" type="ExtGlowCircle">
+                                    <param id="0" name="Unique ID">Enemies.GlowUID</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="500978140665935" type="Blur" />
+                                <action id="-9" name="Destroy" sid="344702167829636" type="ExtGlowCircle" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="651380827477369">
+                    <conditions>
+                        <condition id="0" name="On function" sid="302294298889269" type="Function">
+                            <param id="0" name="Name">&quot;SetGlowSizeAndColor&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>EvilBlock</comment>
+                        <event-block sid="597020169409129">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="641332977818946" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">-1</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="924970360471939" type="ExtGlowCircle">
+                                    <param id="0" name="Unique ID">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="660265083486143" type="ExtGlowCircle" />
+                            </actions>
+                        </event-block>
+                        <comment>CuboRotante</comment>
+                        <event-block sid="652259888982618">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="929421707319657" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="337372463190077" type="ExtGlowCircle">
+                                    <param id="0" name="Unique ID">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="946647774475424" type="ExtGlowCircle">
+                                    <param id="0" name="Width">454</param>
+                                </action>
+                                <action id="-6" name="Set height" sid="925631756493242" type="ExtGlowCircle">
+                                    <param id="0" name="Height">481</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="409177959282388" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">3</param>
+                                    <param id="2" name="Value">251</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="803457713361571" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">4</param>
+                                    <param id="2" name="Value">81</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="679797564064635" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">5</param>
+                                    <param id="2" name="Value">225</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Kamikaze</comment>
+                        <event-block sid="797235073594123">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="154278844368885" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">1</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="863953103883655" type="ExtGlowCircle">
+                                    <param id="0" name="Unique ID">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="321091725667905" type="ExtGlowCircle">
+                                    <param id="0" name="Width">164</param>
+                                </action>
+                                <action id="-6" name="Set height" sid="614069958298202" type="ExtGlowCircle">
+                                    <param id="0" name="Height">170</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="845433762711562" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">3</param>
+                                    <param id="2" name="Value">241</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="919146100999303" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">4</param>
+                                    <param id="2" name="Value">246</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="900177449146108" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">5</param>
+                                    <param id="2" name="Value">8</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Shuriken</comment>
+                        <event-block sid="562290995555692">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="947735781641285" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">2</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="935327415453755" type="ExtGlowCircle">
+                                    <param id="0" name="Unique ID">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="222320908034080" type="ExtGlowCircle">
+                                    <param id="0" name="Width">164</param>
+                                </action>
+                                <action id="-6" name="Set height" sid="818797994772359" type="ExtGlowCircle">
+                                    <param id="0" name="Height">170</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="133747980785905" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">3</param>
+                                    <param id="2" name="Value">188</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="594491751213197" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">4</param>
+                                    <param id="2" name="Value">203</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="905208833480476" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">5</param>
+                                    <param id="2" name="Value">205</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Snake</comment>
+                        <event-block sid="279329435723570">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="247744962443379" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">3</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="189462518310740" type="ExtGlowCircle">
+                                    <param id="0" name="Unique ID">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="434438483753944" type="ExtGlowCircle">
+                                    <param id="0" name="Width">164</param>
+                                </action>
+                                <action id="-6" name="Set height" sid="259461347405164" type="ExtGlowCircle">
+                                    <param id="0" name="Height">170</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="708599159002580" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">3</param>
+                                    <param id="2" name="Value">225</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="938654946257942" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">4</param>
+                                    <param id="2" name="Value">16</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="403011171017164" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">5</param>
+                                    <param id="2" name="Value">238</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>SlidingDoors</comment>
+                        <event-block sid="416330963809453">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="916438362365443" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">4</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="734546577404069" type="ExtGlowCircle">
+                                    <param id="0" name="Unique ID">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="437541677342552" type="ExtGlowCircle">
+                                    <param id="0" name="Width">207</param>
+                                </action>
+                                <action id="-6" name="Set height" sid="163399576514301" type="ExtGlowCircle">
+                                    <param id="0" name="Height">381</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="660039916639564" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">3</param>
+                                    <param id="2" name="Value">47</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="960907858061906" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">4</param>
+                                    <param id="2" name="Value">176</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="629299836430294" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">5</param>
+                                    <param id="2" name="Value">207</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>RotatingL</comment>
+                        <event-block sid="980122674125657">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="764710706352937" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">5</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="114637931814556" type="ExtGlowCircle">
+                                    <param id="0" name="Unique ID">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="276759163916567" type="ExtGlowCircle">
+                                    <param id="0" name="Width">313</param>
+                                </action>
+                                <action id="-6" name="Set height" sid="246343841693215" type="ExtGlowCircle">
+                                    <param id="0" name="Height">227</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="427455498562832" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">3</param>
+                                    <param id="2" name="Value">249</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="916166753833758" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">4</param>
+                                    <param id="2" name="Value">77</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="132342949535854" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">5</param>
+                                    <param id="2" name="Value">5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>XLGate</comment>
+                        <event-block sid="598123437110302">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="257815964438932" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">6</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="605476545746991" type="ExtGlowCircle">
+                                    <param id="0" name="Unique ID">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="464162662230426" type="ExtGlowCircle">
+                                    <param id="0" name="Width">121</param>
+                                </action>
+                                <action id="-6" name="Set height" sid="939652499071577" type="ExtGlowCircle">
+                                    <param id="0" name="Height">250</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="328317165132787" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">3</param>
+                                    <param id="2" name="Value">47</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="270053412370887" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">4</param>
+                                    <param id="2" name="Value">176</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="698956112827983" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">5</param>
+                                    <param id="2" name="Value">207</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="862572113582891">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="796281998136179" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">7</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="898062992679173" type="ExtGlowCircle">
+                                    <param id="0" name="Unique ID">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="298704149262683" type="ExtGlowCircle">
+                                    <param id="0" name="Width">190</param>
+                                </action>
+                                <action id="-6" name="Set height" sid="246184929980241" type="ExtGlowCircle">
+                                    <param id="0" name="Height">186</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="725001031007679" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">3</param>
+                                    <param id="2" name="Value">179</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="752401852554603" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">4</param>
+                                    <param id="2" name="Value">120</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="529941018543861" type="ExtGlowCircle">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">5</param>
+                                    <param id="2" name="Value">75</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="400436692242134">
+                    <conditions>
+                        <condition id="0" name="On function" sid="259704047182283" type="Function">
+                            <param id="0" name="Name">&quot;SetBlurShape&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>EvilBlock</comment>
+                        <event-block sid="655510536496080">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="272521455960747" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">-1</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="528926309049809" type="Blur">
+                                    <param id="0" name="Unique ID">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="416742291469910" type="Blur" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="598920927979729">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="916187294314318" type="System" />
+                                <condition id="-14" name="Pick by unique ID" sid="383461047065923" type="Blur">
+                                    <param id="0" name="Unique ID">Function.Param(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="458893459428558" type="Blur">
+                                    <param id="0" name="Frame number">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-group description="" sid="659491654026081" title="XLGate">
                     <sub-events>
@@ -1302,10 +1735,19 @@
                                 <condition id="1" name="Is overlapping another object" sid="343862582528764" type="gateRay">
                                     <param id="0" name="Object">Ball</param>
                                 </condition>
+                                <condition id="-7" name="Compare instance variable" sid="139963071025099" type="Ball">
+                                    <param id="0" name="Instance variable">WaitForNewSpeedUp</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action behavior="Bullet" id="0" name="Set speed" sid="861599610424925" type="Ball">
-                                    <param id="0" name="Speed">Ball.SpeedXL</param>
+                                    <param id="0" name="Speed">Ball.Bullet.Speed + Ball.SpeedXL</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="420128241330187" type="Ball">
+                                    <param id="0" name="Instance variable">WaitForNewSpeedUp</param>
+                                    <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -2371,15 +2813,46 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action id="0" name="Spawn another object" sid="106096806399362" type="spawn">
+                                    <param id="0" name="Object">EvilBlockGlow</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
                                 <action id="0" name="Spawn another object" sid="588491819869008" type="spawn">
                                     <param id="0" name="Object">EvilBlock</param>
                                     <param id="1" name="Layer">0</param>
                                     <param id="2" name="Image point">1</param>
                                 </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="217994033729417" type="EvilBlockGlow">
+                                    <param id="0" name="Pin to">EvilBlock</param>
+                                    <param id="1" name="Mode">0</param>
+                                </action>
                                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="463183862820551" type="EvilBlock">
                                     <param id="0" name="Angle">180</param>
                                 </action>
+                                <action id="-10" name="Set value" sid="604437073175773" type="EvilBlock">
+                                    <param id="0" name="Instance variable">EvilGlowUID</param>
+                                    <param id="1" name="Value">EvilBlockGlow.UID</param>
+                                </action>
                             </actions>
+                        </event-block>
+                        <event-block sid="862846300963103">
+                            <conditions>
+                                <condition id="-19" name="On destroyed" sid="433280494642501" type="EvilBlock" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="719484296558827">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="852193413570272" type="EvilBlockGlow">
+                                            <param id="0" name="Unique ID">EvilBlock.EvilGlowUID</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="105152014035269" type="EvilBlockGlow" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-group>
@@ -2637,6 +3110,18 @@
                             <param id="0" name="Variable">IMMUNE</param>
                             <param id="1" name="Value">0</param>
                         </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="135977748536275" title="FX">
+            <sub-events>
+                <event-block sid="498974368298680">
+                    <conditions>
+                        <condition behavior="Pin" id="0" inverted="1" name="Is pinned" sid="957457961450589" type="ExtGlowCircle" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="484007083213048" type="ExtGlowCircle" />
                     </actions>
                 </event-block>
             </sub-events>

@@ -12,6 +12,7 @@
     <used-plugins>
         <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
@@ -68,6 +69,9 @@
         <object-folder name="Enemies">
             <object-type name="EvilBlock" sid="124621079918543">
                 <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="EvilGlowUID" sid="388722822765831" type="number" />
+                </instance-variables>
                 <behaviors>
                     <behavior-type name="Bullet" sid="876197740998103">
                         <behavior id="Bullet" />
@@ -373,6 +377,53 @@
                                 <point x="0.676056" y="0.323944" />
                                 <point x="0.676056" y="0.676056" />
                                 <point x="0.323944" y="0.676056" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="EvilBlockGlow" sid="498757050388512">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="DestroyOutsideLayout" sid="521886983529975">
+                        <behavior id="destroy" />
+                    </behavior-type>
+                    <behavior-type name="Pin" sid="480298196674503">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+                <effects>
+                    <effect-type name="BlurHorizontal">
+                        <effect id="blurhorizontal" />
+                    </effect-type>
+                    <effect-type name="BlurVertical">
+                        <effect id="blurvertical" />
+                    </effect-type>
+                </effects>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="705210606230290" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="gateRay" sid="222370340779173">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="176197260667564" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="gatePole" sid="864927301970861">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="373147892637770" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.514286">
+                            <collision-poly>
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -879,6 +930,7 @@
                 <instance-variable name="AngleOfMotion" sid="754006447463155" type="number" />
                 <instance-variable name="SpeedBase" sid="516114467749019" type="number" />
                 <instance-variable name="SpeedXL" sid="362262190398551" type="number" />
+                <instance-variable name="WaitForNewSpeedUp" sid="651039515016166" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Bullet" sid="431676282137034">
@@ -972,28 +1024,89 @@
             <plugin id="TiledBg" />
             <texture original-source="C:\Users\dbga_46\Desktop\Immagini\Pong images\linea.png" />
         </object-type>
-        <object-type name="gatePole" sid="864927301970861">
+        <object-type name="Blur" sid="808676713599267">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="283131610600518">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <effects>
+                <effect-type name="BlurHorizontal">
+                    <effect id="blurhorizontal" />
+                </effect-type>
+                <effect-type name="BlurVertical">
+                    <effect id="blurvertical" />
+                </effect-type>
+                <effect-type name="ReplaceColor">
+                    <effect id="replacecolor" />
+                </effect-type>
+            </effects>
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="373147892637770" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.514286">
+                <animation framecount="8" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="782742786023455" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.507042" hotspotY="0.507042" original-source="C:\Users\dbga_55\Documents\Construct2 Projects\ColorPong\Animations\Kamikaze\Default\000.png">
                         <collision-poly>
-                            <point x="1" y="0" />
-                            <point x="1" y="1" />
-                            <point x="0" y="1" />
-                            <point x="0" y="0" />
+                            <point x="0.084507" y="0.084507" />
+                            <point x="0.887324" y="0.492958" />
+                            <point x="0.0985916" y="0.901408" />
                         </collision-poly>
                     </frame>
+                    <frame duration="1" hotspotX="0.506667" hotspotY="0.506667" original-source="C:\Users\dbga_55\Documents\Construct2 Projects\ColorPong\Animations\shuriken\Default\000.png">
+                        <collision-poly>
+                            <point x="0.426667" y="0.426667" />
+                            <point x="0.493333" y="0.04" />
+                            <point x="0.573333" y="0.426667" />
+                            <point x="0.96" y="0.493333" />
+                            <point x="0.573333" y="0.573333" />
+                            <point x="0.493333" y="0.96" />
+                            <point x="0.44" y="0.56" />
+                            <point x="0.04" y="0.493333" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.507042" hotspotY="0.507042" original-source="C:\Users\dbga_55\Documents\Construct2 Projects\ColorPong\Animations\snakeHead\Default\000.png">
+                        <collision-poly>
+                            <point x="0.492958" y="0.0704225" />
+                            <point x="0.929577" y="0.492958" />
+                            <point x="0.71831" y="0.71831" />
+                            <point x="0.492958" y="0.929577" />
+                            <point x="0.0704225" y="0.492958" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Documents\Construct2 Projects\ColorPong\Animations\slidingDoors\Default\000.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Documents\Construct2 Projects\ColorPong\Animations\L\Default\000.png">
+                        <collision-poly>
+                            <point x="0.0466667" y="0.07" />
+                            <point x="0.946667" y="0.08" />
+                            <point x="0.173333" y="0.5" />
+                            <point x="0.506667" y="0.26" />
+                            <point x="0.5" y="0.26" />
+                            <point x="0.0533333" y="0.92" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\dbga_55\Documents\Construct2 Projects\ColorPong\Animations\gateRay\Default\000.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.514286" original-source="C:\Users\dbga_55\Documents\Construct2 Projects\ColorPong\Animations\gatePole\Default\000.png" />
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="gateRay" sid="222370340779173">
+        <object-type name="cornice" sid="563851263266989">
             <plugin id="Sprite" />
+            <effects>
+                <effect-type name="BlurHorizontal">
+                    <effect id="blurhorizontal" />
+                </effect-type>
+                <effect-type name="BlurVertical">
+                    <effect id="blurvertical" />
+                </effect-type>
+            </effects>
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="176197260667564" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="121950074097679" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="Audio" sid="626049767409200">
+            <plugin id="Audio" />
         </object-type>
     </object-folder>
     <families>
@@ -1001,6 +1114,8 @@
             <members>
                 <member>cuboRotante</member>
                 <member>EvilBlock</member>
+                <member>gatePole</member>
+                <member>gateRay</member>
                 <member>Kamikaze</member>
                 <member>L</member>
                 <member>shuriken</member>
@@ -1009,6 +1124,11 @@
                 <member>snakeHead</member>
                 <member>snakeTail</member>
             </members>
+            <instance-variables>
+                <instance-variable name="TypeID" sid="768972367602121" type="number" />
+                <instance-variable name="GlowUID" sid="255264330145419" type="number" />
+                <instance-variable name="BlurUID" sid="879371488194399" type="number" />
+            </instance-variables>
         </family>
         <family name="SpecialEnemies" plugin-id="Sprite" sid="907810436450964">
             <members>
@@ -1026,6 +1146,7 @@
             <members>
                 <member>cuboRotante</member>
                 <member>EvilBlock</member>
+                <member>EvilBlockGlow</member>
                 <member>gatePole</member>
                 <member>L</member>
                 <member>slidingDoors</member>
@@ -1070,8 +1191,26 @@
         <global-instance type="Keyboard" uid="30" />
         <global-instance type="LocalStorage" uid="26" />
         <global-instance type="AJAX" uid="81" />
+        <global-instance type="Audio" uid="106">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <file name="menù soundtrack.ogg" />
+        <file name="selezione menù.m4a" />
+        <file name="selezione menù.ogg" />
+    </sounds-folder>
     <music-folder />
     <files-folder>
         <file-folder name="Icons">

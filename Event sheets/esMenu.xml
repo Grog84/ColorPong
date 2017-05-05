@@ -3,6 +3,8 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esMenu</name>
     <events>
+        <variable constant="0" name="MusicMenuFadeOutTotalTime" sid="898150693591383" static="0" type="number">2</variable>
+        <variable constant="0" name="MusicMenuFadeOutTime" sid="973590062102270" static="0" type="number">0</variable>
         <variable constant="0" name="MenuTotalFadeTime" sid="646520636158706" static="0" type="number">4</variable>
         <variable constant="0" name="MenuFadeTime" sid="356001933636255" static="0" type="number">0</variable>
         <variable constant="0" name="ArcadeModeY" sid="355110049591499" static="0" type="number">675</variable>
@@ -20,10 +22,14 @@
                     <param id="0" name="Variable">MenuFadeTime</param>
                     <param id="1" name="Value">0</param>
                 </action>
+                <action id="-9" name="Set value" sid="516443838244785" type="System">
+                    <param id="0" name="Variable">MusicMenuFadeOutTime</param>
+                    <param id="1" name="Value">0</param>
+                </action>
                 <action id="0" name="Play" sid="583234595382043" type="Audio">
                     <param id="0" name="Audio file">menù soundtrack</param>
                     <param id="2" name="Loop">0</param>
-                    <param id="3" name="Volume">-45</param>
+                    <param id="3" name="Volume">-25</param>
                     <param id="1" name="Tag (optional)">&quot;menu_soundtrack&quot;</param>
                 </action>
             </actions>
@@ -88,12 +94,12 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-2" name="Go to layout" sid="182671957235969" type="System">
-                            <param id="0" name="Layout">Arcade</param>
+                        <action behavior="Sine" id="1" name="Set period" sid="638315376648367" type="SelectBar">
+                            <param id="0" name="Period">0.1</param>
                         </action>
-                        <action id="-9" name="Set value" sid="619655342278770" type="System">
-                            <param id="0" name="Variable">GameTime</param>
-                            <param id="1" name="Value">0</param>
+                        <action id="-10" name="Set value" sid="797404885881999" type="SelectBar">
+                            <param id="0" name="Instance variable">HasSelected</param>
+                            <param id="1" name="Value">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -145,6 +151,62 @@
                     <param id="1" name="Parameter {n}"></param>
                 </action>
             </actions>
+        </event-block>
+        <event-block sid="388043806022689">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="842878537960262" type="SelectBar">
+                    <param id="0" name="Instance variable">HasSelected</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="398516397643374" type="Function">
+                    <param id="0" name="Name">&quot;DecreaseMusicVolume&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-16" name="Wait" sid="323338737052319" type="System">
+                    <param id="0" name="Seconds">MenuTotalFadeTime</param>
+                </action>
+                <action behavior="Sine" id="1" name="Set period" sid="704016920883695" type="SelectBar">
+                    <param id="0" name="Period">1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="413234084425659" type="System">
+                    <param id="0" name="Layout">Arcade</param>
+                </action>
+                <action id="-9" name="Set value" sid="513347992704770" type="System">
+                    <param id="0" name="Variable">GameTime</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="262618523546937">
+            <conditions>
+                <condition id="0" name="On function" sid="244859737035489" type="Function">
+                    <param id="0" name="Name">&quot;DecreaseMusicVolume&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="timeRatio" sid="762056765420067" static="0" type="number">0</variable>
+                <event-block sid="606619228900849">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="714456900304935" type="System">
+                            <param id="0" name="Variable">timeRatio</param>
+                            <param id="1" name="Value">MusicMenuFadeOutTime/MenuTotalFadeTime</param>
+                        </action>
+                        <action id="3" name="Set volume" sid="463873713445144" type="Audio">
+                            <param id="0" name="Tag">&quot;menu_soundtrack&quot;</param>
+                            <param id="1" name="dB">-25 - timeRatio*30</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="133942332260725" type="System">
+                            <param id="0" name="Variable">MusicMenuFadeOutTime</param>
+                            <param id="1" name="Value">dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

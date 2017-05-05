@@ -215,7 +215,16 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="433172027907870" speed="5">
-                        <frame duration="1" hotspotX="0.506667" hotspotY="0.52" />
+                        <frame duration="1" hotspotX="0.506667" hotspotY="0.52">
+                            <collision-poly>
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="0.305" />
+                                <point x="0.206667" y="0.310001" />
+                                <point x="0.206667" y="1" />
+                                <point x="0" y="1" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -683,6 +692,9 @@
             </object-type>
             <object-type name="SelectBar" sid="513972660995364">
                 <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="HasSelected" sid="594833374898730" type="number" />
+                </instance-variables>
                 <behaviors>
                     <behavior-type name="Sine" sid="857466792999948">
                         <behavior id="Sin" />
@@ -1210,6 +1222,12 @@
         <file name="menù soundtrack.ogg" />
         <file name="selezione menù.m4a" />
         <file name="selezione menù.ogg" />
+        <file name="game soundtrack.m4a" />
+        <file name="game soundtrack.ogg" />
+        <file name="rimbalzo pallina.m4a" />
+        <file name="rimbalzo pallina.ogg" />
+        <file name="perdita vita giocatore.m4a" />
+        <file name="perdita vita giocatore.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>

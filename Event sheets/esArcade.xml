@@ -3,21 +3,30 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esArcade</name>
     <events>
-        <variable constant="0" name="SpawnGate" sid="607519077574694" static="0" type="number">0</variable>
-        <variable constant="0" name="SpawnSlidingDoors" sid="176405335313639" static="0" type="number">0</variable>
-        <variable constant="0" name="SnakeIsActive" sid="991281326800542" static="0" type="number">0</variable>
-        <variable constant="0" name="TimeBeforeSpecial" sid="707526383413928" static="0" type="number">2</variable>
-        <variable constant="0" name="SpawnSnake" sid="361146526715732" static="0" type="number">0</variable>
-        <variable constant="0" name="SpawnShuriken" sid="112103926454049" static="0" type="number">0</variable>
-        <variable constant="0" name="SpawnKamikaze" sid="123396074125826" static="0" type="number">0</variable>
+        <comment>MusicFade</comment>
+        <variable constant="0" name="MusicArcadeFadeOutTotalTime" sid="386157188024385" static="0" type="number">2</variable>
+        <variable constant="0" name="MusicArcadeFadeOutTime" sid="850920218668889" static="0" type="number">0</variable>
+        <variable constant="0" name="MusicBkgVolume" sid="769410978765633" static="0" type="number">-25</variable>
+        <variable constant="0" name="MusicFadeInTrigger" sid="415600554369902" static="0" type="number">0</variable>
+        <variable constant="0" name="MusicFadeOutTrigger" sid="205945874486295" static="0" type="number">0</variable>
+        <comment>SpawnTriggers</comment>
         <variable constant="0" name="SpawnCuboRotante" sid="403779563706876" static="0" type="number">0</variable>
+        <variable constant="0" name="SpawnKamikaze" sid="123396074125826" static="0" type="number">0</variable>
+        <variable constant="0" name="SpawnShuriken" sid="112103926454049" static="0" type="number">0</variable>
+        <variable constant="0" name="SpawnSnake" sid="361146526715732" static="0" type="number">0</variable>
+        <variable constant="0" name="SpawnSlidingDoors" sid="176405335313639" static="0" type="number">0</variable>
         <variable constant="0" name="SpawnRotatingL" sid="983823297750336" static="0" type="number">0</variable>
-        <variable constant="0" name="SpecialEnemiesTypeNbr" sid="509305964104404" static="0" type="number">7</variable>
-        <variable constant="0" name="SpecialEnemyType" sid="190215179780222" static="0" type="number">0</variable>
-        <variable constant="0" name="MaxSpecialEnemiesNbr" sid="625328798260974" static="0" type="number">1</variable>
+        <variable constant="0" name="SpawnGate" sid="607519077574694" static="0" type="number">0</variable>
+        <variable constant="0" name="SnakeIsActive" sid="991281326800542" static="0" type="number">0</variable>
+        <comment>SpawningDriversVariables</comment>
         <variable constant="0" name="SpecialEnemiesOnScreen" sid="323556725505910" static="0" type="number">0</variable>
+        <variable constant="0" name="TimeBeforeSpecial" sid="707526383413928" static="0" type="number">2</variable>
+        <variable constant="0" name="SpecialEnemiesTypeNbr" sid="509305964104404" static="0" type="number">7</variable>
+        <variable constant="0" name="MaxSpecialEnemiesNbr" sid="625328798260974" static="0" type="number">1</variable>
+        <comment>Time/Score</comment>
         <variable constant="0" name="GameTime" sid="403259355992123" static="0" type="number">0</variable>
         <variable constant="0" name="GameScore" sid="313863900724160" static="0" type="number">0</variable>
+        <comment>CONSTANT VARIABLES</comment>
         <variable constant="1" name="FrameOffset" sid="225801414137167" static="0" type="number">315</variable>
         <variable comment="seconds" constant="0" name="IMMUNE_TIME" sid="273482141318713" static="0" type="number">2</variable>
         <variable constant="0" name="IMMUNE" sid="861598876970046" static="0" type="number">0</variable>
@@ -65,9 +74,15 @@
                     <param id="0" name="Variable">GameScore</param>
                     <param id="1" name="Value">0</param>
                 </action>
-                <action id="-9" name="Set value" sid="125856246014518" type="System">
-                    <param id="0" name="Variable">GameTime</param>
-                    <param id="1" name="Value">0</param>
+                <action id="0" name="Play" sid="260014486770084" type="Audio">
+                    <param id="0" name="Audio file">game soundtrack</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-35</param>
+                    <param id="1" name="Tag (optional)">&quot;game_soundtrack&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="107755274809134" type="System">
+                    <param id="0" name="Variable">MusicFadeInTrigger</param>
+                    <param id="1" name="Value">1</param>
                 </action>
             </actions>
             <sub-events>
@@ -469,6 +484,12 @@
                             <param id="0" name="Instance variable">AngleOfMotion</param>
                             <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
                         </action>
+                        <action id="0" name="Play" sid="209953700374945" type="Audio">
+                            <param id="0" name="Audio file">rimbalzo pallina</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;ball_bounce&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="180181669724449">
@@ -491,6 +512,12 @@
                         </action>
                         <action behavior="Bullet" id="0" name="Set speed" sid="496996198838441" type="Ball">
                             <param id="0" name="Speed">self.SpeedBase</param>
+                        </action>
+                        <action id="0" name="Play" sid="259989014686563" type="Audio">
+                            <param id="0" name="Audio file">rimbalzo pallina</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;ball_bounce&quot;</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -582,6 +609,12 @@
                             <param id="0" name="Instance variable">AngleOfMotion</param>
                             <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
                         </action>
+                        <action id="0" name="Play" sid="981673982937354" type="Audio">
+                            <param id="0" name="Audio file">rimbalzo pallina</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;ball_bounce&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="376083745073240">
@@ -608,6 +641,12 @@
                         </action>
                         <action behavior="Bullet" id="0" name="Set speed" sid="323541881085314" type="Ball">
                             <param id="0" name="Speed">self.SpeedBase</param>
+                        </action>
+                        <action id="0" name="Play" sid="813033356279245" type="Audio">
+                            <param id="0" name="Audio file">rimbalzo pallina</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;ball_bounce&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -758,6 +797,13 @@
                         <action id="-9" name="Destroy" sid="211189965522220" type="Player" />
                         <action id="-9" name="Destroy" sid="555729443777461" type="PlayerGlow" />
                         <action id="-9" name="Destroy" sid="658769610655559" type="PlayerTile" />
+                        <action id="-9" name="Set value" sid="545851329125571" type="System">
+                            <param id="0" name="Variable">MusicFadeOutTrigger</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="862428050343290" type="System">
+                            <param id="0" name="Seconds">MusicArcadeFadeOutTotalTime</param>
+                        </action>
                     </actions>
                     <sub-events>
                         <event-block sid="463285320728685">
@@ -776,7 +822,7 @@
                                     <param id="0" name="State">1</param>
                                 </action>
                                 <action id="-16" name="Wait" sid="744147769028895" type="System">
-                                    <param id="0" name="Seconds">3.0</param>
+                                    <param id="0" name="Seconds">4</param>
                                 </action>
                                 <action id="-2" name="Go to layout" sid="347512231559676" type="System">
                                     <param id="0" name="Layout">LeaderBoard</param>
@@ -910,6 +956,12 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action id="0" name="Play" sid="619631823663649" type="Audio">
+                                    <param id="0" name="Audio file">perdita vita giocatore</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-15</param>
+                                    <param id="1" name="Tag (optional)">&quot;player_hit&quot;</param>
+                                </action>
                                 <action id="0" name="Call function" sid="842543071876156" type="Function">
                                     <param id="0" name="Name">&quot;DestroyOneTile&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
@@ -3116,6 +3168,114 @@
         </event-group>
         <event-group description="" sid="135977748536275" title="FX">
             <sub-events>
+                <event-block sid="900707775416799">
+                    <conditions>
+                        <condition id="0" name="On function" sid="820574027221802" type="Function">
+                            <param id="0" name="Name">&quot;FadeInMusic&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="timeRatio" sid="829991838682083" static="0" type="number">0</variable>
+                        <event-block sid="304262012379247">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="547083459080461" type="System">
+                                    <param id="0" name="Variable">timeRatio</param>
+                                    <param id="1" name="Value">MusicArcadeFadeOutTime/MusicArcadeFadeOutTotalTime</param>
+                                </action>
+                                <action id="3" name="Set volume" sid="922186318364875" type="Audio">
+                                    <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
+                                    <param id="1" name="dB">-35 + timeRatio*20</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="495495000504292" type="System">
+                                    <param id="0" name="Variable">MusicArcadeFadeOutTime</param>
+                                    <param id="1" name="Value">dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="695171724970220">
+                    <conditions>
+                        <condition id="0" name="On function" sid="214429620589875" type="Function">
+                            <param id="0" name="Name">&quot;FadeOutMusic&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="timeRatio" sid="899823106142700" static="0" type="number">0</variable>
+                        <event-block sid="996253452983865">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="783898484369407" type="System">
+                                    <param id="0" name="Variable">timeRatio</param>
+                                    <param id="1" name="Value">MusicArcadeFadeOutTime/MusicArcadeFadeOutTotalTime</param>
+                                </action>
+                                <action id="3" name="Set volume" sid="249241248530853" type="Audio">
+                                    <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
+                                    <param id="1" name="dB">-15 - timeRatio*30</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="817840874602577" type="System">
+                                    <param id="0" name="Variable">MusicArcadeFadeOutTime</param>
+                                    <param id="1" name="Value">dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="250306099498531">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="282565831183279" type="System">
+                            <param id="0" name="Variable">MusicFadeInTrigger</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="679775976500036" type="Function">
+                            <param id="0" name="Name">&quot;FadeInMusic&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-16" name="Wait" sid="648506307052142" type="System">
+                            <param id="0" name="Seconds">MusicArcadeFadeOutTotalTime</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="522342658325425" type="System">
+                            <param id="0" name="Variable">MusicArcadeFadeOutTime</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="811264627127701" type="System">
+                            <param id="0" name="Variable">MusicFadeInTrigger</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="676890968523927">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="317858585025594" type="System">
+                            <param id="0" name="Variable">MusicFadeOutTrigger</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="466560315456720" type="Function">
+                            <param id="0" name="Name">&quot;FadeOutMusic&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-16" name="Wait" sid="957472297929031" type="System">
+                            <param id="0" name="Seconds">MusicArcadeFadeOutTotalTime</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="581709213668916" type="System">
+                            <param id="0" name="Variable">MusicArcadeFadeOutTime</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="392984512231789" type="System">
+                            <param id="0" name="Variable">MusicFadeOutTrigger</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="498974368298680">
                     <conditions>
                         <condition behavior="Pin" id="0" inverted="1" name="Is pinned" sid="957457961450589" type="ExtGlowCircle" />

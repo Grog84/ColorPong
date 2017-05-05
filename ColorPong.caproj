@@ -1157,8 +1157,6 @@
         <family name="BallInteractiveEnemies" plugin-id="Sprite" sid="487426960247484">
             <members>
                 <member>cuboRotante</member>
-                <member>EvilBlock</member>
-                <member>EvilBlockGlow</member>
                 <member>gatePole</member>
                 <member>L</member>
                 <member>slidingDoors</member>
@@ -1186,6 +1184,15 @@
                     <behavior id="destroy" />
                 </behavior-type>
             </behaviors>
+        </family>
+        <family name="DestructibleEnemies" plugin-id="Sprite" sid="943604323718459">
+            <members>
+                <member>EvilBlock</member>
+                <member>Kamikaze</member>
+                <member>shuriken</member>
+                <member>snakeHead</member>
+                <member>snakeTail</member>
+            </members>
         </family>
     </families>
     <layout-folder>
@@ -1228,6 +1235,14 @@
         <file name="rimbalzo pallina.ogg" />
         <file name="perdita vita giocatore.m4a" />
         <file name="perdita vita giocatore.ogg" />
+        <file name="nemico_distrutto.m4a" />
+        <file name="nemico_distrutto.ogg" />
+        <file name="pallina mancata.m4a" />
+        <file name="pallina mancata.ogg" />
+        <file name="xl gate speed.m4a" />
+        <file name="xl gate speed.ogg" />
+        <file name="triangoli kamikaze.m4a" />
+        <file name="triangoli_kamikaze.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>

@@ -702,7 +702,13 @@
                     </actions>
                 </event-block>
                 <event-block sid="733935817083347">
-                    <conditions />
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="499542153150994" type="System">
+                            <param id="0" name="Variable">NewScorePos</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">-1</param>
+                        </condition>
+                    </conditions>
                     <actions>
                         <action id="-3" name="Set position" sid="323280942476138" type="HighlightScore">
                             <param id="0" name="X">LayoutWidth / 2.0</param>
@@ -713,6 +719,29 @@
                             <param id="1" name="Value">1</param>
                         </action>
                         <action id="-9" name="Set value" sid="813709743270415" type="System">
+                            <param id="0" name="Variable">NewScorePos</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="605379413728626">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="920315169284804" type="System">
+                            <param id="0" name="Variable">NewScorePos</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="296506649302810" type="HighlightScore">
+                            <param id="0" name="X">LayoutWidth / 2.0</param>
+                            <param id="1" name="Y">324</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="526064037467056" type="System">
+                            <param id="0" name="Variable">TriggerBackToMenu</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="202155783415404" type="System">
                             <param id="0" name="Variable">NewScorePos</param>
                             <param id="1" name="Value">-1</param>
                         </action>

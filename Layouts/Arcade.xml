@@ -1258,12 +1258,12 @@
                         <TypeID>2</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
-                        <RotationSpeed>180</RotationSpeed>
+                        <RotationSpeed>720</RotationSpeed>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Rotate">
                             <properties>
-                                <speed>360</speed>
+                                <speed>720</speed>
                                 <acceleration>0</acceleration>
                             </properties>
                         </behavior-instance>
@@ -1296,12 +1296,12 @@
                         <TypeID>2</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
-                        <RotationSpeed>180</RotationSpeed>
+                        <RotationSpeed>720</RotationSpeed>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Rotate">
                             <properties>
-                                <speed>360</speed>
+                                <speed>720</speed>
                                 <acceleration>0</acceleration>
                             </properties>
                         </behavior-instance>

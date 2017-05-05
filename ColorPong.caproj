@@ -1243,6 +1243,10 @@
         <file name="xl gate speed.ogg" />
         <file name="triangoli kamikaze.m4a" />
         <file name="triangoli_kamikaze.ogg" />
+        <file name="shuriken.m4a" />
+        <file name="shuriken.ogg" />
+        <file name="gameover v4.m4a" />
+        <file name="gameover v4.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>

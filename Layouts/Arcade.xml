@@ -965,7 +965,7 @@
                         <width>150</width>
                         <height>100</height>
                         <depth>0</depth>
-                        <hotspotX>0.506667018</hotspotX>
+                        <hotspotX>0.50666666</hotspotX>
                         <hotspotY>0.519999981</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
@@ -997,7 +997,7 @@
                         <width>150</width>
                         <height>100</height>
                         <depth>0</depth>
-                        <hotspotX>0.506667018</hotspotX>
+                        <hotspotX>0.50666666</hotspotX>
                         <hotspotY>0.519999981</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
@@ -1512,6 +1512,264 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
+                <instance type="gateRay" uid="97">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <FirstStop>1200</FirstStop>
+                        <SecondStop>900</SecondStop>
+                        <ThirdStop>600</ThirdStop>
+                        <YTop>515</YTop>
+                        <YBot>1036</YBot>
+                        <Speed>100</Speed>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>100</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-226</x>
+                        <y>285</y>
+                        <z>0</z>
+                        <width>20</width>
+                        <height>180</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="gateRay" uid="98">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <FirstStop>1200</FirstStop>
+                        <SecondStop>900</SecondStop>
+                        <ThirdStop>600</ThirdStop>
+                        <YTop>515</YTop>
+                        <YBot>1036</YBot>
+                        <Speed>100</Speed>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>100</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>1</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-225</x>
+                        <y>285</y>
+                        <z>0</z>
+                        <width>20</width>
+                        <height>180</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="gatePole" uid="99">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <FirstStop>1200</FirstStop>
+                        <SecondStop>900</SecondStop>
+                        <ThirdStop>600</ThirdStop>
+                        <YTop>515</YTop>
+                        <YBot>1036</YBot>
+                        <Speed>100</Speed>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>100</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-227</x>
+                        <y>195</y>
+                        <z>0</z>
+                        <width>60</width>
+                        <height>35</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.514285982</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="gatePole" uid="100">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <FirstStop>1200</FirstStop>
+                        <SecondStop>900</SecondStop>
+                        <ThirdStop>600</ThirdStop>
+                        <YTop>515</YTop>
+                        <YBot>1036</YBot>
+                        <Speed>100</Speed>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>100</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-226</x>
+                        <y>381</y>
+                        <z>0</z>
+                        <width>60</width>
+                        <height>35</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.514285982</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="gatePole" uid="101">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <FirstStop>1200</FirstStop>
+                        <SecondStop>900</SecondStop>
+                        <ThirdStop>600</ThirdStop>
+                        <YTop>515</YTop>
+                        <YBot>1036</YBot>
+                        <Speed>100</Speed>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>100</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>1</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-225</x>
+                        <y>194</y>
+                        <z>0</z>
+                        <width>60</width>
+                        <height>35</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.514285982</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="gatePole" uid="102">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <FirstStop>1200</FirstStop>
+                        <SecondStop>900</SecondStop>
+                        <ThirdStop>600</ThirdStop>
+                        <YTop>515</YTop>
+                        <YBot>1036</YBot>
+                        <Speed>100</Speed>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>100</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>1</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-224</x>
+                        <y>380</y>
+                        <z>0</z>
+                        <width>60</width>
+                        <height>35</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.514285982</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>
@@ -1834,6 +2092,8 @@
                     </properties>
                     <instance-variables>
                         <AngleOfMotion>0</AngleOfMotion>
+                        <SpeedBase>400</SpeedBase>
+                        <SpeedXL>600</SpeedXL>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Bullet">

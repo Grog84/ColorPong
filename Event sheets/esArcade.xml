@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esArcade</name>
     <events>
+        <variable constant="0" name="SpawnGate" sid="607519077574694" static="0" type="number">0</variable>
         <variable constant="0" name="SpawnSlidingDoors" sid="176405335313639" static="0" type="number">0</variable>
         <variable constant="0" name="SnakeIsActive" sid="991281326800542" static="0" type="number">0</variable>
         <variable constant="0" name="TimeBeforeSpecial" sid="707526383413928" static="0" type="number">2</variable>
@@ -11,7 +12,7 @@
         <variable constant="0" name="SpawnKamikaze" sid="123396074125826" static="0" type="number">0</variable>
         <variable constant="0" name="SpawnCuboRotante" sid="403779563706876" static="0" type="number">0</variable>
         <variable constant="0" name="SpawnRotatingL" sid="983823297750336" static="0" type="number">0</variable>
-        <variable constant="0" name="SpecialEnemiesTypeNbr" sid="509305964104404" static="0" type="number">6</variable>
+        <variable constant="0" name="SpecialEnemiesTypeNbr" sid="509305964104404" static="0" type="number">7</variable>
         <variable constant="0" name="SpecialEnemyType" sid="190215179780222" static="0" type="number">0</variable>
         <variable constant="0" name="MaxSpecialEnemiesNbr" sid="625328798260974" static="0" type="number">1</variable>
         <variable constant="0" name="SpecialEnemiesOnScreen" sid="323556725505910" static="0" type="number">0</variable>
@@ -32,6 +33,9 @@
                 </action>
                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="863539221780094" type="Ball">
                     <param id="0" name="Angle">30</param>
+                </action>
+                <action behavior="Bullet" id="0" name="Set speed" sid="949467318450375" type="Ball">
+                    <param id="0" name="Speed">self.SpeedBase</param>
                 </action>
                 <action id="-10" name="Set value" sid="142651113424601" type="Ball">
                     <param id="0" name="Instance variable">AngleOfMotion</param>
@@ -485,6 +489,9 @@
                             <param id="0" name="Instance variable">AngleOfMotion</param>
                             <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
                         </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="496996198838441" type="Ball">
+                            <param id="0" name="Speed">self.SpeedBase</param>
+                        </action>
                     </actions>
                     <sub-events>
                         <event-block sid="865771742536323">
@@ -598,6 +605,9 @@
                         <action id="0" name="Call function" sid="487009651227583" type="Function">
                             <param id="0" name="Name">&quot;SetBallFrame&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="323541881085314" type="Ball">
+                            <param id="0" name="Speed">self.SpeedBase</param>
                         </action>
                     </actions>
                 </event-block>
@@ -996,17 +1006,32 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="438285107125522">
+                        <event-block sid="246405946978760">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="619080184456106" type="System">
+                                <condition id="-8" name="Compare two values" sid="598926663989112" type="System">
                                     <param id="0" name="First value">Function.Param(0)</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Second value">5</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Add to" sid="113526282267202" type="System">
+                                <action id="-10" name="Add to" sid="618333271211187" type="System">
                                     <param id="0" name="Variable">SpawnRotatingL</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="438285107125522">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="619080184456106" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="113526282267202" type="System">
+                                    <param id="0" name="Variable">SpawnGate</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
@@ -1030,13 +1055,13 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Set value" sid="762461891115612" type="System">
+                        <action disabled="1" id="-9" name="Set value" sid="762461891115612" type="System">
                             <param id="0" name="Variable">EnemyType</param>
                             <param id="1" name="Value">int(random(SpecialEnemiesTypeNbr))</param>
                         </action>
-                        <action disabled="1" id="-9" name="Set value" sid="535127959312313" type="System">
+                        <action id="-9" name="Set value" sid="535127959312313" type="System">
                             <param id="0" name="Variable">EnemyType</param>
-                            <param id="1" name="Value">5</param>
+                            <param id="1" name="Value">6</param>
                         </action>
                         <action id="0" name="Call function" sid="856373367031841" type="Function">
                             <param id="0" name="Name">&quot;SpawnSpecialEnemy&quot;</param>
@@ -1044,6 +1069,248 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-group description="" sid="659491654026081" title="XLGate">
+                    <sub-events>
+                        <variable constant="0" name="SpawnPoint" sid="634377868740468" static="0" type="number">0</variable>
+                        <event-block sid="207119484246203">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="955762360233175" type="System">
+                                    <param id="0" name="Variable">SpawnGate</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="732276043579967" type="System">
+                                    <param id="0" name="Variable">SpawnPoint</param>
+                                    <param id="1" name="Value">choose(2,9)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="818052472482684">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="589630173892689" type="spawn">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">SpawnPoint</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-11" name="Subtract from" sid="290831851159355" type="System">
+                                            <param id="0" name="Variable">SpawnGate</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="477353161430286" type="spawn">
+                                            <param id="0" name="Object">gateRay</param>
+                                            <param id="1" name="Layer">3</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="853996344686349" type="spawn">
+                                            <param id="0" name="Object">gatePole</param>
+                                            <param id="1" name="Layer">3</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-2" name="Set Y" sid="625062289217777" type="gatePole">
+                                            <param id="0" name="Y">Self.Y-gateRay.Height/2.0</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="868700093265425" type="spawn">
+                                            <param id="0" name="Object">gatePole</param>
+                                            <param id="1" name="Layer">3</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-2" name="Set Y" sid="647690852160431" type="gatePole">
+                                            <param id="0" name="Y">Self.Y+gateRay.Height/2.0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="175233470703945">
+                            <conditions>
+                                <condition id="-18" name="On created" sid="619296752568847" type="XLGate" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="838863805992320" type="System">
+                                    <param id="0" name="Seconds">2</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="753220852862616" type="XLGate">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="357154493400599" type="XLGate">
+                                    <param id="0" name="Speed">self.Speed</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="560097471437675" type="XLGate">
+                                    <param id="0" name="Angle">180</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="435474372920583">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="721756205720412" type="XLGate">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="X co-ordinate">self.FirstStop</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="993923690095458">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="415937984814859" type="XLGate">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="Y co-ordinate">770</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="332051531274584" type="XLGate">
+                                            <param id="0" name="Angle">120</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="494350434603453">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="299242088498474" type="XLGate">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="Y co-ordinate">770</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="988948447685667" type="XLGate">
+                                            <param id="0" name="Angle">-120</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="116281330706628">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="767009785493013" type="XLGate">
+                                            <param id="0" name="Instance variable">FirstStop</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="487366535862375">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="498663682356323" type="XLGate">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="X co-ordinate">self.SecondStop</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="546686697020107">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="687968807821387" type="XLGate">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="Y co-ordinate">770</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="917907334205608" type="XLGate">
+                                            <param id="0" name="Angle">120</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="408101147530257">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="633386508382205" type="XLGate">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="Y co-ordinate">770</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="147171460087962" type="XLGate">
+                                            <param id="0" name="Angle">-120</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="966242246151315">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="554852436142016" type="XLGate">
+                                            <param id="0" name="Instance variable">SecondStop</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="319948078578908">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="874611858206710" type="XLGate">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="X co-ordinate">self.ThirdStop</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="569154388504161">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="309945257279435" type="XLGate">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="Y co-ordinate">770</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="572220000522102" type="XLGate">
+                                            <param id="0" name="Angle">-90</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="124847780735792">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="502196347268009" type="XLGate">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="Y co-ordinate">770</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="856484936731705" type="XLGate">
+                                            <param id="0" name="Angle">90</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="395982929277682">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="204021059147206" type="XLGate">
+                                            <param id="0" name="Instance variable">ThirdStop</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block any="1" sid="209526266632572">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="820626583264786" type="XLGate">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Y co-ordinate">FRAMEOFFSET - 20</param>
+                                </condition>
+                                <condition id="-2" name="Compare Y" sid="249613976491759" type="XLGate">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height + 20</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="307864312783433" type="XLGate" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="714580608909126">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="343862582528764" type="gateRay">
+                                    <param id="0" name="Object">Ball</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="861599610424925" type="Ball">
+                                    <param id="0" name="Speed">Ball.SpeedXL</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
                 <event-group description="" sid="974111184878849" title="RotatingL">
                     <sub-events>
                         <variable constant="0" name="SpawnPoint" sid="936688978835229" static="0" type="number">0</variable>

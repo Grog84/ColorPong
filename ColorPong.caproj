@@ -929,6 +929,45 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="L" sid="249436414097249">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Rotate" sid="275864826864984">
+                    <behavior id="Rotate" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="869166879640986">
+                    <behavior id="destroy" />
+                </behavior-type>
+                <behavior-type name="Pin" sid="738406990855858">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="433172027907870" speed="5">
+                    <frame duration="1" hotspotX="0.506667" hotspotY="0.52" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="LBase" sid="714964910703649">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Speed" sid="919897430836499" type="number" />
+                <instance-variable name="SpriteID" sid="651687053354149" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="DestroyOutsideLayout" sid="954985537712089">
+                    <behavior id="destroy" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="235415795350823">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="143109947050691" speed="5">
+                    <frame duration="1" hotspotX="0.52" hotspotY="0.52" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="110717795313248">
@@ -936,6 +975,7 @@
                 <member>cuboRotante</member>
                 <member>EvilBlock</member>
                 <member>Kamikaze</member>
+                <member>L</member>
                 <member>shuriken</member>
                 <member>slidingDoors</member>
                 <member>slidingDoorsMirror</member>
@@ -947,6 +987,7 @@
             <members>
                 <member>cuboRotante</member>
                 <member>Kamikaze</member>
+                <member>L</member>
                 <member>shuriken</member>
                 <member>slidingDoors</member>
                 <member>slidingDoorsMirror</member>
@@ -957,6 +998,7 @@
             <members>
                 <member>cuboRotante</member>
                 <member>EvilBlock</member>
+                <member>L</member>
                 <member>slidingDoors</member>
                 <member>slidingDoorsMirror</member>
             </members>

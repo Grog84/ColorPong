@@ -10,7 +10,8 @@
         <variable constant="0" name="SpawnShuriken" sid="112103926454049" static="0" type="number">0</variable>
         <variable constant="0" name="SpawnKamikaze" sid="123396074125826" static="0" type="number">0</variable>
         <variable constant="0" name="SpawnCuboRotante" sid="403779563706876" static="0" type="number">0</variable>
-        <variable constant="0" name="SpecialEnemiesTypeNbr" sid="509305964104404" static="0" type="number">4</variable>
+        <variable constant="0" name="SpawnRotatingL" sid="983823297750336" static="0" type="number">0</variable>
+        <variable constant="0" name="SpecialEnemiesTypeNbr" sid="509305964104404" static="0" type="number">6</variable>
         <variable constant="0" name="SpecialEnemyType" sid="190215179780222" static="0" type="number">0</variable>
         <variable constant="0" name="MaxSpecialEnemiesNbr" sid="625328798260974" static="0" type="number">1</variable>
         <variable constant="0" name="SpecialEnemiesOnScreen" sid="323556725505910" static="0" type="number">0</variable>
@@ -164,7 +165,7 @@
         <event-block sid="804242202075946">
             <conditions>
                 <condition id="-6" name="Every X seconds" sid="681017810342552" type="System">
-                    <param id="0" name="Interval (seconds)">60</param>
+                    <param id="0" name="Interval (seconds)">30</param>
                 </condition>
             </conditions>
             <actions>
@@ -995,6 +996,21 @@
                                 </action>
                             </actions>
                         </event-block>
+                        <event-block sid="438285107125522">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="619080184456106" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="113526282267202" type="System">
+                                    <param id="0" name="Variable">SpawnRotatingL</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
                     </sub-events>
                 </event-block>
                 <event-block sid="626787679586745">
@@ -1014,13 +1030,13 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action disabled="1" id="-9" name="Set value" sid="762461891115612" type="System">
+                        <action id="-9" name="Set value" sid="762461891115612" type="System">
                             <param id="0" name="Variable">EnemyType</param>
                             <param id="1" name="Value">int(random(SpecialEnemiesTypeNbr))</param>
                         </action>
-                        <action id="-9" name="Set value" sid="535127959312313" type="System">
+                        <action disabled="1" id="-9" name="Set value" sid="535127959312313" type="System">
                             <param id="0" name="Variable">EnemyType</param>
-                            <param id="1" name="Value">4</param>
+                            <param id="1" name="Value">5</param>
                         </action>
                         <action id="0" name="Call function" sid="856373367031841" type="Function">
                             <param id="0" name="Name">&quot;SpawnSpecialEnemy&quot;</param>
@@ -1028,6 +1044,86 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-group description="" sid="974111184878849" title="RotatingL">
+                    <sub-events>
+                        <variable constant="0" name="SpawnPoint" sid="936688978835229" static="0" type="number">0</variable>
+                        <event-block sid="214873602780541">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="150366648265150" type="System">
+                                    <param id="0" name="Variable">SpawnRotatingL</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="492181889230136" type="System">
+                                    <param id="0" name="Variable">SpawnPoint</param>
+                                    <param id="1" name="Value">int(random(spawn.Count))</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="372111653224266">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="549710624195128" type="spawn">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">SpawnPoint</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-11" name="Subtract from" sid="296314275664715" type="System">
+                                            <param id="0" name="Variable">SpawnRotatingL</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="408938858269573" type="spawn">
+                                            <param id="0" name="Object">LBase</param>
+                                            <param id="1" name="Layer">3</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="646790916384156">
+                            <conditions>
+                                <condition id="-18" name="On created" sid="398634260612069" type="LBase" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="556283542150097" type="LBase">
+                                    <param id="0" name="Object">L</param>
+                                    <param id="1" name="Layer">3</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action behavior="Pin" id="0" name="Pin to object" sid="888999584263849" type="L">
+                                    <param id="0" name="Pin to">LBase</param>
+                                    <param id="1" name="Mode">1</param>
+                                </action>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="266879247619989" type="LBase">
+                                    <param id="0" name="Speed">Self.Speed</param>
+                                </action>
+                                <action id="-22" name="Set angle toward position" sid="406539414388177" type="LBase">
+                                    <param id="0" name="X">-50</param>
+                                    <param id="1" name="Y">random(FRAMEOFFSET+50, FRAMEOFFSET+ Frame.Height - 50)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="519254625536571" type="LBase">
+                                    <param id="0" name="Instance variable">SpriteID</param>
+                                    <param id="1" name="Value">L.UID</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="632146212200630">
+                            <conditions>
+                                <condition id="-19" name="On destroyed" sid="824520475085300" type="LBase" />
+                                <condition id="-14" name="Pick by unique ID" sid="272735709004338" type="L">
+                                    <param id="0" name="Unique ID">LBase.SpriteID</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="949114404438458" type="L" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
                 <event-group description="" sid="867239374571230" title="SlidingDoors">
                     <sub-events>
                         <event-block sid="117122975895892">

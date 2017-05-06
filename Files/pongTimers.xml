@@ -1,0 +1,19 @@
+<Timers> <!-- Questo blocco serve a definire le tempistiche per lo spawn dei nemici e per il passaggio alle diverse fasi -->
+	<Enemies>  <!-- Questo blocco serve a definire il tempo del primo spawn per il nemico in questione -->
+		<enemy id="0" name="EvilBlock">5</enemy>
+		<enemy id="1" name="CuboRotante">10</enemy>
+		<enemy id="2" name="Kamikaze">17</enemy>
+		<enemy id="3" name="Shuriken">27</enemy>
+		<enemy id="4" name="Snake">33</enemy>
+		<enemy id="5" name="SlidingDoors">43</enemy>
+		<enemy id="6" name="RotatingL">50</enemy>
+		<enemy id="7" name="XLGate">55</enemy>
+	</Enemies>
+	
+	<Phases> <!-- Questo blocco serve a definire i tempi di passaggio alle varie fasi -->
+		<phase id="1">0</phase>  <!-- Fase Scriptata, occhio che sia compatibile con i valori di sopra. Inizia al tempo 0 -->
+		<phase id="2">75</phase>
+		<phase id="3">400</phase>
+		<phase id="4">600</phase>
+	</Phases>
+</Timers>

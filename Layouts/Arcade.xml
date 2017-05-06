@@ -3196,6 +3196,104 @@
             <effects />
         </layer>
     </layers>
-    <nonworld-instances />
+    <nonworld-instances>
+        <instance type="XML" uid="107">
+            <instance-variables>
+                <i>0</i>
+                <j>0</j>
+            </instance-variables>
+        </instance>
+        <instance type="ParamsBall" uid="108">
+            <properties>
+                <width>2</width>
+                <height>4</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="ParamsEvilBlock" uid="109">
+            <properties>
+                <width>2</width>
+                <height>4</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="ParamsCuboRotante" uid="110">
+            <properties>
+                <width>2</width>
+                <height>4</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="ParamsKamikaze" uid="111">
+            <properties>
+                <width>5</width>
+                <height>4</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="ParamsShuriken" uid="112">
+            <properties>
+                <width>2</width>
+                <height>4</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="ParamsSnake" uid="113">
+            <properties>
+                <width>3</width>
+                <height>4</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="ParamsDoors" uid="114">
+            <properties>
+                <width>3</width>
+                <height>4</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="ParamsRotatingL" uid="115">
+            <properties>
+                <width>2</width>
+                <height>4</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="ParamsXLGate" uid="116">
+            <properties>
+                <width>3</width>
+                <height>4</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="SpawnTimer" uid="117">
+            <properties>
+                <width>8</width>
+                <height>1</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="PhasesTimer" uid="118">
+            <properties>
+                <width>4</width>
+                <height>1</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="BallParams" uid="119">
+            <properties>
+                <width>1</width>
+                <height>4</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="PlayerParams" uid="120">
+            <properties>
+                <width>2</width>
+                <height>4</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+    </nonworld-instances>
     <effects />
 </c2layout>

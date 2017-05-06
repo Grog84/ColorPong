@@ -20,6 +20,7 @@
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="XML" version="1">XML</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
@@ -913,6 +914,49 @@
                 <plugin id="Function" />
             </object-type>
         </object-folder>
+        <object-folder name="ParamsArrays">
+            <object-type global="1" name="ParamsBall" sid="476877644885253">
+                <plugin id="Arr" />
+            </object-type>
+            <object-type global="1" name="ParamsCuboRotante" sid="929821134329113">
+                <plugin id="Arr" />
+            </object-type>
+            <object-type global="1" name="ParamsDoors" sid="777903099459482">
+                <plugin id="Arr" />
+            </object-type>
+            <object-type global="1" name="ParamsEvilBlock" sid="796829365259682">
+                <plugin id="Arr" />
+            </object-type>
+            <object-type global="1" name="ParamsKamikaze" sid="818135674110134">
+                <plugin id="Arr" />
+            </object-type>
+            <object-type global="1" name="ParamsRotatingL" sid="189007430952779">
+                <plugin id="Arr" />
+            </object-type>
+            <object-type global="1" name="ParamsShuriken" sid="115905326657591">
+                <plugin id="Arr" />
+            </object-type>
+            <object-type global="1" name="ParamsSnake" sid="756609656449892">
+                <plugin id="Arr" />
+            </object-type>
+            <object-type global="1" name="ParamsXLGate" sid="711101194960408">
+                <plugin id="Arr" />
+            </object-type>
+            <object-type global="1" name="BallParams" sid="724591870733372">
+                <plugin id="Arr" />
+            </object-type>
+            <object-type global="1" name="PlayerParams" sid="508123332462487">
+                <plugin id="Arr" />
+            </object-type>
+        </object-folder>
+        <object-folder name="TimerArrays">
+            <object-type global="1" name="PhasesTimer" sid="245029530530758">
+                <plugin id="Arr" />
+            </object-type>
+            <object-type global="1" name="SpawnTimer" sid="813875331027009">
+                <plugin id="Arr" />
+            </object-type>
+        </object-folder>
         <object-type name="PlayerTile" sid="551126096200063">
             <plugin id="Sprite" />
             <instance-variables>
@@ -1175,6 +1219,13 @@
         <object-type name="Audio" sid="626049767409200">
             <plugin id="Audio" />
         </object-type>
+        <object-type global="1" name="XML" sid="448680454526004">
+            <plugin id="XML" />
+            <instance-variables>
+                <instance-variable name="i" sid="804017382601686" type="number" />
+                <instance-variable name="j" sid="380339842733895" type="number" />
+            </instance-variables>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="110717795313248">
@@ -1319,5 +1370,7 @@
             <file name="loading-logo.png" />
         </file-folder>
         <file name="LeaderBoeard.txt" />
+        <file name="pongTimers.xml" />
+        <file name="pongParameters.xml" />
     </files-folder>
 </c2project>

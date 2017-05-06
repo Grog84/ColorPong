@@ -18,7 +18,9 @@
         <variable constant="0" name="SpawnRotatingL" sid="983823297750336" static="0" type="number">0</variable>
         <variable constant="0" name="SpawnGate" sid="607519077574694" static="0" type="number">0</variable>
         <variable constant="0" name="SnakeIsActive" sid="991281326800542" static="0" type="number">0</variable>
-        <comment>SpawningDriversVariables</comment>
+        <comment>SpawningDriverVariables</comment>
+        <variable constant="0" name="Phase" sid="415567450401352" static="0" type="number">0</variable>
+        <variable constant="0" name="TriggerScript" sid="911888412010741" static="0" type="number">0</variable>
         <variable constant="0" name="RegularSpawningTime" sid="139991081392705" static="0" type="number">5</variable>
         <variable constant="0" name="SpecialEnemiesOnScreen" sid="323556725505910" static="0" type="number">0</variable>
         <variable constant="0" name="TimeBeforeSpecial" sid="707526383413928" static="0" type="number">15</variable>
@@ -28,7 +30,7 @@
         <comment>Time/Score</comment>
         <variable constant="0" name="GameTime" sid="403259355992123" static="0" type="number">0</variable>
         <variable constant="0" name="GameScore" sid="313863900724160" static="0" type="number">0</variable>
-        <variable constant="0" name="BallLost" sid="198489624363281" static="0" type="number">3</variable>
+        <variable constant="0" name="BallLossScorePenalty" sid="198489624363281" static="0" type="number">3</variable>
         <comment>CONSTANT VARIABLES</comment>
         <variable constant="1" name="FrameOffset" sid="225801414137167" static="0" type="number">315</variable>
         <variable comment="seconds" constant="0" name="IMMUNE_TIME" sid="273482141318713" static="0" type="number">2</variable>
@@ -39,6 +41,14 @@
                 <condition id="-2" name="On start of layout" sid="992054801398873" type="System" />
             </conditions>
             <actions>
+                <action id="-9" name="Set value" sid="370772323297229" type="System">
+                    <param id="0" name="Variable">GameScore</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="943993350245849" type="System">
+                    <param id="0" name="Variable">GameTime</param>
+                    <param id="1" name="Value">0</param>
+                </action>
                 <action behavior="Pin" id="0" name="Pin to object" sid="442583035801206" type="PlayerTile">
                     <param id="0" name="Pin to">Player</param>
                     <param id="1" name="Mode">1</param>
@@ -73,10 +83,6 @@
                     <param id="0" name="Pin to">Ball</param>
                     <param id="1" name="Mode">1</param>
                 </action>
-                <action id="-9" name="Set value" sid="370772323297229" type="System">
-                    <param id="0" name="Variable">GameScore</param>
-                    <param id="1" name="Value">0</param>
-                </action>
                 <action id="0" name="Play" sid="260014486770084" type="Audio">
                     <param id="0" name="Audio file">game soundtrack</param>
                     <param id="2" name="Loop">1</param>
@@ -86,6 +92,14 @@
                 <action id="-9" name="Set value" sid="107755274809134" type="System">
                     <param id="0" name="Variable">MusicFadeInTrigger</param>
                     <param id="1" name="Value">1</param>
+                </action>
+                <action id="1" name="Request project file" sid="402933715941435" type="AJAX">
+                    <param id="0" name="Tag">&quot;timer&quot;</param>
+                    <param id="1" name="File">pongTimers.xml</param>
+                </action>
+                <action id="1" name="Request project file" sid="571927382253938" type="AJAX">
+                    <param id="0" name="Tag">&quot;params&quot;</param>
+                    <param id="1" name="File">pongParameters.xml</param>
                 </action>
             </actions>
             <sub-events>
@@ -112,6 +126,417 @@
                             <param id="0" name="Frame number">Self.StartingFrame</param>
                         </action>
                     </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="157862796595441">
+            <conditions>
+                <condition id="0" name="On completed" sid="444579305567143" type="AJAX">
+                    <param id="0" name="Tag">&quot;timer&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Load" sid="685854536557452" type="XML">
+                    <param id="0" name="XML">AJAX.LastData</param>
+                </action>
+                <action id="0" name="Call function" sid="264570849417439" type="Function">
+                    <param id="0" name="Name">&quot;FillTimerArrays&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="261239481797677">
+            <conditions>
+                <condition id="0" name="On completed" sid="712746866727564" type="AJAX">
+                    <param id="0" name="Tag">&quot;params&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Load" sid="911660065896978" type="XML">
+                    <param id="0" name="XML">AJAX.LastData</param>
+                </action>
+                <action id="0" name="Call function" sid="273325110405043" type="Function">
+                    <param id="0" name="Name">&quot;GetPhasesParams&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="511868623847931">
+            <conditions>
+                <condition id="0" name="On function" sid="281215975604649" type="Function">
+                    <param id="0" name="Name">&quot;FillTimerArrays&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="532970610915800">
+                    <conditions>
+                        <condition id="0" name="For each node" sid="786893784969563" type="XML">
+                            <param id="0" name="XPath">&quot;/Timers&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="540558336533813">
+                            <conditions>
+                                <condition id="0" name="For each node" sid="267164961423800" type="XML">
+                                    <param id="0" name="XPath">&quot;Enemies&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="0" name="i" sid="619593438003879" static="0" type="number">0</variable>
+                                <event-block sid="816252158859896">
+                                    <conditions>
+                                        <condition id="0" name="For each node" sid="186654969365228" type="XML">
+                                            <param id="0" name="XPath">&quot;enemy&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="2" name="Set at X" sid="300628457499231" type="SpawnTimer">
+                                            <param id="0" name="X">i</param>
+                                            <param id="1" name="Value">XML.NumberValue(&quot;node()&quot;)</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="521640260966721" type="System">
+                                            <param id="0" name="Variable">i</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="198847083783601">
+                            <conditions>
+                                <condition id="0" name="For each node" sid="998703440033444" type="XML">
+                                    <param id="0" name="XPath">&quot;Phases&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="0" name="i" sid="201428115114251" static="0" type="number">0</variable>
+                                <event-block sid="905971339258137">
+                                    <conditions>
+                                        <condition id="0" name="For each node" sid="983352069672892" type="XML">
+                                            <param id="0" name="XPath">&quot;phase&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="2" name="Set at X" sid="486839483842926" type="PhasesTimer">
+                                            <param id="0" name="X">i</param>
+                                            <param id="1" name="Value">XML.NumberValue(&quot;node()&quot;)</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="381989383238452" type="System">
+                                            <param id="0" name="Variable">i</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="997516734809804">
+            <conditions>
+                <condition id="0" name="On function" sid="498204001708430" type="Function">
+                    <param id="0" name="Name">&quot;GetPhasesParams&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="877543564227583">
+                    <conditions>
+                        <condition id="0" name="For each node" sid="727694868800218" type="XML">
+                            <param id="0" name="XPath">&quot;/Phases&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="197726118957304">
+                            <conditions>
+                                <condition id="0" name="For each node" sid="384210113085325" type="XML">
+                                    <param id="0" name="XPath">&quot;phase&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="440651785307091">
+                                    <conditions>
+                                        <condition id="0" name="For each node" sid="141917190757185" type="XML">
+                                            <param id="0" name="XPath">&quot;Enemies&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="126022348377997">
+                                            <conditions>
+                                                <condition id="0" name="For each node" sid="747058121734565" type="XML">
+                                                    <param id="0" name="XPath">&quot;enemy&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                            <sub-events>
+                                                <event-block sid="700167187747957">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="253367021287120" type="System">
+                                                            <param id="0" name="First value">XML.i</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">0</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="3" name="Set at XY" sid="220164349291270" type="ParamsEvilBlock">
+                                                            <param id="0" name="X">0</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@spawnRate&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="935929192659494" type="ParamsEvilBlock">
+                                                            <param id="0" name="X">1</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@speed&quot;)</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="921148289990104">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="376995467756023" type="System">
+                                                            <param id="0" name="First value">XML.i</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">1</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="3" name="Set at XY" sid="896432300200825" type="ParamsCuboRotante">
+                                                            <param id="0" name="X">0</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@spawnChance&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="991198547684918" type="ParamsCuboRotante">
+                                                            <param id="0" name="X">1</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@speed&quot;)</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="620027252152239">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="703333213174962" type="System">
+                                                            <param id="0" name="First value">XML.i</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">2</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="3" name="Set at XY" sid="836018020891694" type="ParamsKamikaze">
+                                                            <param id="0" name="X">0</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@spawnChance&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="669702143463099" type="ParamsKamikaze">
+                                                            <param id="0" name="X">1</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@BaseSpeed&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="344794333340947" type="ParamsKamikaze">
+                                                            <param id="0" name="X">2</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@KamikazeSpeed&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="259713406603684" type="ParamsKamikaze">
+                                                            <param id="0" name="X">3</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@KamikazeDistance&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="771083308980752" type="ParamsKamikaze">
+                                                            <param id="0" name="X">4</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@VibrationTime&quot;)</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="238258363238333">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="550348949788004" type="System">
+                                                            <param id="0" name="First value">XML.i</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">3</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="3" name="Set at XY" sid="807835789146767" type="ParamsShuriken">
+                                                            <param id="0" name="X">0</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@spawnChance&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="160879756475609" type="ParamsShuriken">
+                                                            <param id="0" name="X">1</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@speed&quot;)</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="185746753363484">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="946315480161478" type="System">
+                                                            <param id="0" name="First value">XML.i</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">4</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="3" name="Set at XY" sid="647167636823974" type="ParamsSnake">
+                                                            <param id="0" name="X">0</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@spawnChance&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="440426421768635" type="ParamsSnake">
+                                                            <param id="0" name="X">1</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@speed&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="893083015122870" type="ParamsSnake">
+                                                            <param id="0" name="X">2</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@NbrOfReplicate&quot;)</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="530701489112356">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="819378650832208" type="System">
+                                                            <param id="0" name="First value">XML.i</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">5</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="3" name="Set at XY" sid="426985754344149" type="ParamsDoors">
+                                                            <param id="0" name="X">0</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@spawnChance&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="541962671580394" type="ParamsDoors">
+                                                            <param id="0" name="X">1</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@speed&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="833039994631703" type="ParamsDoors">
+                                                            <param id="0" name="X">2</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@WaitTime&quot;)</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="783733960709220">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="365662197866770" type="System">
+                                                            <param id="0" name="First value">XML.i</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">6</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="3" name="Set at XY" sid="781017151872109" type="ParamsRotatingL">
+                                                            <param id="0" name="X">0</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@spawnChance&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="288884852431158" type="ParamsRotatingL">
+                                                            <param id="0" name="X">1</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@speed&quot;)</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="594361782549456">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="475219995260388" type="System">
+                                                            <param id="0" name="First value">XML.i</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">7</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="3" name="Set at XY" sid="958530984609306" type="ParamsXLGate">
+                                                            <param id="0" name="X">0</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@spawnChance&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="367911464488581" type="ParamsXLGate">
+                                                            <param id="0" name="X">1</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@speed&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="194500143983223" type="ParamsXLGate">
+                                                            <param id="0" name="X">2</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">XML.NumberValue(&quot;@ballSpeedUp&quot;)</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="898537405500444">
+                                                    <conditions />
+                                                    <actions>
+                                                        <action id="-11" name="Add to" sid="560393794049851" type="XML">
+                                                            <param id="0" name="Instance variable">i</param>
+                                                            <param id="1" name="Value">1</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="596946538255485">
+                                    <conditions>
+                                        <condition id="0" name="For each node" sid="765572657073638" type="XML">
+                                            <param id="0" name="XPath">&quot;Ball&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="3" name="Set at XY" sid="836281554940983" type="BallParams">
+                                            <param id="0" name="X">0</param>
+                                            <param id="1" name="Y">XML.j</param>
+                                            <param id="2" name="Value">XML.NumberValue(&quot;@speed&quot;)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="539175852900180">
+                                    <conditions>
+                                        <condition id="0" name="For each node" sid="710705781721467" type="XML">
+                                            <param id="0" name="XPath">&quot;Player&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="3" name="Set at XY" sid="872141904184411" type="PlayerParams">
+                                            <param id="0" name="X">0</param>
+                                            <param id="1" name="Y">XML.j</param>
+                                            <param id="2" name="Value">XML.NumberValue(&quot;@BaseSpeed&quot;)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="118568057257838" type="PlayerParams">
+                                            <param id="0" name="X">1</param>
+                                            <param id="1" name="Y">XML.i</param>
+                                            <param id="2" name="Value">XML.NumberValue(&quot;@DashSpeed&quot;)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="347606629036008">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-11" name="Add to" sid="726510100016511" type="XML">
+                                            <param id="0" name="Instance variable">j</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="414501297301217" type="XML">
+                                            <param id="0" name="Instance variable">i</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
@@ -162,14 +587,15 @@
             <conditions>
                 <condition id="-8" name="Compare two values" sid="772584242790046" type="System">
                     <param id="0" name="First value">GameTime</param>
-                    <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Second value">5</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Second value">3</param>
                 </condition>
+                <condition id="-4" name="Trigger once while true" sid="198256736168827" type="System" />
             </conditions>
             <actions>
                 <action id="-9" name="Set value" sid="151674293512775" type="System">
-                    <param id="0" name="Variable">SpecialEnemiesOnScreen</param>
-                    <param id="1" name="Value">0</param>
+                    <param id="0" name="Variable">TriggerScript</param>
+                    <param id="1" name="Value">1</param>
                 </action>
             </actions>
         </event-block>
@@ -186,6 +612,11 @@
         </event-block>
         <event-block sid="804242202075946">
             <conditions>
+                <condition id="-14" name="Compare variable" sid="914596088040012" type="System">
+                    <param id="0" name="Variable">Phase</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
                 <condition id="-6" name="Every X seconds" sid="681017810342552" type="System">
                     <param id="0" name="Interval (seconds)">30</param>
                 </condition>
@@ -774,7 +1205,7 @@
                                     <param id="1" name="Value">self.SpeedDash</param>
                                 </action>
                                 <action id="-16" name="Wait" sid="843095788475728" type="System">
-                                    <param id="0" name="Seconds">0.3</param>
+                                    <param id="0" name="Seconds">0.3*Player.SpeedDash/15.0</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="189817646835916" type="Player">
                                     <param id="0" name="Instance variable">Speed</param>
@@ -1268,6 +1699,11 @@
                 </event-block>
                 <event-block sid="626787679586745">
                     <conditions>
+                        <condition id="-14" name="Compare variable" sid="629362959867354" type="System">
+                            <param id="0" name="Variable">Phase</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
                         <condition id="-6" name="Every X seconds" sid="479580126085777" type="System">
                             <param id="0" name="Interval (seconds)">2.0</param>
                         </condition>
@@ -1780,7 +2216,7 @@
                                     <param id="0" name="State">1</param>
                                 </action>
                                 <action behavior="Bullet" id="0" name="Set speed" sid="357154493400599" type="XLGate">
-                                    <param id="0" name="Speed">self.Speed</param>
+                                    <param id="0" name="Speed">ParamsXLGate.At(1, Phase)</param>
                                 </action>
                                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="560097471437675" type="XLGate">
                                     <param id="0" name="Angle">180</param>
@@ -2024,7 +2460,7 @@
                                     <param id="1" name="Mode">1</param>
                                 </action>
                                 <action behavior="Bullet" id="0" name="Set speed" sid="266879247619989" type="LBase">
-                                    <param id="0" name="Speed">Self.Speed</param>
+                                    <param id="0" name="Speed">ParamsRotatingL.At(1, Phase)</param>
                                 </action>
                                 <action id="-22" name="Set angle toward position" sid="406539414388177" type="LBase">
                                     <param id="0" name="X">-50</param>
@@ -2089,7 +2525,7 @@
                                             <param id="0" name="Angle">90</param>
                                         </action>
                                         <action behavior="Bullet" id="0" name="Set speed" sid="609357636318116" type="slidingDoors">
-                                            <param id="0" name="Speed">self.Speed</param>
+                                            <param id="0" name="Speed">ParamsDoors.At(1, Phase)</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -2110,8 +2546,8 @@
                                         <action behavior="Bullet" id="3" name="Set angle of motion" sid="659621173569452" type="slidingDoorsMirror">
                                             <param id="0" name="Angle">-90</param>
                                         </action>
-                                        <action behavior="Bullet" id="0" name="Set speed" sid="107354120956752" type="slidingDoorsMirror">
-                                            <param id="0" name="Speed">Self.Speed</param>
+                                        <action behavior="Bullet" id="0" name="Set speed" sid="607895021840069" type="slidingDoors">
+                                            <param id="0" name="Speed">ParamsDoors.At(1, Phase)</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -2170,10 +2606,10 @@
                             </conditions>
                             <actions>
                                 <action id="-16" name="Wait" sid="331350811210161" type="System">
-                                    <param id="0" name="Seconds">slidingDoors.WaitTime</param>
+                                    <param id="0" name="Seconds">ParamsDoors.At(2, Phase)</param>
                                 </action>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="430926917798677" type="slidingDoors">
-                                    <param id="0" name="Speed">Self.Speed</param>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="697610553545625" type="slidingDoors">
+                                    <param id="0" name="Speed">ParamsDoors.At(1, Phase)</param>
                                 </action>
                                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="265852857213756" type="slidingDoors">
                                     <param id="0" name="Angle">90</param>
@@ -2190,10 +2626,10 @@
                             </conditions>
                             <actions>
                                 <action id="-16" name="Wait" sid="158518564569823" type="System">
-                                    <param id="0" name="Seconds">slidingDoorsMirror.WaitTime</param>
+                                    <param id="0" name="Seconds">ParamsDoors.At(2, Phase)</param>
                                 </action>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="472034394449273" type="slidingDoorsMirror">
-                                    <param id="0" name="Speed">self.Speed</param>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="573256073899928" type="slidingDoorsMirror">
+                                    <param id="0" name="Speed">ParamsDoors.At(1, Phase)</param>
                                 </action>
                                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="822431538317807" type="slidingDoorsMirror">
                                     <param id="0" name="Angle">-90</param>
@@ -2304,7 +2740,7 @@
                                 </action>
                                 <action behavior="CustomMovement" id="2" name="Set speed" sid="923494084598174" type="snakeHead">
                                     <param id="0" name="Which">1</param>
-                                    <param id="1" name="Speed">-self.Speed</param>
+                                    <param id="1" name="Speed">-ParamsSnake.At(1, Phase)</param>
                                 </action>
                                 <action id="-9" name="Set value" sid="113414062738177" type="System">
                                     <param id="0" name="Variable">SnakeIsActive</param>
@@ -2376,7 +2812,7 @@
                                     <actions>
                                         <action behavior="CustomMovement" id="2" name="Set speed" sid="209933691880612" type="snakeHead">
                                             <param id="0" name="Which">2</param>
-                                            <param id="1" name="Speed">-Self.Speed</param>
+                                            <param id="1" name="Speed">-ParamsSnake.At(1, Phase)</param>
                                         </action>
                                         <action id="-10" name="Set value" sid="880150869185928" type="snakeHead">
                                             <param id="0" name="Instance variable">TravellingDirection</param>
@@ -2394,7 +2830,7 @@
                                     <actions>
                                         <action behavior="CustomMovement" id="2" name="Set speed" sid="738377151549689" type="snakeHead">
                                             <param id="0" name="Which">2</param>
-                                            <param id="1" name="Speed">Self.Speed</param>
+                                            <param id="1" name="Speed">ParamsSnake.At(1, Phase)</param>
                                         </action>
                                         <action id="-10" name="Set value" sid="847572551236282" type="snakeHead">
                                             <param id="0" name="Instance variable">TravellingDirection</param>
@@ -2424,7 +2860,7 @@
                                 <action behavior="CustomMovement" id="0" name="Stop" sid="890530733594632" type="snakeHead" />
                                 <action behavior="CustomMovement" id="2" name="Set speed" sid="144635460085917" type="snakeHead">
                                     <param id="0" name="Which">1</param>
-                                    <param id="1" name="Speed">-Self.Speed</param>
+                                    <param id="1" name="Speed">-ParamsSnake.At(1, Phase)</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="155704287971812" type="snakeHead">
                                     <param id="0" name="Instance variable">TravellingDirection</param>
@@ -2514,7 +2950,7 @@
                                 </action>
                                 <action behavior="CustomMovement" id="2" name="Set speed" sid="900306228078380" type="snakeTail">
                                     <param id="0" name="Which">1</param>
-                                    <param id="1" name="Speed">-self.Speed</param>
+                                    <param id="1" name="Speed">-ParamsSnake.At(1, Phase)</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="522078443603551" type="snakeTail">
                                     <param id="0" name="Instance variable">Xtranslation</param>
@@ -2564,7 +3000,7 @@
                                     <actions>
                                         <action behavior="CustomMovement" id="2" name="Set speed" sid="541576279517029" type="snakeTail">
                                             <param id="0" name="Which">2</param>
-                                            <param id="1" name="Speed">-Self.Speed</param>
+                                            <param id="1" name="Speed">-ParamsSnake.At(1, Phase)</param>
                                         </action>
                                         <action id="-10" name="Set value" sid="774776340588795" type="snakeTail">
                                             <param id="0" name="Instance variable">TravellingDirection</param>
@@ -2582,7 +3018,7 @@
                                     <actions>
                                         <action behavior="CustomMovement" id="2" name="Set speed" sid="119039674352062" type="snakeTail">
                                             <param id="0" name="Which">2</param>
-                                            <param id="1" name="Speed">Self.Speed</param>
+                                            <param id="1" name="Speed">ParamsSnake.At(1, Phase)</param>
                                         </action>
                                         <action id="-10" name="Set value" sid="241728567085837" type="snakeTail">
                                             <param id="0" name="Instance variable">TravellingDirection</param>
@@ -2612,7 +3048,7 @@
                                 <action behavior="CustomMovement" id="0" name="Stop" sid="455154452841483" type="snakeTail" />
                                 <action behavior="CustomMovement" id="2" name="Set speed" sid="486968726223865" type="snakeTail">
                                     <param id="0" name="Which">1</param>
-                                    <param id="1" name="Speed">-Self.Speed</param>
+                                    <param id="1" name="Speed">-ParamsSnake.At(1, Phase)</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="848123367187342" type="snakeTail">
                                     <param id="0" name="Instance variable">TravellingDirection</param>
@@ -2754,7 +3190,7 @@
                                             <param id="0" name="Speed">Self.RotationSpeed</param>
                                         </action>
                                         <action behavior="Bullet" id="0" name="Set speed" sid="995615709138608" type="ShurikenBase">
-                                            <param id="0" name="Speed">Self.Speed</param>
+                                            <param id="0" name="Speed">ParamsShuriken.At(1, Phase)</param>
                                         </action>
                                         <action id="0" name="Play" sid="160594288545563" type="Audio">
                                             <param id="0" name="Audio file">shuriken2</param>
@@ -2791,7 +3227,7 @@
                                             <param id="0" name="Speed">-1*Self.RotationSpeed</param>
                                         </action>
                                         <action behavior="Bullet" id="0" name="Set speed" sid="730776740295862" type="ShurikenBase">
-                                            <param id="0" name="Speed">Self.Speed</param>
+                                            <param id="0" name="Speed">ParamsShuriken.At(1, Phase)</param>
                                         </action>
                                         <action id="0" name="Play" sid="230715242608104" type="Audio">
                                             <param id="0" name="Audio file">shuriken2</param>
@@ -2873,7 +3309,7 @@
                                             <param id="2" name="Image point">1</param>
                                         </action>
                                         <action behavior="Bullet" id="0" name="Set speed" sid="536089353216411" type="Kamikaze">
-                                            <param id="0" name="Speed">Self.BaseSpeed</param>
+                                            <param id="0" name="Speed">ParamsKamikaze.At(1, Phase)</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -2887,7 +3323,7 @@
                                 <condition id="-8" name="Compare two values" sid="616939866572850" type="System">
                                     <param id="0" name="First value">distance(Kamikaze.X, Kamikaze.Y, Player.X, Player.Y)</param>
                                     <param id="1" name="Comparison">3</param>
-                                    <param id="2" name="Second value">Kamikaze.KamikazeDistance</param>
+                                    <param id="2" name="Second value">ParamsKamikaze.At(3, Phase)</param>
                                 </condition>
                                 <condition id="-7" name="Compare instance variable" sid="331869203374141" type="Kamikaze">
                                     <param id="0" name="Instance variable">IsKamikaze</param>
@@ -2910,7 +3346,7 @@
                                     <param id="0" name="From">0</param>
                                 </action>
                                 <action id="-16" name="Wait" sid="357932342246267" type="System">
-                                    <param id="0" name="Seconds">Kamikaze.VibrationTime</param>
+                                    <param id="0" name="Seconds">ParamsKamikaze.At(4, Phase)</param>
                                 </action>
                                 <action id="2" name="Stop" sid="126718079825993" type="Kamikaze" />
                                 <action id="5" name="Set frame" sid="504165067507406" type="Kamikaze">
@@ -2921,7 +3357,7 @@
                                     <param id="1" name="Y">Player.Y</param>
                                 </action>
                                 <action behavior="Bullet" id="0" name="Set speed" sid="179923915324462" type="Kamikaze">
-                                    <param id="0" name="Speed">Self.KamikazeSpeed</param>
+                                    <param id="0" name="Speed">ParamsKamikaze.At(2, Phase)</param>
                                 </action>
                                 <action id="0" name="Play" sid="279679578930497" type="Audio">
                                     <param id="0" name="Audio file">triangoli_kamikaze</param>
@@ -2943,6 +3379,7 @@
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">1</param>
                                 </condition>
+                                <condition id="-4" name="Trigger once while true" sid="919552933577306" type="System" />
                             </conditions>
                             <actions>
                                 <action id="-9" name="Set value" sid="215472538699204" type="System">
@@ -2960,10 +3397,6 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-11" name="Subtract from" sid="397117522342021" type="System">
-                                            <param id="0" name="Variable">SpawnCuboRotante</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
                                         <action id="0" name="Spawn another object" sid="319216606625395" type="LateralSpawningPoints">
                                             <param id="0" name="Object">cuboRotanteBase</param>
                                             <param id="1" name="Layer">0</param>
@@ -2981,6 +3414,13 @@
                                         <action id="-10" name="Set value" sid="477416395218781" type="cuboRotanteBase">
                                             <param id="0" name="Instance variable">SpriteUID</param>
                                             <param id="1" name="Value">cuboRotante.UID</param>
+                                        </action>
+                                        <action behavior="Bullet" id="0" name="Set speed" sid="707124369567367" type="cuboRotanteBase">
+                                            <param id="0" name="Speed">ParamsCuboRotante.At(1, Phase)</param>
+                                        </action>
+                                        <action id="-11" name="Subtract from" sid="397117522342021" type="System">
+                                            <param id="0" name="Variable">SpawnCuboRotante</param>
+                                            <param id="1" name="Value">1</param>
                                         </action>
                                     </actions>
                                     <sub-events>
@@ -3053,15 +3493,15 @@
                         <event-block sid="799176609009405">
                             <conditions>
                                 <condition id="-6" name="Every X seconds" sid="163655938268964" type="System">
-                                    <param id="0" name="Interval (seconds)">RegularSpawningTime</param>
+                                    <param id="0" name="Interval (seconds)">ParamsEvilBlock.At(0, Phase)</param>
                                 </condition>
                                 <condition id="-16" name="Pick random instance" sid="770578885586070" type="System">
                                     <param id="0" name="Object">spawn</param>
                                 </condition>
-                                <condition id="-8" name="Compare two values" sid="372077957240530" type="System">
-                                    <param id="0" name="First value">GameTime</param>
+                                <condition id="-14" name="Compare variable" sid="372077957240530" type="System">
+                                    <param id="0" name="Variable">GameTime</param>
                                     <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Second value">TimeBeforeRegular</param>
+                                    <param id="2" name="Value">TimeBeforeRegular</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -3428,6 +3868,242 @@
                     <actions>
                         <action id="-9" name="Destroy" sid="484007083213048" type="ExtGlowCircle" />
                     </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="795856492592913" title="GameProgression">
+            <sub-events>
+                <event-block sid="860456888716854">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="922546298128749" type="System">
+                            <param id="0" name="Variable">TriggerScript</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="806248763544203">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="355184185576164" type="System">
+                                    <param id="0" name="Variable">GameTime</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">PhasesTimer.At(1)</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="820862819906608" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="646791000903693" type="System">
+                                    <param id="0" name="Variable">Phase</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="546346325306531" type="Ball">
+                                    <param id="0" name="Instance variable">SpeedBase</param>
+                                    <param id="1" name="Value">BallParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="955303416497276" type="Ball">
+                                    <param id="0" name="Instance variable">SpeedXL</param>
+                                    <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="696073072106661" type="Player">
+                                    <param id="0" name="Instance variable">SpeedBase</param>
+                                    <param id="1" name="Value">PlayerParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="165957313173741" type="Player">
+                                    <param id="0" name="Instance variable">SpeedDash</param>
+                                    <param id="1" name="Value">PlayerParams.At(1, Phase)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="794492717664218">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="302265971880490" type="System">
+                                    <param id="0" name="Variable">GameTime</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">PhasesTimer.At(2)</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="110813240486049" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="654375873442737" type="System">
+                                    <param id="0" name="Variable">Phase</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="345341496839778" type="Ball">
+                                    <param id="0" name="Instance variable">SpeedBase</param>
+                                    <param id="1" name="Value">BallParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="582018754585823" type="Ball">
+                                    <param id="0" name="Instance variable">SpeedXL</param>
+                                    <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="946953176326198">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="424349862487060" type="System">
+                                    <param id="0" name="Variable">GameTime</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">PhasesTimer.At(3)</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="611730937024096" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="983061767053869" type="System">
+                                    <param id="0" name="Variable">Phase</param>
+                                    <param id="1" name="Value">3</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="951960629015833" type="Ball">
+                                    <param id="0" name="Instance variable">SpeedBase</param>
+                                    <param id="1" name="Value">BallParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="390536002300822" type="Ball">
+                                    <param id="0" name="Instance variable">SpeedXL</param>
+                                    <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="691001006942906">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="619381635467164" type="System">
+                                    <param id="0" name="Variable">Phase</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="842591083009963">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="884736727149055" type="System">
+                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">SpawnTimer.At(0)</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="429216559941887" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="750960599614158" type="System">
+                                            <param id="0" name="Variable">TimeBeforeRegular</param>
+                                            <param id="1" name="Value">SpawnTimer.At(0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="494372265433709">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="464584263633527" type="System">
+                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">SpawnTimer.At(1)</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="256034025355789" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="625005431293789" type="System">
+                                            <param id="0" name="Variable">SpawnCuboRotante</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="836059626668508">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="196506460069425" type="System">
+                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">SpawnTimer.At(2)</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="562907135105067" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="426562483045466" type="System">
+                                            <param id="0" name="Variable">SpawnKamikaze</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="186818216107301">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="957883153877424" type="System">
+                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">SpawnTimer.At(3)</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="536848618201688" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="427889965521208" type="System">
+                                            <param id="0" name="Variable">SpawnShuriken</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="992186745357923">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="737121034375018" type="System">
+                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">SpawnTimer.At(4)</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="301753554875006" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="725619727619607" type="System">
+                                            <param id="0" name="Variable">SpawnSnake</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="754041673315242">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="116847300734694" type="System">
+                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">SpawnTimer.At(5)</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="412818726824482" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="866373098991191" type="System">
+                                            <param id="0" name="Variable">SpawnSlidingDoors</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="697740291273867">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="256982499223269" type="System">
+                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">SpawnTimer.At(6)</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="865504503058804" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="200814327512573" type="System">
+                                            <param id="0" name="Variable">SpawnRotatingL</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="337005667844634">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="748832110758401" type="System">
+                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">SpawnTimer.At(7)</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="364440865089095" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="286889134141041" type="System">
+                                            <param id="0" name="Variable">SpawnGate</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>

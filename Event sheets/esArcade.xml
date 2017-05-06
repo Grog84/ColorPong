@@ -992,15 +992,11 @@
                                     <param id="0" name="Instance variable">Health</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
-                                <action id="-6" name="Set height" sid="271995937506637" type="Player">
-                                    <param id="0" name="Height">Player.Height - PlayerTile.Height</param>
+                                <action id="5" name="Set frame" sid="934544642621506" type="Player">
+                                    <param id="0" name="Frame number">5-Self.Health</param>
                                 </action>
-                                <action id="-6" name="Set height" sid="355008979492069" type="PlayerGlow">
-                                    <param id="0" name="Height">PlayerGlow.Height - PlayerTile.Height</param>
-                                </action>
-                                <action id="0" name="Call function" sid="612700152416544" type="Function">
-                                    <param id="0" name="Name">&quot;RecenterPlayer&quot;</param>
-                                    <param id="1" name="Parameter {n}"></param>
+                                <action id="5" name="Set frame" sid="442802532094854" type="PlayerGlow">
+                                    <param id="0" name="Frame number">5 - Player.Health</param>
                                 </action>
                                 <action id="0" name="Call function" sid="167545148963706" type="Function">
                                     <param id="0" name="Name">&quot;IsHitAnimation&quot;</param>
@@ -3147,61 +3143,6 @@
                             <param id="0" name="Angle">-45</param>
                         </action>
                     </actions>
-                </event-block>
-                <event-block sid="229224495076852">
-                    <conditions>
-                        <condition id="0" name="On function" sid="151856360375434" type="Function">
-                            <param id="0" name="Name">&quot;RecenterPlayer&quot;</param>
-                        </condition>
-                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="311584069680721" type="PlayerTile">
-                            <param id="0" name="Instance variable">IsEmitted</param>
-                        </condition>
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="167991580700985">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="169223445487134" type="Player">
-                                    <param id="0" name="Instance variable">LastEjected</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">&quot;Top&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-2" name="Set Y" sid="798867057784115" type="Player">
-                                    <param id="0" name="Y">Player.Y - PlayerTile.Height/2.0</param>
-                                </action>
-                                <action id="-2" name="Set Y" sid="983905335047165" type="PlayerTile">
-                                    <param id="0" name="Y">PlayerTile.Y - PlayerTile.Height</param>
-                                </action>
-                                <action behavior="Pin" id="0" name="Pin to object" sid="253102150051632" type="PlayerTile">
-                                    <param id="0" name="Pin to">Player</param>
-                                    <param id="1" name="Mode">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="746166415602802">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="428582795828214" type="Player">
-                                    <param id="0" name="Instance variable">LastEjected</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">&quot;Bot&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-2" name="Set Y" sid="120544757004394" type="Player">
-                                    <param id="0" name="Y">Player.Y + PlayerTile.Height/2.0</param>
-                                </action>
-                                <action id="-2" name="Set Y" sid="589875039753395" type="PlayerTile">
-                                    <param id="0" name="Y">PlayerTile.Y + PlayerTile.Height</param>
-                                </action>
-                                <action behavior="Pin" id="0" name="Pin to object" sid="563522173841661" type="PlayerTile">
-                                    <param id="0" name="Pin to">Player</param>
-                                    <param id="1" name="Mode">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
                 </event-block>
                 <event-block sid="169805500690020">
                     <conditions>

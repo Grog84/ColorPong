@@ -2076,6 +2076,17 @@
                                 <intensity>1</intensity>
                             </parameters>
                         </effect-instance>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>255</b-replace>
+                                <b-source>255</b-source>
+                                <g-replace>255</g-replace>
+                                <g-source>255</g-source>
+                                <r-replace>255</r-replace>
+                                <r-source>255</r-source>
+                                <tolerance>1</tolerance>
+                            </parameters>
+                        </effect-instance>
                     </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>

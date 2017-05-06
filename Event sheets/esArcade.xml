@@ -516,7 +516,7 @@
                                         </action>
                                         <action id="3" name="Set at XY" sid="118568057257838" type="PlayerParams">
                                             <param id="0" name="X">1</param>
-                                            <param id="1" name="Y">XML.i</param>
+                                            <param id="1" name="Y">XML.j</param>
                                             <param id="2" name="Value">XML.NumberValue(&quot;@DashSpeed&quot;)</param>
                                         </action>
                                     </actions>
@@ -2527,6 +2527,12 @@
                                         <action behavior="Bullet" id="0" name="Set speed" sid="609357636318116" type="slidingDoors">
                                             <param id="0" name="Speed">ParamsDoors.At(1, Phase)</param>
                                         </action>
+                                        <action id="0" name="Play" sid="259661718941778" type="Audio">
+                                            <param id="0" name="Audio file">porte_scorrevoli</param>
+                                            <param id="2" name="Loop">1</param>
+                                            <param id="3" name="Volume">-15</param>
+                                            <param id="1" name="Tag (optional)">&quot;doors&quot;</param>
+                                        </action>
                                     </actions>
                                 </event-block>
                                 <event-block sid="175609831314145">
@@ -2605,6 +2611,10 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action id="22" name="Set paused" sid="743571060762407" type="Audio">
+                                    <param id="0" name="Tag">&quot;doors&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
                                 <action id="-16" name="Wait" sid="331350811210161" type="System">
                                     <param id="0" name="Seconds">ParamsDoors.At(2, Phase)</param>
                                 </action>
@@ -2634,6 +2644,10 @@
                                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="822431538317807" type="slidingDoorsMirror">
                                     <param id="0" name="Angle">-90</param>
                                 </action>
+                                <action id="22" name="Set paused" sid="177691744901831" type="Audio">
+                                    <param id="0" name="Tag">&quot;doors&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="762466386950485">
@@ -2644,6 +2658,9 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action id="6" name="Stop" sid="494902803253070" type="Audio">
+                                    <param id="0" name="Tag">&quot;doors&quot;</param>
+                                </action>
                                 <action id="-9" name="Destroy" sid="958612079701282" type="slidingDoors" />
                             </actions>
                         </event-block>
@@ -3242,11 +3259,15 @@
                         <event-block sid="386452976267140">
                             <conditions>
                                 <condition id="-19" name="On destroyed" sid="284342601455290" type="shuriken" />
+                                <condition id="-14" name="Pick by unique ID" sid="433853569246176" type="ShurikenBase">
+                                    <param id="0" name="Unique ID">shuriken.Pin.PinnedUID</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="6" name="Stop" sid="766163522157921" type="Audio">
                                     <param id="0" name="Tag">&quot;Shuriken&quot;</param>
                                 </action>
+                                <action id="-9" name="Destroy" sid="282105215520434" type="ShurikenBase" />
                             </actions>
                         </event-block>
                         <event-block sid="311270246136083">
@@ -3263,9 +3284,6 @@
                                     </conditions>
                                     <actions>
                                         <action id="-9" name="Destroy" sid="300111349513506" type="shuriken" />
-                                        <action id="6" name="Stop" sid="659250102538491" type="Audio">
-                                            <param id="0" name="Tag">&quot;Shuriken&quot;</param>
-                                        </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
@@ -3418,6 +3436,12 @@
                                         <action behavior="Bullet" id="0" name="Set speed" sid="707124369567367" type="cuboRotanteBase">
                                             <param id="0" name="Speed">ParamsCuboRotante.At(1, Phase)</param>
                                         </action>
+                                        <action id="0" name="Play" sid="339336828605741" type="Audio">
+                                            <param id="0" name="Audio file">cubo_rotante_loop</param>
+                                            <param id="2" name="Loop">1</param>
+                                            <param id="3" name="Volume">-30</param>
+                                            <param id="1" name="Tag (optional)">&quot;cubo&quot;</param>
+                                        </action>
                                         <action id="-11" name="Subtract from" sid="397117522342021" type="System">
                                             <param id="0" name="Variable">SpawnCuboRotante</param>
                                             <param id="1" name="Value">1</param>
@@ -3469,6 +3493,9 @@
                             <actions>
                                 <action id="-9" name="Destroy" sid="912550839465398" type="cuboRotanteBase" />
                                 <action id="-9" name="Destroy" sid="615492602339897" type="cuboRotante" />
+                                <action id="6" name="Stop" sid="593122147101554" type="Audio">
+                                    <param id="0" name="Tag">&quot;cubo&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="712894007144416">
@@ -3484,6 +3511,9 @@
                             <actions>
                                 <action id="-9" name="Destroy" sid="754699344607277" type="cuboRotanteBase" />
                                 <action id="-9" name="Destroy" sid="898971790184360" type="cuboRotante" />
+                                <action id="6" name="Stop" sid="368418540615612" type="Audio">
+                                    <param id="0" name="Tag">&quot;cubo&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>

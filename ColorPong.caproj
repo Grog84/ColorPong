@@ -1358,6 +1358,10 @@
         <file name="gameover v4.ogg" />
         <file name="shuriken2.m4a" />
         <file name="shuriken2.ogg" />
+        <file name="cubo_rotante_loop.m4a" />
+        <file name="cubo_rotante_loop.ogg" />
+        <file name="porte_scorrevoli.m4a" />
+        <file name="porte_scorrevoli.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>

@@ -602,15 +602,11 @@
                                     <param id="0" name="Instance variable">Health</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
-                                <action id="-6" name="Set height" sid="810156378475075" type="Player">
-                                    <param id="0" name="Height">Player.Height - PlayerTile.Height</param>
+                                <action id="5" name="Set frame" sid="242771101132659" type="Player">
+                                    <param id="0" name="Frame number">5-Self.Health</param>
                                 </action>
-                                <action id="-6" name="Set height" sid="953224479367792" type="PlayerGlow">
-                                    <param id="0" name="Height">PlayerGlow.Height - PlayerTile.Height</param>
-                                </action>
-                                <action id="0" name="Call function" sid="992728799622754" type="Function">
-                                    <param id="0" name="Name">&quot;RecenterPlayer&quot;</param>
-                                    <param id="1" name="Parameter {n}"></param>
+                                <action id="5" name="Set frame" sid="232753412892104" type="PlayerGlow">
+                                    <param id="0" name="Frame number">5 - Player.Health</param>
                                 </action>
                                 <action id="0" name="Call function" sid="305367526747810" type="Function">
                                     <param id="0" name="Name">&quot;IsHitAnimation&quot;</param>

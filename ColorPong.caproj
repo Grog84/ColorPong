@@ -23,7 +23,6 @@
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
-        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
@@ -963,7 +962,18 @@
             </effects>
             <animation-folder>
                 <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="863749355077639" speed="0">
-                    <frame duration="1" hotspotX="0.514286" hotspotY="0.514286" />
+                    <frame duration="1" hotspotX="0.514286" hotspotY="0.514286">
+                        <collision-poly>
+                            <point x="0.114286" y="0.128571" />
+                            <point x="0.5" y="0" />
+                            <point x="0.885714" y="0.114286" />
+                            <point x="1" y="0.5" />
+                            <point x="0.885714" y="0.885714" />
+                            <point x="0.5" y="1" />
+                            <point x="0.114286" y="0.885714" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
                     <frame duration="1" hotspotX="0.514286" hotspotY="0.514286" />
                     <frame duration="1" hotspotX="0.514286" hotspotY="0.514286" />
                     <frame duration="1" hotspotX="0.514286" hotspotY="0.514286" />
@@ -980,16 +990,11 @@
                 <instance-variable comment='Possible Values: &quot;Top&quot;, &quot;Bot&quot;' name="LastEjected" sid="305043134859005" type="string" />
                 <instance-variable name="TopMostID" sid="478404547252518" type="number" />
                 <instance-variable name="BotMostID" sid="631216812762024" type="number" />
+                <instance-variable name="Speed" sid="806848818602044" type="number" />
             </instance-variables>
             <behaviors>
-                <behavior-type name="8Direction" sid="133056056980896">
-                    <behavior id="EightDir" />
-                </behavior-type>
                 <behavior-type name="Flash" sid="330990285266793">
                     <behavior id="Flash" />
-                </behavior-type>
-                <behavior-type name="Rotate" sid="355501288321472">
-                    <behavior id="Rotate" />
                 </behavior-type>
             </behaviors>
             <animation-folder>

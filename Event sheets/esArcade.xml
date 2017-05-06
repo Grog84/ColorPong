@@ -668,9 +668,6 @@
                             <param id="0" name="Name">&quot;SetBallFrame&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
                         </action>
-                        <action behavior="Bullet" id="0" name="Set speed" sid="323541881085314" type="Ball">
-                            <param id="0" name="Speed">self.SpeedBase</param>
-                        </action>
                         <action id="0" name="Play" sid="813033356279245" type="Audio">
                             <param id="0" name="Audio file">rimbalzo pallina</param>
                             <param id="2" name="Loop">0</param>
@@ -735,6 +732,94 @@
         </event-group>
         <event-group description="" sid="147484257559068" title="Player">
             <sub-events>
+                <event-block sid="952769426143906">
+                    <conditions>
+                        <condition id="0" name="On function" sid="375655418679661" type="Function">
+                            <param id="0" name="Name">&quot;ChangePlayerGlowColor&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="260858766908821">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="634391596079417" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-28" name="Set effect parameter" sid="803399365783533" type="PlayerGlow">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">3</param>
+                                    <param id="2" name="Value">234</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="344221037928171" type="PlayerGlow">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">4</param>
+                                    <param id="2" name="Value">24</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="770820111452326" type="PlayerGlow">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">5</param>
+                                    <param id="2" name="Value">38</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="487154542277818">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="922277712010189" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-28" name="Set effect parameter" sid="386968369652771" type="PlayerGlow">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">3</param>
+                                    <param id="2" name="Value">95</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="840535428365155" type="PlayerGlow">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">4</param>
+                                    <param id="2" name="Value">218</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="333530218048800" type="PlayerGlow">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">5</param>
+                                    <param id="2" name="Value">7</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="905831169170534">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="112506778828300" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-28" name="Set effect parameter" sid="580788809796082" type="PlayerGlow">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">3</param>
+                                    <param id="2" name="Value">2</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="609211540576305" type="PlayerGlow">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">4</param>
+                                    <param id="2" name="Value">186</param>
+                                </action>
+                                <action id="-28" name="Set effect parameter" sid="144218236601323" type="PlayerGlow">
+                                    <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                                    <param id="1" name="Parameter index">5</param>
+                                    <param id="2" name="Value">252</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="136461759534548">
                     <conditions>
                         <condition id="0" name="On key pressed" sid="542024477645175" type="Keyboard">
@@ -751,8 +836,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="5" name="Set frame" sid="486467609061854" type="PlayerGlow">
-                                    <param id="0" name="Frame number">1</param>
+                                <action id="0" name="Call function" sid="486467609061854" type="Function">
+                                    <param id="0" name="Name">&quot;ChangePlayerGlowColor&quot;</param>
+                                    <param id="1" name="Parameter {n}">1</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="141074980094201" type="Player">
                                     <param id="0" name="Instance variable">Color</param>
@@ -772,8 +858,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="5" name="Set frame" sid="255781507972505" type="PlayerGlow">
-                                    <param id="0" name="Frame number">2</param>
+                                <action id="0" name="Call function" sid="703766245230437" type="Function">
+                                    <param id="0" name="Name">&quot;ChangePlayerGlowColor&quot;</param>
+                                    <param id="1" name="Parameter {n}">2</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="832209222440846" type="Player">
                                     <param id="0" name="Instance variable">Color</param>
@@ -789,8 +876,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="5" name="Set frame" sid="519032307380836" type="PlayerGlow">
-                                    <param id="0" name="Frame number">3</param>
+                                <action id="0" name="Call function" sid="810683372978983" type="Function">
+                                    <param id="0" name="Name">&quot;ChangePlayerGlowColor&quot;</param>
+                                    <param id="1" name="Parameter {n}">3</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="745892581096386" type="Player">
                                     <param id="0" name="Instance variable">Color</param>
@@ -876,6 +964,38 @@
                     <actions>
                         <action id="-2" name="Set Y" sid="905205708125766" type="Player">
                             <param id="0" name="Y">FRAMEOFFSET  + Frame.Height - Player.Height / 2.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="102224211742641">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="179989966838122" type="Keyboard">
+                            <param id="0" name="Key">87 (W)</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="711601309093020" type="Keyboard">
+                            <param id="0" name="Key">38 (Up arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-23" name="Move at angle" sid="708056779914805" type="Player">
+                            <param id="0" name="Angle">270</param>
+                            <param id="1" name="Distance">self.Speed</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="299415262233632">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="480876495077318" type="Keyboard">
+                            <param id="0" name="Key">83 (S)</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="574950170859508" type="Keyboard">
+                            <param id="0" name="Key">40 (Down arrow)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-23" name="Move at angle" sid="754877345867541" type="Player">
+                            <param id="0" name="Angle">90</param>
+                            <param id="1" name="Distance">self.Speed</param>
                         </action>
                     </actions>
                 </event-block>

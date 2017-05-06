@@ -1305,6 +1305,8 @@
         <file name="shuriken.ogg" />
         <file name="gameover v4.m4a" />
         <file name="gameover v4.ogg" />
+        <file name="shuriken2.m4a" />
+        <file name="shuriken2.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>

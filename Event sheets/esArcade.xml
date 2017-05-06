@@ -2761,7 +2761,7 @@
                                             <param id="0" name="Speed">Self.Speed</param>
                                         </action>
                                         <action id="0" name="Play" sid="160594288545563" type="Audio">
-                                            <param id="0" name="Audio file">shuriken</param>
+                                            <param id="0" name="Audio file">shuriken2</param>
                                             <param id="2" name="Loop">1</param>
                                             <param id="3" name="Volume">-15</param>
                                             <param id="1" name="Tag (optional)">&quot;Shuriken&quot;</param>
@@ -2798,7 +2798,7 @@
                                             <param id="0" name="Speed">Self.Speed</param>
                                         </action>
                                         <action id="0" name="Play" sid="230715242608104" type="Audio">
-                                            <param id="0" name="Audio file">shuriken</param>
+                                            <param id="0" name="Audio file">shuriken2</param>
                                             <param id="2" name="Loop">1</param>
                                             <param id="3" name="Volume">-15</param>
                                             <param id="1" name="Tag (optional)">&quot;Shuriken&quot;</param>

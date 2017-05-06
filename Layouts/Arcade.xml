@@ -2019,7 +2019,9 @@
                         <LastEjected>&quot;None&quot;</LastEjected>
                         <TopMostID>0</TopMostID>
                         <BotMostID>3</BotMostID>
-                        <Speed>10</Speed>
+                        <Speed>5</Speed>
+                        <SpeedDash>15</SpeedDash>
+                        <SpeedBase>5</SpeedBase>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Flash" />

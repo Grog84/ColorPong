@@ -991,6 +991,8 @@
                 <instance-variable name="TopMostID" sid="478404547252518" type="number" />
                 <instance-variable name="BotMostID" sid="631216812762024" type="number" />
                 <instance-variable name="Speed" sid="806848818602044" type="number" />
+                <instance-variable name="SpeedDash" sid="347166203160726" type="number" />
+                <instance-variable name="SpeedBase" sid="104139542050485" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Flash" sid="330990285266793">

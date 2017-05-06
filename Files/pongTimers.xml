@@ -16,4 +16,7 @@
 		<phase id="3">400</phase>
 		<phase id="4">600</phase>
 	</Phases>
+	
+	<!-- E' il tempo che trascorre per aumentare il numero massimo di nemici speciali in gioco -->
+	<MaximumNbrIncreaseTimer>30</MaximumNbrIncreaseTimer>  
 </Timers>

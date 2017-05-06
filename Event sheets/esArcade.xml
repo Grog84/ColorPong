@@ -21,6 +21,7 @@
         <comment>SpawningDriverVariables</comment>
         <variable constant="0" name="Phase" sid="415567450401352" static="0" type="number">0</variable>
         <variable constant="0" name="TriggerScript" sid="911888412010741" static="0" type="number">0</variable>
+        <variable constant="0" name="MaximumSpecialIncreaseTime" sid="930224650837429" static="0" type="number">0</variable>
         <variable constant="0" name="RegularSpawningTime" sid="139991081392705" static="0" type="number">5</variable>
         <variable constant="0" name="SpecialEnemiesOnScreen" sid="323556725505910" static="0" type="number">0</variable>
         <variable constant="0" name="TimeBeforeSpecial" sid="707526383413928" static="0" type="number">15</variable>
@@ -205,33 +206,46 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
-                        <event-block sid="198847083783601">
+                        <event-block sid="217664661014531">
                             <conditions>
-                                <condition id="0" name="For each node" sid="998703440033444" type="XML">
+                                <condition id="0" name="For each node" sid="840623365595786" type="XML">
                                     <param id="0" name="XPath">&quot;Phases&quot;</param>
                                 </condition>
                             </conditions>
                             <actions />
                             <sub-events>
-                                <variable constant="0" name="i" sid="201428115114251" static="0" type="number">0</variable>
-                                <event-block sid="905971339258137">
+                                <variable constant="0" name="i" sid="762530126546990" static="0" type="number">0</variable>
+                                <event-block sid="666466267638962">
                                     <conditions>
-                                        <condition id="0" name="For each node" sid="983352069672892" type="XML">
+                                        <condition id="0" name="For each node" sid="355391752922638" type="XML">
                                             <param id="0" name="XPath">&quot;phase&quot;</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="2" name="Set at X" sid="486839483842926" type="PhasesTimer">
+                                        <action id="2" name="Set at X" sid="501049473922619" type="PhasesTimer">
                                             <param id="0" name="X">i</param>
                                             <param id="1" name="Value">XML.NumberValue(&quot;node()&quot;)</param>
                                         </action>
-                                        <action id="-10" name="Add to" sid="381989383238452" type="System">
+                                        <action id="-10" name="Add to" sid="312869504422863" type="System">
                                             <param id="0" name="Variable">i</param>
                                             <param id="1" name="Value">1</param>
                                         </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
+                        </event-block>
+                        <event-block sid="198847083783601">
+                            <conditions>
+                                <condition id="0" name="For each node" sid="998703440033444" type="XML">
+                                    <param id="0" name="XPath">&quot;MaximumNbrIncreaseTimer&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="412168130972286" type="System">
+                                    <param id="0" name="Variable">MaximumSpecialIncreaseTime</param>
+                                    <param id="1" name="Value">XML.NumberValue(&quot;node()&quot;)</param>
+                                </action>
+                            </actions>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -618,7 +632,7 @@
                     <param id="2" name="Value">1</param>
                 </condition>
                 <condition id="-6" name="Every X seconds" sid="681017810342552" type="System">
-                    <param id="0" name="Interval (seconds)">30</param>
+                    <param id="0" name="Interval (seconds)">MaximumSpecialIncreaseTime</param>
                 </condition>
             </conditions>
             <actions>
@@ -3751,6 +3765,9 @@
                         </action>
                         <action behavior="Bullet" id="3" name="Set angle of motion" sid="299741739887756" type="Ball">
                             <param id="0" name="Angle">-45</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="122213388303525" type="Ball">
+                            <param id="0" name="Speed">self.SpeedBase</param>
                         </action>
                     </actions>
                 </event-block>

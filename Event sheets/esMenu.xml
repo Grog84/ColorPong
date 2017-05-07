@@ -34,49 +34,69 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="531203452287816">
+        <event-block any="1" sid="531203452287816">
             <conditions>
                 <condition id="0" name="On key pressed" sid="344033699531235" type="Keyboard">
                     <param id="0" name="Key">40 (Down arrow)</param>
                 </condition>
-                <condition id="-2" name="Compare Y" sid="212674720536442" type="SelectBar">
-                    <param id="0" name="Comparison">0</param>
-                    <param id="1" name="Y co-ordinate">StoryModeY</param>
+                <condition id="0" name="On key pressed" sid="727541261928364" type="Keyboard">
+                    <param id="0" name="Key">83 (S)</param>
                 </condition>
             </conditions>
-            <actions>
-                <action id="0" name="Play" sid="439199824501829" type="Audio">
-                    <param id="0" name="Audio file">selezione menù</param>
-                    <param id="2" name="Loop">0</param>
-                    <param id="3" name="Volume">-10</param>
-                    <param id="1" name="Tag (optional)">&quot;menu_selezione&quot;</param>
-                </action>
-                <action id="-2" name="Set Y" sid="256764777922733" type="SelectBar">
-                    <param id="0" name="Y">ArcadeModeY</param>
-                </action>
-            </actions>
+            <actions />
+            <sub-events>
+                <event-block sid="967130589161931">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="212674720536442" type="SelectBar">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">StoryModeY</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="439199824501829" type="Audio">
+                            <param id="0" name="Audio file">selezione menù</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;menu_selezione&quot;</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="256764777922733" type="SelectBar">
+                            <param id="0" name="Y">ArcadeModeY</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
-        <event-block sid="562922629197821">
+        <event-block any="1" sid="562922629197821">
             <conditions>
                 <condition id="0" name="On key pressed" sid="540282159196628" type="Keyboard">
                     <param id="0" name="Key">38 (Up arrow)</param>
                 </condition>
-                <condition id="-2" name="Compare Y" sid="473206227821571" type="SelectBar">
-                    <param id="0" name="Comparison">0</param>
-                    <param id="1" name="Y co-ordinate">ArcadeModeY</param>
+                <condition id="0" name="On key pressed" sid="865030180859339" type="Keyboard">
+                    <param id="0" name="Key">87 (W)</param>
                 </condition>
             </conditions>
-            <actions>
-                <action id="0" name="Play" sid="574673408925987" type="Audio">
-                    <param id="0" name="Audio file">selezione menù</param>
-                    <param id="2" name="Loop">0</param>
-                    <param id="3" name="Volume">-10</param>
-                    <param id="1" name="Tag (optional)">&quot;menu_selezione&quot;</param>
-                </action>
-                <action id="-2" name="Set Y" sid="531028636018863" type="SelectBar">
-                    <param id="0" name="Y">StoryModeY</param>
-                </action>
-            </actions>
+            <actions />
+            <sub-events>
+                <event-block sid="347670810836461">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="473206227821571" type="SelectBar">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">ArcadeModeY</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="574673408925987" type="Audio">
+                            <param id="0" name="Audio file">selezione menù</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;menu_selezione&quot;</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="531028636018863" type="SelectBar">
+                            <param id="0" name="Y">StoryModeY</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="356364236513467">
             <conditions>

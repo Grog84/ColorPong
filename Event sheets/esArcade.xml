@@ -29,9 +29,10 @@
         <variable constant="0" name="SpecialEnemiesTypeNbr" sid="509305964104404" static="0" type="number">7</variable>
         <variable constant="0" name="MaxSpecialEnemiesNbr" sid="625328798260974" static="0" type="number">1</variable>
         <comment>Time/Score</comment>
-        <variable constant="0" name="GameTime" sid="403259355992123" static="0" type="number">0</variable>
+        <variable constant="0" name="ArcadeTime" sid="403259355992123" static="0" type="number">0</variable>
         <variable constant="0" name="GameScore" sid="313863900724160" static="0" type="number">0</variable>
         <variable constant="0" name="BallLossScorePenalty" sid="198489624363281" static="0" type="number">3</variable>
+        <variable constant="0" name="Pause" sid="644496740557561" static="0" type="number">0</variable>
         <comment>CONSTANT VARIABLES</comment>
         <variable constant="1" name="FrameOffset" sid="225801414137167" static="0" type="number">315</variable>
         <variable comment="seconds" constant="0" name="IMMUNE_TIME" sid="273482141318713" static="0" type="number">2</variable>
@@ -47,7 +48,7 @@
                     <param id="1" name="Value">0</param>
                 </action>
                 <action id="-9" name="Set value" sid="943993350245849" type="System">
-                    <param id="0" name="Variable">GameTime</param>
+                    <param id="0" name="Variable">ArcadeTime</param>
                     <param id="1" name="Value">0</param>
                 </action>
                 <action behavior="Pin" id="0" name="Pin to object" sid="442583035801206" type="PlayerTile">
@@ -562,7 +563,7 @@
             </conditions>
             <actions>
                 <action id="-10" name="Add to" sid="684620883040108" type="System">
-                    <param id="0" name="Variable">GameTime</param>
+                    <param id="0" name="Variable">ArcadeTime</param>
                     <param id="1" name="Value">1</param>
                 </action>
             </actions>
@@ -577,7 +578,7 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="629232208333150" type="SCORE">
-                            <param id="0" name="Text">&quot;TIME: &quot; &amp; int(GameTime/60%60) &amp; &quot; : &quot; &amp; zeropad(int(time%60), 2)</param>
+                            <param id="0" name="Text">&quot;TIME: &quot; &amp; int(ArcadeTime/60%60) &amp; &quot; : &quot; &amp; zeropad(int(ArcadeTime%60), 2)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -600,7 +601,7 @@
         <event-block sid="152825831933545">
             <conditions>
                 <condition id="-8" name="Compare two values" sid="772584242790046" type="System">
-                    <param id="0" name="First value">GameTime</param>
+                    <param id="0" name="First value">ArcadeTime</param>
                     <param id="1" name="Comparison">5</param>
                     <param id="2" name="Second value">3</param>
                 </condition>
@@ -1727,7 +1728,7 @@
                             <param id="2" name="Second value">SpecialEnemiesOnScreen</param>
                         </condition>
                         <condition id="-14" name="Compare variable" sid="910129021885421" type="System">
-                            <param id="0" name="Variable">GameTime</param>
+                            <param id="0" name="Variable">ArcadeTime</param>
                             <param id="1" name="Comparison">4</param>
                             <param id="2" name="Value">TimeBeforeSpecial</param>
                         </condition>
@@ -2508,6 +2509,7 @@
                                     <param id="1" name="Comparison">5</param>
                                     <param id="2" name="Value">1</param>
                                 </condition>
+                                <condition id="-4" name="Trigger once while true" sid="523453131932259" type="System" />
                             </conditions>
                             <actions />
                             <sub-events>
@@ -3543,7 +3545,7 @@
                                     <param id="0" name="Object">spawn</param>
                                 </condition>
                                 <condition id="-14" name="Compare variable" sid="372077957240530" type="System">
-                                    <param id="0" name="Variable">GameTime</param>
+                                    <param id="0" name="Variable">ArcadeTime</param>
                                     <param id="1" name="Comparison">5</param>
                                     <param id="2" name="Value">TimeBeforeRegular</param>
                                 </condition>
@@ -3920,6 +3922,56 @@
         </event-group>
         <event-group description="" sid="795856492592913" title="GameProgression">
             <sub-events>
+                <event-block sid="768930521936187">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="825529577326689" type="Keyboard">
+                            <param id="0" name="Key">27 (Esc)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="660513623577627">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="740876632562682" type="System">
+                                    <param id="0" name="Variable">Pause</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="769460979808843" type="System">
+                                    <param id="0" name="Variable">Pause</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-13" name="Set time scale" sid="481401331819103" type="System">
+                                    <param id="0" name="Time scale">1.0</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="783514118623247" type="System">
+                                    <param id="0" name="Layer">6</param>
+                                    <param id="1" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="148262316898201">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="618933496273593" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="403169915246005" type="System">
+                                    <param id="0" name="Variable">Pause</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-13" name="Set time scale" sid="435491827161718" type="System">
+                                    <param id="0" name="Time scale">0</param>
+                                </action>
+                                <action id="-4" name="Set layer visible" sid="968698975698592" type="System">
+                                    <param id="0" name="Layer">6</param>
+                                    <param id="1" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="860456888716854">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="922546298128749" type="System">
@@ -3933,7 +3985,7 @@
                         <event-block sid="806248763544203">
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="355184185576164" type="System">
-                                    <param id="0" name="Variable">GameTime</param>
+                                    <param id="0" name="Variable">ArcadeTime</param>
                                     <param id="1" name="Comparison">4</param>
                                     <param id="2" name="Value">PhasesTimer.At(1)</param>
                                 </condition>
@@ -3965,7 +4017,7 @@
                         <event-block sid="794492717664218">
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="302265971880490" type="System">
-                                    <param id="0" name="Variable">GameTime</param>
+                                    <param id="0" name="Variable">ArcadeTime</param>
                                     <param id="1" name="Comparison">4</param>
                                     <param id="2" name="Value">PhasesTimer.At(2)</param>
                                 </condition>
@@ -3989,7 +4041,7 @@
                         <event-block sid="946953176326198">
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="424349862487060" type="System">
-                                    <param id="0" name="Variable">GameTime</param>
+                                    <param id="0" name="Variable">ArcadeTime</param>
                                     <param id="1" name="Comparison">4</param>
                                     <param id="2" name="Value">PhasesTimer.At(3)</param>
                                 </condition>
@@ -4023,7 +4075,7 @@
                                 <event-block sid="842591083009963">
                                     <conditions>
                                         <condition id="-14" name="Compare variable" sid="884736727149055" type="System">
-                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="0" name="Variable">ArcadeTime</param>
                                             <param id="1" name="Comparison">5</param>
                                             <param id="2" name="Value">SpawnTimer.At(0)</param>
                                         </condition>
@@ -4039,7 +4091,7 @@
                                 <event-block sid="494372265433709">
                                     <conditions>
                                         <condition id="-14" name="Compare variable" sid="464584263633527" type="System">
-                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="0" name="Variable">ArcadeTime</param>
                                             <param id="1" name="Comparison">5</param>
                                             <param id="2" name="Value">SpawnTimer.At(1)</param>
                                         </condition>
@@ -4055,7 +4107,7 @@
                                 <event-block sid="836059626668508">
                                     <conditions>
                                         <condition id="-14" name="Compare variable" sid="196506460069425" type="System">
-                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="0" name="Variable">ArcadeTime</param>
                                             <param id="1" name="Comparison">5</param>
                                             <param id="2" name="Value">SpawnTimer.At(2)</param>
                                         </condition>
@@ -4071,7 +4123,7 @@
                                 <event-block sid="186818216107301">
                                     <conditions>
                                         <condition id="-14" name="Compare variable" sid="957883153877424" type="System">
-                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="0" name="Variable">ArcadeTime</param>
                                             <param id="1" name="Comparison">5</param>
                                             <param id="2" name="Value">SpawnTimer.At(3)</param>
                                         </condition>
@@ -4087,7 +4139,7 @@
                                 <event-block sid="992186745357923">
                                     <conditions>
                                         <condition id="-14" name="Compare variable" sid="737121034375018" type="System">
-                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="0" name="Variable">ArcadeTime</param>
                                             <param id="1" name="Comparison">5</param>
                                             <param id="2" name="Value">SpawnTimer.At(4)</param>
                                         </condition>
@@ -4103,7 +4155,7 @@
                                 <event-block sid="754041673315242">
                                     <conditions>
                                         <condition id="-14" name="Compare variable" sid="116847300734694" type="System">
-                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="0" name="Variable">ArcadeTime</param>
                                             <param id="1" name="Comparison">5</param>
                                             <param id="2" name="Value">SpawnTimer.At(5)</param>
                                         </condition>
@@ -4119,7 +4171,7 @@
                                 <event-block sid="697740291273867">
                                     <conditions>
                                         <condition id="-14" name="Compare variable" sid="256982499223269" type="System">
-                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="0" name="Variable">ArcadeTime</param>
                                             <param id="1" name="Comparison">5</param>
                                             <param id="2" name="Value">SpawnTimer.At(6)</param>
                                         </condition>
@@ -4135,7 +4187,7 @@
                                 <event-block sid="337005667844634">
                                     <conditions>
                                         <condition id="-14" name="Compare variable" sid="748832110758401" type="System">
-                                            <param id="0" name="Variable">GameTime</param>
+                                            <param id="0" name="Variable">ArcadeTime</param>
                                             <param id="1" name="Comparison">5</param>
                                             <param id="2" name="Value">SpawnTimer.At(7)</param>
                                         </condition>

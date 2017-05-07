@@ -1287,6 +1287,38 @@
                 <instance-variable name="j" sid="380339842733895" type="number" />
             </instance-variables>
         </object-type>
+        <object-type name="PlayerShadow" sid="143407277957343">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="732349131482379">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="5" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="577411045747761" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0" />
+                        <image-point name="TailBot" x="0.5" y="1" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.375">
+                        <image-point name="TailTop" x="0.5" y="0" />
+                        <image-point name="TailBot" x="0.5" y="1" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0" />
+                        <image-point name="TailBot" x="0.5" y="1" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.25">
+                        <image-point name="TailTop" x="0.5" y="0" />
+                        <image-point name="TailBot" x="0.5" y="1" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0" />
+                        <image-point name="TailBot" x="0.5" y="1" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="110717795313248">

@@ -75,11 +75,15 @@
                 </action>
                 <action behavior="Pin" id="0" name="Pin to object" sid="910448268116844" type="BossGlow">
                     <param id="0" name="Pin to">Boss</param>
-                    <param id="1" name="Mode">0</param>
+                    <param id="1" name="Mode">1</param>
                 </action>
                 <action behavior="Pin" id="0" name="Pin to object" sid="450579019980350" type="PlayerGlow">
                     <param id="0" name="Pin to">Player</param>
-                    <param id="1" name="Mode">0</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="233575740878819" type="PlayerShadow">
+                    <param id="0" name="Pin to">Player</param>
+                    <param id="1" name="Mode">1</param>
                 </action>
                 <action behavior="Pin" id="0" name="Pin to object" sid="842526279341935" type="BallGlow">
                     <param id="0" name="Pin to">Ball</param>
@@ -984,6 +988,39 @@
                         <action id="-9" name="Destroy" sid="185109920442254" type="DestructibleEnemies" />
                     </actions>
                 </event-block>
+                <event-block sid="357465258096457">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="325230726178531" type="Ball">
+                            <param id="0" name="Object">PlayerShadow</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="230608240012616" type="Ball">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="X co-ordinate">60</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="4" name="Bounce off object" sid="314629812228259" type="Ball">
+                            <param id="0" name="Object">Player</param>
+                        </action>
+                        <action id="0" name="Call function" sid="982453482438091" type="Function">
+                            <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
+                            <param id="1" name="Parameter {n}">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="370590209344024" type="Ball">
+                            <param id="0" name="Instance variable">AngleOfMotion</param>
+                            <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="397850430233717" type="Ball">
+                            <param id="0" name="Speed">self.SpeedBase</param>
+                        </action>
+                        <action id="0" name="Play" sid="422443922208478" type="Audio">
+                            <param id="0" name="Audio file">rimbalzo pallina</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;ball_bounce&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="180181669724449">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="205725911828666" type="Ball">
@@ -1076,6 +1113,9 @@
                                 </action>
                                 <action id="5" name="Set frame" sid="232753412892104" type="PlayerGlow">
                                     <param id="0" name="Frame number">5 - Player.Health</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="756828074475221" type="PlayerShadow">
+                                    <param id="0" name="Frame number">5-Player.Health</param>
                                 </action>
                                 <action id="0" name="Call function" sid="305367526747810" type="Function">
                                     <param id="0" name="Name">&quot;IsHitAnimation&quot;</param>
@@ -1686,6 +1726,9 @@
                                 </action>
                                 <action id="5" name="Set frame" sid="442802532094854" type="PlayerGlow">
                                     <param id="0" name="Frame number">5 - Player.Health</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="714969697988484" type="PlayerShadow">
+                                    <param id="0" name="Frame number">5-Player.Health</param>
                                 </action>
                                 <action id="0" name="Call function" sid="167545148963706" type="Function">
                                     <param id="0" name="Name">&quot;IsHitAnimation&quot;</param>
@@ -2991,7 +3034,7 @@
                                         <condition id="-10" name="For" sid="952067828300758" type="System">
                                             <param id="0" name="Name">&quot;TailIDX&quot;</param>
                                             <param id="1" name="Start index">1</param>
-                                            <param id="2" name="End index">snakeHead.NbrOfReplicate</param>
+                                            <param id="2" name="End index">ParamsSnake.At(2, Phase)</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -3470,13 +3513,22 @@
                                 <action behavior="Bullet" id="0" name="Set speed" sid="179923915324462" type="Kamikaze">
                                     <param id="0" name="Speed">ParamsKamikaze.At(2, Phase)</param>
                                 </action>
-                                <action id="0" name="Play" sid="279679578930497" type="Audio">
-                                    <param id="0" name="Audio file">triangoli_kamikaze</param>
-                                    <param id="2" name="Loop">0</param>
-                                    <param id="3" name="Volume">-15</param>
-                                    <param id="1" name="Tag (optional)">&quot;Kamikaze&quot;</param>
-                                </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="297046252429871">
+                                    <conditions>
+                                        <condition id="-3" name="Is on-screen" sid="301826739489252" type="Kamikaze" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="279679578930497" type="Audio">
+                                            <param id="0" name="Audio file">triangoli_kamikaze</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-15</param>
+                                            <param id="1" name="Tag (optional)">&quot;Kamikaze&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-group>

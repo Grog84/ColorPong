@@ -32,6 +32,10 @@
                     <param id="3" name="Volume">-25</param>
                     <param id="1" name="Tag (optional)">&quot;menu_soundtrack&quot;</param>
                 </action>
+                <action id="-9" name="Set value" sid="766293318839167" type="System">
+                    <param id="0" name="Variable">Phase</param>
+                    <param id="1" name="Value">0</param>
+                </action>
             </actions>
         </event-block>
         <event-block any="1" sid="531203452287816">

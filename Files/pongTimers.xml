@@ -12,9 +12,9 @@
 	
 	<Phases> <!-- Questo blocco serve a definire i tempi di passaggio alle varie fasi -->
 		<phase id="1">0</phase>  <!-- Fase Scriptata, occhio che sia compatibile con i valori di sopra. Inizia al tempo 0 -->
-		<phase id="2">75</phase>
-		<phase id="3">400</phase>
-		<phase id="4">600</phase>
+		<phase id="2">60</phase>
+		<phase id="3">120</phase>
+		<phase id="4">180</phase>
 	</Phases>
 	
 	<!-- E' il tempo che trascorre per aumentare il numero massimo di nemici speciali in gioco -->

@@ -870,6 +870,9 @@
                     <behavior-type name="Pin" sid="899256446262593">
                         <behavior id="Pin" />
                     </behavior-type>
+                    <behavior-type name="Sine" sid="868901565742860">
+                        <behavior id="Sin" />
+                    </behavior-type>
                 </behaviors>
                 <effects>
                     <effect-type name="BlurHorizontal">

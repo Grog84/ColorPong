@@ -1161,6 +1161,33 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="422966021634111">
+                    <conditions>
+                        <condition behavior="Bullet" id="0" name="Compare speed" sid="266445871414764" type="Ball">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Speed">Self.SpeedBase</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Sine" id="0" name="Set active" sid="371790902412361" type="BallGlow">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="764830648542625">
+                    <conditions>
+                        <condition behavior="Bullet" id="0" name="Compare speed" sid="406269215382809" type="Ball">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Speed">Self.SpeedBase</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="974990661908607" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Sine" id="0" name="Set active" sid="672929411027242" type="BallGlow">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="147484257559068" title="Player">
@@ -1321,7 +1348,7 @@
                             <conditions>
                                 <condition id="-2" name="Compare Y" sid="835601363262019" type="Player">
                                     <param id="0" name="Comparison">3</param>
-                                    <param id="1" name="Y co-ordinate">Stripes.Height + FRAMEOFFSET</param>
+                                    <param id="1" name="Y co-ordinate">620</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1339,11 +1366,11 @@
                             <conditions>
                                 <condition id="-2" name="Compare Y" sid="669135505573295" type="Player">
                                     <param id="0" name="Comparison">4</param>
-                                    <param id="1" name="Y co-ordinate">Stripes.Height  + FRAMEOFFSET</param>
+                                    <param id="1" name="Y co-ordinate">620</param>
                                 </condition>
                                 <condition id="-2" name="Compare Y" sid="560317256451754" type="Player">
                                     <param id="0" name="Comparison">3</param>
-                                    <param id="1" name="Y co-ordinate">2.0 * Stripes.Height  + FRAMEOFFSET</param>
+                                    <param id="1" name="Y co-ordinate">925</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1361,7 +1388,7 @@
                             <conditions>
                                 <condition id="-2" name="Compare Y" sid="483625276363024" type="Player">
                                     <param id="0" name="Comparison">4</param>
-                                    <param id="1" name="Y co-ordinate">2.0 * Stripes.Height  + FRAMEOFFSET</param>
+                                    <param id="1" name="Y co-ordinate">925</param>
                                 </condition>
                             </conditions>
                             <actions>

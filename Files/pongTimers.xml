@@ -15,6 +15,8 @@
 		<phase id="2">60</phase>
 		<phase id="3">120</phase>
 		<phase id="4">180</phase>
+		<phase id="5">200</phase>
+		<phase id="6">220</phase>
 	</Phases>
 	
 	<!-- E' il tempo che trascorre per aumentare il numero massimo di nemici speciali in gioco -->

@@ -1172,6 +1172,10 @@
                             <param id="3" name="Volume">-10</param>
                             <param id="1" name="Tag (optional)">&quot;ball_bounce&quot;</param>
                         </action>
+                        <action id="-10" name="Add to" sid="861995131500996" type="System">
+                            <param id="0" name="Variable">GameScore</param>
+                            <param id="1" name="Value">BallHitScore</param>
+                        </action>
                     </actions>
                     <sub-events>
                         <event-block sid="865771742536323">

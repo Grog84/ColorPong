@@ -1131,6 +1131,9 @@
                             <param id="1" name="Layer">0</param>
                             <param id="2" name="Image point">0</param>
                         </action>
+                        <action id="5" name="Set frame" sid="420503949841664" type="Tail">
+                            <param id="0" name="Frame number">Ball.AnimationFrame</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="113090814670616">

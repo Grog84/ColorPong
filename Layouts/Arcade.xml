@@ -784,7 +784,7 @@
                         <behavior-instance type="Pin" />
                         <behavior-instance type="DestroyOutsideLayout" />
                     </behavior-instances>
-                    <blend-mode>1</blend-mode>
+                    <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1937</x>
@@ -988,7 +988,7 @@
                         <behavior-instance type="DestroyOutsideLayout" />
                         <behavior-instance type="Pin" />
                     </behavior-instances>
-                    <blend-mode>1</blend-mode>
+                    <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>-236</x>
@@ -1619,7 +1619,7 @@
                         </behavior-instance>
                         <behavior-instance type="DestroyOutsideLayout" />
                     </behavior-instances>
-                    <blend-mode>1</blend-mode>
+                    <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>-225</x>
@@ -3044,7 +3044,7 @@
                             </parameters>
                         </effect-instance>
                     </effect-instances>
-                    <blend-mode>0</blend-mode>
+                    <blend-mode>1</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1270</x>

@@ -3057,7 +3057,7 @@
                             </parameters>
                         </effect-instance>
                     </effect-instances>
-                    <blend-mode>1</blend-mode>
+                    <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1270</x>
@@ -3188,6 +3188,13 @@
         <instance type="PlayerParams" uid="120">
             <properties>
                 <width>2</width>
+                <height>4</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="TotSpawnChance" uid="13">
+            <properties>
+                <width>7</width>
                 <height>4</height>
                 <depth>1</depth>
             </properties>

@@ -320,6 +320,11 @@
                                                             <param id="1" name="Y">XML.j</param>
                                                             <param id="2" name="Value">XML.NumberValue(&quot;@speed&quot;)</param>
                                                         </action>
+                                                        <action id="3" name="Set at XY" sid="955688498971440" type="TotSpawnChance">
+                                                            <param id="0" name="X">0</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">ParamsCuboRotante.At(0,XML.j)</param>
+                                                        </action>
                                                     </actions>
                                                 </event-block>
                                                 <event-block sid="620027252152239">
@@ -356,6 +361,11 @@
                                                             <param id="1" name="Y">XML.j</param>
                                                             <param id="2" name="Value">XML.NumberValue(&quot;@VibrationTime&quot;)</param>
                                                         </action>
+                                                        <action id="3" name="Set at XY" sid="597514234457717" type="TotSpawnChance">
+                                                            <param id="0" name="X">1</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">Self.At(0,XML.j) + ParamsKamikaze.At(0, XML.j)</param>
+                                                        </action>
                                                     </actions>
                                                 </event-block>
                                                 <event-block sid="238258363238333">
@@ -376,6 +386,11 @@
                                                             <param id="0" name="X">1</param>
                                                             <param id="1" name="Y">XML.j</param>
                                                             <param id="2" name="Value">XML.NumberValue(&quot;@speed&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="955469740139384" type="TotSpawnChance">
+                                                            <param id="0" name="X">2</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">Self.At(1,XML.j) + ParamsShuriken.At(0, XML.j)</param>
                                                         </action>
                                                     </actions>
                                                 </event-block>
@@ -403,6 +418,11 @@
                                                             <param id="1" name="Y">XML.j</param>
                                                             <param id="2" name="Value">XML.NumberValue(&quot;@NbrOfReplicate&quot;)</param>
                                                         </action>
+                                                        <action id="3" name="Set at XY" sid="382183979062867" type="TotSpawnChance">
+                                                            <param id="0" name="X">3</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">Self.At(2,XML.j) + ParamsSnake.At(0, XML.j)</param>
+                                                        </action>
                                                     </actions>
                                                 </event-block>
                                                 <event-block sid="530701489112356">
@@ -429,6 +449,11 @@
                                                             <param id="1" name="Y">XML.j</param>
                                                             <param id="2" name="Value">XML.NumberValue(&quot;@WaitTime&quot;)</param>
                                                         </action>
+                                                        <action id="3" name="Set at XY" sid="800988543888856" type="TotSpawnChance">
+                                                            <param id="0" name="X">4</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">Self.At(3,XML.j) + ParamsDoors.At(0, XML.j)</param>
+                                                        </action>
                                                     </actions>
                                                 </event-block>
                                                 <event-block sid="783733960709220">
@@ -449,6 +474,11 @@
                                                             <param id="0" name="X">1</param>
                                                             <param id="1" name="Y">XML.j</param>
                                                             <param id="2" name="Value">XML.NumberValue(&quot;@speed&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="334661166748054" type="TotSpawnChance">
+                                                            <param id="0" name="X">5</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">Self.At(4,XML.j) + ParamsRotatingL.At(0, XML.j)</param>
                                                         </action>
                                                     </actions>
                                                 </event-block>
@@ -475,6 +505,11 @@
                                                             <param id="0" name="X">2</param>
                                                             <param id="1" name="Y">XML.j</param>
                                                             <param id="2" name="Value">XML.NumberValue(&quot;@ballSpeedUp&quot;)</param>
+                                                        </action>
+                                                        <action id="3" name="Set at XY" sid="379498975651255" type="TotSpawnChance">
+                                                            <param id="0" name="X">6</param>
+                                                            <param id="1" name="Y">XML.j</param>
+                                                            <param id="2" name="Value">Self.At(5,XML.j) + ParamsXLGate.At(0, XML.j)</param>
                                                         </action>
                                                     </actions>
                                                 </event-block>
@@ -1164,8 +1199,8 @@
                 <event-block sid="422966021634111">
                     <conditions>
                         <condition behavior="Bullet" id="0" name="Compare speed" sid="266445871414764" type="Ball">
-                            <param id="0" name="Comparison">4</param>
-                            <param id="1" name="Speed">Self.SpeedBase</param>
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Speed">Self.SpeedBase + Self.SpeedXL</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -1176,15 +1211,19 @@
                 </event-block>
                 <event-block sid="764830648542625">
                     <conditions>
-                        <condition behavior="Bullet" id="0" name="Compare speed" sid="406269215382809" type="Ball">
-                            <param id="0" name="Comparison">0</param>
-                            <param id="1" name="Speed">Self.SpeedBase</param>
+                        <condition behavior="Bullet" id="0" name="Compare speed" sid="938454448778532" type="Ball">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="Speed">Self.SpeedBase +Self.SpeedXL-10</param>
                         </condition>
-                        <condition id="-4" name="Trigger once while true" sid="974990661908607" type="System" />
+                        <condition id="-4" name="Trigger once while true" sid="301117503768923" type="System" />
                     </conditions>
                     <actions>
                         <action behavior="Sine" id="0" name="Set active" sid="672929411027242" type="BallGlow">
                             <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-7" name="Set size" sid="886916278723623" type="BallGlow">
+                            <param id="0" name="Width">35</param>
+                            <param id="1" name="Height">35</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1668,8 +1707,8 @@
                             <conditions>
                                 <condition id="-8" name="Compare two values" sid="868703142062057" type="System">
                                     <param id="0" name="First value">Function.Param(0)</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">0</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">TotSpawnChance.At(0, Phase)</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1681,10 +1720,15 @@
                         </event-block>
                         <event-block sid="148003505177616">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="716231801634740" type="System">
+                                <condition id="-8" name="Compare two values" sid="714863854400320" type="System">
                                     <param id="0" name="First value">Function.Param(0)</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">1</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">TotSpawnChance.At(0, Phase)</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="320901000258969" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">TotSpawnChance.At(1, Phase)</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1696,10 +1740,15 @@
                         </event-block>
                         <event-block sid="915166825786587">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="623824034377912" type="System">
+                                <condition id="-8" name="Compare two values" sid="677526761312317" type="System">
                                     <param id="0" name="First value">Function.Param(0)</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">2</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">TotSpawnChance.At(1, Phase)</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="886609861305384" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">TotSpawnChance.At(2, Phase)</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1711,10 +1760,15 @@
                         </event-block>
                         <event-block sid="905087063387743">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="197848404174276" type="System">
+                                <condition id="-8" name="Compare two values" sid="675190349228802" type="System">
                                     <param id="0" name="First value">Function.Param(0)</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">3</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">TotSpawnChance.At(2, Phase)</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="148219613652319" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">TotSpawnChance.At(3, Phase)</param>
                                 </condition>
                                 <condition id="-14" name="Compare variable" sid="219847887122820" type="System">
                                     <param id="0" name="Variable">SnakeIsActive</param>
@@ -1731,10 +1785,15 @@
                         </event-block>
                         <event-block sid="771712762901034">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="282055122014343" type="System">
+                                <condition id="-8" name="Compare two values" sid="922497322549403" type="System">
                                     <param id="0" name="First value">Function.Param(0)</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">4</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">TotSpawnChance.At(3, Phase)</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="755647130069328" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">TotSpawnChance.At(4, Phase)</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1746,10 +1805,15 @@
                         </event-block>
                         <event-block sid="246405946978760">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="598926663989112" type="System">
+                                <condition id="-8" name="Compare two values" sid="763626167818721" type="System">
                                     <param id="0" name="First value">Function.Param(0)</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">5</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">TotSpawnChance.At(4, Phase)</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="946844724520445" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">TotSpawnChance.At(5, Phase)</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1761,10 +1825,15 @@
                         </event-block>
                         <event-block sid="438285107125522">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="619080184456106" type="System">
+                                <condition id="-8" name="Compare two values" sid="301336715869844" type="System">
                                     <param id="0" name="First value">Function.Param(0)</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">6</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">TotSpawnChance.At(5, Phase)</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="134185328853984" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">TotSpawnChance.At(6, Phase)</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1800,7 +1869,7 @@
                     <actions>
                         <action id="-9" name="Set value" sid="762461891115612" type="System">
                             <param id="0" name="Variable">EnemyType</param>
-                            <param id="1" name="Value">int(random(SpecialEnemiesTypeNbr))</param>
+                            <param id="1" name="Value">random(100)</param>
                         </action>
                         <action id="0" name="Call function" sid="856373367031841" type="Function">
                             <param id="0" name="Name">&quot;SpawnSpecialEnemy&quot;</param>

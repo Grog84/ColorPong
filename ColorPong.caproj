@@ -989,6 +989,9 @@
             <object-type global="1" name="PlayerParams" sid="508123332462487">
                 <plugin id="Arr" />
             </object-type>
+            <object-type global="1" name="TotSpawnChance" sid="801875782645124">
+                <plugin id="Arr" />
+            </object-type>
         </object-folder>
         <object-folder name="TimerArrays">
             <object-type global="1" name="PhasesTimer" sid="245029530530758">

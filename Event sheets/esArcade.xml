@@ -3903,10 +3903,13 @@
         </event-group>
         <event-group description="" sid="795856492592913" title="GameProgression">
             <sub-events>
-                <event-block sid="768930521936187">
+                <event-block any="1" sid="768930521936187">
                     <conditions>
                         <condition id="0" name="On key pressed" sid="825529577326689" type="Keyboard">
                             <param id="0" name="Key">27 (Esc)</param>
+                        </condition>
+                        <condition id="0" name="On key pressed" sid="928934513580847" type="Keyboard">
+                            <param id="0" name="Key">80 (P)</param>
                         </condition>
                     </conditions>
                     <actions />
@@ -3933,7 +3936,7 @@
                                 </action>
                                 <action id="22" name="Set paused" sid="349741497439394" type="Audio">
                                     <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
-                                    <param id="1" name="State">0</param>
+                                    <param id="1" name="State">1</param>
                                 </action>
                             </actions>
                         </event-block>

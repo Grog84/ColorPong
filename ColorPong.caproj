@@ -1046,6 +1046,8 @@
             <animation-folder>
                 <animation framecount="5" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="768830819215779" speed="0">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0" />
+                        <image-point name="TailBot" x="0.5" y="1" />
                         <collision-poly>
                             <point x="0" y="0" />
                             <point x="0.5" y="0" />
@@ -1055,6 +1057,8 @@
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.375">
+                        <image-point name="TailTop" x="0.5" y="0" />
+                        <image-point name="TailBot" x="0.5" y="1" />
                         <collision-poly>
                             <point x="0" y="0" />
                             <point x="0.6" y="0" />
@@ -1064,6 +1068,8 @@
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0" />
+                        <image-point name="TailBot" x="0.5" y="1" />
                         <collision-poly>
                             <point x="0" y="0" />
                             <point x="0.675" y="0" />
@@ -1073,6 +1079,8 @@
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.25">
+                        <image-point name="TailTop" x="0.5" y="0" />
+                        <image-point name="TailBot" x="0.5" y="1" />
                         <collision-poly>
                             <point x="0" y="0" />
                             <point x="0.775" y="0" />
@@ -1082,6 +1090,8 @@
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0" />
+                        <image-point name="TailBot" x="0.5" y="1" />
                         <collision-poly>
                             <point x="0" y="0" />
                             <point x="0.85" y="0" />

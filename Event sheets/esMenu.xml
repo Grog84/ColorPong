@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esMenu</name>
     <events>
+        <variable constant="0" name="ControlsShowing" sid="252797315721033" static="0" type="number">0</variable>
         <variable constant="0" name="MusicMenuFadeOutTotalTime" sid="898150693591383" static="0" type="number">2</variable>
         <variable constant="0" name="MusicMenuFadeOutTime" sid="973590062102270" static="0" type="number">0</variable>
         <variable constant="0" name="MenuTotalFadeTime" sid="646520636158706" static="0" type="number">4</variable>
@@ -15,7 +16,7 @@
             </conditions>
             <actions>
                 <action id="-18" name="Set layer opacity" sid="837344069749676" type="System">
-                    <param id="0" name="Layer">3</param>
+                    <param id="0" name="Layer">&quot;AnimationLayer&quot;</param>
                     <param id="1" name="Opacity">100</param>
                 </action>
                 <action id="-9" name="Set value" sid="878079557992031" type="System">
@@ -55,6 +56,11 @@
                             <param id="0" name="Comparison">0</param>
                             <param id="1" name="Y co-ordinate">StoryModeY</param>
                         </condition>
+                        <condition id="-14" name="Compare variable" sid="737574541832256" type="System">
+                            <param id="0" name="Variable">ControlsShowing</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Play" sid="439199824501829" type="Audio">
@@ -87,6 +93,11 @@
                             <param id="0" name="Comparison">0</param>
                             <param id="1" name="Y co-ordinate">ArcadeModeY</param>
                         </condition>
+                        <condition id="-14" name="Compare variable" sid="549754068260679" type="System">
+                            <param id="0" name="Variable">ControlsShowing</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Play" sid="574673408925987" type="Audio">
@@ -107,6 +118,11 @@
                 <condition id="0" name="On key pressed" sid="330141070686595" type="Keyboard">
                     <param id="0" name="Key">32 (Barra Spaziatrice)</param>
                 </condition>
+                <condition id="-14" name="Compare variable" sid="583900363769379" type="System">
+                    <param id="0" name="Variable">ControlsShowing</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
             <actions />
             <sub-events>
@@ -114,7 +130,7 @@
                     <conditions>
                         <condition id="-2" name="Compare Y" sid="897130564318555" type="SelectBar">
                             <param id="0" name="Comparison">0</param>
-                            <param id="1" name="Y co-ordinate">ArcadeModeY</param>
+                            <param id="1" name="Y co-ordinate">StoryModeY</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -128,6 +144,54 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="370347468279922">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="754981384971663" type="Keyboard">
+                    <param id="0" name="Key">32 (Barra Spaziatrice)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="627314829582153">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="920628657422913" type="SelectBar">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">ArcadeModeY</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="646898906497477" type="System">
+                            <param id="0" name="Layer">&quot;Controls&quot;</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="978617811495623" type="System">
+                            <param id="0" name="Variable">ControlsShowing</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="410454773797991">
+            <conditions>
+                <condition id="1" name="On any key pressed" sid="849466721446418" type="Keyboard" />
+                <condition id="-14" name="Compare variable" sid="287269893379295" type="System">
+                    <param id="0" name="Variable">ControlsShowing</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-4" name="Set layer visible" sid="999375360800785" type="System">
+                    <param id="0" name="Layer">&quot;Controls&quot;</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="643380533639304" type="System">
+                    <param id="0" name="Variable">ControlsShowing</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
         </event-block>
         <event-block sid="214669361310747">
             <conditions>
@@ -146,7 +210,7 @@
                             <param id="1" name="Value">MenuFadeTime/MenuTotalFadeTime</param>
                         </action>
                         <action id="-18" name="Set layer opacity" sid="538845522650461" type="System">
-                            <param id="0" name="Layer">3</param>
+                            <param id="0" name="Layer">&quot;AnimationLayer&quot;</param>
                             <param id="1" name="Opacity">100.0 - timeRatio*timeRatio*100.0</param>
                         </action>
                         <action id="3" name="Set volume" sid="680770929275597" type="Audio">
@@ -164,7 +228,7 @@
         <event-block sid="886733641804242">
             <conditions>
                 <condition id="-8" name="Compare two values" sid="223669112707565" type="System">
-                    <param id="0" name="First value">LayerOpacity(3)</param>
+                    <param id="0" name="First value">LayerOpacity(4)</param>
                     <param id="1" name="Comparison">4</param>
                     <param id="2" name="Second value">0</param>
                 </condition>

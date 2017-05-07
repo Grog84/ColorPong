@@ -848,7 +848,7 @@
                         <TypeID>3</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
-                        <Score>1</Score>
+                        <Score>4</Score>
                         <AnglesNbr>1</AnglesNbr>
                         <Xtranslation>0</Xtranslation>
                         <Ytranslation>0</Ytranslation>
@@ -1169,7 +1169,7 @@
                         <TypeID>1</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
-                        <Score>2</Score>
+                        <Score>1</Score>
                         <KamikazeSpeed>400</KamikazeSpeed>
                         <BaseSpeed>100</BaseSpeed>
                         <KamikazeDistance>800</KamikazeDistance>
@@ -1215,7 +1215,7 @@
                         <TypeID>1</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
-                        <Score>2</Score>
+                        <Score>1</Score>
                         <KamikazeSpeed>400</KamikazeSpeed>
                         <BaseSpeed>100</BaseSpeed>
                         <KamikazeDistance>800</KamikazeDistance>
@@ -1389,7 +1389,7 @@
                         <TypeID>3</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
-                        <Score>2</Score>
+                        <Score>3</Score>
                         <AnglesNbr>1</AnglesNbr>
                         <Xtranslation>0</Xtranslation>
                         <Ytranslation>0</Ytranslation>
@@ -1438,7 +1438,7 @@
                         <TypeID>3</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
-                        <Score>2</Score>
+                        <Score>3</Score>
                         <AnglesNbr>1</AnglesNbr>
                         <Xtranslation>0</Xtranslation>
                         <Ytranslation>0</Ytranslation>
@@ -2353,7 +2353,7 @@
                         <TypeID>-1</TypeID>
                         <GlowUID>0</GlowUID>
                         <BlurUID>0</BlurUID>
-                        <Score>1</Score>
+                        <Score>0</Score>
                         <EvilGlowUID>0</EvilGlowUID>
                     </instance-variables>
                     <behavior-instances>

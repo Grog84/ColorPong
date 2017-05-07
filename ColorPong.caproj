@@ -1396,7 +1396,7 @@
                 <member>snakeTail</member>
             </members>
             <instance-variables>
-                <instance-variable name="Score" sid="213769008900894" type="number" />
+                <instance-variable comment="Is the index of the array" name="Score" sid="213769008900894" type="number" />
             </instance-variables>
         </family>
     </families>

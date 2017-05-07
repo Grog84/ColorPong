@@ -117,18 +117,6 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="200164990458201">
-                    <conditions>
-                        <condition id="-11" name="For Each" sid="152881982444357" type="System">
-                            <param id="0" name="Object">StripesGlow</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="5" name="Set frame" sid="299334676620077" type="StripesGlow">
-                            <param id="0" name="Frame number">Self.StartingFrame</param>
-                        </action>
-                    </actions>
-                </event-block>
             </sub-events>
         </event-block>
         <event-block sid="157862796595441">
@@ -1815,19 +1803,6 @@
                             <param id="0" name="Instance variable">GlowUID</param>
                             <param id="1" name="Value">ExtGlowCircle.UID</param>
                         </action>
-                        <action id="0" name="Spawn another object" sid="196177728378130" type="Enemies">
-                            <param id="0" name="Object">Blur</param>
-                            <param id="1" name="Layer">Self.LayerNumber</param>
-                            <param id="2" name="Image point">0</param>
-                        </action>
-                        <action id="-29" name="Move to object" sid="833965775208226" type="Blur">
-                            <param id="0" name="Where">1</param>
-                            <param id="1" name="Object">Enemies</param>
-                        </action>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="251050023200321" type="Blur">
-                            <param id="0" name="Pin to">Enemies</param>
-                            <param id="1" name="Mode">0</param>
-                        </action>
                         <action id="0" name="Call function" sid="392002105175260" type="Function">
                             <param id="0" name="Name">&quot;SetBlurShape&quot;</param>
                             <param id="1" name="Parameter {n}">Enemies.TypeID{###}Blur.UID</param>
@@ -1846,15 +1821,11 @@
                     <sub-events>
                         <event-block sid="123833875936739">
                             <conditions>
-                                <condition id="-14" name="Pick by unique ID" sid="619713821895797" type="Blur">
-                                    <param id="0" name="Unique ID">Enemies.BlurUID</param>
-                                </condition>
                                 <condition id="-14" name="Pick by unique ID" sid="731912806890999" type="ExtGlowCircle">
                                     <param id="0" name="Unique ID">Enemies.GlowUID</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-9" name="Destroy" sid="500978140665935" type="Blur" />
                                 <action id="-9" name="Destroy" sid="344702167829636" type="ExtGlowCircle" />
                             </actions>
                         </event-block>
@@ -2168,45 +2139,6 @@
                                     <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
                                     <param id="1" name="Parameter index">5</param>
                                     <param id="2" name="Value">75</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
-                <event-block sid="400436692242134">
-                    <conditions>
-                        <condition id="0" name="On function" sid="259704047182283" type="Function">
-                            <param id="0" name="Name">&quot;SetBlurShape&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <comment>EvilBlock</comment>
-                        <event-block sid="655510536496080">
-                            <conditions>
-                                <condition id="-8" name="Compare two values" sid="272521455960747" type="System">
-                                    <param id="0" name="First value">Function.Param(0)</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">-1</param>
-                                </condition>
-                                <condition id="-14" name="Pick by unique ID" sid="528926309049809" type="Blur">
-                                    <param id="0" name="Unique ID">Function.Param(1)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Destroy" sid="416742291469910" type="Blur" />
-                            </actions>
-                        </event-block>
-                        <event-block sid="598920927979729">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="916187294314318" type="System" />
-                                <condition id="-14" name="Pick by unique ID" sid="383461047065923" type="Blur">
-                                    <param id="0" name="Unique ID">Function.Param(1)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="5" name="Set frame" sid="458893459428558" type="Blur">
-                                    <param id="0" name="Frame number">Function.Param(0)</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -3999,6 +3931,10 @@
                                     <param id="0" name="Layer">6</param>
                                     <param id="1" name="Visibility">0</param>
                                 </action>
+                                <action id="22" name="Set paused" sid="349741497439394" type="Audio">
+                                    <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="148262316898201">
@@ -4016,6 +3952,10 @@
                                 <action id="-4" name="Set layer visible" sid="968698975698592" type="System">
                                     <param id="0" name="Layer">6</param>
                                     <param id="1" name="Visibility">1</param>
+                                </action>
+                                <action id="22" name="Set paused" sid="104109960379349" type="Audio">
+                                    <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
+                                    <param id="1" name="State">0</param>
                                 </action>
                             </actions>
                         </event-block>

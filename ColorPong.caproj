@@ -101,7 +101,14 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="525901254785271" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\redo immagini pong\cuborotante.png">
+                            <collision-poly>
+                                <point x="0.1" y="0.1" />
+                                <point x="0.9" y="0.1" />
+                                <point x="0.9" y="0.9" />
+                                <point x="0.1" y="0.9" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -143,7 +150,7 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="4" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="737464536917323" speed="0">
-                        <frame duration="1" hotspotX="0.478873" hotspotY="0.507042">
+                        <frame duration="1" hotspotX="0.475" hotspotY="0.5125" original-source="C:\Users\PU\Downloads\redo immagini pong\kamikaze.png">
                             <collision-poly>
                                 <point x="0.859155" y="0.84507" />
                                 <point x="0.126761" y="0.84507" />
@@ -151,7 +158,7 @@
                                 <point x="0.859155" y="0.140845" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.478873" hotspotY="0.309859">
+                        <frame duration="1" hotspotX="0.475" hotspotY="0.3125" original-source="C:\Users\PU\Downloads\redo immagini pong\kamikaze.png">
                             <collision-poly>
                                 <point x="0.859155" y="0.84507" />
                                 <point x="0.126761" y="0.84507" />
@@ -159,7 +166,7 @@
                                 <point x="0.859155" y="0.140845" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.478873" hotspotY="0.507042">
+                        <frame duration="1" hotspotX="0.475" hotspotY="0.5125" original-source="C:\Users\PU\Downloads\redo immagini pong\kamikaze.png">
                             <collision-poly>
                                 <point x="0.859155" y="0.84507" />
                                 <point x="0.126761" y="0.84507" />
@@ -167,7 +174,7 @@
                                 <point x="0.859155" y="0.140845" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.478873" hotspotY="0.704225">
+                        <frame duration="1" hotspotX="0.475" hotspotY="0.7" original-source="C:\Users\PU\Downloads\redo immagini pong\kamikaze.png">
                             <collision-poly>
                                 <point x="0.859155" y="0.84507" />
                                 <point x="0.126761" y="0.84507" />
@@ -196,7 +203,14 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="738087224221670" speed="5">
-                        <frame duration="1" hotspotX="0.506667" hotspotY="0.506667" />
+                        <frame duration="1" hotspotX="0.511111" hotspotY="0.511111" original-source="C:\Users\PU\Downloads\redo immagini pong\shuriken.png">
+                            <collision-poly>
+                                <point x="0.488889" y="0.0555556" />
+                                <point x="0.955556" y="0.5" />
+                                <point x="0.488889" y="0.944445" />
+                                <point x="0.0333333" y="0.5" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -215,14 +229,14 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="433172027907870" speed="5">
-                        <frame duration="1" hotspotX="0.506667" hotspotY="0.52">
+                        <frame duration="1" hotspotX="0.505882" hotspotY="0.516667" original-source="C:\Users\PU\Downloads\redo immagini pong\L.png">
                             <collision-poly>
-                                <point x="0" y="0" />
-                                <point x="1" y="0" />
-                                <point x="1" y="0.305" />
-                                <point x="0.206667" y="0.310001" />
-                                <point x="0.206667" y="1" />
-                                <point x="0" y="1" />
+                                <point x="0.0470588" y="0.05" />
+                                <point x="0.947059" y="0.0583333" />
+                                <point x="0.947059" y="0.313333" />
+                                <point x="0.218432" y="0.310001" />
+                                <point x="0.218432" y="0.95" />
+                                <point x="0.0470588" y="0.941667" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -266,7 +280,14 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="701410664174161" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\redo immagini pong\slidingdoor.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.0833333" />
+                                <point x="0.75" y="0.0833333" />
+                                <point x="0.75" y="0.916667" />
+                                <point x="0.25" y="0.916667" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -288,7 +309,14 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="187598560618972" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\redo immagini pong\slidingdoor.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.0833333" />
+                                <point x="0.75" y="0.0833333" />
+                                <point x="0.75" y="0.916667" />
+                                <point x="0.25" y="0.916667" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -345,12 +373,12 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="424330496359557" speed="5">
-                        <frame duration="1" hotspotX="0.507042" hotspotY="0.507042">
+                        <frame duration="1" hotspotX="0.5125" hotspotY="0.5125" original-source="C:\Users\PU\Downloads\redo immagini pong\serpente.png">
                             <collision-poly>
-                                <point x="0.323944" y="0.323944" />
-                                <point x="0.676056" y="0.323944" />
-                                <point x="0.676056" y="0.676056" />
-                                <point x="0.323944" y="0.676056" />
+                                <point x="0.0666667" y="0.5" />
+                                <point x="0.5" y="0.0461662" />
+                                <point x="0.911111" y="0.5" />
+                                <point x="0.5" y="0.920501" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -380,12 +408,12 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="622433341292763" speed="5">
-                        <frame duration="1" hotspotX="0.507042" hotspotY="0.507042">
+                        <frame duration="1" hotspotX="0.5125" hotspotY="0.5125" original-source="C:\Users\PU\Downloads\redo immagini pong\serpente.png">
                             <collision-poly>
-                                <point x="0.323944" y="0.323944" />
-                                <point x="0.676056" y="0.323944" />
-                                <point x="0.676056" y="0.676056" />
-                                <point x="0.323944" y="0.676056" />
+                                <point x="0.5" y="0.0666667" />
+                                <point x="0.911111" y="0.511111" />
+                                <point x="0.5" y="0.911111" />
+                                <point x="0.0666667" y="0.511111" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -419,7 +447,14 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="176197260667564" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\redo immagini pong\gatesray.png">
+                            <collision-poly>
+                                <point x="0.25" y="0.0384615" />
+                                <point x="0.75" y="0.0384615" />
+                                <point x="0.75" y="0.961538" />
+                                <point x="0.25" y="0.961538" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -427,7 +462,7 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="373147892637770" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.514286">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.511111" original-source="C:\Users\PU\Downloads\redo immagini pong\gatespole.png">
                             <collision-poly>
                                 <point x="1" y="0" />
                                 <point x="1" y="1" />
@@ -586,30 +621,30 @@
                 </instance-variables>
                 <animation-folder>
                     <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="156551761485349" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                    </animation>
-                </animation-folder>
-            </object-type>
-            <object-type name="StripesGlow" sid="335392865318377">
-                <plugin id="Sprite" />
-                <instance-variables>
-                    <instance-variable name="StartingFrame" sid="285237813587447" type="number" />
-                </instance-variables>
-                <effects>
-                    <effect-type name="BlurHorizontal">
-                        <effect id="blurhorizontal" />
-                    </effect-type>
-                    <effect-type name="BlurVertical">
-                        <effect id="blurvertical" />
-                    </effect-type>
-                </effects>
-                <animation-folder>
-                    <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="646898978015977" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.166667" hotspotY="0.0553846" original-source="C:\Users\PU\Downloads\redo immagini pong\RedBar.png">
+                            <collision-poly>
+                                <point x="0.133333" y="0.0369231" />
+                                <point x="0.866667" y="0.0369231" />
+                                <point x="0.866667" y="0.953846" />
+                                <point x="0.133333" y="0.953846" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.166667" hotspotY="0.0553846" original-source="C:\Users\PU\Downloads\redo immagini pong\GreenBar.png">
+                            <collision-poly>
+                                <point x="0.133333" y="0.0369231" />
+                                <point x="0.866667" y="0.0369231" />
+                                <point x="0.866667" y="0.953846" />
+                                <point x="0.133333" y="0.953846" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.166667" hotspotY="0.0553846" original-source="C:\Users\PU\Downloads\redo immagini pong\BlueBar.png">
+                            <collision-poly>
+                                <point x="0.133333" y="0.0369231" />
+                                <point x="0.866667" y="0.0369231" />
+                                <point x="0.866667" y="0.953846" />
+                                <point x="0.133333" y="0.953846" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -1121,7 +1156,14 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="902570681252180" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\redo immagini pong\boss.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.0512821" />
+                            <point x="0.75" y="0.0512821" />
+                            <point x="0.75" y="0.948718" />
+                            <point x="0.25" y="0.948718" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>

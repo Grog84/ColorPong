@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esLeaderBoard</name>
     <events>
+        <variable constant="0" name="hscoresString" sid="459744275668997" static="0" type="text"></variable>
         <variable constant="1" name="LEADERBOARDOFFSET" sid="967936865960446" static="0" type="number">565</variable>
         <variable constant="0" name="TriggerBackToMenu" sid="124421542187688" static="0" type="number">0</variable>
         <variable constant="0" name="LayoutTotalFadeTime" sid="259495989496878" static="0" type="number">8</variable>
@@ -17,10 +18,6 @@
                 <condition id="-2" name="On start of layout" sid="868296539117051" type="System" />
             </conditions>
             <actions>
-                <action id="1" name="Request project file" sid="516808246073156" type="AJAX">
-                    <param id="0" name="Tag">&quot;ReadLeader&quot;</param>
-                    <param id="1" name="File">LeaderBoard.txt</param>
-                </action>
                 <action id="7" name="Set CSS style" sid="806290158635166" type="InsertName">
                     <param id="0" name="Property name">&quot;opacity&quot;</param>
                     <param id="1" name="Value">&quot;0&quot;</param>
@@ -35,6 +32,14 @@
                 </action>
                 <action id="-9" name="Set value" sid="616755959413728" type="System">
                     <param id="0" name="Variable">LayoutFadeTime</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="866936589423366" type="System">
+                    <param id="0" name="Variable">TriggerBackToMenu</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="972855367091621" type="System">
+                    <param id="0" name="Variable">NewScore</param>
                     <param id="1" name="Value">0</param>
                 </action>
             </actions>
@@ -94,6 +99,66 @@
                             <param id="0" name="Text">GameScore</param>
                         </action>
                     </actions>
+                </event-block>
+                <event-block sid="411743691918226">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="272739643899082" type="System">
+                            <param id="0" name="Variable">hscoresString</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Request project file" sid="516808246073156" type="AJAX">
+                            <param id="0" name="Tag">&quot;ReadLeader&quot;</param>
+                            <param id="1" name="File">LeaderBoard.txt</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="511338695968510">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="359328249482637" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="i" sid="889387970152197" static="0" type="number">0</variable>
+                        <event-block sid="333403247204324">
+                            <conditions>
+                                <condition id="-10" name="For" sid="503499992096327" type="System">
+                                    <param id="0" name="Name">&quot;EntryIDX&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">9</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set at XY" sid="153991138429034" type="highScore">
+                                    <param id="0" name="X">i</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">tokenat(tokenat(hscoresString, i, &quot;|&quot;),0,&quot;;&quot;)</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="540782743068592" type="highScore">
+                                    <param id="0" name="X">i</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">tokenat(tokenat(hscoresString, i, &quot;|&quot;),1,&quot;;&quot;)</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="519248759097472" type="System">
+                                    <param id="0" name="Variable">i</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="453155816241769">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="767803682718898" type="System">
+                                            <param id="0" name="Variable">WaitForLeaderBoardLoad</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
@@ -676,74 +741,51 @@
                 <action id="3" name="Set at XY" sid="628870804801014" type="newScore">
                     <param id="0" name="X">NewScorePos</param>
                     <param id="1" name="Y">0</param>
-                    <param id="2" name="Value">InsertName.Text</param>
+                    <param id="2" name="Value">&quot; &quot; &amp; InsertName.Text</param>
                 </action>
+                <action id="-9" name="Set value" sid="402511617392948" type="System">
+                    <param id="0" name="Variable">hscoresString</param>
+                    <param id="1" name="Value">newScore.At(0, 0) &amp; &quot;;&quot; &amp; newScore.At(0, 1) &amp; &quot;;|&quot; &amp; newScore.At(1, 0) &amp; &quot;;&quot; &amp; newScore.At(1, 1) &amp; &quot;;|&quot; &amp;newScore.At(2, 0) &amp; &quot;;&quot; &amp; newScore.At(2, 1) &amp; &quot;;|&quot; &amp;newScore.At(3, 0) &amp; &quot;;&quot; &amp; newScore.At(3, 1) &amp; &quot;;|&quot; &amp;newScore.At(4, 0) &amp; &quot;;&quot; &amp; newScore.At(4, 1) &amp; &quot;;|&quot; &amp;newScore.At(5, 0) &amp; &quot;;&quot; &amp; newScore.At(5, 1) &amp; &quot;;|&quot; &amp;newScore.At(6, 0) &amp; &quot;;&quot; &amp; newScore.At(6, 1) &amp; &quot;;|&quot; &amp;newScore.At(7, 0) &amp; &quot;;&quot; &amp; newScore.At(7, 1) &amp; &quot;;|&quot; &amp;newScore.At(8, 0) &amp; &quot;;&quot; &amp; newScore.At(8, 1) &amp; &quot;;|&quot; &amp;newScore.At(9, 0) &amp; &quot;;&quot; &amp; newScore.At(9, 1) &amp; &quot;;|&quot;</param>
+                </action>
+                <action id="0" name="Clear" sid="294987555243709" type="highScore" />
+                <action id="0" name="Clear" sid="367203600295637" type="newScore" />
             </actions>
             <sub-events>
-                <event-block sid="471985294932088">
+                <event-block sid="110307557005194">
                     <conditions>
-                        <condition id="-10" name="For" sid="574691975223034" type="System">
-                            <param id="0" name="Name">&quot;IDX&quot;</param>
-                            <param id="1" name="Start index">0</param>
-                            <param id="2" name="End index">9</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="3" name="Set at XY" sid="445864896912756" type="highScore">
-                            <param id="0" name="X">loopindex(&quot;IDX&quot;)</param>
-                            <param id="1" name="Y">0</param>
-                            <param id="2" name="Value">newScore.At(loopindex(&quot;IDX&quot;), 0)</param>
-                        </action>
-                        <action id="3" name="Set at XY" sid="437603617902610" type="highScore">
-                            <param id="0" name="X">loopindex(&quot;IDX&quot;)</param>
-                            <param id="1" name="Y">1</param>
-                            <param id="2" name="Value">newScore.At(loopindex(&quot;IDX&quot;), 1)</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="733935817083347">
-                    <conditions>
-                        <condition id="-14" name="Compare variable" sid="499542153150994" type="System">
+                        <condition id="-14" name="Compare variable" sid="752431253757004" type="System">
                             <param id="0" name="Variable">NewScorePos</param>
                             <param id="1" name="Comparison">1</param>
                             <param id="2" name="Value">-1</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-3" name="Set position" sid="323280942476138" type="HighlightScore">
+                        <action id="-3" name="Set position" sid="116838615612706" type="HighlightScore">
                             <param id="0" name="X">LayoutWidth / 2.0</param>
-                            <param id="1" name="Y">LEADERBOARDOFFSET + NewScorePos * 47</param>
+                            <param id="1" name="Y">LEADERBOARDOFFSET + (NewScorePos * 47)</param>
                         </action>
-                        <action id="-9" name="Set value" sid="265237066916743" type="System">
+                        <action id="-9" name="Set value" sid="890196144367615" type="System">
                             <param id="0" name="Variable">TriggerBackToMenu</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="-9" name="Set value" sid="813709743270415" type="System">
-                            <param id="0" name="Variable">NewScorePos</param>
-                            <param id="1" name="Value">-1</param>
-                        </action>
                     </actions>
                 </event-block>
-                <event-block sid="605379413728626">
+                <event-block sid="965492924154891">
                     <conditions>
-                        <condition id="-14" name="Compare variable" sid="920315169284804" type="System">
+                        <condition id="-14" name="Compare variable" sid="774578918972574" type="System">
                             <param id="0" name="Variable">NewScorePos</param>
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Value">-1</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-3" name="Set position" sid="296506649302810" type="HighlightScore">
+                        <action id="-3" name="Set position" sid="888748936095221" type="HighlightScore">
                             <param id="0" name="X">LayoutWidth / 2.0</param>
                             <param id="1" name="Y">324</param>
                         </action>
-                        <action id="-9" name="Set value" sid="526064037467056" type="System">
+                        <action id="-9" name="Set value" sid="338778732597951" type="System">
                             <param id="0" name="Variable">TriggerBackToMenu</param>
                             <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="202155783415404" type="System">
-                            <param id="0" name="Variable">NewScorePos</param>
-                            <param id="1" name="Value">-1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -786,6 +828,14 @@
                 <condition behavior="Fade" id="0" name="On fade-out finished" sid="843392391228646" type="HighlightScore" />
             </conditions>
             <actions>
+                <action id="-9" name="Set value" sid="685669746894417" type="System">
+                    <param id="0" name="Variable">WaitForLeaderBoardLoad</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="742654009142968" type="System">
+                    <param id="0" name="Variable">NewScorePos</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
                 <action id="-2" name="Go to layout" sid="421981709290070" type="System">
                     <param id="0" name="Layout">Menu</param>
                 </action>

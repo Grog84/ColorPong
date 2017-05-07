@@ -1,0 +1,15 @@
+<Score>
+	<Enemies>
+		<enemy name="EvilBlock">1</enemy> 
+		<enemy name="Kamikaze">1</enemy>
+		<enemy name="Shuriken">1</enemy>
+		<enemy name="SnakeHead">1</enemy>
+		<enemy name="SnakeTail">1</enemy>
+	</Enemies>
+	
+	<BallLoss>3</BallLoss>
+	
+	<BallHit>1</BallHit>
+	
+	<TimeConversion>25</TimeConversion> <!-- Da inendersi da dividere per 100 -->
+</Score>

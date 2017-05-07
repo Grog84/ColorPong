@@ -32,6 +32,8 @@
         <variable constant="0" name="ArcadeTime" sid="403259355992123" static="0" type="number">0</variable>
         <variable constant="0" name="GameScore" sid="313863900724160" static="0" type="number">0</variable>
         <variable constant="0" name="BallLossScorePenalty" sid="198489624363281" static="0" type="number">3</variable>
+        <variable constant="0" name="BallHitScore" sid="749944010866985" static="0" type="number">3</variable>
+        <variable constant="0" name="TimeConversionScore" sid="596955915572941" static="0" type="number">0</variable>
         <variable constant="0" name="Pause" sid="644496740557561" static="0" type="number">0</variable>
         <comment>CONSTANT VARIABLES</comment>
         <variable constant="1" name="FrameOffset" sid="225801414137167" static="0" type="number">315</variable>
@@ -107,6 +109,10 @@
                     <param id="0" name="Tag">&quot;params&quot;</param>
                     <param id="1" name="File">pongParameters.xml</param>
                 </action>
+                <action id="1" name="Request project file" sid="442707104638489" type="AJAX">
+                    <param id="0" name="Tag">&quot;scores&quot;</param>
+                    <param id="1" name="File">pongScores.xml</param>
+                </action>
             </actions>
             <sub-events>
                 <event-block sid="843047667479536">
@@ -151,6 +157,22 @@
                 </action>
                 <action id="0" name="Call function" sid="273325110405043" type="Function">
                     <param id="0" name="Name">&quot;GetPhasesParams&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="841105875629573">
+            <conditions>
+                <condition id="0" name="On completed" sid="812877992557988" type="AJAX">
+                    <param id="0" name="Tag">&quot;scores&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Load" sid="280184359561256" type="XML">
+                    <param id="0" name="XML">AJAX.LastData</param>
+                </action>
+                <action id="0" name="Call function" sid="384578461390337" type="Function">
+                    <param id="0" name="Name">&quot;GetScores&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
             </actions>
@@ -577,6 +599,93 @@
                                     </actions>
                                 </event-block>
                             </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="588413940644810">
+            <conditions>
+                <condition id="0" name="On function" sid="569769260929150" type="Function">
+                    <param id="0" name="Name">&quot;GetScores&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="448919502098298">
+                    <conditions>
+                        <condition id="0" name="For each node" sid="430092007270308" type="XML">
+                            <param id="0" name="XPath">&quot;/Score&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="221657658829772">
+                            <conditions>
+                                <condition id="0" name="For each node" sid="778745247635841" type="XML">
+                                    <param id="0" name="XPath">&quot;Enemies&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="0" name="i" sid="189620623006458" static="0" type="number">0</variable>
+                                <event-block sid="342994456538543">
+                                    <conditions>
+                                        <condition id="0" name="For each node" sid="679896998987778" type="XML">
+                                            <param id="0" name="XPath">&quot;enemy&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="2" name="Set at X" sid="277795170989283" type="EnemiesScores">
+                                            <param id="0" name="X">i</param>
+                                            <param id="1" name="Value">XML.NumberValue(&quot;node()&quot;)</param>
+                                        </action>
+                                        <action id="-10" name="Add to" sid="837299774343771" type="System">
+                                            <param id="0" name="Variable">i</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="653659644444228">
+                            <conditions>
+                                <condition id="0" name="For each node" sid="703958261263881" type="XML">
+                                    <param id="0" name="XPath">&quot;BallLoss&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="738736517961205" type="System">
+                                    <param id="0" name="Variable">BallLossScorePenalty</param>
+                                    <param id="1" name="Value">XML.NumberValue(&quot;node()&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="500440847817255">
+                            <conditions>
+                                <condition id="0" name="For each node" sid="258641691977108" type="XML">
+                                    <param id="0" name="XPath">&quot;BallHit&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="922932456937376" type="System">
+                                    <param id="0" name="Variable">BallHitScore</param>
+                                    <param id="1" name="Value">XML.NumberValue(&quot;node()&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="866707027927364">
+                            <conditions>
+                                <condition id="0" name="For each node" sid="438696130551036" type="XML">
+                                    <param id="0" name="XPath">&quot;TimeConversion&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="190298901398504" type="System">
+                                    <param id="0" name="Variable">TimeConversionScore</param>
+                                    <param id="1" name="Value">XML.NumberValue(&quot;node()&quot;) / 100.0</param>
+                                </action>
+                            </actions>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -4216,6 +4325,54 @@
                                     <param id="1" name="Value">BallParams.At(0, Phase)</param>
                                 </action>
                                 <action id="-10" name="Set value" sid="390536002300822" type="Ball">
+                                    <param id="0" name="Instance variable">SpeedXL</param>
+                                    <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="869326376013259">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="417280208152855" type="System">
+                                    <param id="0" name="Variable">ArcadeTime</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">PhasesTimer.At(4)</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="969642571324976" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="658738387837837" type="System">
+                                    <param id="0" name="Variable">Phase</param>
+                                    <param id="1" name="Value">4</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="796195007955602" type="Ball">
+                                    <param id="0" name="Instance variable">SpeedBase</param>
+                                    <param id="1" name="Value">BallParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="503207730931153" type="Ball">
+                                    <param id="0" name="Instance variable">SpeedXL</param>
+                                    <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="432539071580557">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="854910715384440" type="System">
+                                    <param id="0" name="Variable">ArcadeTime</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">PhasesTimer.At(5)</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="222157802458810" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="931728858402070" type="System">
+                                    <param id="0" name="Variable">Phase</param>
+                                    <param id="1" name="Value">5</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="785933656343228" type="Ball">
+                                    <param id="0" name="Instance variable">SpeedBase</param>
+                                    <param id="1" name="Value">BallParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="541213347812491" type="Ball">
                                     <param id="0" name="Instance variable">SpeedXL</param>
                                     <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
                                 </action>

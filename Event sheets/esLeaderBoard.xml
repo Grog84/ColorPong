@@ -19,7 +19,7 @@
             <actions>
                 <action id="1" name="Request project file" sid="516808246073156" type="AJAX">
                     <param id="0" name="Tag">&quot;ReadLeader&quot;</param>
-                    <param id="1" name="File">LeaderBoeard.txt</param>
+                    <param id="1" name="File">LeaderBoard.txt</param>
                 </action>
                 <action id="7" name="Set CSS style" sid="806290158635166" type="InsertName">
                     <param id="0" name="Property name">&quot;opacity&quot;</param>

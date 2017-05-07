@@ -992,6 +992,9 @@
             <object-type global="1" name="TotSpawnChance" sid="801875782645124">
                 <plugin id="Arr" />
             </object-type>
+            <object-type global="1" name="EnemiesScores" sid="569970950230492">
+                <plugin id="Arr" />
+            </object-type>
         </object-folder>
         <object-folder name="TimerArrays">
             <object-type global="1" name="PhasesTimer" sid="245029530530758">
@@ -1466,8 +1469,9 @@
             <file name="icon-256.png" />
             <file name="loading-logo.png" />
         </file-folder>
-        <file name="LeaderBoeard.txt" />
+        <file name="LeaderBoard.txt" />
         <file name="pongTimers.xml" />
         <file name="pongParameters.xml" />
+        <file name="pongScores.xml" />
     </files-folder>
 </c2project>

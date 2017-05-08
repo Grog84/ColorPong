@@ -92,7 +92,7 @@
                     <param id="1" name="Mode">1</param>
                 </action>
                 <action id="0" name="Play" sid="260014486770084" type="Audio">
-                    <param id="0" name="Audio file">game soundtrack</param>
+                    <param id="0" name="Audio file">Song_ speed1</param>
                     <param id="2" name="Loop">1</param>
                     <param id="3" name="Volume">-35</param>
                     <param id="1" name="Tag (optional)">&quot;game_soundtrack&quot;</param>
@@ -4409,6 +4409,9 @@
         <variable constant="0" name="Soundtrack1Active" sid="568858660270759" static="0" type="number">1</variable>
         <variable constant="0" name="Soundtrack2Active" sid="193890868552091" static="0" type="number">0</variable>
         <variable constant="0" name="Soundtrack3Active" sid="726036929273996" static="0" type="number">0</variable>
+        <variable constant="0" name="Soundtrack4Active" sid="583299806636732" static="0" type="number">0</variable>
+        <variable constant="0" name="Soundtrack5Active" sid="164897711906927" static="0" type="number">0</variable>
+        <variable constant="0" name="Soundtrack6Active" sid="343846198225350" static="0" type="number">0</variable>
         <event-group description="" sid="795856492592913" title="GameProgression">
             <sub-events>
                 <event-block any="1" sid="768930521936187">
@@ -4458,10 +4461,117 @@
                                     <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
                                     <param id="1" name="State">0</param>
                                 </action>
-                                <action id="-14" name="Toggle boolean" sid="676262792414376" type="Player">
-                                    <param id="0" name="Instance variable">IsPaused</param>
-                                </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="539808574759855">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="199240583772922" type="System">
+                                            <param id="0" name="Variable">Soundtrack1Active</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="22" name="Set paused" sid="710378895235418" type="Audio">
+                                            <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
+                                            <param id="1" name="State">0</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="580092009976258" type="Player">
+                                            <param id="0" name="Instance variable">IsPaused</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="476319956977534">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="584920819588880" type="System">
+                                            <param id="0" name="Variable">Soundtrack2Active</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="22" name="Set paused" sid="710013277981200" type="Audio">
+                                            <param id="0" name="Tag">&quot;game_soundtrack2&quot;</param>
+                                            <param id="1" name="State">0</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="248166766772733" type="Player">
+                                            <param id="0" name="Instance variable">IsPaused</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="207309213410889">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="206630367187683" type="System">
+                                            <param id="0" name="Variable">Soundtrack3Active</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="22" name="Set paused" sid="213223620725511" type="Audio">
+                                            <param id="0" name="Tag">&quot;game_soundtrack3&quot;</param>
+                                            <param id="1" name="State">0</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="634271285993281" type="Player">
+                                            <param id="0" name="Instance variable">IsPaused</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="751609401639423">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="432909494362120" type="System">
+                                            <param id="0" name="Variable">Soundtrack4Active</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="22" name="Set paused" sid="183638285857294" type="Audio">
+                                            <param id="0" name="Tag">&quot;game_soundtrack4&quot;</param>
+                                            <param id="1" name="State">0</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="356661963630392" type="Player">
+                                            <param id="0" name="Instance variable">IsPaused</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="142435038390176">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="936583796426290" type="System">
+                                            <param id="0" name="Variable">Soundtrack5Active</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="22" name="Set paused" sid="729465568763368" type="Audio">
+                                            <param id="0" name="Tag">&quot;game_soundtrack5&quot;</param>
+                                            <param id="1" name="State">0</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="602495498926003" type="Player">
+                                            <param id="0" name="Instance variable">IsPaused</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="871675725264133">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="892018348308087" type="System">
+                                            <param id="0" name="Variable">Soundtrack6Active</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="22" name="Set paused" sid="705415233396847" type="Audio">
+                                            <param id="0" name="Tag">&quot;game_soundtrack6&quot;</param>
+                                            <param id="1" name="State">0</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="214427939586087" type="Player">
+                                            <param id="0" name="Instance variable">IsPaused</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="148262316898201">
                             <conditions>
@@ -4511,6 +4621,10 @@
                                     <param id="0" name="Instance variable">SpeedDash</param>
                                     <param id="1" name="Value">PlayerParams.At(1, Phase)</param>
                                 </action>
+                                <action id="-9" name="Set value" sid="889842471547175" type="System">
+                                    <param id="0" name="Variable">Soundtrack2Active</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="794492717664218">
@@ -4535,8 +4649,8 @@
                                     <param id="0" name="Instance variable">SpeedXL</param>
                                     <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
                                 </action>
-                                <action id="-9" name="Set value" sid="889842471547175" type="System">
-                                    <param id="0" name="Variable">Soundtrack2Active</param>
+                                <action id="-9" name="Set value" sid="136466114031737" type="System">
+                                    <param id="0" name="Variable">Soundtrack3Active</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
@@ -4563,6 +4677,10 @@
                                     <param id="0" name="Instance variable">SpeedXL</param>
                                     <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
                                 </action>
+                                <action id="-9" name="Set value" sid="132785495581892" type="System">
+                                    <param id="0" name="Variable">Soundtrack4Active</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="869326376013259">
@@ -4587,8 +4705,8 @@
                                     <param id="0" name="Instance variable">SpeedXL</param>
                                     <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
                                 </action>
-                                <action id="-9" name="Set value" sid="136466114031737" type="System">
-                                    <param id="0" name="Variable">Soundtrack3Active</param>
+                                <action id="-9" name="Set value" sid="625565586023428" type="System">
+                                    <param id="0" name="Variable">Soundtrack5Active</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
@@ -4614,6 +4732,10 @@
                                 <action id="-10" name="Set value" sid="541213347812491" type="Ball">
                                     <param id="0" name="Instance variable">SpeedXL</param>
                                     <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="268848709746654" type="System">
+                                    <param id="0" name="Variable">Soundtrack6Active</param>
+                                    <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -4809,6 +4931,81 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="820606415970662">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="346119567645937" type="System">
+                            <param id="0" name="Variable">Soundtrack3Active</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="992536616459592" type="System">
+                            <param id="0" name="Variable">Soundtrack4Active</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="733783452105924" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="499160726482346" type="System">
+                            <param id="0" name="Variable">Soundtrack3Active</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="1" name="Set looping" sid="216690509267013" type="Audio">
+                            <param id="0" name="Tag">&quot;game_soundtrack2&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="722309215682405">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="133960841682004" type="System">
+                            <param id="0" name="Variable">Soundtrack4Active</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="851026039182683" type="System">
+                            <param id="0" name="Variable">Soundtrack5Active</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="647048244617819" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="570824364308972" type="System">
+                            <param id="0" name="Variable">Soundtrack4Active</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="1" name="Set looping" sid="966842414388735" type="Audio">
+                            <param id="0" name="Tag">&quot;game_soundtrack2&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="101606564256506">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="194591290106580" type="System">
+                            <param id="0" name="Variable">Soundtrack5Active</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="710466293646348" type="System">
+                            <param id="0" name="Variable">Soundtrack6Active</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="938985777429347" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="203216147525820" type="System">
+                            <param id="0" name="Variable">Soundtrack5Active</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="1" name="Set looping" sid="898782157951978" type="Audio">
+                            <param id="0" name="Tag">&quot;game_soundtrack2&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="369478858334903">
                     <conditions>
                         <condition id="0" name="On ended" sid="998621762642163" type="Audio">
@@ -4817,25 +5014,70 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Play" sid="722753677663425" type="Audio">
-                            <param id="0" name="Audio file">game soundtrack x2</param>
+                            <param id="0" name="Audio file">Song_speed2</param>
                             <param id="2" name="Loop">1</param>
                             <param id="3" name="Volume">-15</param>
                             <param id="1" name="Tag (optional)">&quot;game_soundtrack2&quot;</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="849628187549383">
+                <event-block sid="827110867172282">
                     <conditions>
-                        <condition id="0" name="On ended" sid="985448469257340" type="Audio">
+                        <condition id="0" name="On ended" sid="258817600307758" type="Audio">
                             <param id="0" name="Tag">&quot;game_soundtrack2&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Play" sid="917689051746484" type="Audio">
-                            <param id="0" name="Audio file">game_soundtrack_x3</param>
+                        <action id="0" name="Play" sid="271551572066653" type="Audio">
+                            <param id="0" name="Audio file">Song_speed3</param>
                             <param id="2" name="Loop">1</param>
                             <param id="3" name="Volume">-15</param>
                             <param id="1" name="Tag (optional)">&quot;game_soundtrack3&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="849628187549383">
+                    <conditions>
+                        <condition id="0" name="On ended" sid="985448469257340" type="Audio">
+                            <param id="0" name="Tag">&quot;game_soundtrack3&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="917689051746484" type="Audio">
+                            <param id="0" name="Audio file">Song_speed4</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-15</param>
+                            <param id="1" name="Tag (optional)">&quot;game_soundtrack4&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="975021030433475">
+                    <conditions>
+                        <condition id="0" name="On ended" sid="291084369381627" type="Audio">
+                            <param id="0" name="Tag">&quot;game_soundtrack4&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="876149866801158" type="Audio">
+                            <param id="0" name="Audio file">Song_speed5</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-15</param>
+                            <param id="1" name="Tag (optional)">&quot;game_soundtrack4&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="249777130243427">
+                    <conditions>
+                        <condition id="0" name="On ended" sid="166060476004969" type="Audio">
+                            <param id="0" name="Tag">&quot;game_soundtrack5&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="621908642261313" type="Audio">
+                            <param id="0" name="Audio file">Song_speed6</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-15</param>
+                            <param id="1" name="Tag (optional)">&quot;game_soundtrack6&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -4952,14 +5194,117 @@
                                 <action id="-15" name="Set visible" sid="818556554165780" type="BackToMenu">
                                     <param id="0" name="Visibility">0</param>
                                 </action>
-                                <action id="22" name="Set paused" sid="466929766047952" type="Audio">
-                                    <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
-                                    <param id="1" name="State">1</param>
-                                </action>
-                                <action id="-14" name="Toggle boolean" sid="107662206557627" type="Player">
-                                    <param id="0" name="Instance variable">IsPaused</param>
-                                </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="404298525663893">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="817202643469297" type="System">
+                                            <param id="0" name="Variable">Soundtrack1Active</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="22" name="Set paused" sid="227454277952398" type="Audio">
+                                            <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
+                                            <param id="1" name="State">1</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="627667403677148" type="Player">
+                                            <param id="0" name="Instance variable">IsPaused</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="106178457829842">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="612467680283822" type="System">
+                                            <param id="0" name="Variable">Soundtrack2Active</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="22" name="Set paused" sid="845889722844343" type="Audio">
+                                            <param id="0" name="Tag">&quot;game_soundtrack2&quot;</param>
+                                            <param id="1" name="State">1</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="341673159166060" type="Player">
+                                            <param id="0" name="Instance variable">IsPaused</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="216911277924347">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="651777624676416" type="System">
+                                            <param id="0" name="Variable">Soundtrack3Active</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="22" name="Set paused" sid="514871376487050" type="Audio">
+                                            <param id="0" name="Tag">&quot;game_soundtrack3&quot;</param>
+                                            <param id="1" name="State">1</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="641882803702404" type="Player">
+                                            <param id="0" name="Instance variable">IsPaused</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="509896422385089">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="723657098961971" type="System">
+                                            <param id="0" name="Variable">Soundtrack4Active</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="22" name="Set paused" sid="215381346101730" type="Audio">
+                                            <param id="0" name="Tag">&quot;game_soundtrack4&quot;</param>
+                                            <param id="1" name="State">1</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="620724275731854" type="Player">
+                                            <param id="0" name="Instance variable">IsPaused</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="913813164950418">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="542590282938760" type="System">
+                                            <param id="0" name="Variable">Soundtrack5Active</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="22" name="Set paused" sid="459080490797188" type="Audio">
+                                            <param id="0" name="Tag">&quot;game_soundtrack5&quot;</param>
+                                            <param id="1" name="State">1</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="707395098443280" type="Player">
+                                            <param id="0" name="Instance variable">IsPaused</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="930211710000113">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="787190464800897" type="System">
+                                            <param id="0" name="Variable">Soundtrack6Active</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="22" name="Set paused" sid="466929766047952" type="Audio">
+                                            <param id="0" name="Tag">&quot;game_soundtrack6&quot;</param>
+                                            <param id="1" name="State">1</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="107662206557627" type="Player">
+                                            <param id="0" name="Instance variable">IsPaused</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="449393505298182">
                             <conditions>

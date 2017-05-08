@@ -2074,6 +2074,18 @@
         <file name="game_soundtrack_x3.ogg" />
         <file name="boh.m4a" />
         <file name="boh.ogg" />
+        <file name="Song_ speed1.m4a" />
+        <file name="Song_ speed1.ogg" />
+        <file name="Song_speed2.m4a" />
+        <file name="Song_speed2.ogg" />
+        <file name="Song_speed3.m4a" />
+        <file name="Song_speed3.ogg" />
+        <file name="Song_speed4.m4a" />
+        <file name="Song_speed4.ogg" />
+        <file name="Song_speed5.m4a" />
+        <file name="Song_speed5.ogg" />
+        <file name="Song_speed6.m4a" />
+        <file name="Song_speed6.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>

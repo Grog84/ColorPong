@@ -4427,33 +4427,8 @@
                                 <condition id="-14" name="Compare variable" sid="740876632562682" type="System">
                                     <param id="0" name="Variable">Pause</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">1</param>
+                                    <param id="2" name="Value">0</param>
                                 </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Set value" sid="769460979808843" type="System">
-                                    <param id="0" name="Variable">Pause</param>
-                                    <param id="1" name="Value">0</param>
-                                </action>
-                                <action id="-13" name="Set time scale" sid="481401331819103" type="System">
-                                    <param id="0" name="Time scale">1.0</param>
-                                </action>
-                                <action id="-4" name="Set layer visible" sid="783514118623247" type="System">
-                                    <param id="0" name="Layer">6</param>
-                                    <param id="1" name="Visibility">0</param>
-                                </action>
-                                <action id="22" name="Set paused" sid="349741497439394" type="Audio">
-                                    <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
-                                    <param id="1" name="State">1</param>
-                                </action>
-                                <action id="-14" name="Toggle boolean" sid="819643967874038" type="Player">
-                                    <param id="0" name="Instance variable">IsPaused</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="148262316898201">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="618933496273593" type="System" />
                             </conditions>
                             <actions>
                                 <action id="-9" name="Set value" sid="403169915246005" type="System">
@@ -4463,9 +4438,21 @@
                                 <action id="-13" name="Set time scale" sid="435491827161718" type="System">
                                     <param id="0" name="Time scale">0</param>
                                 </action>
-                                <action id="-4" name="Set layer visible" sid="968698975698592" type="System">
-                                    <param id="0" name="Layer">6</param>
-                                    <param id="1" name="Visibility">1</param>
+                                <action id="-15" name="Set visible" sid="968698975698592" type="PauseBkg">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="166450224733567" type="Resume">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="572935815317306" type="SelectBarPause">
+                                    <param id="0" name="X">690</param>
+                                    <param id="1" name="Y">Resume.Y</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="553690165434105" type="SelectBarPause">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="398083553610154" type="BackToMenu">
+                                    <param id="0" name="Visibility">1</param>
                                 </action>
                                 <action id="22" name="Set paused" sid="104109960379349" type="Audio">
                                     <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
@@ -4475,6 +4462,12 @@
                                     <param id="0" name="Instance variable">IsPaused</param>
                                 </action>
                             </actions>
+                        </event-block>
+                        <event-block sid="148262316898201">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="618933496273593" type="System" />
+                            </conditions>
+                            <actions />
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -4848,5 +4841,160 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block sid="287825237179886">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="204654329994062" type="System">
+                    <param id="0" name="Variable">Pause</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block any="1" sid="858390088547081">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="909653430410004" type="Keyboard">
+                            <param id="0" name="Key">38 (Up arrow)</param>
+                        </condition>
+                        <condition id="0" name="On key pressed" sid="994287720141998" type="Keyboard">
+                            <param id="0" name="Key">87 (W)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="979433695921765">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="963938577011792" type="SelectBarPause">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Y co-ordinate">BackToMenu.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="936722867294608" type="SelectBarPause">
+                                    <param id="0" name="X">690</param>
+                                    <param id="1" name="Y">Resume.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block any="1" sid="830015844193832">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="451846533306051" type="Keyboard">
+                            <param id="0" name="Key">40 (Down arrow)</param>
+                        </condition>
+                        <condition id="0" name="On key pressed" sid="617342010282429" type="Keyboard">
+                            <param id="0" name="Key">83 (S)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="300585498410497">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="952051781778002" type="SelectBarPause">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Y co-ordinate">Resume.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="140633689313638" type="SelectBarPause">
+                                    <param id="0" name="X">600</param>
+                                    <param id="1" name="Y">BackToMenu.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="194857647369897">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="709077289172956" type="Keyboard">
+                            <param id="0" name="Key">32 (Barra Spaziatrice)</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="221965116737273">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="208246608296725" type="SelectBarPause">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Y co-ordinate">Resume.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="703984379422517" type="System">
+                                    <param id="0" name="Variable">Pause</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-13" name="Set time scale" sid="524460628261550" type="System">
+                                    <param id="0" name="Time scale">1.0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="814301534433423" type="PauseBkg">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="149813936300118" type="Resume">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="343116805632954" type="SelectBarPause">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="818556554165780" type="BackToMenu">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="22" name="Set paused" sid="466929766047952" type="Audio">
+                                    <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="-14" name="Toggle boolean" sid="107662206557627" type="Player">
+                                    <param id="0" name="Instance variable">IsPaused</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="449393505298182">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="616287491259637" type="SelectBarPause">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Y co-ordinate">BackToMenu.Y</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="569337293169879" type="SelectBarPause">
+                                    <param id="0" name="X">695</param>
+                                    <param id="1" name="Y">Resume.Y</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="114462561573517" type="System">
+                                    <param id="0" name="Variable">Pause</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-13" name="Set time scale" sid="299216480660203" type="System">
+                                    <param id="0" name="Time scale">1.0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="202454925403219" type="System">
+                                    <param id="0" name="Variable">Pause</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-14" name="Toggle boolean" sid="483143810528445" type="Player">
+                                    <param id="0" name="Instance variable">IsPaused</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="150890798881186" type="PauseBkg">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="908958904599998" type="Resume">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="606771829130377" type="SelectBarPause">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="507974180418262" type="BackToMenu">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="695072487181226" type="System">
+                                    <param id="0" name="Layout">Menu</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
     </events>
 </c2eventsheet>

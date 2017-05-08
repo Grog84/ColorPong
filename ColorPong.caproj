@@ -1664,6 +1664,60 @@
             </effects>
             <texture original-source="C:\Users\dbga_55\Documents\Construct2 Projects\ColorPong\Textures\SCORE.png" />
         </object-type>
+        <object-type name="SelectBarPause" sid="421880005663054">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="HasSelected" sid="427734032309683" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Sine" sid="984952985995268">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="526906027249168" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BackToMenu" sid="575349076850481">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="371006345450853" speed="5">
+                    <frame duration="1" hotspotX="0.501299" hotspotY="0.5" original-source="C:\Users\PU\Downloads\ULTIME IMMAGINI\BACKTOMENU_w.png">
+                        <collision-poly>
+                            <point x="0.0025974" y="0.0208333" />
+                            <point x="0.997403" y="0.0208333" />
+                            <point x="0.994805" y="0.958333" />
+                            <point x="0.00519481" y="0.958333" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Resume" sid="950112324128846">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="115081658709221" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\ULTIME IMMAGINI\RESUME_w.png">
+                        <collision-poly>
+                            <point x="0.00480769" y="0.0208333" />
+                            <point x="0.995192" y="0.0208333" />
+                            <point x="0.990385" y="0.958333" />
+                            <point x="0.00961538" y="0.958333" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PauseBkg" sid="214651016824910">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="990181036921634" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="110717795313248">

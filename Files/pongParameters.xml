@@ -1,116 +1,230 @@
-<Phases> <!-- Questo blocco serve a definire i parametri di difficoltà delle varie fasi -->
+﻿<?xml version="1.0"?>
 
-	<phase id="1">
-	
-		<Enemies> <!-- le spawnChance devono sommarsi a 100 -->
-			<enemy name="EvilBlock" spawnRate="5" speed="100"></enemy> <!-- Occhio! spawnRate NON è spawnChance -->
-			<enemy name="CuboRotante" spawnChance="14" speed="200"></enemy>
-			<enemy name="Kamikaze" spawnChance="16" BaseSpeed="100" KamikazeSpeed="400" KamikazeDistance="800" VibrationTime="2"></enemy>
-			<enemy name="Shuriken" spawnChance="14" speed="400"></enemy>
-			<enemy name="Snake" spawnChance="14" speed="200" NbrOfReplicate="5"></enemy>
-			<enemy name="SlidingDoors" spawnChance="14" speed="200" WaitTime="3"></enemy>
-			<enemy name="RotatingL" spawnChance="14" speed="500"></enemy>
-			<enemy name="XLGate" spawnChance="14" speed="100" ballSpeedUp="200"></enemy>
-		</Enemies>
-		
-		<Ball speed="400"></Ball> <!-- Questo deve coincidere con i valori iniziali messi da construct -->
-		
-		<Player BaseSpeed="5" DashSpeed="15"></Player>  <!-- Questi devono coincidere con i valori iniziali messi da construct -->
-	</phase>
-	
-	<phase id="2">
-	
-		<Enemies> <!-- le spawnChance devono sommarsi a 100 -->
-			<enemy name="EvilBlock" spawnRate="5" speed="100"></enemy> <!-- Occhio! spawnRate NON è spawnChance -->
-			<enemy name="CuboRotante" spawnChance="14" speed="200"></enemy>
-			<enemy name="Kamikaze" spawnChance="16" BaseSpeed="100" KamikazeSpeed="400" KamikazeDistance="800" VibrationTime="2"></enemy>
-			<enemy name="Shuriken" spawnChance="14" speed="400"></enemy>
-			<enemy name="Snake" spawnChance="14" speed="200" NbrOfReplicate="5"></enemy>
-			<enemy name="SlidingDoors" spawnChance="14" speed="200" WaitTime="3"></enemy>
-			<enemy name="RotatingL" spawnChance="14" speed="500"></enemy>
-			<enemy name="XLGate" spawnChance="14" speed="100" ballSpeedUp="200"></enemy>
-		</Enemies>
-		
-		<Ball speed="400"></Ball>
-		
-		<Player BaseSpeed="5" DashSpeed="15"></Player>
-	
-	</phase>
-	
-	<phase id="3">
-	
-		<Enemies> <!-- le spawnChance devono sommarsi a 100 -->
-			<enemy name="EvilBlock" spawnRate="5" speed="100"></enemy> <!-- Occhio! spawnRate NON è spawnChance -->
-			<enemy name="CuboRotante" spawnChance="14" speed="200"></enemy>
-			<enemy name="Kamikaze" spawnChance="16" BaseSpeed="100" KamikazeSpeed="400" KamikazeDistance="800" VibrationTime="2"></enemy>
-			<enemy name="Shuriken" spawnChance="14" speed="400"></enemy>
-			<enemy name="Snake" spawnChance="14" speed="200" NbrOfReplicate="5"></enemy>
-			<enemy name="SlidingDoors" spawnChance="14" speed="200" WaitTime="3"></enemy>
-			<enemy name="RotatingL" spawnChance="14" speed="500"></enemy>
-			<enemy name="XLGate" spawnChance="14" speed="100" ballSpeedUp="200"></enemy>
-		</Enemies>
-		
-		<Ball speed="400"></Ball>
-		
-		<Player BaseSpeed="5" DashSpeed="15"></Player>
-	
-	</phase>
-	
-	<phase id="4">
-	
-		<Enemies> <!-- le spawnChance devono sommarsi a 100 -->
-			<enemy name="EvilBlock" spawnRate="5" speed="100"></enemy> <!-- Occhio! spawnRate NON è spawnChance -->
-			<enemy name="CuboRotante" spawnChance="14" speed="200"></enemy>
-			<enemy name="Kamikaze" spawnChance="16" BaseSpeed="100" KamikazeSpeed="400" KamikazeDistance="800" VibrationTime="2"></enemy>
-			<enemy name="Shuriken" spawnChance="14" speed="400"></enemy>
-			<enemy name="Snake" spawnChance="14" speed="200" NbrOfReplicate="5"></enemy>
-			<enemy name="SlidingDoors" spawnChance="14" speed="200" WaitTime="3"></enemy>
-			<enemy name="RotatingL" spawnChance="14" speed="500"></enemy>
-			<enemy name="XLGate" spawnChance="14" speed="100" ballSpeedUp="200"></enemy>
-		</Enemies>
-		
-		<Ball speed="400"></Ball>
-		
-		<Player BaseSpeed="5" DashSpeed="15"></Player>
-		
-	</phase>
-	
-	<phase id="4">
-	
-		<Enemies> <!-- le spawnChance devono sommarsi a 100 -->
-			<enemy name="EvilBlock" spawnRate="5" speed="100"></enemy> <!-- Occhio! spawnRate NON è spawnChance -->
-			<enemy name="CuboRotante" spawnChance="14" speed="200"></enemy>
-			<enemy name="Kamikaze" spawnChance="16" BaseSpeed="100" KamikazeSpeed="400" KamikazeDistance="800" VibrationTime="2"></enemy>
-			<enemy name="Shuriken" spawnChance="14" speed="400"></enemy>
-			<enemy name="Snake" spawnChance="14" speed="200" NbrOfReplicate="5"></enemy>
-			<enemy name="SlidingDoors" spawnChance="14" speed="200" WaitTime="3"></enemy>
-			<enemy name="RotatingL" spawnChance="14" speed="500"></enemy>
-			<enemy name="XLGate" spawnChance="14" speed="100" ballSpeedUp="200"></enemy>
-		</Enemies>
-		
-		<Ball speed="400"></Ball>
-		
-		<Player BaseSpeed="5" DashSpeed="15"></Player>
-		
-	</phase>
-	
-	<phase id="4">
-	
-		<Enemies> <!-- le spawnChance devono sommarsi a 100 -->
-			<enemy name="EvilBlock" spawnRate="5" speed="100"></enemy> <!-- Occhio! spawnRate NON è spawnChance -->
-			<enemy name="CuboRotante" spawnChance="14" speed="200"></enemy>
-			<enemy name="Kamikaze" spawnChance="16" BaseSpeed="100" KamikazeSpeed="400" KamikazeDistance="800" VibrationTime="2"></enemy>
-			<enemy name="Shuriken" spawnChance="14" speed="400"></enemy>
-			<enemy name="Snake" spawnChance="14" speed="200" NbrOfReplicate="5"></enemy>
-			<enemy name="SlidingDoors" spawnChance="14" speed="200" WaitTime="3"></enemy>
-			<enemy name="RotatingL" spawnChance="14" speed="500"></enemy>
-			<enemy name="XLGate" spawnChance="14" speed="100" ballSpeedUp="200"></enemy>
-		</Enemies>
-		
-		<Ball speed="400"></Ball>
-		
-		<Player BaseSpeed="5" DashSpeed="15"></Player>
-		
-	</phase>
-	
+<Phases>
+
+<!-- Questo blocco serve a definire i parametri di difficoltà delle varie fasi -->
+
+
+
+<phase id="1">
+
+
+<Enemies>
+
+<!-- le spawnChance devono sommarsi a 100 -->
+
+
+<enemy speed="100" spawnRate="8" name="EvilBlock"/>
+
+<!-- Occhio! spawnRate NON è spawnChance -->
+
+
+<enemy speed="280" name="CuboRotante" spawnChance="15"/>
+
+<enemy name="Kamikaze" spawnChance="15" VibrationTime="2" KamikazeDistance="600" KamikazeSpeed="400" BaseSpeed="100"/>
+
+<enemy speed="400" name="Shuriken" spawnChance="10"/>
+
+<enemy speed="250" name="Snake" spawnChance="15" NbrOfReplicate="4"/>
+
+<enemy speed="280" name="SlidingDoors" spawnChance="15" WaitTime="0"/>
+
+<enemy speed="500" name="RotatingL" spawnChance="7"/>
+
+<enemy speed="280" name="XLGate" spawnChance="10" ballSpeedUp="100"/>
+
+</Enemies>
+
+<Ball speed="300"/>
+
+<!-- Questo deve coincidere con i valori iniziali messi da construct -->
+
+
+<Player BaseSpeed="5" DashSpeed="6"/>
+
+<!-- Questi devono coincidere con i valori iniziali messi da construct -->
+
+
+</phase>
+
+
+<phase id="2">
+
+
+<Enemies>
+
+<!-- le spawnChance devono sommarsi a 100 -->
+
+
+<enemy speed="150" spawnRate="6" name="EvilBlock"/>
+
+<!-- Occhio! spawnRate NON è spawnChance -->
+
+
+<enemy speed="230" name="CuboRotante" spawnChance="16"/>
+
+<enemy name="Kamikaze" spawnChance="16" VibrationTime="2" KamikazeDistance="650" KamikazeSpeed="450" BaseSpeed="150"/>
+
+<enemy speed="450" name="Shuriken" spawnChance="13"/>
+
+<enemy speed="300" name="Snake" spawnChance="16" NbrOfReplicate="6"/>
+
+<enemy speed="230" name="SlidingDoors" spawnChance="15" WaitTime="1"/>
+
+<enemy speed="500" name="RotatingL" spawnChance="7"/>
+
+<enemy speed="230" name="XLGate" spawnChance="12" ballSpeedUp="150"/>
+
+</Enemies>
+
+<Ball speed="350"/>
+
+<Player BaseSpeed="5" DashSpeed="15"/>
+
+</phase>
+
+
+<phase id="3">
+
+
+<Enemies>
+
+<!-- le spawnChance devono sommarsi a 100 -->
+
+
+<enemy speed="200" spawnRate="4" name="EvilBlock"/>
+
+<!-- Occhio! spawnRate NON è spawnChance -->
+
+
+<enemy speed="180" name="CuboRotante" spawnChance="8"/>
+
+<enemy name="Kamikaze" spawnChance="18" VibrationTime="1" KamikazeDistance="700" KamikazeSpeed="500" BaseSpeed="200"/>
+
+<enemy speed="500" name="Shuriken" spawnChance="16"/>
+
+<enemy speed="350" name="Snake" spawnChance="18" NbrOfReplicate="8"/>
+
+<enemy speed="180" name="SlidingDoors" spawnChance="8" WaitTime="2"/>
+
+<enemy speed="550" name="RotatingL" spawnChance="12"/>
+
+<enemy speed="180" name="XLGate" spawnChance="12" ballSpeedUp="200"/>
+
+</Enemies>
+
+<Ball speed="450"/>
+
+<Player BaseSpeed="5" DashSpeed="20"/>
+
+</phase>
+
+
+<phase id="4">
+
+
+<Enemies>
+
+<!-- le spawnChance devono sommarsi a 100 -->
+
+
+<enemy speed="300" spawnRate="3" name="EvilBlock"/>
+
+<!-- Occhio! spawnRate NON è spawnChance -->
+
+
+<enemy speed="150" name="CuboRotante" spawnChance="7"/>
+
+<enemy name="Kamikaze" spawnChance="20" VibrationTime="0.8" KamikazeDistance="750" KamikazeSpeed="600" BaseSpeed="250"/>
+
+<enemy speed="600" name="Shuriken" spawnChance="18"/>
+
+<enemy speed="400" name="Snake" spawnChance="20" NbrOfReplicate="10"/>
+
+<enemy speed="150" name="SlidingDoors" spawnChance="7" WaitTime="3"/>
+
+<enemy speed="600" name="RotatingL" spawnChance="15"/>
+
+<enemy speed="150" name="XLGate" spawnChance="15" ballSpeedUp="250"/>
+
+</Enemies>
+
+<Ball speed="550"/>
+
+<Player BaseSpeed="7" DashSpeed="20"/>
+
+</phase>
+
+
+<phase id="5">
+
+
+<Enemies>
+
+<!-- le spawnChance devono sommarsi a 100 -->
+
+
+<enemy speed="400" spawnRate="2" name="EvilBlock"/>
+
+<!-- Occhio! spawnRate NON è spawnChance -->
+
+
+<enemy speed="120" name="CuboRotante" spawnChance="7"/>
+
+<enemy name="Kamikaze" spawnChance="20" VibrationTime="0.8" KamikazeDistance="750" KamikazeSpeed="700" BaseSpeed="350"/>
+
+<enemy speed="700" name="Shuriken" spawnChance="18"/>
+
+<enemy speed="500" name="Snake" spawnChance="20" NbrOfReplicate="10"/>
+
+<enemy speed="120" name="SlidingDoors" spawnChance="7" WaitTime="3"/>
+
+<enemy speed="650" name="RotatingL" spawnChance="15"/>
+
+<enemy speed="150" name="XLGate" spawnChance="15" ballSpeedUp="300"/>
+
+</Enemies>
+
+<Ball speed="650"/>
+
+<Player BaseSpeed="10" DashSpeed="30"/>
+
+</phase>
+
+
+<phase id="6">
+
+
+<Enemies>
+
+<!-- le spawnChance devono sommarsi a 100 -->
+
+
+<enemy speed="450" spawnRate="2" name="EvilBlock"/>
+
+<!-- Occhio! spawnRate NON è spawnChance -->
+
+
+<enemy speed="100" name="CuboRotante" spawnChance="7"/>
+
+<enemy name="Kamikaze" spawnChance="20" VibrationTime="0.2" KamikazeDistance="800" KamikazeSpeed="750" BaseSpeed="400"/>
+
+<enemy speed="800" name="Shuriken" spawnChance="18"/>
+
+<enemy speed="600" name="Snake" spawnChance="20" NbrOfReplicate="10"/>
+
+<enemy speed="100" name="SlidingDoors" spawnChance="7" WaitTime="3"/>
+
+<enemy speed="700" name="RotatingL" spawnChance="15"/>
+
+<enemy speed="100" name="XLGate" spawnChance="15" ballSpeedUp="400"/>
+
+</Enemies>
+
+<Ball speed="750"/>
+
+<Player BaseSpeed="12" DashSpeed="40"/>
+
+</phase>
+
 </Phases>

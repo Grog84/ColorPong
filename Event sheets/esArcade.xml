@@ -729,7 +729,7 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="629232208333150" type="SCORE">
-                            <param id="0" name="Text">&quot;TIME: &quot; &amp; int(ArcadeTime/60%60) &amp; &quot; : &quot; &amp; zeropad(int(ArcadeTime%60), 2)</param>
+                            <param id="0" name="Text">&quot;TIME:&quot;&amp;int(ArcadeTime/60%60)&amp; &quot;:&quot; &amp;zeropad(int(ArcadeTime%60), 2)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -743,7 +743,7 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="387830338609086" type="SCORE">
-                            <param id="0" name="Text">&quot;SCORE: &quot; &amp; GameScore</param>
+                            <param id="0" name="Text">&quot;SCORE:&quot;&amp;GameScore</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1579,6 +1579,9 @@
                                     <param id="0" name="Instance variable">Color</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
+                                <action id="5" name="Set frame" sid="708948801593542" type="PlayerTile">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="319647222308919">
@@ -1601,6 +1604,9 @@
                                     <param id="0" name="Instance variable">Color</param>
                                     <param id="1" name="Value">2</param>
                                 </action>
+                                <action id="5" name="Set frame" sid="444777424252886" type="PlayerTile">
+                                    <param id="0" name="Frame number">2</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="156052286356562">
@@ -1618,6 +1624,9 @@
                                 <action id="-10" name="Set value" sid="745892581096386" type="Player">
                                     <param id="0" name="Instance variable">Color</param>
                                     <param id="1" name="Value">3</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="135447475346318" type="PlayerTile">
+                                    <param id="0" name="Frame number">3</param>
                                 </action>
                             </actions>
                         </event-block>

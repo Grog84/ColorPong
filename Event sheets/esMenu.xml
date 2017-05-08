@@ -72,6 +72,9 @@
                         <action id="-2" name="Set Y" sid="256764777922733" type="SelectBar">
                             <param id="0" name="Y">ArcadeModeY</param>
                         </action>
+                        <action id="-1" name="Set X" sid="600017652416938" type="SelectBar">
+                            <param id="0" name="X">585</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -108,6 +111,9 @@
                         </action>
                         <action id="-2" name="Set Y" sid="531028636018863" type="SelectBar">
                             <param id="0" name="Y">StoryModeY</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="420509859310626" type="SelectBar">
+                            <param id="0" name="X">735</param>
                         </action>
                     </actions>
                 </event-block>

@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>esCinematic</name>
+    <events>
+        <variable constant="0" name="YEARS" sid="769723840394964" static="0" type="number">1972</variable>
+        <variable constant="0" name="TriggerBossAnimation" sid="648424626484707" static="0" type="number">0</variable>
+        <variable constant="0" name="zoom" sid="954458486227728" static="0" type="number">1.666</variable>
+        <event-group description="" sid="456160257033980" title="General">
+            <sub-events>
+                <event-block sid="714157395139881">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="694111990333053" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="329960500459006" type="CSYears">
+                            <param id="0" name="Text">&quot;YEAR &quot; &amp;YEARS</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="828584111795213">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="409202841248750" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="964557739077750" type="CSplayerGlow">
+                            <param id="0" name="Pin to">CSPlayer</param>
+                            <param id="1" name="Mode">1</param>
+                        </action>
+                        <action id="-20" name="Set layout scale" sid="139756105606618" type="System">
+                            <param id="0" name="Scale">zoom</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="107649079144191" type="SCORE">
+                            <param id="0" name="Pin to">cornice</param>
+                            <param id="1" name="Mode">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="483744621015924">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="423143020100296" type="CSStripes">
+                                    <param id="0" name="Unique ID">139</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="751207100042558" type="Stripes">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="111233841039451">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="108403447612952" type="CSStripes">
+                                    <param id="0" name="Unique ID">140</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="564033262519227" type="CSStripes">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="652441431983946">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="826529114616275" type="CSStripes">
+                                    <param id="0" name="Unique ID">141</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="578977247383019" type="CSStripes">
+                                    <param id="0" name="Frame number">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="534726745871752">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="342760450567488" type="System">
+                            <param id="0" name="Interval (seconds)">0.1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="253655304542005" type="System">
+                            <param id="0" name="Variable">YEARS</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="674748777973554">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="423987830460346" type="System">
+                            <param id="0" name="Variable">YEARS</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">2010</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="198638176866887" type="System">
+                            <param id="0" name="Group name">&quot;ZoomOut&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="810948459383329" type="CSPlayer">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="773381351626200" type="CSPlayer">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="379848782351214" type="CSBoss">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="909162848693407" type="System">
+                            <param id="0" name="Variable">TriggerBossAnimation</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="984388795409981">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="451467012535384" type="CSStripes">
+                                    <param id="0" name="Unique ID">139</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-8" name="Set angle" sid="878831847387872" type="CSStripes">
+                                    <param id="0" name="Angle">180</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="377553837272917" type="CSStripes">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="920486234622298">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="759617223974373" type="CSStripes">
+                                    <param id="0" name="Unique ID">140</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="905359780739559" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="118116751321580" type="CSStripes">
+                                    <param id="0" name="Angle">180</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="377042686494887" type="CSStripes">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="616758013001655">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="405267765031746" type="CSStripes">
+                                    <param id="0" name="Unique ID">141</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="525786835472086" type="System">
+                                    <param id="0" name="Seconds">2</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="593195188705812" type="CSStripes">
+                                    <param id="0" name="Angle">180</param>
+                                </action>
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="570567856699956" type="CSStripes">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="258633493012051">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="174196630830805" type="System">
+                            <param id="0" name="Variable">YEARS</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">2017</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="274038202303245" type="System">
+                            <param id="0" name="Variable">YEARS</param>
+                            <param id="1" name="Value">2017</param>
+                        </action>
+                        <action behavior="Fade" id="1" name="Start fade" sid="980152625356427" type="CSYears" />
+                    </actions>
+                </event-block>
+                <event-block sid="132872558762579">
+                    <conditions>
+                        <condition behavior="Bullet" id="0" name="Compare speed" sid="896472009798752" type="CSStripes">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Speed">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="413823788000302">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="621965872254507" type="System" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="959127129388737">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="894019459233124" type="CSStripes">
+                                            <param id="0" name="Unique ID">139</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="550620611998415" type="CSStripes">
+                                            <param id="0" name="Object">CSStripesFade</param>
+                                            <param id="1" name="Layer">3</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="222225332513657" type="CSStripesFade">
+                                            <param id="0" name="Frame number">0</param>
+                                        </action>
+                                        <action id="-25" name="Move to bottom" sid="134167369725182" type="CSStripesFade" />
+                                    </actions>
+                                </event-block>
+                                <event-block sid="187058459410562">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="322143823070622" type="CSStripes">
+                                            <param id="0" name="Unique ID">140</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="129688503169063" type="CSStripes">
+                                            <param id="0" name="Object">CSStripesFade</param>
+                                            <param id="1" name="Layer">3</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="311329703482796" type="CSStripesFade">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="-25" name="Move to bottom" sid="160974406058051" type="CSStripesFade" />
+                                    </actions>
+                                </event-block>
+                                <event-block sid="213361727032144">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="729519199627830" type="CSStripes">
+                                            <param id="0" name="Unique ID">141</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="506623285905094" type="CSStripes">
+                                            <param id="0" name="Object">CSStripesFade</param>
+                                            <param id="1" name="Layer">3</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="455203687719595" type="CSStripesFade">
+                                            <param id="0" name="Frame number">2</param>
+                                        </action>
+                                        <action id="-25" name="Move to bottom" sid="664767059498671" type="CSStripesFade" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="478646940435449">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="532519643520571" type="CSPlayer">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">80</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="716929177724199" type="CSPlayer">
+                            <param id="0" name="X">80</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="787308154518335">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="794374763127070" type="CSBoss">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="X co-ordinate">1563</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="482790818850054" type="CSBoss">
+                            <param id="0" name="X">1563</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="764856791195419">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="318279440648509" type="CSStripes">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">45</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="528687545279178" type="CSStripes">
+                            <param id="0" name="X">45</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="690542739549169" type="CSStripes">
+                            <param id="0" name="Speed">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="413534301055268" type="System">
+                            <param id="0" name="Seconds">4</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="302982922144806" type="System">
+                            <param id="0" name="Layout">Arcade</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="650933276814173">
+                    <conditions>
+                        <condition id="0" name="On function" sid="876663733120936" type="Function">
+                            <param id="0" name="Name">&quot;BossSizeAnimation&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="timeRatio" sid="804089511801906" static="0" type="number">0</variable>
+                        <event-block sid="308147702889675">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="671761340881619" type="System">
+                                    <param id="0" name="Variable">timeRatio</param>
+                                    <param id="1" name="Value">CSBoss.AnimationTime/CSBoss.BossGrowthTime</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="133651180027386">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="516139329279319" type="System">
+                                            <param id="0" name="Variable">timeRatio</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0.5</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="306220306118649" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="583377022072123" type="CSBoss">
+                                            <param id="0" name="Animation">&quot;Anim1&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="6" name="Set speed" sid="462856619628388" type="CSBoss">
+                                            <param id="0" name="Speed">5</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="811056973789674">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="668330930001724" type="System">
+                                            <param id="0" name="Variable">timeRatio</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0.5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-11" name="Add to" sid="523399874841899" type="CSBoss">
+                                            <param id="0" name="Instance variable">AnimationTime</param>
+                                            <param id="1" name="Value">dt</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="770865173536020">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="729933296708077" type="System">
+                                            <param id="0" name="Variable">timeRatio</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0.5</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="995887745119226" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="620982398830024" type="CSBoss">
+                                            <param id="0" name="Animation">&quot;Anim2&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="6" name="Set speed" sid="951076252886128" type="CSBoss">
+                                            <param id="0" name="Speed">5</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="451236032513869">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="886237419812725" type="System">
+                                            <param id="0" name="Variable">timeRatio</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0.5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-11" name="Add to" sid="622976406989362" type="CSBoss">
+                                            <param id="0" name="Instance variable">AnimationTime</param>
+                                            <param id="1" name="Value">dt</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="759770595625051">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="808301429802764" type="System">
+                            <param id="0" name="Variable">TriggerBossAnimation</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="878363272661735">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="705074817120948" type="CSBoss">
+                                    <param id="0" name="Instance variable">AnimationTime</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">self.BossGrowthTime</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="614416897190605" type="Function">
+                                    <param id="0" name="Name">&quot;BossSizeAnimation&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="412932500771540">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="711351702133683" type="System" />
+                                <condition id="-7" name="Compare instance variable" sid="615414818829251" type="CSBoss">
+                                    <param id="0" name="Instance variable">AnimationTime</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">Self.BossGrowthTime</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Set speed" sid="287164463256607" type="CSBoss">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="380077514528425" type="CSBoss">
+                                    <param id="0" name="Frame number">2</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="146657334544775" type="System">
+                                    <param id="0" name="Variable">TriggerBossAnimation</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="513995658048055">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="967940807617028" type="System">
+                            <param id="0" name="Object">CSStripes</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="800253618425676" type="CSStripes">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">45</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="840046771138595" type="CSStripes">
+                            <param id="0" name="Instance variable">HasShaken</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="953748590256553" type="CSStripes">
+                            <param id="0" name="Instance variable">HasShaken</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action behavior="Sine" id="0" name="Set active" sid="740409216200384" type="cornice">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="Sine" id="0" name="Set active" sid="805878513944436" type="Frame">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="470550367200409" type="System">
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
+                        <action behavior="Sine" id="0" name="Set active" sid="255430040000681" type="cornice">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action behavior="Sine" id="0" name="Set active" sid="551463232737261" type="Frame">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="158068042258131" type="cornice">
+                            <param id="0" name="X">0</param>
+                            <param id="1" name="Y">0</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="632900706281149" type="Frame">
+                            <param id="0" name="X">825</param>
+                            <param id="1" name="Y">777</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" inactive="1" sid="606852729138663" title="ZoomOut">
+            <sub-events>
+                <event-block sid="416335325216758">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="284509833029720" type="System" />
+                        <condition id="-14" name="Compare variable" sid="843926258653569" type="System">
+                            <param id="0" name="Variable">zoom</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="878042538690493" type="System">
+                            <param id="0" name="Variable">zoom</param>
+                            <param id="1" name="Value">0.004</param>
+                        </action>
+                        <action id="-20" name="Set layout scale" sid="238808658644671" type="System">
+                            <param id="0" name="Scale">zoom</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="514403974495923">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="738630409071980" type="System">
+                            <param id="0" name="Variable">zoom</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="116063615319737" type="System">
+                            <param id="0" name="Variable">zoom</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="818531882602167" type="System">
+                            <param id="0" name="Group name">&quot;ZoomOut&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

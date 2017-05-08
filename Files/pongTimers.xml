@@ -1,24 +1,60 @@
-<Timers> <!-- Questo blocco serve a definire le tempistiche per lo spawn dei nemici e per il passaggio alle diverse fasi -->
-	<Enemies>  <!-- Questo blocco serve a definire il tempo del primo spawn per il nemico in questione -->
-		<enemy id="0" name="EvilBlock">5</enemy>
-		<enemy id="1" name="CuboRotante">10</enemy>
-		<enemy id="2" name="Kamikaze">17</enemy>
-		<enemy id="3" name="Shuriken">27</enemy>
-		<enemy id="4" name="Snake">33</enemy>
-		<enemy id="5" name="SlidingDoors">43</enemy>
-		<enemy id="6" name="RotatingL">50</enemy>
-		<enemy id="7" name="XLGate">55</enemy>
-	</Enemies>
-	
-	<Phases> <!-- Questo blocco serve a definire i tempi di passaggio alle varie fasi -->
-		<phase id="1">0</phase>  <!-- Fase Scriptata, occhio che sia compatibile con i valori di sopra. Inizia al tempo 0 -->
-		<phase id="2">60</phase>
-		<phase id="3">120</phase>
-		<phase id="4">180</phase>
-		<phase id="5">200</phase>
-		<phase id="6">220</phase>
-	</Phases>
-	
-	<!-- E' il tempo che trascorre per aumentare il numero massimo di nemici speciali in gioco -->
-	<MaximumNbrIncreaseTimer>30</MaximumNbrIncreaseTimer>  
+<?xml version="1.0"?>
+
+<Timers>
+
+<!-- Questo blocco serve a definire le tempistiche per lo spawn dei nemici e per il passaggio alle diverse fasi -->
+
+
+
+<Enemies>
+
+<!-- Questo blocco serve a definire il tempo del primo spawn per il nemico in questione -->
+
+
+<enemy name="EvilBlock" id="0">10</enemy>
+
+<enemy name="CuboRotante" id="1">30</enemy>
+
+<enemy name="Kamikaze" id="2">40</enemy>
+
+<enemy name="Shuriken" id="3">70</enemy>
+
+<enemy name="Snake" id="4">100</enemy>
+
+<enemy name="SlidingDoors" id="5">80</enemy>
+
+<enemy name="RotatingL" id="6">90</enemy>
+
+<enemy name="XLGate" id="7">50</enemy>
+
+</Enemies>
+
+
+<Phases>
+
+<!-- Questo blocco serve a definire i tempi di passaggio alle varie fasi -->
+
+
+<phase id="1">0</phase>
+
+<!-- Fase Scriptata, occhio che sia compatibile con i valori di sopra. Inizia al tempo 0 -->
+
+
+<phase id="2">40</phase>
+
+<phase id="3">100</phase>
+
+<phase id="4">240</phase>
+
+<phase id="5">360</phase>
+
+<phase id="6">480</phase>
+
+</Phases>
+
+<!-- E' il tempo che trascorre per aumentare il numero massimo di nemici speciali in gioco -->
+
+
+<MaximumNbrIncreaseTimer>40</MaximumNbrIncreaseTimer>
+
 </Timers>

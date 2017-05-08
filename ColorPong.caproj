@@ -31,6 +31,7 @@
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="custom" version="1">Custom Movement</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
     </used-behaviors>
     <used-effects>
         <effect author="Scirra" id="blurhorizontal">Blur Horizontal</effect>
@@ -600,6 +601,11 @@
             </object-type>
             <object-type name="Frame" sid="217941265179093">
                 <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Sine" sid="395774627302870">
+                        <behavior id="Sin" />
+                    </behavior-type>
+                </behaviors>
                 <effects>
                     <effect-type name="BlurHorizontal">
                         <effect id="blurhorizontal" />
@@ -675,7 +681,7 @@
                     </animation>
                 </animation-folder>
             </object-type>
-            <object-type name="STORYMODE" sid="857261670071048">
+            <object-type name="INSTRUCTIONS" sid="857261670071048">
                 <plugin id="Sprite" />
                 <effects>
                     <effect-type name="BlurHorizontal">
@@ -684,23 +690,26 @@
                     <effect-type name="BlurVertical">
                         <effect id="blurvertical" />
                     </effect-type>
+                    <effect-type name="ReplaceColor">
+                        <effect id="replacecolor" />
+                    </effect-type>
                 </effects>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="320613124455458" speed="5">
-                        <frame duration="1" hotspotX="0.501416" hotspotY="0.510204" original-source="C:\Users\dbga_46\Desktop\SpriteFont_ObelusCompact_Medium_(36)_[1,1,1,1]_18x30.png">
+                        <frame duration="1" hotspotX="0.501144" hotspotY="0.5" original-source="C:\Users\dbga_46\Desktop\SpriteFont_ObelusCompact_Medium_(36).png">
                             <collision-poly>
-                                <point x="0.0424929" y="0" />
+                                <point x="0.0400749" y="0" />
                                 <point x="1" y="0" />
                                 <point x="1" y="0" />
                                 <point x="1" y="0" />
                                 <point x="1" y="0" />
-                                <point x="0.155807" y="0" />
+                                <point x="0.305598" y="0" />
                             </collision-poly>
                         </frame>
                     </animation>
                 </animation-folder>
             </object-type>
-            <object-type name="ARCADEMODE" sid="625871661475899">
+            <object-type name="PLAY" sid="625871661475899">
                 <plugin id="Sprite" />
                 <effects>
                     <effect-type name="BlurHorizontal">
@@ -709,17 +718,20 @@
                     <effect-type name="BlurVertical">
                         <effect id="blurvertical" />
                     </effect-type>
+                    <effect-type name="ReplaceColor">
+                        <effect id="replacecolor" />
+                    </effect-type>
                 </effects>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="160268609549544" speed="5">
-                        <frame duration="1" hotspotX="0.501312" hotspotY="0.5" original-source="C:\Users\dbga_46\Desktop\SpriteFont_ObelusCompact_Medium_(36)_[1,1,1,1]_18x30.png">
+                        <frame duration="1" hotspotX="0.50365" hotspotY="0.5" original-source="C:\Users\dbga_46\Desktop\SpriteFont_ObelusCompact_Medium_(36).png">
                             <collision-poly>
-                                <point x="0.0866142" y="0" />
+                                <point x="0.494109" y="0" />
                                 <point x="1" y="0" />
                                 <point x="1" y="0" />
                                 <point x="1" y="0" />
                                 <point x="1" y="0" />
-                                <point x="0.191601" y="0" />
+                                <point x="1" y="0" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -735,6 +747,14 @@
                         <behavior id="Sin" />
                     </behavior-type>
                 </behaviors>
+                <effects>
+                    <effect-type name="BlurHorizontal">
+                        <effect id="blurhorizontal" />
+                    </effect-type>
+                    <effect-type name="BlurVertical">
+                        <effect id="blurvertical" />
+                    </effect-type>
+                </effects>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="330691233754554" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
@@ -798,7 +818,16 @@
                         <effect id="replacecolor" />
                     </effect-type>
                 </effects>
-                <texture original-source="C:\Users\dbga_55\Downloads\SpriteFont_ObelusCompact_Medium_(36).png" />
+                <texture original-source="C:\Users\dbga_46\Desktop\SpriteFont_ObelusCompact_Medium_(36).png" />
+            </object-type>
+            <object-type name="MenuFont" sid="178831572235881">
+                <plugin id="Spritefont2" />
+                <effects>
+                    <effect-type name="ReplaceColor">
+                        <effect id="replacecolor" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\Users\dbga_46\Desktop\SpriteFont_ObelusCompact_Medium_(36).png" />
             </object-type>
         </object-folder>
         <object-folder name="HUD">
@@ -810,6 +839,9 @@
                 <behaviors>
                     <behavior-type name="Sine" sid="380829310969275">
                         <behavior id="Sin" />
+                    </behavior-type>
+                    <behavior-type name="Pin" sid="630837870451206">
+                        <behavior id="Pin" />
                     </behavior-type>
                 </behaviors>
                 <effects>
@@ -823,7 +855,7 @@
                         <effect id="blurhorizontal" />
                     </effect-type>
                 </effects>
-                <texture />
+                <texture original-source="C:\Users\dbga_46\Desktop\SpriteFont_ObelusCompact_Medium_(36).png" />
             </object-type>
         </object-folder>
         <object-folder name="FX">
@@ -1004,6 +1036,202 @@
                 <plugin id="Arr" />
             </object-type>
         </object-folder>
+        <object-folder name="Cinematic Props">
+            <object-type name="CSStripes" sid="881003608815930">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="StartingFrame" sid="839666876707347" type="number" />
+                    <instance-variable name="HasShaken" sid="347956939562325" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Bullet" sid="872565650181303">
+                        <behavior id="Bullet" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="602749364697571" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.501538" original-source="C:\Users\PU\Downloads\redo immagini pong\RedBar.png">
+                            <collision-poly>
+                                <point x="0.133333" y="0.0369231" />
+                                <point x="0.866667" y="0.0369231" />
+                                <point x="0.866667" y="0.953846" />
+                                <point x="0.133333" y="0.953846" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.501538" original-source="C:\Users\PU\Downloads\redo immagini pong\GreenBar.png">
+                            <collision-poly>
+                                <point x="0.133333" y="0.0369231" />
+                                <point x="0.866667" y="0.0369231" />
+                                <point x="0.866667" y="0.953846" />
+                                <point x="0.133333" y="0.953846" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.501538" original-source="C:\Users\PU\Downloads\redo immagini pong\BlueBar.png">
+                            <collision-poly>
+                                <point x="0.133333" y="0.0369231" />
+                                <point x="0.866667" y="0.0369231" />
+                                <point x="0.866667" y="0.953846" />
+                                <point x="0.133333" y="0.953846" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="CSPlayer" sid="668305470237518">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="ID" sid="247130393834743" type="number" />
+                    <instance-variable name="IsEmitted" sid="993430071191194" type="boolean" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Bullet" sid="489890065921869">
+                        <behavior id="Bullet" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="911322786711126" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                                <point x="1" y="0.04" />
+                                <point x="0" y="0.04" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="CSBoss" sid="940371571682930">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="AnimationTime" sid="512645639230837" type="number" />
+                    <instance-variable name="BossGrowthTime" sid="235321750679760" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Bullet" sid="650933464962431">
+                        <behavior id="Bullet" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="2" loop="1" name="Anim1" pingpong="0" repeatcount="1" repeatto="0" sid="615040219981307" speed="0">
+                        <frame duration="1" hotspotX="0.512195" hotspotY="0.37386" original-source="C:\Users\PU\Downloads\redo immagini pong\boss.png">
+                            <collision-poly>
+                                <point x="0.273512" y="0" />
+                                <point x="0.726488" y="0" />
+                                <point x="0.726488" y="0.894019" />
+                                <point x="0.273512" y="0.894019" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.25" y="0.0512821" />
+                                <point x="0.75" y="0.0512821" />
+                                <point x="0.75" y="0.948718" />
+                                <point x="0.25" y="0.948718" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="2" loop="1" name="Anim2" pingpong="0" repeatcount="1" repeatto="0" sid="518484969947039" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.25" y="0.0512821" />
+                                <point x="0.75" y="0.0512821" />
+                                <point x="0.75" y="0.948718" />
+                                <point x="0.25" y="0.948718" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.25" y="0.0512821" />
+                                <point x="0.75" y="0.0512821" />
+                                <point x="0.75" y="0.948718" />
+                                <point x="0.25" y="0.948718" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="CSplayerGlow" sid="361906261443705">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="653734890695615">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+                <effects>
+                    <effect-type name="BlurHorizontal">
+                        <effect id="blurhorizontal" />
+                    </effect-type>
+                    <effect-type name="BlurVertical">
+                        <effect id="blurvertical" />
+                    </effect-type>
+                </effects>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="255471337808931" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="CSYears" sid="105677150231394">
+                <plugin id="Spritefont2" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="825010610751409">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <effects>
+                    <effect-type name="ReplaceColor">
+                        <effect id="replacecolor" />
+                    </effect-type>
+                    <effect-type name="BlurHorizontal">
+                        <effect id="blurhorizontal" />
+                    </effect-type>
+                    <effect-type name="BlurVertical">
+                        <effect id="blurvertical" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\Users\dbga_46\Desktop\SpriteFont_ObelusCompact_Medium_(36).png" />
+            </object-type>
+            <object-type name="CSStripesFade" sid="182680613816351">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="StartingFrame" sid="745620223188463" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Fade" sid="949604982280675">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="881804624925971" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.501538" original-source="C:\Users\PU\Downloads\redo immagini pong\RedBar.png">
+                            <collision-poly>
+                                <point x="0.133333" y="0.0369231" />
+                                <point x="0.866667" y="0.0369231" />
+                                <point x="0.866667" y="0.953846" />
+                                <point x="0.133333" y="0.953846" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.501538" original-source="C:\Users\PU\Downloads\redo immagini pong\GreenBar.png">
+                            <collision-poly>
+                                <point x="0.133333" y="0.0369231" />
+                                <point x="0.866667" y="0.0369231" />
+                                <point x="0.866667" y="0.953846" />
+                                <point x="0.133333" y="0.953846" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.501538" original-source="C:\Users\PU\Downloads\redo immagini pong\BlueBar.png">
+                            <collision-poly>
+                                <point x="0.133333" y="0.0369231" />
+                                <point x="0.866667" y="0.0369231" />
+                                <point x="0.866667" y="0.953846" />
+                                <point x="0.133333" y="0.953846" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
         <object-type name="PlayerTile" sid="551126096200063">
             <plugin id="Sprite" />
             <instance-variables>
@@ -1025,7 +1253,10 @@
                 </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="583693710898180" speed="0">
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="583693710898180" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -1169,14 +1400,14 @@
                             <point x="0" y="1" />
                         </collision-poly>
                     </frame>
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                        <image-point name="TailTop" x="0.5" y="0" />
-                        <image-point name="TailBot" x="0.5" y="1" />
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667">
+                        <image-point name="TailTop" x="0.516667" y="0.266667" />
+                        <image-point name="TailBot" x="0.516667" y="0.766667" />
                         <collision-poly>
                             <point x="0" y="0" />
-                            <point x="0.85" y="0" />
-                            <point x="1" y="0.5" />
-                            <point x="0.85" y="1" />
+                            <point x="0.670833" y="0.208333" />
+                            <point x="0.858333" y="0.508333" />
+                            <point x="0.666667" y="0.808333" />
                             <point x="0" y="1" />
                         </collision-poly>
                     </frame>
@@ -1299,6 +1530,11 @@
         </object-type>
         <object-type name="cornice" sid="563851263266989">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Sine" sid="528417155743246">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
             <effects>
                 <effect-type name="BlurHorizontal">
                     <effect id="blurhorizontal" />
@@ -1382,6 +1618,19 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Sprite" sid="492281992691453">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="ScrollTo" sid="410302223135475">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="433088338077880" speed="5">
+                    <frame duration="1" hotspotX="0.52" hotspotY="0.52" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="110717795313248">
@@ -1461,14 +1710,16 @@
         </family>
     </families>
     <layout-folder>
-        <layout>Arcade.xml</layout>
         <layout>Menu.xml</layout>
+        <layout>Cinematic.xml</layout>
+        <layout>Arcade.xml</layout>
         <layout>LeaderBoard.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>esArcade.xml</event-sheet>
         <event-sheet>esMenu.xml</event-sheet>
         <event-sheet>esLeaderBoard.xml</event-sheet>
+        <event-sheet>esCinematic.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="18" />

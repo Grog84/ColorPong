@@ -158,7 +158,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="STORYMODE" uid="40">
+                <instance type="INSTRUCTIONS" uid="40">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -176,38 +176,15 @@
                                 <intensity>0</intensity>
                             </parameters>
                         </effect-instance>
-                    </effect-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>825</x>
-                        <y>550</y>
-                        <z>0</z>
-                        <width>353</width>
-                        <height>49</height>
-                        <depth>0</depth>
-                        <hotspotX>0.501416445</hotspotX>
-                        <hotspotY>0.510204077</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="ARCADEMODE" uid="41">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <effect-instances>
-                        <effect-instance type="BlurHorizontal">
+                        <effect-instance type="ReplaceColor">
                             <parameters>
-                                <intensity>0</intensity>
-                            </parameters>
-                        </effect-instance>
-                        <effect-instance type="BlurVertical">
-                            <parameters>
-                                <intensity>0</intensity>
+                                <b-replace>255</b-replace>
+                                <b-source>0</b-source>
+                                <g-replace>255</g-replace>
+                                <g-source>0</g-source>
+                                <r-replace>255</r-replace>
+                                <r-source>0</r-source>
+                                <tolerance>0.01</tolerance>
                             </parameters>
                         </effect-instance>
                     </effect-instances>
@@ -217,10 +194,55 @@
                         <x>825</x>
                         <y>675</y>
                         <z>0</z>
-                        <width>381</width>
+                        <width>437</width>
                         <height>48</height>
                         <depth>0</depth>
-                        <hotspotX>0.501312315</hotspotX>
+                        <hotspotX>0.501144171</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="PLAY" uid="41">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <effect-instances>
+                        <effect-instance type="BlurHorizontal">
+                            <parameters>
+                                <intensity>0</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="BlurVertical">
+                            <parameters>
+                                <intensity>0</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>255</b-replace>
+                                <b-source>0</b-source>
+                                <g-replace>255</g-replace>
+                                <g-source>0</g-source>
+                                <r-replace>255</r-replace>
+                                <r-source>0</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>825</x>
+                        <y>550</y>
+                        <z>0</z>
+                        <width>137</width>
+                        <height>48</height>
+                        <depth>0</depth>
+                        <hotspotX>0.503649652</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
@@ -251,10 +273,198 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="BlurHorizontal">
+                            <parameters>
+                                <intensity>0</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="BlurVertical">
+                            <parameters>
+                                <intensity>0</intensity>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>606</x>
+                        <x>737</x>
+                        <y>550</y>
+                        <z>0</z>
+                        <width>20</width>
+                        <height>50</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="PONGERINO" uid="123">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <effect-instances>
+                        <effect-instance type="BlurHorizontal">
+                            <parameters>
+                                <intensity>0.8</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="BlurVertical">
+                            <parameters>
+                                <intensity>0.8</intensity>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>1</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>825</x>
+                        <y>250</y>
+                        <z>0</z>
+                        <width>700</width>
+                        <height>100</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.510204077</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="INSTRUCTIONS" uid="124">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <effect-instances>
+                        <effect-instance type="BlurHorizontal">
+                            <parameters>
+                                <intensity>0.2</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="BlurVertical">
+                            <parameters>
+                                <intensity>0.2</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>255</b-replace>
+                                <b-source>0</b-source>
+                                <g-replace>255</g-replace>
+                                <g-source>0</g-source>
+                                <r-replace>255</r-replace>
+                                <r-source>0</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>1</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>825</x>
+                        <y>675</y>
+                        <z>0</z>
+                        <width>437</width>
+                        <height>48</height>
+                        <depth>0</depth>
+                        <hotspotX>0.501144171</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="PLAY" uid="125">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <effect-instances>
+                        <effect-instance type="BlurHorizontal">
+                            <parameters>
+                                <intensity>0.2</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="BlurVertical">
+                            <parameters>
+                                <intensity>0.2</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="ReplaceColor">
+                            <parameters>
+                                <b-replace>255</b-replace>
+                                <b-source>0</b-source>
+                                <g-replace>255</g-replace>
+                                <g-source>0</g-source>
+                                <r-replace>255</r-replace>
+                                <r-source>0</r-source>
+                                <tolerance>0.01</tolerance>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>1</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>825</x>
+                        <y>550</y>
+                        <z>0</z>
+                        <width>137</width>
+                        <height>48</height>
+                        <depth>0</depth>
+                        <hotspotX>0.503649652</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="SelectBar" uid="126">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <HasSelected>0</HasSelected>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>Yes</active-on-start>
+                                <movement>Opacity</movement>
+                                <wave>Square</wave>
+                                <period>1</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>100</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="BlurHorizontal">
+                            <parameters>
+                                <intensity>0.3</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="BlurVertical">
+                            <parameters>
+                                <intensity>0.3</intensity>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>1</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>737</x>
                         <y>550</y>
                         <z>0</z>
                         <width>20</width>

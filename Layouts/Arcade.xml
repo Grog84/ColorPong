@@ -40,7 +40,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>812</x>
-                        <y>225</y>
+                        <y>228</y>
                         <z>0</z>
                         <width>1930</width>
                         <height>170</height>
@@ -95,7 +95,7 @@
                 </instance>
                 <instance type="BallY" uid="19">
                     <properties>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
@@ -663,7 +663,7 @@
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>3.141592741</angle>
-                        <opacity>0.050000001</opacity>
+                        <opacity>0.100000001</opacity>
                     </world>
                 </instance>
                 <instance type="stella2" uid="62">
@@ -835,54 +835,6 @@
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>0</opacity>
-                    </world>
-                </instance>
-                <instance type="snakeTail" uid="24">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <TypeID>3</TypeID>
-                        <GlowUID>0</GlowUID>
-                        <BlurUID>0</BlurUID>
-                        <Score>4</Score>
-                        <AnglesNbr>1</AnglesNbr>
-                        <Xtranslation>0</Xtranslation>
-                        <Ytranslation>0</Ytranslation>
-                        <Speed>200</Speed>
-                        <SpawnPointID>0</SpawnPointID>
-                        <InitialX>0</InitialX>
-                        <InitialY>0</InitialY>
-                        <TravellingDirection>0</TravellingDirection>
-                        <NextTurnX>0</NextTurnX>
-                        <NextTurnY>0</NextTurnY>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="DestroyOutsideLayout" />
-                        <behavior-instance type="CustomMovement">
-                            <properties>
-                                <stepping-mode>None</stepping-mode>
-                                <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Disabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>2217</x>
-                        <y>552</y>
-                        <z>0</z>
-                        <width>80</width>
-                        <height>80</height>
-                        <depth>0</depth>
-                        <hotspotX>0.512499988</hotspotX>
-                        <hotspotY>0.512499988</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
                     </world>
                 </instance>
                 <instance type="slidingDoorsMirror" uid="25">
@@ -1064,57 +1016,114 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-            </instances>
-            <effects />
-        </layer>
-        <layer name="BkgTransprency1" sid="375733125846842">
-            <initially-visible>1</initially-visible>
-            <background-color>255,255,255</background-color>
-            <transparent>1</transparent>
-            <parallax>
-                <x>1</x>
-                <y>1</y>
-            </parallax>
-            <zoom-rate>1</zoom-rate>
-            <opacity>1</opacity>
-            <force-own-texture>0</force-own-texture>
-            <global>0</global>
-            <use-render-cells>0</use-render-cells>
-            <blend-mode>0</blend-mode>
-            <effect-fallback>0</effect-fallback>
-            <instances>
-                <instance type="radialnero" uid="44">
+                <instance type="Rear" uid="11">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
-                    <effect-instances>
-                        <effect-instance type="BlurVertical">
-                            <parameters>
-                                <intensity>1</intensity>
-                            </parameters>
-                        </effect-instance>
-                        <effect-instance type="BlurHorizontal">
-                            <parameters>
-                                <intensity>1</intensity>
-                            </parameters>
-                        </effect-instance>
-                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>0</x>
-                        <y>0</y>
+                        <x>-12</x>
+                        <y>777</y>
                         <z>0</z>
-                        <width>1650</width>
-                        <height>1250</height>
+                        <width>30</width>
+                        <height>930</height>
                         <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
-                        <opacity>0.5</opacity>
+                        <opacity>0</opacity>
+                    </world>
+                </instance>
+                <instance type="slidingDoors" uid="92">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <TypeID>4</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
+                        <WaitTime>3</WaitTime>
+                        <MovementBeforeStop>350</MovementBeforeStop>
+                        <Speed>300</Speed>
+                        <HasStopped>0</HasStopped>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>300</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-250.5</x>
+                        <y>606</y>
+                        <z>0</z>
+                        <width>60</width>
+                        <height>240</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="slidingDoors" uid="93">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <TypeID>4</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
+                        <WaitTime>3</WaitTime>
+                        <MovementBeforeStop>350</MovementBeforeStop>
+                        <Speed>300</Speed>
+                        <HasStopped>0</HasStopped>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>300</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>No</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>-199</x>
+                        <y>608</y>
+                        <z>0</z>
+                        <width>60</width>
+                        <height>240</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
                     </world>
                 </instance>
             </instances>
@@ -1136,28 +1145,6 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="radialBianco" uid="45">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <blend-mode>1</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>0</x>
-                        <y>0</y>
-                        <z>0</z>
-                        <width>1650</width>
-                        <height>1250</height>
-                        <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>0.100000001</opacity>
-                    </world>
-                </instance>
                 <instance type="Kamikaze" uid="67">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -1189,7 +1176,7 @@
                         </behavior-instance>
                         <behavior-instance type="DestroyOutsideLayout" />
                     </behavior-instances>
-                    <blend-mode>1</blend-mode>
+                    <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>1883.5</x>
@@ -1238,7 +1225,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1882.5</x>
+                        <x>1885</x>
                         <y>847</y>
                         <z>0</z>
                         <width>80</width>
@@ -1246,320 +1233,6 @@
                         <depth>0</depth>
                         <hotspotX>0.474999994</hotspotX>
                         <hotspotY>0.512499988</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="shuriken" uid="69">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <TypeID>2</TypeID>
-                        <GlowUID>0</GlowUID>
-                        <BlurUID>0</BlurUID>
-                        <Score>2</Score>
-                        <RotationSpeed>720</RotationSpeed>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Rotate">
-                            <properties>
-                                <speed>720</speed>
-                                <acceleration>0</acceleration>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="Pin" />
-                        <behavior-instance type="DestroyOutsideLayout" />
-                    </behavior-instances>
-                    <blend-mode>1</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>1808</x>
-                        <y>1033</y>
-                        <z>0</z>
-                        <width>90</width>
-                        <height>90</height>
-                        <depth>0</depth>
-                        <hotspotX>0.51111114</hotspotX>
-                        <hotspotY>0.51111114</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="shuriken" uid="70">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <TypeID>2</TypeID>
-                        <GlowUID>0</GlowUID>
-                        <BlurUID>0</BlurUID>
-                        <Score>2</Score>
-                        <RotationSpeed>720</RotationSpeed>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Rotate">
-                            <properties>
-                                <speed>720</speed>
-                                <acceleration>0</acceleration>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="Pin" />
-                        <behavior-instance type="DestroyOutsideLayout" />
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>1808</x>
-                        <y>1033</y>
-                        <z>0</z>
-                        <width>90</width>
-                        <height>90</height>
-                        <depth>0</depth>
-                        <hotspotX>0.51111114</hotspotX>
-                        <hotspotY>0.51111114</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="ShurikenBase" uid="71">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <Speed>400</Speed>
-                        <ArrivalPointY>0</ArrivalPointY>
-                        <TopOrBotSpawn>0</TopOrBotSpawn>
-                        <TotalX>0</TotalX>
-                        <CurrentX>0</CurrentX>
-                        <RotationSpeed>15</RotationSpeed>
-                        <SpriteID>0</SpriteID>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="Rotate">
-                            <properties>
-                                <speed>0</speed>
-                                <acceleration>0</acceleration>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="Bullet">
-                            <properties>
-                                <speed>0</speed>
-                                <acceleration>0</acceleration>
-                                <gravity>0</gravity>
-                                <bounce-off-solids>No</bounce-off-solids>
-                                <set-angle>Yes</set-angle>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="DestroyOutsideLayout" />
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>1806</x>
-                        <y>1128</y>
-                        <z>0</z>
-                        <width>10</width>
-                        <height>10</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="snakeHead" uid="72">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <TypeID>3</TypeID>
-                        <GlowUID>0</GlowUID>
-                        <BlurUID>0</BlurUID>
-                        <Score>3</Score>
-                        <AnglesNbr>1</AnglesNbr>
-                        <Xtranslation>0</Xtranslation>
-                        <Ytranslation>0</Ytranslation>
-                        <Speed>200</Speed>
-                        <NbrOfReplicate>5</NbrOfReplicate>
-                        <SpawnPointID>0</SpawnPointID>
-                        <InitialX>0</InitialX>
-                        <InitialY>0</InitialY>
-                        <TravellingDirection>0</TravellingDirection>
-                        <NextTurnX>0</NextTurnX>
-                        <NextTurnY>0</NextTurnY>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="DestroyOutsideLayout" />
-                        <behavior-instance type="CustomMovement">
-                            <properties>
-                                <stepping-mode>None</stepping-mode>
-                                <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Disabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>1793</x>
-                        <y>1235</y>
-                        <z>0</z>
-                        <width>80</width>
-                        <height>80</height>
-                        <depth>0</depth>
-                        <hotspotX>0.512499988</hotspotX>
-                        <hotspotY>0.512499988</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="snakeHead" uid="73">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <TypeID>3</TypeID>
-                        <GlowUID>0</GlowUID>
-                        <BlurUID>0</BlurUID>
-                        <Score>3</Score>
-                        <AnglesNbr>1</AnglesNbr>
-                        <Xtranslation>0</Xtranslation>
-                        <Ytranslation>0</Ytranslation>
-                        <Speed>200</Speed>
-                        <NbrOfReplicate>5</NbrOfReplicate>
-                        <SpawnPointID>0</SpawnPointID>
-                        <InitialX>0</InitialX>
-                        <InitialY>0</InitialY>
-                        <TravellingDirection>0</TravellingDirection>
-                        <NextTurnX>0</NextTurnX>
-                        <NextTurnY>0</NextTurnY>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="DestroyOutsideLayout" />
-                        <behavior-instance type="CustomMovement">
-                            <properties>
-                                <stepping-mode>None</stepping-mode>
-                                <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Disabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>1</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>1795</x>
-                        <y>1235</y>
-                        <z>0</z>
-                        <width>80</width>
-                        <height>80</height>
-                        <depth>0</depth>
-                        <hotspotX>0.512499988</hotspotX>
-                        <hotspotY>0.512499988</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="slidingDoors" uid="92">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <TypeID>4</TypeID>
-                        <GlowUID>0</GlowUID>
-                        <BlurUID>0</BlurUID>
-                        <WaitTime>3</WaitTime>
-                        <MovementBeforeStop>350</MovementBeforeStop>
-                        <Speed>300</Speed>
-                        <HasStopped>0</HasStopped>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="DestroyOutsideLayout" />
-                        <behavior-instance type="Bullet">
-                            <properties>
-                                <speed>300</speed>
-                                <acceleration>0</acceleration>
-                                <gravity>0</gravity>
-                                <bounce-off-solids>No</bounce-off-solids>
-                                <set-angle>No</set-angle>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>1</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>-250.5</x>
-                        <y>606</y>
-                        <z>0</z>
-                        <width>60</width>
-                        <height>240</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="slidingDoors" uid="93">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <instance-variables>
-                        <TypeID>4</TypeID>
-                        <GlowUID>0</GlowUID>
-                        <BlurUID>0</BlurUID>
-                        <WaitTime>3</WaitTime>
-                        <MovementBeforeStop>350</MovementBeforeStop>
-                        <Speed>300</Speed>
-                        <HasStopped>0</HasStopped>
-                    </instance-variables>
-                    <behavior-instances>
-                        <behavior-instance type="DestroyOutsideLayout" />
-                        <behavior-instance type="Bullet">
-                            <properties>
-                                <speed>300</speed>
-                                <acceleration>0</acceleration>
-                                <gravity>0</gravity>
-                                <bounce-off-solids>No</bounce-off-solids>
-                                <set-angle>No</set-angle>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>-253.5</x>
-                        <y>606</y>
-                        <z>0</z>
-                        <width>60</width>
-                        <height>240</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -1779,7 +1452,7 @@
                         </behavior-instance>
                         <behavior-instance type="DestroyOutsideLayout" />
                     </behavior-instances>
-                    <blend-mode>1</blend-mode>
+                    <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>-225</x>
@@ -1825,7 +1498,7 @@
                         </behavior-instance>
                         <behavior-instance type="DestroyOutsideLayout" />
                     </behavior-instances>
-                    <blend-mode>1</blend-mode>
+                    <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>-224</x>
@@ -1859,6 +1532,62 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
+                <instance type="radialnero" uid="44">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <effect-instances>
+                        <effect-instance type="BlurVertical">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                        <effect-instance type="BlurHorizontal">
+                            <parameters>
+                                <intensity>1</intensity>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>0</x>
+                        <y>0</y>
+                        <z>0</z>
+                        <width>1650</width>
+                        <height>1250</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>0.5</opacity>
+                    </world>
+                </instance>
+                <instance type="radialBianco" uid="45">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>1</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>0</x>
+                        <y>0</y>
+                        <z>0</z>
+                        <width>1650</width>
+                        <height>1250</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>0.100000001</opacity>
+                    </world>
+                </instance>
                 <instance type="Frame" uid="47">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -1866,6 +1595,21 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>4</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>50</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
                     <effect-instances>
                         <effect-instance type="BlurHorizontal">
                             <parameters>
@@ -2384,28 +2128,6 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Rear" uid="11">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>-12</x>
-                        <y>777</y>
-                        <z>0</z>
-                        <width>30</width>
-                        <height>930</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
                 <instance type="PlayerTile" uid="34">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -2580,7 +2302,299 @@
                         <opacity>0</opacity>
                     </world>
                 </instance>
+                <instance type="shuriken" uid="69">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <TypeID>2</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
+                        <Score>2</Score>
+                        <RotationSpeed>720</RotationSpeed>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Rotate">
+                            <properties>
+                                <speed>720</speed>
+                                <acceleration>0</acceleration>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Pin" />
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>1</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1808</x>
+                        <y>1033</y>
+                        <z>0</z>
+                        <width>90</width>
+                        <height>90</height>
+                        <depth>0</depth>
+                        <hotspotX>0.51111114</hotspotX>
+                        <hotspotY>0.51111114</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="shuriken" uid="70">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <TypeID>2</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
+                        <Score>2</Score>
+                        <RotationSpeed>720</RotationSpeed>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Rotate">
+                            <properties>
+                                <speed>720</speed>
+                                <acceleration>0</acceleration>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Pin" />
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1808</x>
+                        <y>1033</y>
+                        <z>0</z>
+                        <width>90</width>
+                        <height>90</height>
+                        <depth>0</depth>
+                        <hotspotX>0.51111114</hotspotX>
+                        <hotspotY>0.51111114</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="snakeHead" uid="72">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <TypeID>3</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
+                        <Score>3</Score>
+                        <AnglesNbr>1</AnglesNbr>
+                        <Xtranslation>0</Xtranslation>
+                        <Ytranslation>0</Ytranslation>
+                        <Speed>200</Speed>
+                        <NbrOfReplicate>5</NbrOfReplicate>
+                        <SpawnPointID>0</SpawnPointID>
+                        <InitialX>0</InitialX>
+                        <InitialY>0</InitialY>
+                        <TravellingDirection>0</TravellingDirection>
+                        <NextTurnX>0</NextTurnX>
+                        <NextTurnY>0</NextTurnY>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="CustomMovement">
+                            <properties>
+                                <stepping-mode>None</stepping-mode>
+                                <pixels-per-step>5</pixels-per-step>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1793</x>
+                        <y>1235</y>
+                        <z>0</z>
+                        <width>80</width>
+                        <height>80</height>
+                        <depth>0</depth>
+                        <hotspotX>0.512499988</hotspotX>
+                        <hotspotY>0.512499988</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="snakeHead" uid="73">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <TypeID>3</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
+                        <Score>3</Score>
+                        <AnglesNbr>1</AnglesNbr>
+                        <Xtranslation>0</Xtranslation>
+                        <Ytranslation>0</Ytranslation>
+                        <Speed>200</Speed>
+                        <NbrOfReplicate>5</NbrOfReplicate>
+                        <SpawnPointID>0</SpawnPointID>
+                        <InitialX>0</InitialX>
+                        <InitialY>0</InitialY>
+                        <TravellingDirection>0</TravellingDirection>
+                        <NextTurnX>0</NextTurnX>
+                        <NextTurnY>0</NextTurnY>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="CustomMovement">
+                            <properties>
+                                <stepping-mode>None</stepping-mode>
+                                <pixels-per-step>5</pixels-per-step>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1792</x>
+                        <y>1233</y>
+                        <z>0</z>
+                        <width>80</width>
+                        <height>80</height>
+                        <depth>0</depth>
+                        <hotspotX>0.512499988</hotspotX>
+                        <hotspotY>0.512499988</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="snakeTail" uid="24">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <TypeID>3</TypeID>
+                        <GlowUID>0</GlowUID>
+                        <BlurUID>0</BlurUID>
+                        <Score>4</Score>
+                        <AnglesNbr>1</AnglesNbr>
+                        <Xtranslation>0</Xtranslation>
+                        <Ytranslation>0</Ytranslation>
+                        <Speed>200</Speed>
+                        <SpawnPointID>0</SpawnPointID>
+                        <InitialX>0</InitialX>
+                        <InitialY>0</InitialY>
+                        <TravellingDirection>0</TravellingDirection>
+                        <NextTurnX>0</NextTurnX>
+                        <NextTurnY>0</NextTurnY>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                        <behavior-instance type="CustomMovement">
+                            <properties>
+                                <stepping-mode>None</stepping-mode>
+                                <pixels-per-step>5</pixels-per-step>
+                                <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>2219</x>
+                        <y>552</y>
+                        <z>0</z>
+                        <width>80</width>
+                        <height>80</height>
+                        <depth>0</depth>
+                        <hotspotX>0.512499988</hotspotX>
+                        <hotspotY>0.512499988</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="ShurikenBase" uid="71">
+                    <properties>
+                        <initial-visibility>Invisible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <Speed>400</Speed>
+                        <ArrivalPointY>0</ArrivalPointY>
+                        <TopOrBotSpawn>0</TopOrBotSpawn>
+                        <TotalX>0</TotalX>
+                        <CurrentX>0</CurrentX>
+                        <RotationSpeed>15</RotationSpeed>
+                        <SpriteID>0</SpriteID>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Rotate">
+                            <properties>
+                                <speed>0</speed>
+                                <acceleration>0</acceleration>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Bullet">
+                            <properties>
+                                <speed>0</speed>
+                                <acceleration>0</acceleration>
+                                <gravity>0</gravity>
+                                <bounce-off-solids>No</bounce-off-solids>
+                                <set-angle>Yes</set-angle>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="DestroyOutsideLayout" />
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1806</x>
+                        <y>1128</y>
+                        <z>0</z>
+                        <width>10</width>
+                        <height>10</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
+            <effects />
+        </layer>
+        <layer name="BkgTransprency1" sid="375733125846842">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>1</transparent>
+            <parallax>
+                <x>1</x>
+                <y>1</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <global>0</global>
+            <use-render-cells>0</use-render-cells>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
+            <instances />
             <effects />
         </layer>
         <layer name="HUD" sid="247402029800837">
@@ -2606,6 +2620,21 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>No</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>4</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>50</magnitude>
+                                <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
                     <effect-instances>
                         <effect-instance type="BlurHorizontal">
                             <parameters>
@@ -2635,17 +2664,17 @@
                 </instance>
                 <instance type="SCORE" uid="31">
                     <properties>
-                        <character-width>16</character-width>
-                        <character-height>16</character-height>
+                        <character-width>72</character-width>
+                        <character-height>72</character-height>
                         <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
                         <text>SCORE:</text>
-                        <scale>3</scale>
+                        <scale>0.8</scale>
                         <initial-visibility>Visible</initial-visibility>
                         <horizontal-alignment>Left</horizontal-alignment>
-                        <vertical-alignment>Top</vertical-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
                         <hotspot>Top-left</hotspot>
                         <wrapping>Word</wrapping>
-                        <character-spacing>0</character-spacing>
+                        <character-spacing>-20</character-spacing>
                         <line-height>0</line-height>
                     </properties>
                     <instance-variables>
@@ -2665,6 +2694,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Pin" />
                     </behavior-instances>
                     <effect-instances>
                         <effect-instance type="ReplaceColor">
@@ -2692,11 +2722,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>175</x>
-                        <y>125</y>
+                        <x>125</x>
+                        <y>57</y>
                         <z>0</z>
-                        <width>723</width>
-                        <height>67</height>
+                        <width>677</width>
+                        <height>183</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -2706,17 +2736,17 @@
                 </instance>
                 <instance type="SCORE" uid="32">
                     <properties>
-                        <character-width>16</character-width>
-                        <character-height>16</character-height>
+                        <character-width>72</character-width>
+                        <character-height>72</character-height>
                         <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
                         <text>SCORE:</text>
-                        <scale>3</scale>
+                        <scale>0.8</scale>
                         <initial-visibility>Visible</initial-visibility>
                         <horizontal-alignment>Left</horizontal-alignment>
-                        <vertical-alignment>Top</vertical-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
                         <hotspot>Top-left</hotspot>
                         <wrapping>Word</wrapping>
-                        <character-spacing>0</character-spacing>
+                        <character-spacing>-20</character-spacing>
                         <line-height>0</line-height>
                     </properties>
                     <instance-variables>
@@ -2736,6 +2766,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Pin" />
                     </behavior-instances>
                     <effect-instances>
                         <effect-instance type="ReplaceColor">
@@ -2763,11 +2794,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>175</x>
-                        <y>125</y>
+                        <x>125</x>
+                        <y>105</y>
                         <z>0</z>
                         <width>723</width>
-                        <height>67</height>
+                        <height>88</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -2777,17 +2808,17 @@
                 </instance>
                 <instance type="SCORE" uid="33">
                     <properties>
-                        <character-width>16</character-width>
-                        <character-height>16</character-height>
+                        <character-width>72</character-width>
+                        <character-height>72</character-height>
                         <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
                         <text>TIME:</text>
-                        <scale>3</scale>
+                        <scale>0.8</scale>
                         <initial-visibility>Visible</initial-visibility>
                         <horizontal-alignment>Left</horizontal-alignment>
-                        <vertical-alignment>Top</vertical-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
                         <hotspot>Top-left</hotspot>
                         <wrapping>Word</wrapping>
-                        <character-spacing>0</character-spacing>
+                        <character-spacing>-20</character-spacing>
                         <line-height>0</line-height>
                     </properties>
                     <instance-variables>
@@ -2807,6 +2838,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Pin" />
                     </behavior-instances>
                     <effect-instances>
                         <effect-instance type="ReplaceColor">
@@ -2834,11 +2866,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>925</x>
-                        <y>125</y>
+                        <x>923</x>
+                        <y>57</y>
                         <z>0</z>
                         <width>677</width>
-                        <height>96</height>
+                        <height>183</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -2848,17 +2880,17 @@
                 </instance>
                 <instance type="SCORE" uid="48">
                     <properties>
-                        <character-width>16</character-width>
-                        <character-height>16</character-height>
+                        <character-width>72</character-width>
+                        <character-height>72</character-height>
                         <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
                         <text>TIME:</text>
-                        <scale>3</scale>
+                        <scale>0.8</scale>
                         <initial-visibility>Visible</initial-visibility>
                         <horizontal-alignment>Left</horizontal-alignment>
-                        <vertical-alignment>Top</vertical-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
                         <hotspot>Top-left</hotspot>
                         <wrapping>Word</wrapping>
-                        <character-spacing>0</character-spacing>
+                        <character-spacing>-20</character-spacing>
                         <line-height>0</line-height>
                     </properties>
                     <instance-variables>
@@ -2878,6 +2910,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Pin" />
                     </behavior-instances>
                     <effect-instances>
                         <effect-instance type="ReplaceColor">
@@ -2905,10 +2938,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>925</x>
-                        <y>125</y>
+                        <x>923</x>
+                        <y>101</y>
                         <z>0</z>
-                        <width>677</width>
+                        <width>698</width>
                         <height>96</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -2919,17 +2952,17 @@
                 </instance>
                 <instance type="SCORE" uid="74">
                     <properties>
-                        <character-width>16</character-width>
-                        <character-height>16</character-height>
+                        <character-width>72</character-width>
+                        <character-height>72</character-height>
                         <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
                         <text>GAME OVER</text>
-                        <scale>6</scale>
+                        <scale>2</scale>
                         <initial-visibility>Visible</initial-visibility>
-                        <horizontal-alignment>Left</horizontal-alignment>
-                        <vertical-alignment>Top</vertical-alignment>
+                        <horizontal-alignment>Center</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
                         <hotspot>Top-left</hotspot>
                         <wrapping>Word</wrapping>
-                        <character-spacing>0</character-spacing>
+                        <character-spacing>-20</character-spacing>
                         <line-height>0</line-height>
                     </properties>
                     <instance-variables>
@@ -2949,6 +2982,7 @@
                                 <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
+                        <behavior-instance type="Pin" />
                     </behavior-instances>
                     <effect-instances>
                         <effect-instance type="ReplaceColor">
@@ -2976,11 +3010,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>407</x>
-                        <y>569</y>
+                        <x>274</x>
+                        <y>518</y>
                         <z>0</z>
-                        <width>864</width>
-                        <height>291</height>
+                        <width>1042</width>
+                        <height>522</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>

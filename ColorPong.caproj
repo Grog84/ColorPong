@@ -2072,6 +2072,8 @@
         <file name="game soundtrack x2.ogg" />
         <file name="game_soundtrack_x3.m4a" />
         <file name="game_soundtrack_x3.ogg" />
+        <file name="boh.m4a" />
+        <file name="boh.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>

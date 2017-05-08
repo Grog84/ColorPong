@@ -115,50 +115,22 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block disabled="1" sid="511338695968510">
+                <event-block sid="132989854993147">
                     <conditions>
-                        <condition id="-22" name="Else" sid="359328249482637" type="System" />
+                        <condition id="-14" name="Compare variable" sid="912964529989258" type="System">
+                            <param id="0" name="Variable">LeaderFromMenu</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
                     </conditions>
-                    <actions />
-                    <sub-events>
-                        <variable constant="0" name="i" sid="889387970152197" static="0" type="number">0</variable>
-                        <event-block disabled="1" sid="333403247204324">
-                            <conditions>
-                                <condition id="-10" name="For" sid="503499992096327" type="System">
-                                    <param id="0" name="Name">&quot;EntryIDX&quot;</param>
-                                    <param id="1" name="Start index">0</param>
-                                    <param id="2" name="End index">9</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="3" name="Set at XY" sid="153991138429034" type="highScore">
-                                    <param id="0" name="X">i</param>
-                                    <param id="1" name="Y">0</param>
-                                    <param id="2" name="Value">tokenat(tokenat(hscoresString, i, &quot;|&quot;),0,&quot;;&quot;)</param>
-                                </action>
-                                <action id="3" name="Set at XY" sid="540782743068592" type="highScore">
-                                    <param id="0" name="X">i</param>
-                                    <param id="1" name="Y">1</param>
-                                    <param id="2" name="Value">tokenat(tokenat(hscoresString, i, &quot;|&quot;),1,&quot;;&quot;)</param>
-                                </action>
-                                <action id="-10" name="Add to" sid="519248759097472" type="System">
-                                    <param id="0" name="Variable">i</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                            </actions>
-                            <sub-events>
-                                <event-block disabled="1" sid="453155816241769">
-                                    <conditions />
-                                    <actions>
-                                        <action id="-9" name="Set value" sid="767803682718898" type="System">
-                                            <param id="0" name="Variable">WaitForLeaderBoardLoad</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                    </sub-events>
+                    <actions>
+                        <action id="0" name="Play" sid="546178357830800" type="Audio">
+                            <param id="0" name="Audio file">boh</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;dragonball&quot;</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-block>

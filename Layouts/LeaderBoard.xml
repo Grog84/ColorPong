@@ -600,8 +600,8 @@
                     <blend-mode>8</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>818</x>
-                        <y>1362</y>
+                        <x>825</x>
+                        <y>330</y>
                         <z>0</z>
                         <width>1500</width>
                         <height>80</height>

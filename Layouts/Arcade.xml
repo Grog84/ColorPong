@@ -3146,8 +3146,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>425</x>
-                        <y>149</y>
+                        <x>478</x>
+                        <y>142</y>
                         <z>0</z>
                         <width>20</width>
                         <height>20</height>
@@ -3155,7 +3155,7 @@
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
-                        <opacity>1</opacity>
+                        <opacity>0</opacity>
                     </world>
                 </instance>
                 <instance type="PlusMinusPoints" uid="150">
@@ -3189,7 +3189,7 @@
                                 <acceleration>0</acceleration>
                                 <gravity>0</gravity>
                                 <bounce-off-solids>No</bounce-off-solids>
-                                <set-angle>Yes</set-angle>
+                                <set-angle>No</set-angle>
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
@@ -3201,7 +3201,7 @@
                                 <b-source>0</b-source>
                                 <g-replace>255</g-replace>
                                 <g-source>0</g-source>
-                                <r-replace>0</r-replace>
+                                <r-replace>60</r-replace>
                                 <r-source>0</r-source>
                                 <tolerance>2.55</tolerance>
                             </parameters>

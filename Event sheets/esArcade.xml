@@ -1110,6 +1110,17 @@
                             <param id="1" name="Value">EnemiesScores.At(DestructibleEnemies.Score)</param>
                         </action>
                         <action id="-9" name="Destroy" sid="185109920442254" type="DestructibleEnemies" />
+                        <action id="0" name="Spawn another object" sid="919653227929013" type="ScoreCenter">
+                            <param id="0" name="Object">PlusMinusPoints</param>
+                            <param id="1" name="Layer">&quot;HUD&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="485037700175523" type="PlusMinusPoints">
+                            <param id="0" name="Text">EnemiesScores.At(DestructibleEnemies.Score)</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="694038864389177" type="PlusMinusPoints">
+                            <param id="0" name="Angle">270</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="357465258096457">
@@ -1171,21 +1182,6 @@
                             <param id="2" name="Loop">0</param>
                             <param id="3" name="Volume">-10</param>
                             <param id="1" name="Tag (optional)">&quot;ball_bounce&quot;</param>
-                        </action>
-                        <action id="-10" name="Add to" sid="861995131500996" type="System">
-                            <param id="0" name="Variable">GameScore</param>
-                            <param id="1" name="Value">BallHitScore</param>
-                        </action>
-                        <action id="0" name="Spawn another object" sid="889936285638533" type="ScoreCenter">
-                            <param id="0" name="Object">PlusMinusPoints</param>
-                            <param id="1" name="Layer">&quot;HUD&quot;</param>
-                            <param id="2" name="Image point">0</param>
-                        </action>
-                        <action id="0" name="Set text" sid="265546772533365" type="PlusMinusPoints">
-                            <param id="0" name="Text">BallHitScore</param>
-                        </action>
-                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="321863583680093" type="PlusMinusPoints">
-                            <param id="0" name="Angle">270</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -1267,6 +1263,32 @@
                                 <action id="-11" name="Subtract from" sid="228155615486519" type="System">
                                     <param id="0" name="Variable">GameScore</param>
                                     <param id="1" name="Value">BallHitScore</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="360839392656736">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="711448575532126" type="System">
+                                    <param id="0" name="First value">Ball.AnimationFrame</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">Player.Color</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="861995131500996" type="System">
+                                    <param id="0" name="Variable">GameScore</param>
+                                    <param id="1" name="Value">BallHitScore</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="889936285638533" type="ScoreCenter">
+                                    <param id="0" name="Object">PlusMinusPoints</param>
+                                    <param id="1" name="Layer">&quot;HUD&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="265546772533365" type="PlusMinusPoints">
+                                    <param id="0" name="Text">BallHitScore</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="321863583680093" type="PlusMinusPoints">
+                                    <param id="0" name="Angle">270</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -1366,6 +1388,32 @@
                         <action id="-11" name="Subtract from" sid="132633500958328" type="System">
                             <param id="0" name="Variable">GameScore</param>
                             <param id="1" name="Value">BallLossScorePenalty</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="749367919529597" type="ScoreCenter">
+                            <param id="0" name="Object">PlusMinusPoints</param>
+                            <param id="1" name="Layer">&quot;HUD&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Set text" sid="534441225511604" type="PlusMinusPoints">
+                            <param id="0" name="Text">BallLossScorePenalty</param>
+                        </action>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="371098552079226" type="PlusMinusPoints">
+                            <param id="0" name="Angle">90</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="730094423592657" type="PlusMinusPoints">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">3</param>
+                            <param id="2" name="Value">255</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="864891620355888" type="PlusMinusPoints">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">4</param>
+                            <param id="2" name="Value">13</param>
+                        </action>
+                        <action id="-28" name="Set effect parameter" sid="720103364202909" type="PlusMinusPoints">
+                            <param id="0" name="Effect">&quot;ReplaceColor&quot;</param>
+                            <param id="1" name="Parameter index">5</param>
+                            <param id="2" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2945,6 +2993,10 @@
                                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="265852857213756" type="slidingDoors">
                                     <param id="0" name="Angle">90</param>
                                 </action>
+                                <action id="22" name="Set paused" sid="177691744901831" type="Audio">
+                                    <param id="0" name="Tag">&quot;doors&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="968775741200708">
@@ -2965,10 +3017,6 @@
                                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="822431538317807" type="slidingDoorsMirror">
                                     <param id="0" name="Angle">-90</param>
                                 </action>
-                                <action id="22" name="Set paused" sid="177691744901831" type="Audio">
-                                    <param id="0" name="Tag">&quot;doors&quot;</param>
-                                    <param id="1" name="State">1</param>
-                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="762466386950485">
@@ -2979,9 +3027,6 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="6" name="Stop" sid="494902803253070" type="Audio">
-                                    <param id="0" name="Tag">&quot;doors&quot;</param>
-                                </action>
                                 <action id="-9" name="Destroy" sid="958612079701282" type="slidingDoors" />
                             </actions>
                         </event-block>
@@ -2994,6 +3039,16 @@
                             </conditions>
                             <actions>
                                 <action id="-9" name="Destroy" sid="956244998633408" type="slidingDoorsMirror" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="224568208616913">
+                            <conditions>
+                                <condition id="-19" name="On destroyed" sid="751449622408309" type="slidingDoors" />
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Stop" sid="494902803253070" type="Audio">
+                                    <param id="0" name="Tag">&quot;doors&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>

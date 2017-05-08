@@ -276,6 +276,31 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="204378611683529">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="179192655768387" type="Keyboard">
+                    <param id="0" name="Key">27 (Esc)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="132247470084242" type="System">
+                    <param id="0" name="Variable">LeaderFromMenu</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="932876146992795" type="System">
+                    <param id="0" name="Variable">LeaderFromMenu</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="590224639229711" type="System">
+                    <param id="0" name="Variable">NewScoreCreated</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="300365775471277" type="System">
+                    <param id="0" name="Layout">Menu</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="435506765132723">
             <conditions>
                 <condition id="-17" name="Compare opacity" sid="490211422808046" type="System">

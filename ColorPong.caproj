@@ -1639,6 +1639,31 @@
         <object-type global="1" name="Dictionary" sid="328728873635329">
             <plugin id="Dictionary" />
         </object-type>
+        <object-type name="ScoreCenter" sid="245825762530982">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="315806248863607" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PlusMinusPoints" sid="619379826852847">
+            <plugin id="Spritefont2" />
+            <behaviors>
+                <behavior-type name="Fade" sid="669930346916233">
+                    <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="947424658712383">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <effects>
+                <effect-type name="ReplaceColor">
+                    <effect id="replacecolor" />
+                </effect-type>
+            </effects>
+            <texture original-source="C:\Users\dbga_55\Documents\Construct2 Projects\ColorPong\Textures\SCORE.png" />
+        </object-type>
     </object-folder>
     <families>
         <family name="Enemies" plugin-id="Sprite" sid="110717795313248">

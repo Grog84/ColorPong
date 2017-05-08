@@ -8,8 +8,9 @@
         <variable constant="0" name="MusicMenuFadeOutTime" sid="973590062102270" static="0" type="number">0</variable>
         <variable constant="0" name="MenuTotalFadeTime" sid="646520636158706" static="0" type="number">4</variable>
         <variable constant="0" name="MenuFadeTime" sid="356001933636255" static="0" type="number">0</variable>
-        <variable constant="0" name="ArcadeModeY" sid="355110049591499" static="0" type="number">675</variable>
-        <variable constant="0" name="StoryModeY" sid="388454732573628" static="0" type="number">550</variable>
+        <variable constant="0" name="PlayY" sid="388454732573628" static="0" type="number">550</variable>
+        <variable constant="0" name="InstructionY" sid="355110049591499" static="0" type="number">675</variable>
+        <variable constant="0" name="LeaderBoardY" sid="291290500622431" static="0" type="number">800</variable>
         <event-block sid="352679033760656">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="385319328629667" type="System" />
@@ -54,7 +55,7 @@
                     <conditions>
                         <condition id="-2" name="Compare Y" sid="212674720536442" type="SelectBar">
                             <param id="0" name="Comparison">0</param>
-                            <param id="1" name="Y co-ordinate">StoryModeY</param>
+                            <param id="1" name="Y co-ordinate">InstructionY</param>
                         </condition>
                         <condition id="-14" name="Compare variable" sid="737574541832256" type="System">
                             <param id="0" name="Variable">ControlsShowing</param>
@@ -70,9 +71,36 @@
                             <param id="1" name="Tag (optional)">&quot;menu_selezione&quot;</param>
                         </action>
                         <action id="-2" name="Set Y" sid="256764777922733" type="SelectBar">
-                            <param id="0" name="Y">ArcadeModeY</param>
+                            <param id="0" name="Y">LeaderBoardY</param>
                         </action>
                         <action id="-1" name="Set X" sid="600017652416938" type="SelectBar">
+                            <param id="0" name="X">610</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="668533847349201">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="762478968243091" type="SelectBar">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">PlayY</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="448934356202485" type="System">
+                            <param id="0" name="Variable">ControlsShowing</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="776481543276149" type="Audio">
+                            <param id="0" name="Audio file">selezione menù</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;menu_selezione&quot;</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="750994545972929" type="SelectBar">
+                            <param id="0" name="Y">InstructionY</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="687894845649217" type="SelectBar">
                             <param id="0" name="X">585</param>
                         </action>
                     </actions>
@@ -94,7 +122,7 @@
                     <conditions>
                         <condition id="-2" name="Compare Y" sid="473206227821571" type="SelectBar">
                             <param id="0" name="Comparison">0</param>
-                            <param id="1" name="Y co-ordinate">ArcadeModeY</param>
+                            <param id="1" name="Y co-ordinate">InstructionY</param>
                         </condition>
                         <condition id="-14" name="Compare variable" sid="549754068260679" type="System">
                             <param id="0" name="Variable">ControlsShowing</param>
@@ -110,10 +138,37 @@
                             <param id="1" name="Tag (optional)">&quot;menu_selezione&quot;</param>
                         </action>
                         <action id="-2" name="Set Y" sid="531028636018863" type="SelectBar">
-                            <param id="0" name="Y">StoryModeY</param>
+                            <param id="0" name="Y">PlayY</param>
                         </action>
-                        <action id="-1" name="Set X" sid="420509859310626" type="SelectBar">
+                        <action id="-1" name="Set X" sid="321113960127749" type="SelectBar">
                             <param id="0" name="X">735</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="454628361134254">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="779602905997482" type="SelectBar">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">LeaderBoardY</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="809721439447230" type="System">
+                            <param id="0" name="Variable">ControlsShowing</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="513794621013191" type="Audio">
+                            <param id="0" name="Audio file">selezione menù</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;menu_selezione&quot;</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="618237593069987" type="SelectBar">
+                            <param id="0" name="Y">InstructionY</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="501935860860910" type="SelectBar">
+                            <param id="0" name="X">585</param>
                         </action>
                     </actions>
                 </event-block>
@@ -136,7 +191,7 @@
                     <conditions>
                         <condition id="-2" name="Compare Y" sid="897130564318555" type="SelectBar">
                             <param id="0" name="Comparison">0</param>
-                            <param id="1" name="Y co-ordinate">StoryModeY</param>
+                            <param id="1" name="Y co-ordinate">PlayY</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -163,7 +218,7 @@
                     <conditions>
                         <condition id="-2" name="Compare Y" sid="920628657422913" type="SelectBar">
                             <param id="0" name="Comparison">0</param>
-                            <param id="1" name="Y co-ordinate">ArcadeModeY</param>
+                            <param id="1" name="Y co-ordinate">InstructionY</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -174,6 +229,23 @@
                         <action id="-9" name="Set value" sid="978617811495623" type="System">
                             <param id="0" name="Variable">ControlsShowing</param>
                             <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="839589465017862">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="403953618830237" type="SelectBar">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">LeaderBoardY</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="726442525602680" type="System">
+                            <param id="0" name="Variable">LeaderFromMenu</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="604351050902451" type="System">
+                            <param id="0" name="Layout">LeaderBoard</param>
                         </action>
                     </actions>
                 </event-block>

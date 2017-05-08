@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>esLeaderBoard</name>
     <events>
+        <variable constant="0" name="LeaderFromMenu" sid="412174641997902" static="0" type="number">0</variable>
         <variable constant="0" name="hscoresString" sid="459744275668997" static="0" type="text"></variable>
         <variable constant="1" name="LEADERBOARDOFFSET" sid="967936865960446" static="0" type="number">565</variable>
         <variable constant="0" name="TriggerBackToMenu" sid="124421542187688" static="0" type="number">0</variable>
@@ -200,6 +201,11 @@
                 <condition id="0" name="On key pressed" sid="763644821852201" type="Keyboard">
                     <param id="0" name="Key">13 (Return)</param>
                 </condition>
+                <condition id="-14" name="Compare variable" sid="242662050676212" type="System">
+                    <param id="0" name="Variable">LeaderFromMenu</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-9" name="Set value" sid="715639378152641" type="System">
@@ -215,19 +221,58 @@
                     <param id="1" name="Y">0</param>
                     <param id="2" name="Value">&quot; &quot; &amp; InsertName.Text</param>
                 </action>
-                <action disabled="1" id="-9" name="Set value" sid="402511617392948" type="System">
-                    <param id="0" name="Variable">hscoresString</param>
-                    <param id="1" name="Value">newScore.At(0, 0) &amp; &quot;;&quot; &amp; newScore.At(0, 1) &amp; &quot;;|&quot; &amp; newScore.At(1, 0) &amp; &quot;;&quot; &amp; newScore.At(1, 1) &amp; &quot;;|&quot; &amp;newScore.At(2, 0) &amp; &quot;;&quot; &amp; newScore.At(2, 1) &amp; &quot;;|&quot; &amp;newScore.At(3, 0) &amp; &quot;;&quot; &amp; newScore.At(3, 1) &amp; &quot;;|&quot; &amp;newScore.At(4, 0) &amp; &quot;;&quot; &amp; newScore.At(4, 1) &amp; &quot;;|&quot; &amp;newScore.At(5, 0) &amp; &quot;;&quot; &amp; newScore.At(5, 1) &amp; &quot;;|&quot; &amp;newScore.At(6, 0) &amp; &quot;;&quot; &amp; newScore.At(6, 1) &amp; &quot;;|&quot; &amp;newScore.At(7, 0) &amp; &quot;;&quot; &amp; newScore.At(7, 1) &amp; &quot;;|&quot; &amp;newScore.At(8, 0) &amp; &quot;;&quot; &amp; newScore.At(8, 1) &amp; &quot;;|&quot; &amp;newScore.At(9, 0) &amp; &quot;;&quot; &amp; newScore.At(9, 1) &amp; &quot;;|&quot;</param>
+            </actions>
+            <sub-events>
+                <event-block sid="955004231669798">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="569258698593927" type="System">
+                            <param id="0" name="Variable">NewScoreCreated</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set item" sid="142132603443004" type="LocalStorage">
+                            <param id="0" name="Key">&quot;hScores&quot;</param>
+                            <param id="1" name="Value">newScore.At(0, 0) &amp; &quot;;&quot; &amp; newScore.At(0, 1) &amp; &quot;;|&quot; &amp; newScore.At(1, 0) &amp; &quot;;&quot; &amp; newScore.At(1, 1) &amp; &quot;;|&quot; &amp;newScore.At(2, 0) &amp; &quot;;&quot; &amp; newScore.At(2, 1) &amp; &quot;;|&quot; &amp;newScore.At(3, 0) &amp; &quot;;&quot; &amp; newScore.At(3, 1) &amp; &quot;;|&quot; &amp;newScore.At(4, 0) &amp; &quot;;&quot; &amp; newScore.At(4, 1) &amp; &quot;;|&quot; &amp;newScore.At(5, 0) &amp; &quot;;&quot; &amp; newScore.At(5, 1) &amp; &quot;;|&quot; &amp;newScore.At(6, 0) &amp; &quot;;&quot; &amp; newScore.At(6, 1) &amp; &quot;;|&quot; &amp;newScore.At(7, 0) &amp; &quot;;&quot; &amp; newScore.At(7, 1) &amp; &quot;;|&quot; &amp;newScore.At(8, 0) &amp; &quot;;&quot; &amp; newScore.At(8, 1) &amp; &quot;;|&quot; &amp;newScore.At(9, 0) &amp; &quot;;&quot; &amp; newScore.At(9, 1) &amp; &quot;;|&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="198270379563560">
+                    <conditions />
+                    <actions>
+                        <action id="0" name="Clear" sid="294987555243709" type="highScore" />
+                        <action id="0" name="Clear" sid="367203600295637" type="newScore" />
+                        <action id="-9" name="Set value" sid="890196144367615" type="System">
+                            <param id="0" name="Variable">TriggerBackToMenu</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="399531540337938">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="928932001970347" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="654653204099110" type="System">
+                    <param id="0" name="Variable">LeaderFromMenu</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="311799182086613" type="System">
+                    <param id="0" name="Variable">LeaderFromMenu</param>
+                    <param id="1" name="Value">0</param>
                 </action>
-                <action id="0" name="Set item" sid="142132603443004" type="LocalStorage">
-                    <param id="0" name="Key">&quot;hScores&quot;</param>
-                    <param id="1" name="Value">newScore.At(0, 0) &amp; &quot;;&quot; &amp; newScore.At(0, 1) &amp; &quot;;|&quot; &amp; newScore.At(1, 0) &amp; &quot;;&quot; &amp; newScore.At(1, 1) &amp; &quot;;|&quot; &amp;newScore.At(2, 0) &amp; &quot;;&quot; &amp; newScore.At(2, 1) &amp; &quot;;|&quot; &amp;newScore.At(3, 0) &amp; &quot;;&quot; &amp; newScore.At(3, 1) &amp; &quot;;|&quot; &amp;newScore.At(4, 0) &amp; &quot;;&quot; &amp; newScore.At(4, 1) &amp; &quot;;|&quot; &amp;newScore.At(5, 0) &amp; &quot;;&quot; &amp; newScore.At(5, 1) &amp; &quot;;|&quot; &amp;newScore.At(6, 0) &amp; &quot;;&quot; &amp; newScore.At(6, 1) &amp; &quot;;|&quot; &amp;newScore.At(7, 0) &amp; &quot;;&quot; &amp; newScore.At(7, 1) &amp; &quot;;|&quot; &amp;newScore.At(8, 0) &amp; &quot;;&quot; &amp; newScore.At(8, 1) &amp; &quot;;|&quot; &amp;newScore.At(9, 0) &amp; &quot;;&quot; &amp; newScore.At(9, 1) &amp; &quot;;|&quot;</param>
+                <action id="-9" name="Set value" sid="636361606185035" type="System">
+                    <param id="0" name="Variable">NewScoreCreated</param>
+                    <param id="1" name="Value">0</param>
                 </action>
-                <action id="0" name="Clear" sid="294987555243709" type="highScore" />
-                <action id="0" name="Clear" sid="367203600295637" type="newScore" />
-                <action id="-9" name="Set value" sid="890196144367615" type="System">
-                    <param id="0" name="Variable">TriggerBackToMenu</param>
-                    <param id="1" name="Value">1</param>
+                <action id="-2" name="Go to layout" sid="423672533393944" type="System">
+                    <param id="0" name="Layout">Menu</param>
                 </action>
             </actions>
         </event-block>

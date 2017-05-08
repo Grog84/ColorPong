@@ -487,6 +487,12 @@
                             <param id="0" name="X">825</param>
                             <param id="1" name="Y">777</param>
                         </action>
+                        <action id="0" name="Play" sid="955375718817110" type="Audio">
+                            <param id="0" name="Audio file">impatto_barra</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-15</param>
+                            <param id="1" name="Tag (optional)">&quot;impattoBarra&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>

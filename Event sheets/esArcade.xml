@@ -1654,6 +1654,9 @@
                         <action id="-9" name="Destroy" sid="211189965522220" type="Player" />
                         <action id="-9" name="Destroy" sid="555729443777461" type="PlayerGlow" />
                         <action id="-9" name="Destroy" sid="658769610655559" type="PlayerTile" />
+                        <action behavior="Bullet" id="0" name="Set speed" sid="977466617439294" type="Ball">
+                            <param id="0" name="Speed">0</param>
+                        </action>
                         <action id="-9" name="Set value" sid="545851329125571" type="System">
                             <param id="0" name="Variable">MusicFadeOutTrigger</param>
                             <param id="1" name="Value">1</param>
@@ -1661,9 +1664,17 @@
                         <action id="-16" name="Wait" sid="862428050343290" type="System">
                             <param id="0" name="Seconds">MusicArcadeFadeOutTotalTime</param>
                         </action>
-                        <action disabled="1" id="-10" name="Add to" sid="897359258781477" type="System">
-                            <param id="0" name="Variable">GameScore</param>
-                            <param id="1" name="Value">int(ArcadeTime * TimeConversionScore)</param>
+                        <action id="-9" name="Set value" sid="692823435456555" type="System">
+                            <param id="0" name="Variable">Soundtrack1Active</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="170840137446215" type="System">
+                            <param id="0" name="Variable">Soundtrack2Active</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="669167869461716" type="System">
+                            <param id="0" name="Variable">Soundtrack3Active</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -4133,7 +4144,13 @@
                     <sub-events>
                         <variable constant="0" name="timeRatio" sid="899823106142700" static="0" type="number">0</variable>
                         <event-block sid="996253452983865">
-                            <conditions />
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="612573366812900" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
                             <actions>
                                 <action id="-9" name="Set value" sid="783898484369407" type="System">
                                     <param id="0" name="Variable">timeRatio</param>
@@ -4144,6 +4161,52 @@
                                     <param id="1" name="dB">-15 - timeRatio*30</param>
                                 </action>
                                 <action id="-10" name="Add to" sid="817840874602577" type="System">
+                                    <param id="0" name="Variable">MusicArcadeFadeOutTime</param>
+                                    <param id="1" name="Value">dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="728201305075771">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="295707597981050" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="719924687667135" type="System">
+                                    <param id="0" name="Variable">timeRatio</param>
+                                    <param id="1" name="Value">MusicArcadeFadeOutTime/MusicArcadeFadeOutTotalTime</param>
+                                </action>
+                                <action id="3" name="Set volume" sid="258340216111430" type="Audio">
+                                    <param id="0" name="Tag">&quot;game_soundtrack2&quot;</param>
+                                    <param id="1" name="dB">-15 - timeRatio*30</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="104820722835139" type="System">
+                                    <param id="0" name="Variable">MusicArcadeFadeOutTime</param>
+                                    <param id="1" name="Value">dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="587567077669781">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="406906849108150" type="System">
+                                    <param id="0" name="First value">Function.Param(0)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="771932527992788" type="System">
+                                    <param id="0" name="Variable">timeRatio</param>
+                                    <param id="1" name="Value">MusicArcadeFadeOutTime/MusicArcadeFadeOutTotalTime</param>
+                                </action>
+                                <action id="3" name="Set volume" sid="776953506682524" type="Audio">
+                                    <param id="0" name="Tag">&quot;game_soundtrack3&quot;</param>
+                                    <param id="1" name="dB">-15 - timeRatio*30</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="482594097004181" type="System">
                                     <param id="0" name="Variable">MusicArcadeFadeOutTime</param>
                                     <param id="1" name="Value">dt</param>
                                 </action>
@@ -4185,23 +4248,87 @@
                             <param id="2" name="Value">1</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="0" name="Call function" sid="466560315456720" type="Function">
-                            <param id="0" name="Name">&quot;FadeOutMusic&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
-                        </action>
-                        <action id="-16" name="Wait" sid="957472297929031" type="System">
-                            <param id="0" name="Seconds">MusicArcadeFadeOutTotalTime</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="581709213668916" type="System">
-                            <param id="0" name="Variable">MusicArcadeFadeOutTime</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="392984512231789" type="System">
-                            <param id="0" name="Variable">MusicFadeOutTrigger</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="263630979884343">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="865010525012409" type="System">
+                                    <param id="0" name="Variable">Soundtrack1Active</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="466560315456720" type="Function">
+                                    <param id="0" name="Name">&quot;FadeOutMusic&quot;</param>
+                                    <param id="1" name="Parameter {n}">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="957472297929031" type="System">
+                                    <param id="0" name="Seconds">MusicArcadeFadeOutTotalTime</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="581709213668916" type="System">
+                                    <param id="0" name="Variable">MusicArcadeFadeOutTime</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="392984512231789" type="System">
+                                    <param id="0" name="Variable">MusicFadeOutTrigger</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="511876052403902">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="845765634499543" type="System">
+                                    <param id="0" name="Variable">Soundtrack2Active</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="539588400827892" type="Function">
+                                    <param id="0" name="Name">&quot;FadeOutMusic&quot;</param>
+                                    <param id="1" name="Parameter {n}">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="616221842385552" type="System">
+                                    <param id="0" name="Seconds">MusicArcadeFadeOutTotalTime</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="242401306890818" type="System">
+                                    <param id="0" name="Variable">MusicArcadeFadeOutTime</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="431078831361704" type="System">
+                                    <param id="0" name="Variable">MusicFadeOutTrigger</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="464616763041599">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="824219144461106" type="System">
+                                    <param id="0" name="Variable">Soundtrack3Active</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="189670556850869" type="Function">
+                                    <param id="0" name="Name">&quot;FadeOutMusic&quot;</param>
+                                    <param id="1" name="Parameter {n}">2</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="350781116943143" type="System">
+                                    <param id="0" name="Seconds">MusicArcadeFadeOutTotalTime</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="861529162571548" type="System">
+                                    <param id="0" name="Variable">MusicArcadeFadeOutTime</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="742628550087097" type="System">
+                                    <param id="0" name="Variable">MusicFadeOutTrigger</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="498974368298680">
                     <conditions>
@@ -4213,6 +4340,9 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <variable constant="0" name="Soundtrack1Active" sid="568858660270759" static="0" type="number">1</variable>
+        <variable constant="0" name="Soundtrack2Active" sid="193890868552091" static="0" type="number">0</variable>
+        <variable constant="0" name="Soundtrack3Active" sid="726036929273996" static="0" type="number">0</variable>
         <event-group description="" sid="795856492592913" title="GameProgression">
             <sub-events>
                 <event-block any="1" sid="768930521936187">
@@ -4346,6 +4476,10 @@
                                     <param id="0" name="Instance variable">SpeedXL</param>
                                     <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
                                 </action>
+                                <action id="-9" name="Set value" sid="889842471547175" type="System">
+                                    <param id="0" name="Variable">Soundtrack2Active</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="946953176326198">
@@ -4393,6 +4527,10 @@
                                 <action id="-10" name="Set value" sid="503207730931153" type="Ball">
                                     <param id="0" name="Instance variable">SpeedXL</param>
                                     <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="136466114031737" type="System">
+                                    <param id="0" name="Variable">Soundtrack3Active</param>
+                                    <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -4561,6 +4699,86 @@
                             </sub-events>
                         </event-block>
                     </sub-events>
+                </event-block>
+                <event-block sid="125883284065231">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="792002532878975" type="System">
+                            <param id="0" name="Variable">Soundtrack1Active</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="899883569004588" type="System">
+                            <param id="0" name="Variable">Soundtrack2Active</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="742715423870579" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="744601146714727" type="System">
+                            <param id="0" name="Variable">Soundtrack1Active</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="1" name="Set looping" sid="239748854773602" type="Audio">
+                            <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="799838448013305">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="950633508946826" type="System">
+                            <param id="0" name="Variable">Soundtrack2Active</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="168211585337317" type="System">
+                            <param id="0" name="Variable">Soundtrack3Active</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="691397218575364" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="887077595756073" type="System">
+                            <param id="0" name="Variable">Soundtrack2Active</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="1" name="Set looping" sid="832436766189473" type="Audio">
+                            <param id="0" name="Tag">&quot;game_soundtrack2&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="369478858334903">
+                    <conditions>
+                        <condition id="0" name="On ended" sid="998621762642163" type="Audio">
+                            <param id="0" name="Tag">&quot;game_soundtrack&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="722753677663425" type="Audio">
+                            <param id="0" name="Audio file">game soundtrack x2</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-15</param>
+                            <param id="1" name="Tag (optional)">&quot;game_soundtrack2&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="849628187549383">
+                    <conditions>
+                        <condition id="0" name="On ended" sid="985448469257340" type="Audio">
+                            <param id="0" name="Tag">&quot;game_soundtrack2&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="917689051746484" type="Audio">
+                            <param id="0" name="Audio file">game_soundtrack_x3</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-15</param>
+                            <param id="1" name="Tag (optional)">&quot;game_soundtrack3&quot;</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>

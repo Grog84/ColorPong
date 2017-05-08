@@ -2698,7 +2698,7 @@
                         <behavior-instance type="Pin" />
                         <behavior-instance type="Sine2">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
                                 <wave>Sine</wave>
                                 <period>4</period>
@@ -2783,7 +2783,7 @@
                         <behavior-instance type="Pin" />
                         <behavior-instance type="Sine2">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
                                 <wave>Sine</wave>
                                 <period>4</period>
@@ -2868,7 +2868,7 @@
                         <behavior-instance type="Pin" />
                         <behavior-instance type="Sine2">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
                                 <wave>Sine</wave>
                                 <period>4</period>
@@ -2953,7 +2953,7 @@
                         <behavior-instance type="Pin" />
                         <behavior-instance type="Sine2">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
                                 <wave>Sine</wave>
                                 <period>4</period>

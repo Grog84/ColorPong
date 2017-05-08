@@ -1,1 +1,1 @@
-xxxPROxxx;100;| Tizio;90;| Caio;80;| Sempronio;70; | Tric;60; | Trac;50; | Gianni;40; | Pinotto;30; | Merda;20; | Merdisima;10; |
+AAA;400;| Ping;350;| Pong;300;| Squarekiller;250; | Santaclaus;200; | Pepe;150; | Inarrestabile;100; | Mezze;80; | FantasyRob;60; | Guybrush;40; |

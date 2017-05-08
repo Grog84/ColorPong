@@ -3009,7 +3009,7 @@
                         <character-height>72</character-height>
                         <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
                         <text>GAME OVER</text>
-                        <scale>2</scale>
+                        <scale>1.5</scale>
                         <initial-visibility>Visible</initial-visibility>
                         <horizontal-alignment>Center</horizontal-alignment>
                         <vertical-alignment>Center</vertical-alignment>
@@ -3038,7 +3038,7 @@
                         <behavior-instance type="Pin" />
                         <behavior-instance type="Sine2">
                             <properties>
-                                <active-on-start>Yes</active-on-start>
+                                <active-on-start>No</active-on-start>
                                 <movement>Horizontal</movement>
                                 <wave>Sine</wave>
                                 <period>4</period>

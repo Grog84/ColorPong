@@ -331,6 +331,12 @@
                     <param id="0" name="Variable">InstructionsShowing</param>
                     <param id="1" name="Value">1</param>
                 </action>
+                <action id="0" name="Play" sid="571160675189406" type="Audio">
+                    <param id="0" name="Audio file">selezione menù</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;menu_selezione&quot;</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="125346120453244">
@@ -360,6 +366,12 @@
                 <action id="-9" name="Set value" sid="886914376603321" type="System">
                     <param id="0" name="Variable">ControlsShowing</param>
                     <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Play" sid="810028555871130" type="Audio">
+                    <param id="0" name="Audio file">selezione menù</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;menu_selezione&quot;</param>
                 </action>
             </actions>
         </event-block>

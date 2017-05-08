@@ -3790,6 +3790,12 @@
                                     <param id="0" name="Variable">SpawnPoint</param>
                                     <param id="1" name="Value">int(random(LateralSpawningPoints.Count))</param>
                                 </action>
+                                <action id="0" name="Play" sid="339336828605741" type="Audio">
+                                    <param id="0" name="Audio file">cubo_rotante_loop</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">-20</param>
+                                    <param id="1" name="Tag (optional)">&quot;cubo&quot;</param>
+                                </action>
                             </actions>
                             <sub-events>
                                 <event-block sid="994443233983531">
@@ -3821,12 +3827,6 @@
                                         </action>
                                         <action behavior="Bullet" id="0" name="Set speed" sid="707124369567367" type="cuboRotanteBase">
                                             <param id="0" name="Speed">ParamsCuboRotante.At(1, Phase)</param>
-                                        </action>
-                                        <action id="0" name="Play" sid="339336828605741" type="Audio">
-                                            <param id="0" name="Audio file">cubo_rotante_loop</param>
-                                            <param id="2" name="Loop">1</param>
-                                            <param id="3" name="Volume">-20</param>
-                                            <param id="1" name="Tag (optional)">&quot;cubo&quot;</param>
                                         </action>
                                         <action id="-11" name="Subtract from" sid="397117522342021" type="System">
                                             <param id="0" name="Variable">SpawnCuboRotante</param>

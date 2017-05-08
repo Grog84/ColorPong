@@ -13,6 +13,7 @@
         <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Dictionary" version="1">Dictionary</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
@@ -1634,6 +1635,9 @@
                     <frame duration="1" hotspotX="0.52" hotspotY="0.52" />
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type global="1" name="Dictionary" sid="328728873635329">
+            <plugin id="Dictionary" />
         </object-type>
     </object-folder>
     <families>

@@ -300,6 +300,13 @@
                         <action id="-16" name="Wait" sid="413534301055268" type="System">
                             <param id="0" name="Seconds">4</param>
                         </action>
+                        <action id="-13" name="Set time scale" sid="760286779708753" type="System">
+                            <param id="0" name="Time scale">1.0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="660303412301023" type="System">
+                            <param id="0" name="Variable">zoom</param>
+                            <param id="1" name="Value">1.666</param>
+                        </action>
                         <action id="-2" name="Go to layout" sid="302982922144806" type="System">
                             <param id="0" name="Layout">Arcade</param>
                         </action>
@@ -539,5 +546,15 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-block sid="405894272087354">
+            <conditions>
+                <condition id="1" name="On any key pressed" sid="655857030072858" type="Keyboard" />
+            </conditions>
+            <actions>
+                <action id="-13" name="Set time scale" sid="961713462187736" type="System">
+                    <param id="0" name="Time scale">3.0</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

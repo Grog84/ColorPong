@@ -4,6 +4,7 @@
     <name>esMenu</name>
     <events>
         <variable constant="0" name="ControlsShowing" sid="252797315721033" static="0" type="number">0</variable>
+        <variable constant="0" name="InstructionsShowing" sid="399484946307476" static="0" type="number">0</variable>
         <variable constant="0" name="MusicMenuFadeOutTotalTime" sid="898150693591383" static="0" type="number">2</variable>
         <variable constant="0" name="MusicMenuFadeOutTime" sid="973590062102270" static="0" type="number">0</variable>
         <variable constant="0" name="MenuTotalFadeTime" sid="646520636158706" static="0" type="number">4</variable>
@@ -247,27 +248,118 @@
                         <action id="-2" name="Go to layout" sid="604351050902451" type="System">
                             <param id="0" name="Layout">LeaderBoard</param>
                         </action>
+                        <action id="6" name="Stop" sid="248747551709856" type="Audio">
+                            <param id="0" name="Tag">&quot;menu_soundtrack&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
         </event-block>
         <event-block sid="410454773797991">
             <conditions>
-                <condition id="1" name="On any key pressed" sid="849466721446418" type="Keyboard" />
-                <condition id="-14" name="Compare variable" sid="287269893379295" type="System">
+                <condition id="0" name="On key pressed" sid="849466721446418" type="Keyboard">
+                    <param id="0" name="Key">27 (Esc)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="251874480293389">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="795478286441309" type="System">
+                            <param id="0" name="Variable">ControlsShowing</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="812203028081878" type="System">
+                            <param id="0" name="Layer">&quot;Controls&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="498386810155567" type="System">
+                            <param id="0" name="Variable">ControlsShowing</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="219541569188162">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="287269893379295" type="System">
+                            <param id="0" name="Variable">InstructionsShowing</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="999375360800785" type="System">
+                            <param id="0" name="Layer">&quot;Instructions&quot;</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="643380533639304" type="System">
+                            <param id="0" name="Variable">ControlsShowing</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="456690860658357">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="677895137378856" type="Keyboard">
+                    <param id="0" name="Key">39 (Right arrow)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="125873019147004" type="System">
                     <param id="0" name="Variable">ControlsShowing</param>
                     <param id="1" name="Comparison">0</param>
                     <param id="2" name="Value">1</param>
                 </condition>
             </conditions>
             <actions>
-                <action id="-4" name="Set layer visible" sid="999375360800785" type="System">
+                <action id="-4" name="Set layer visible" sid="350594834816579" type="System">
                     <param id="0" name="Layer">&quot;Controls&quot;</param>
                     <param id="1" name="Visibility">0</param>
                 </action>
-                <action id="-9" name="Set value" sid="643380533639304" type="System">
+                <action id="-4" name="Set layer visible" sid="152896373043683" type="System">
+                    <param id="0" name="Layer">&quot;Instructions&quot;</param>
+                    <param id="1" name="Visibility">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="866491933713992" type="System">
                     <param id="0" name="Variable">ControlsShowing</param>
                     <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="540002581628849" type="System">
+                    <param id="0" name="Variable">InstructionsShowing</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="125346120453244">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="276371297421802" type="Keyboard">
+                    <param id="0" name="Key">37 (Left arrow)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="241115491004440" type="System">
+                    <param id="0" name="Variable">InstructionsShowing</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-4" name="Set layer visible" sid="223122553947512" type="System">
+                    <param id="0" name="Layer">&quot;Controls&quot;</param>
+                    <param id="1" name="Visibility">1</param>
+                </action>
+                <action id="-4" name="Set layer visible" sid="297838880172894" type="System">
+                    <param id="0" name="Layer">&quot;Instructions&quot;</param>
+                    <param id="1" name="Visibility">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="538250433411763" type="System">
+                    <param id="0" name="Variable">InstructionsShowing</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="886914376603321" type="System">
+                    <param id="0" name="Variable">ControlsShowing</param>
+                    <param id="1" name="Value">1</param>
                 </action>
             </actions>
         </event-block>
@@ -306,7 +398,7 @@
         <event-block sid="886733641804242">
             <conditions>
                 <condition id="-8" name="Compare two values" sid="223669112707565" type="System">
-                    <param id="0" name="First value">LayerOpacity(4)</param>
+                    <param id="0" name="First value">LayerOpacity(5)</param>
                     <param id="1" name="Comparison">4</param>
                     <param id="2" name="Second value">0</param>
                 </condition>

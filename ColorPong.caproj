@@ -1608,16 +1608,16 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="755858246594974" speed="5">
-                    <frame duration="1" hotspotX="0.572727" hotspotY="0.421488" original-source="C:\Users\PU\Downloads\tastiera con controlli.png">
+                    <frame duration="1" hotspotX="0.669286" hotspotY="0.259392" original-source="C:\Users\PU\Pictures\tastiera_con_controlli.png">
                         <collision-poly>
-                            <point x="0.142424" y="0.0413223" />
-                            <point x="0.572727" y="0.217631" />
-                            <point x="0.916162" y="0.278237" />
-                            <point x="0.99899" y="0.418733" />
-                            <point x="0.959596" y="0.680441" />
-                            <point x="0.572727" y="0.757576" />
-                            <point x="0.157576" y="0.757576" />
-                            <point x="0.0010101" y="0.418733" />
+                            <point x="0.0962275" y="0" />
+                            <point x="0.669493" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="0.254536" />
+                            <point x="1" y="0.79088" />
+                            <point x="0.669493" y="0.94896" />
+                            <point x="0.116414" y="0.94896" />
+                            <point x="0" y="0.254536" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -1718,7 +1718,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Sprite2" sid="870059288789705">
+        <object-type name="LeaderBoardMenu" sid="870059288789705">
             <plugin id="Sprite" />
             <effects>
                 <effect-type name="BlurHorizontal">
@@ -1737,6 +1737,190 @@
                             <point x="0.992327" y="0.94" />
                             <point x="0.498721" y="0.6" />
                             <point x="0.00511509" y="0.96" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="RightArrow" sid="976577515935068">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="785081777852848" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\ULTIME IMMAGINI\RightArrow.png">
+                        <collision-poly>
+                            <point x="0.169118" y="0.198276" />
+                            <point x="0.5" y="0.0603448" />
+                            <point x="0.845588" y="0.181034" />
+                            <point x="0.845588" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0.5" y="1" />
+                            <point x="0.169118" y="0.801724" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="MenuGlow" sid="243606878426433">
+            <plugin id="Sprite" />
+            <effects>
+                <effect-type name="BlurHorizontal">
+                    <effect id="blurhorizontal" />
+                </effect-type>
+                <effect-type name="BlurVertical">
+                    <effect id="blurvertical" />
+                </effect-type>
+            </effects>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="903442098792916" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="InstructionsBkg" sid="876357077093634">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="602609796519702" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="LeftArrow" sid="724651102012888">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="166547231448405" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\ULTIME IMMAGINI\LeftArrow.png">
+                        <collision-poly>
+                            <point x="0.161765" y="0.189655" />
+                            <point x="0.5" y="0.0775862" />
+                            <point x="0.852941" y="0.172414" />
+                            <point x="0.852941" y="0.827586" />
+                            <point x="0.5" y="0.948276" />
+                            <point x="0.161765" y="0.810345" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="screenColoreGiusto" sid="657818455914309">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="559580868599199" speed="5">
+                    <frame duration="1" hotspotX="0.504762" hotspotY="0.5" original-source="C:\Users\PU\Downloads\screenshoot istruzioni\screen colore giusto.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="screenColoreSbagliato" sid="713993835836675">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="467675568427272" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.502591" original-source="C:\Users\PU\Downloads\screenshoot istruzioni\screen colore sbagliato.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="screenDodge" sid="527399592789096">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="396526824050436" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\screenshoot istruzioni\screen dodge.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="rightTick" sid="941895291881815">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="648662187556460" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Pictures\right.png">
+                        <collision-poly>
+                            <point x="0.461667" y="0.492883" />
+                            <point x="0.5" y="0.439502" />
+                            <point x="0.998333" y="0.00177936" />
+                            <point x="0.611667" y="0.5" />
+                            <point x="0.5" y="0.663701" />
+                            <point x="0.131667" y="0.859431" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="wrong" sid="553360857134035">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="536917203092082" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Pictures\wrong.png">
+                        <collision-poly>
+                            <point x="0.0933333" y="0.137255" />
+                            <point x="0.5" y="0.303922" />
+                            <point x="0.943333" y="0.0833333" />
+                            <point x="0.62" y="0.5" />
+                            <point x="0.853333" y="0.784314" />
+                            <point x="0.5" y="0.816176" />
+                            <point x="0.0433333" y="0.936275" />
+                            <point x="0.263333" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="whitePong" sid="242347620564317">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="860096967727377" speed="5">
+                    <frame duration="1" hotspotX="0.503704" hotspotY="0.50211" original-source="C:\Users\PU\Downloads\ULTIME IMMAGINI\whitePong.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="GreenPong" sid="630862535355064">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="524893544509095" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\ULTIME IMMAGINI\GreenPong.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="danger" sid="136440828553127">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="169440941109777" speed="5">
+                    <frame duration="1" hotspotX="0.500428" hotspotY="0.5" original-source="C:\Users\PU\Pictures\danger.png">
+                        <collision-poly>
+                            <point x="0.499572" y="0.015625" />
+                            <point x="0.767322" y="0.5" />
+                            <point x="0.973482" y="0.969727" />
+                            <point x="0.499572" y="0.985352" />
+                            <point x="0.025663" y="0.970703" />
+                            <point x="0.232678" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="spacebar" sid="560190534648353">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="317350474876547" speed="5">
+                    <frame duration="1" hotspotX="0.50079" hotspotY="0.504673" original-source="C:\Users\PU\Downloads\ULTIME IMMAGINI\spacebar.png">
+                        <collision-poly>
+                            <point x="0.0126382" y="0.0747664" />
+                            <point x="0.49921" y="0.0560748" />
+                            <point x="0.984202" y="0.0934579" />
+                            <point x="0.985782" y="0.915888" />
+                            <point x="0.49921" y="1" />
+                            <point x="0.00789889" y="0.953271" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SpacebarWritten" sid="826576222955454">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="369439814955400" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\ULTIME IMMAGINI\SpacebarWritten.png">
+                        <collision-poly>
+                            <point x="0.070922" y="0.3125" />
+                            <point x="0.950355" y="0.21875" />
+                            <point x="0.950355" y="0.78125" />
+                            <point x="0.070922" y="0.6875" />
                         </collision-poly>
                     </frame>
                 </animation>

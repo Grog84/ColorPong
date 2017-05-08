@@ -4870,6 +4870,12 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action id="0" name="Play" sid="960593227694415" type="Audio">
+                                    <param id="0" name="Audio file">selezione menù</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;menu_selezione&quot;</param>
+                                </action>
                                 <action id="-3" name="Set position" sid="936722867294608" type="SelectBarPause">
                                     <param id="0" name="X">690</param>
                                     <param id="1" name="Y">Resume.Y</param>
@@ -4897,6 +4903,12 @@
                                 </condition>
                             </conditions>
                             <actions>
+                                <action id="0" name="Play" sid="800752714808109" type="Audio">
+                                    <param id="0" name="Audio file">selezione menù</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;menu_selezione&quot;</param>
+                                </action>
                                 <action id="-3" name="Set position" sid="140633689313638" type="SelectBarPause">
                                     <param id="0" name="X">600</param>
                                     <param id="1" name="Y">BackToMenu.Y</param>

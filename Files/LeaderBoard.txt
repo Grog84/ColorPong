@@ -1,1 +1,1 @@
-AAA;400;| Ping;350;| Pong;300;| Squarekiller;250; | Santaclaus;200; | Pepe;150; | Inarrestabile;100; | Mezze;80; | FantasyRob;60; | Guybrush;40; |
+AAA;400;| Ping;350;| Pong;300;| KSquare;250; | Santa;200; | Pepe;150; | Pro;100; | Mezze;80; | FantaRob;60; | Guybrush;40; |

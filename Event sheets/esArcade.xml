@@ -30,7 +30,7 @@
         <variable constant="0" name="MaxSpecialEnemiesNbr" sid="625328798260974" static="0" type="number">1</variable>
         <comment>Time/Score</comment>
         <variable constant="0" name="ArcadeTime" sid="403259355992123" static="0" type="number">0</variable>
-        <variable constant="0" name="GameScore" sid="313863900724160" static="0" type="number">60</variable>
+        <variable constant="0" name="GameScore" sid="313863900724160" static="0" type="number">0</variable>
         <variable constant="0" name="BallLossScorePenalty" sid="198489624363281" static="0" type="number">3</variable>
         <variable constant="0" name="BallHitScore" sid="749944010866985" static="0" type="number">3</variable>
         <variable constant="0" name="TimeConversionScore" sid="596955915572941" static="0" type="number">0</variable>

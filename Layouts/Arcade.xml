@@ -62,10 +62,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>798.5</x>
-                        <y>1283.5</y>
+                        <y>1340.5</y>
                         <z>0</z>
                         <width>2053</width>
-                        <height>97</height>
+                        <height>211</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -89,28 +89,6 @@
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="BallY" uid="19">
-                    <properties>
-                        <initial-visibility>Invisible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>-48.013427734</x>
-                        <y>67.447753906</y>
-                        <z>0</z>
-                        <width>20</width>
-                        <height>20</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -1026,10 +1004,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-12</x>
+                        <x>-84.5</x>
                         <y>777</y>
                         <z>0</z>
-                        <width>30</width>
+                        <width>175</width>
                         <height>930</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
@@ -2068,9 +2046,18 @@
                         <TileLength>25</TileLength>
                         <TopTiles>3</TopTiles>
                         <BotTiles>3</BotTiles>
+                        <Accelleration>50</Accelleration>
+                        <MaxSpeed>100</MaxSpeed>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Pin" />
+                        <behavior-instance type="CustomMovement">
+                            <properties>
+                                <stepping-mode>None</stepping-mode>
+                                <pixels-per-step>5</pixels-per-step>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>

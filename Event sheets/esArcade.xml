@@ -67,14 +67,6 @@
                     <param id="0" name="Instance variable">AngleOfMotion</param>
                     <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
                 </action>
-                <action id="-3" name="Set position" sid="793973181717642" type="BallY">
-                    <param id="0" name="X">Boss.X</param>
-                    <param id="1" name="Y">Boss.Y</param>
-                </action>
-                <action behavior="Pin" id="0" name="Pin to object" sid="785281651736829" type="Boss">
-                    <param id="0" name="Pin to">BallY</param>
-                    <param id="1" name="Mode">1</param>
-                </action>
                 <action behavior="Pin" id="0" name="Pin to object" sid="910448268116844" type="BossGlow">
                     <param id="0" name="Pin to">Boss</param>
                     <param id="1" name="Mode">1</param>
@@ -1845,57 +1837,72 @@
         </event-group>
         <event-group description="" sid="366777405774140" title="Boss">
             <sub-events>
-                <event-block sid="730936759243085">
-                    <conditions>
-                        <condition id="-1" name="Every tick" sid="699058063689347" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="-2" name="Set Y" sid="156593389393406" type="BallY">
-                            <param id="0" name="Y">Ball.Y</param>
-                        </action>
-                    </actions>
-                </event-block>
                 <event-block sid="383881757003900">
                     <conditions>
-                        <condition id="-2" name="Compare Y" sid="346242255411510" type="BallY">
+                        <condition id="-2" name="Compare Y" sid="346242255411510" type="Boss">
                             <param id="0" name="Comparison">2</param>
-                            <param id="1" name="Y co-ordinate">Boss.Height/2.0  + FRAMEOFFSET</param>
+                            <param id="1" name="Y co-ordinate">Self.Height/2.0  + FRAMEOFFSET</param>
                         </condition>
-                        <condition behavior="Pin" id="0" name="Is pinned" sid="334609425773615" type="Boss" />
                     </conditions>
                     <actions>
-                        <action behavior="Pin" id="1" name="Unpin" sid="698156915638729" type="Boss" />
+                        <action behavior="CustomMovement" id="2" name="Set speed" sid="698156915638729" type="Boss">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="Speed">0</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="616673364719490" type="Boss">
+                            <param id="0" name="Y">FRAMEOFFSET + Self.Height/2.0 +1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="627444418951278">
                     <conditions>
-                        <condition id="-2" name="Compare Y" sid="867488233749129" type="BallY">
+                        <condition id="-2" name="Compare Y" sid="867488233749129" type="Boss">
                             <param id="0" name="Comparison">5</param>
-                            <param id="1" name="Y co-ordinate">Boss.Height/2.0  + FRAMEOFFSET</param>
+                            <param id="1" name="Y co-ordinate">Self.Height/2.0  + FRAMEOFFSET</param>
                         </condition>
-                        <condition id="-2" name="Compare Y" sid="444490783899000" type="BallY">
+                        <condition id="-2" name="Compare Y" sid="444490783899000" type="Boss">
                             <param id="0" name="Comparison">3</param>
-                            <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height - Boss.Height/2.0</param>
+                            <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height - Self.Height/2.0</param>
                         </condition>
-                        <condition behavior="Pin" id="0" inverted="1" name="Is pinned" sid="821274774800316" type="Boss" />
                     </conditions>
                     <actions>
-                        <action behavior="Pin" id="0" name="Pin to object" sid="856806908810977" type="Boss">
-                            <param id="0" name="Pin to">BallY</param>
-                            <param id="1" name="Mode">1</param>
+                        <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="856806908810977" type="Boss">
+                            <param id="0" name="Acceleration">Self.Accelleration</param>
+                            <param id="1" name="X">Self.X</param>
+                            <param id="2" name="Y">Ball.Y</param>
                         </action>
                     </actions>
                 </event-block>
                 <event-block sid="643623379138252">
                     <conditions>
-                        <condition id="-2" name="Compare Y" sid="962913255335445" type="BallY">
+                        <condition id="-2" name="Compare Y" sid="962913255335445" type="Boss">
                             <param id="0" name="Comparison">4</param>
-                            <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height - Boss.Height/2.0</param>
+                            <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height - Self.Height/2.0</param>
                         </condition>
-                        <condition behavior="Pin" id="0" name="Is pinned" sid="605671054847153" type="Boss" />
                     </conditions>
                     <actions>
-                        <action behavior="Pin" id="1" name="Unpin" sid="885185170013702" type="Boss" />
+                        <action behavior="CustomMovement" id="2" name="Set speed" sid="885185170013702" type="Boss">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="Speed">0</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="141173286102549" type="Boss">
+                            <param id="0" name="Y">FRAMEOFFSET + Frame.Height - Self.Height/2.0 - 1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="251009330697286">
+                    <conditions>
+                        <condition behavior="CustomMovement" id="1" name="Compare speed" sid="363000892027860" type="Boss">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Speed">Self.MaxSpeed</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="CustomMovement" id="2" name="Set speed" sid="794859349774091" type="Boss">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="Speed">Self.MaxSpeed</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>

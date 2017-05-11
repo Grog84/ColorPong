@@ -1426,10 +1426,15 @@
                 <instance-variable name="TileLength" sid="449174418266376" type="number" />
                 <instance-variable name="TopTiles" sid="137939595777254" type="number" />
                 <instance-variable name="BotTiles" sid="568457790661489" type="number" />
+                <instance-variable name="Accelleration" sid="805291946965268" type="number" />
+                <instance-variable name="MaxSpeed" sid="311675961589554" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Pin" sid="679283250517769">
                     <behavior id="Pin" />
+                </behavior-type>
+                <behavior-type name="CustomMovement" sid="679957020496939">
+                    <behavior id="custom" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
@@ -1442,14 +1447,6 @@
                             <point x="0.25" y="0.948718" />
                         </collision-poly>
                     </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="BallY" sid="157749390612163">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="316976047009838" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>

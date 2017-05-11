@@ -221,6 +221,11 @@
                             <param id="0" name="Comparison">0</param>
                             <param id="1" name="Y co-ordinate">InstructionY</param>
                         </condition>
+                        <condition id="-14" name="Compare variable" sid="843103128046914" type="System">
+                            <param id="0" name="Variable">InstructionsShowing</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-4" name="Set layer visible" sid="646898906497477" type="System">

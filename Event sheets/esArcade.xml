@@ -849,74 +849,80 @@
                     </conditions>
                     <actions />
                 </event-block>
-                <event-block sid="883351354788449">
+                <event-block sid="213367136759196">
                     <conditions>
-                        <condition id="0" name="On function" sid="176648272956943" type="Function">
+                        <condition id="0" name="On function" sid="947784699020355" type="Function">
                             <param id="0" name="Name">&quot;ChangeEnemyColor&quot;</param>
                         </condition>
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="175370946284978">
+                        <event-block sid="413134617994656">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="361522240585716" type="EnemiesAbsorb">
+                                <condition id="-7" name="Compare instance variable" sid="709765101350013" type="EnemiesAbsorb">
                                     <param id="0" name="Instance variable">Score</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="327390926062193" type="EnemiesAbsorb">
+                                    <param id="0" name="Frame number">self.Color</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="883351354788449">
+                    <conditions>
+                        <condition id="0" name="On function" sid="176648272956943" type="Function">
+                            <param id="0" name="Name">&quot;ChangeKamiColor&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="699391823791296">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="324174054015320" type="Kamikaze">
+                                    <param id="0" name="Instance variable">Color</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="309803742249858" type="Kamikaze">
+                                    <param id="0" name="Animation">&quot;Red&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="872823185773303">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="460575794503018" type="Kamikaze">
+                                    <param id="0" name="Instance variable">Color</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">2</param>
                                 </condition>
                             </conditions>
-                            <actions />
-                            <sub-events>
-                                <event-block sid="128137605739433">
-                                    <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="489238251913580" type="EnemiesAbsorb">
-                                            <param id="0" name="Instance variable">Color</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">1</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="4" name="Set animation" sid="123434293274027" type="EnemiesAbsorb">
-                                            <param id="0" name="Animation">&quot;Red&quot;</param>
-                                            <param id="1" name="From">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="576185164383227">
-                                    <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="185652616538364" type="EnemiesAbsorb">
-                                            <param id="0" name="Instance variable">Color</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">2</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="4" name="Set animation" sid="500813373906836" type="EnemiesAbsorb">
-                                            <param id="0" name="Animation">&quot;Green&quot;</param>
-                                            <param id="1" name="From">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="686411536984883">
-                                    <conditions>
-                                        <condition id="-22" name="Else" sid="484163171135144" type="System" />
-                                    </conditions>
-                                    <actions>
-                                        <action id="4" name="Set animation" sid="370686978860286" type="EnemiesAbsorb">
-                                            <param id="0" name="Animation">&quot;Blue&quot;</param>
-                                            <param id="1" name="From">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
+                            <actions>
+                                <action id="4" name="Set animation" sid="189335536423616" type="Kamikaze">
+                                    <param id="0" name="Animation">&quot;Green&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
                         </event-block>
-                        <event-block sid="457521656636368">
+                        <event-block sid="175370946284978">
                             <conditions>
-                                <condition id="-22" name="Else" sid="514246746066967" type="System" />
+                                <condition id="-7" name="Compare instance variable" sid="451443928500979" type="Kamikaze">
+                                    <param id="0" name="Instance variable">Color</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
                             </conditions>
                             <actions>
-                                <action id="5" name="Set frame" sid="453863858879544" type="EnemiesAbsorb">
-                                    <param id="0" name="Frame number">self.Color</param>
+                                <action id="4" name="Set animation" sid="174922758241857" type="Kamikaze">
+                                    <param id="0" name="Animation">&quot;Blue&quot;</param>
+                                    <param id="1" name="From">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -1165,15 +1171,32 @@
                 <event-block sid="284073769919997">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="206126198462661" type="Ball">
-                            <param id="0" name="Object">EnemiesAbsorb</param>
+                            <param id="0" name="Object">Kamikaze</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-10" name="Set value" sid="185109920442254" type="EnemiesAbsorb">
+                        <action id="-10" name="Set value" sid="185109920442254" type="Kamikaze">
                             <param id="0" name="Instance variable">Color</param>
                             <param id="1" name="Value">Ball.AnimationFrame</param>
                         </action>
                         <action id="0" name="Call function" sid="706033867116512" type="Function">
+                            <param id="0" name="Name">&quot;ChangeKamiColor&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="459468938477308">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="590650230256368" type="Ball">
+                            <param id="0" name="Object">EnemiesAbsorb</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="352808686485129" type="EnemiesAbsorb">
+                            <param id="0" name="Instance variable">Color</param>
+                            <param id="1" name="Value">Ball.AnimationFrame</param>
+                        </action>
+                        <action id="0" name="Call function" sid="487310341047664" type="Function">
                             <param id="0" name="Name">&quot;ChangeEnemyColor&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
                         </action>

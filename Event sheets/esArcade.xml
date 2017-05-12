@@ -32,6 +32,7 @@
         <variable constant="0" name="BallHitScore" sid="749944010866985" static="0" type="number">3</variable>
         <variable constant="0" name="TimeConversionScore" sid="596955915572941" static="0" type="number">0</variable>
         <variable constant="0" name="Pause" sid="644496740557561" static="0" type="number">0</variable>
+        <variable constant="0" name="ActiveTokens" sid="623553014314347" static="0" type="number">0</variable>
         <comment>CONSTANT VARIABLES</comment>
         <variable constant="1" name="FrameOffset" sid="225801414137167" static="0" type="number">315</variable>
         <variable comment="seconds" constant="0" name="IMMUNE_TIME" sid="273482141318713" static="0" type="number">2</variable>
@@ -848,6 +849,21 @@
                         </condition>
                     </conditions>
                     <actions />
+                    <sub-events>
+                        <variable constant="0" name="RelativeHitPos" sid="867686197935051" static="0" type="number">0</variable>
+                        <event-block sid="120341702663713">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="534712207543906" type="System">
+                                    <param id="0" name="Variable">RelativeHitPos</param>
+                                    <param id="1" name="Value">((Ball.Y - Player.ImagePointY(1)) - Player.Height/2.0)*2/Player.Height</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="235090880415252" type="Ball">
+                                    <param id="0" name="Angle">RelativeHitPos * 70</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="213367136759196">
                     <conditions>
@@ -1142,6 +1158,17 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <event-block sid="993702255361339">
+                    <conditions>
+                        <condition id="-3" inverted="1" name="Is on-screen" sid="470650649106039" type="Ball" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="760484448661244" type="Function">
+                            <param id="0" name="Name">&quot;RespawnBall&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="406623457510579">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="523880862988457" type="Ball">
@@ -1242,12 +1269,16 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Bullet" id="4" name="Bounce off object" sid="223458339248697" type="Ball">
+                        <action behavior="Bullet" disabled="1" id="4" name="Bounce off object" sid="223458339248697" type="Ball">
                             <param id="0" name="Object">Player</param>
                         </action>
-                        <action id="0" name="Call function" sid="624106187723958" type="Function">
+                        <action disabled="1" id="0" name="Call function" sid="624106187723958" type="Function">
                             <param id="0" name="Name">&quot;CorrectBounceAngle&quot;</param>
                             <param id="1" name="Parameter {n}">Ball.Bullet.AngleOfMotion</param>
+                        </action>
+                        <action id="0" name="Call function" sid="660269513291759" type="Function">
+                            <param id="0" name="Name">&quot;CalcArkanoidAngle&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                         <action id="-10" name="Set value" sid="807973288871026" type="Ball">
                             <param id="0" name="Instance variable">AngleOfMotion</param>
@@ -2108,6 +2139,18 @@
                                 </action>
                                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="218130829833790" type="PlusMinusPoints">
                                     <param id="0" name="Angle">270</param>
+                                </action>
+                                <action id="2" name="Set at X" sid="696793294894724" type="PowerUps">
+                                    <param id="0" name="X">ActiveTokens</param>
+                                    <param id="1" name="Value">EnemiesAbsorb.Color</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="479094210818280" type="System">
+                                    <param id="0" name="Variable">ActiveTokens</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="602451321422907" type="Function">
+                                    <param id="0" name="Name">&quot;ShowPowerUps&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
                         </event-block>
@@ -3070,12 +3113,6 @@
                                         <action behavior="Bullet" id="0" name="Set speed" sid="609357636318116" type="slidingDoors">
                                             <param id="0" name="Speed">ParamsDoors.At(1, Phase)</param>
                                         </action>
-                                        <action id="0" name="Play" sid="259661718941778" type="Audio">
-                                            <param id="0" name="Audio file">porte_scorrevoli</param>
-                                            <param id="2" name="Loop">1</param>
-                                            <param id="3" name="Volume">-15</param>
-                                            <param id="1" name="Tag (optional)">&quot;doors&quot;</param>
-                                        </action>
                                     </actions>
                                 </event-block>
                                 <event-block sid="175609831314145">
@@ -3145,10 +3182,6 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="22" name="Set paused" sid="743571060762407" type="Audio">
-                                    <param id="0" name="Tag">&quot;doors&quot;</param>
-                                    <param id="1" name="State">0</param>
-                                </action>
                                 <action id="-16" name="Wait" sid="331350811210161" type="System">
                                     <param id="0" name="Seconds">ParamsDoors.At(2, Phase)</param>
                                 </action>
@@ -3157,10 +3190,6 @@
                                 </action>
                                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="265852857213756" type="slidingDoors">
                                     <param id="0" name="Angle">90</param>
-                                </action>
-                                <action id="22" name="Set paused" sid="177691744901831" type="Audio">
-                                    <param id="0" name="Tag">&quot;doors&quot;</param>
-                                    <param id="1" name="State">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -3204,6 +3233,64 @@
                             </conditions>
                             <actions>
                                 <action id="-9" name="Destroy" sid="956244998633408" type="slidingDoorsMirror" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="852465789228869">
+                            <conditions>
+                                <condition behavior="Bullet" id="0" name="Compare speed" sid="741572962369655" type="slidingDoors">
+                                    <param id="0" name="Comparison">1</param>
+                                    <param id="1" name="Speed">0</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="671586450655776" type="slidingDoors">
+                                    <param id="0" name="Instance variable">HasStopped</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="279647067362930" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="259661718941778" type="Audio">
+                                    <param id="0" name="Audio file">porte_scorrevoli</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">-15</param>
+                                    <param id="1" name="Tag (optional)">&quot;doors&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="964648350629660">
+                            <conditions>
+                                <condition behavior="Bullet" id="0" name="Compare speed" sid="981872417316624" type="slidingDoors">
+                                    <param id="0" name="Comparison">1</param>
+                                    <param id="1" name="Speed">0</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="476052590974497" type="slidingDoors">
+                                    <param id="0" name="Instance variable">HasStopped</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="632220510925355" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="110034241495708" type="Audio">
+                                    <param id="0" name="Audio file">porte_scorrevoli</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">-15</param>
+                                    <param id="1" name="Tag (optional)">&quot;doors&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="385483051772325">
+                            <conditions>
+                                <condition behavior="Bullet" id="0" name="Compare speed" sid="294705842391177" type="slidingDoors">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Speed">0</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="743661803962151" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Stop" sid="743571060762407" type="Audio">
+                                    <param id="0" name="Tag">&quot;doors&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="224568208616913">
@@ -4378,6 +4465,179 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <variable constant="0" name="TokensActive" sid="411735816401115" static="0" type="number">0</variable>
+        <event-group description="" sid="481962661370323" title="PowerUp">
+            <sub-events>
+                <event-block sid="666963883683527">
+                    <conditions>
+                        <condition id="0" name="On function" sid="986078934477592" type="Function">
+                            <param id="0" name="Name">&quot;ShowPowerUps&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="421405640922243">
+                            <conditions>
+                                <condition id="-10" name="For" sid="782246445516215" type="System">
+                                    <param id="0" name="Name">&quot;PwUpIDX&quot;</param>
+                                    <param id="1" name="Start index">0</param>
+                                    <param id="2" name="End index">2</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="548990371740181">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="807246639651196" type="System">
+                                            <param id="0" name="First value">PowerUps.At(loopindex(&quot;PwUpIDX&quot;))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="254107954809821" type="PowerUpToken">
+                                            <param id="0" name="Instance variable">Position</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">loopindex(&quot;PwUpIDX&quot;) + 1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Set opacity" sid="259216841108785" type="PowerUpToken">
+                                            <param id="0" name="Opacity">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="526581101475075">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="119753880405025" type="System">
+                                            <param id="0" name="First value">PowerUps.At(loopindex(&quot;PwUpIDX&quot;))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">1</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="469082473850598" type="PowerUpToken">
+                                            <param id="0" name="Instance variable">Position</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">loopindex(&quot;PwUpIDX&quot;) + 1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="105429326436632" type="PowerUpToken">
+                                            <param id="0" name="Frame number">0</param>
+                                        </action>
+                                        <action id="-16" name="Set opacity" sid="293208735993313" type="PowerUpToken">
+                                            <param id="0" name="Opacity">100</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="645754150772457">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="438985595173927" type="System">
+                                            <param id="0" name="First value">PowerUps.At(loopindex(&quot;PwUpIDX&quot;))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">2</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="286489611994621" type="PowerUpToken">
+                                            <param id="0" name="Instance variable">Position</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">loopindex(&quot;PwUpIDX&quot;) + 1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="182911915696073" type="PowerUpToken">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="-16" name="Set opacity" sid="686611821649600" type="PowerUpToken">
+                                            <param id="0" name="Opacity">100</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="332707253744904">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="248152256906358" type="System">
+                                            <param id="0" name="First value">PowerUps.At(loopindex(&quot;PwUpIDX&quot;))</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">3</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="684605502407636" type="PowerUpToken">
+                                            <param id="0" name="Instance variable">Position</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">loopindex(&quot;PwUpIDX&quot;) + 1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="889421654386191" type="PowerUpToken">
+                                            <param id="0" name="Frame number">2</param>
+                                        </action>
+                                        <action id="-16" name="Set opacity" sid="710984505372938" type="PowerUpToken">
+                                            <param id="0" name="Opacity">100</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="565957429746304">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="478757269416300" type="System">
+                            <param id="0" name="Variable">ActiveTokens</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="615961627704335">
+                            <conditions>
+                                <condition id="0" name="Compare at X" sid="882052121043645" type="PowerUps">
+                                    <param id="0" name="X">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">Self.At(1)</param>
+                                </condition>
+                                <condition id="0" name="Compare at X" sid="916199781380740" type="PowerUps">
+                                    <param id="0" name="X">1</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">Self.At(2)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Clear" sid="273167500640896" type="PowerUps" />
+                                <action id="0" name="Call function" sid="756871353112981" type="Function">
+                                    <param id="0" name="Name">&quot;ShowPowerUps&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Set value" sid="207840280382119" type="System">
+                                    <param id="0" name="Variable">ActiveTokens</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="449543735646469">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="511892572296778" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Clear" sid="565121349348816" type="PowerUps" />
+                                <action id="0" name="Call function" sid="235646933485328" type="Function">
+                                    <param id="0" name="Name">&quot;ShowPowerUps&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Set value" sid="683252977636101" type="System">
+                                    <param id="0" name="Variable">ActiveTokens</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="656974796594089">
+                    <conditions>
+                        <condition id="0" name="On function" sid="376518627678340" type="Function">
+                            <param id="0" name="Name">&quot;ActivatePowerUp&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
         <variable constant="0" name="Soundtrack1Active" sid="568858660270759" static="0" type="number">1</variable>
         <variable constant="0" name="Soundtrack2Active" sid="193890868552091" static="0" type="number">0</variable>
         <variable constant="0" name="Soundtrack3Active" sid="726036929273996" static="0" type="number">0</variable>
@@ -5316,6 +5576,7 @@
                                 <action id="-15" name="Set visible" sid="507974180418262" type="BackToMenu">
                                     <param id="0" name="Visibility">0</param>
                                 </action>
+                                <action id="33" name="Stop all" sid="868274253338227" type="Audio" />
                                 <action id="-2" name="Go to layout" sid="695072487181226" type="System">
                                     <param id="0" name="Layout">Menu</param>
                                 </action>

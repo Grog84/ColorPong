@@ -2200,6 +2200,9 @@
         </object-type>
         <object-type name="PowerUpHolder" sid="415324509435282">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="PositionID" sid="179799463430416" type="number" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="245303192411258" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
@@ -2224,6 +2227,9 @@
         </object-type>
         <object-type name="PowerUpToken" sid="938713318826401">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Position" sid="107291894336738" type="number" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="677752011325328" speed="5">
                     <frame duration="1" hotspotX="0.509091" hotspotY="0.509091" />
@@ -2235,6 +2241,9 @@
         <object-type name="explosion" sid="779773287376645">
             <plugin id="Particles" />
             <texture />
+        </object-type>
+        <object-type global="1" name="PowerUps" sid="664459603283054">
+            <plugin id="Arr" />
         </object-type>
     </object-folder>
     <families>

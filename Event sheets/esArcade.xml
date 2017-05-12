@@ -10,14 +10,11 @@
         <variable constant="0" name="MusicFadeInTrigger" sid="415600554369902" static="0" type="number">0</variable>
         <variable constant="0" name="MusicFadeOutTrigger" sid="205945874486295" static="0" type="number">0</variable>
         <comment>SpawnTriggers</comment>
-        <variable constant="0" name="SpawnCuboRotante" sid="403779563706876" static="0" type="number">0</variable>
-        <variable constant="0" name="SpawnKamikaze" sid="123396074125826" static="0" type="number">0</variable>
-        <variable constant="0" name="SpawnShuriken" sid="112103926454049" static="0" type="number">0</variable>
-        <variable constant="0" name="SpawnSnake" sid="361146526715732" static="0" type="number">0</variable>
-        <variable constant="0" name="SpawnSlidingDoors" sid="176405335313639" static="0" type="number">0</variable>
-        <variable constant="0" name="SpawnRotatingL" sid="983823297750336" static="0" type="number">0</variable>
-        <variable constant="0" name="SpawnGate" sid="607519077574694" static="0" type="number">0</variable>
+        <variable constant="0" name="SpawnEnemyByID" sid="630248982355978" static="0" type="number">0</variable>
         <variable constant="0" name="SnakeIsActive" sid="991281326800542" static="0" type="number">0</variable>
+        <variable constant="0" name="SnakeX" sid="846560107104510" static="0" type="number">400</variable>
+        <variable constant="0" name="SnakeY" sid="410902685393664" static="0" type="number">400</variable>
+        <variable constant="0" name="SnakeVertAngle" sid="473640530353473" static="0" type="number">0</variable>
         <comment>SpawningDriverVariables</comment>
         <variable constant="0" name="Phase" sid="415567450401352" static="0" type="number">0</variable>
         <variable constant="0" name="TriggerScript" sid="911888412010741" static="0" type="number">0</variable>
@@ -844,6 +841,87 @@
         </event-group>
         <event-group description="" sid="101681450318497" title="Ball">
             <sub-events>
+                <event-block sid="665256170150509">
+                    <conditions>
+                        <condition id="0" name="On function" sid="685441325216643" type="Function">
+                            <param id="0" name="Name">&quot;CalcArkanoidAngle&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="883351354788449">
+                    <conditions>
+                        <condition id="0" name="On function" sid="176648272956943" type="Function">
+                            <param id="0" name="Name">&quot;ChangeEnemyColor&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="175370946284978">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="361522240585716" type="EnemiesAbsorb">
+                                    <param id="0" name="Instance variable">Score</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="128137605739433">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="489238251913580" type="EnemiesAbsorb">
+                                            <param id="0" name="Instance variable">Color</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="123434293274027" type="EnemiesAbsorb">
+                                            <param id="0" name="Animation">&quot;Red&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="576185164383227">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="185652616538364" type="EnemiesAbsorb">
+                                            <param id="0" name="Instance variable">Color</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="500813373906836" type="EnemiesAbsorb">
+                                            <param id="0" name="Animation">&quot;Green&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="686411536984883">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="484163171135144" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="370686978860286" type="EnemiesAbsorb">
+                                            <param id="0" name="Animation">&quot;Blue&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="457521656636368">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="514246746066967" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="453863858879544" type="EnemiesAbsorb">
+                                    <param id="0" name="Frame number">self.Color</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="298161036534975">
                     <conditions>
                         <condition id="0" name="On function" sid="699554391423105" type="Function">
@@ -1087,31 +1165,17 @@
                 <event-block sid="284073769919997">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="206126198462661" type="Ball">
-                            <param id="0" name="Object">DestructibleEnemies</param>
+                            <param id="0" name="Object">EnemiesAbsorb</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Play" sid="931719708073240" type="Audio">
-                            <param id="0" name="Audio file">nemico_distrutto</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-15</param>
-                            <param id="1" name="Tag (optional)">&quot;destroyed_enemy&quot;</param>
+                        <action id="-10" name="Set value" sid="185109920442254" type="EnemiesAbsorb">
+                            <param id="0" name="Instance variable">Color</param>
+                            <param id="1" name="Value">Ball.AnimationFrame</param>
                         </action>
-                        <action id="-10" name="Add to" sid="297812142262852" type="System">
-                            <param id="0" name="Variable">GameScore</param>
-                            <param id="1" name="Value">EnemiesScores.At(DestructibleEnemies.Score)</param>
-                        </action>
-                        <action id="-9" name="Destroy" sid="185109920442254" type="DestructibleEnemies" />
-                        <action id="0" name="Spawn another object" sid="919653227929013" type="ScoreCenter">
-                            <param id="0" name="Object">PlusMinusPoints</param>
-                            <param id="1" name="Layer">&quot;HUD&quot;</param>
-                            <param id="2" name="Image point">0</param>
-                        </action>
-                        <action id="0" name="Set text" sid="485037700175523" type="PlusMinusPoints">
-                            <param id="0" name="Text">EnemiesScores.At(DestructibleEnemies.Score)</param>
-                        </action>
-                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="694038864389177" type="PlusMinusPoints">
-                            <param id="0" name="Angle">270</param>
+                        <action id="0" name="Call function" sid="706033867116512" type="Function">
+                            <param id="0" name="Name">&quot;ChangeEnemyColor&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                     </actions>
                 </event-block>
@@ -1435,6 +1499,10 @@
                         <action behavior="Bullet" id="3" name="Set angle of motion" sid="157095872688897" type="PlusMinusPoints">
                             <param id="0" name="Angle">270</param>
                         </action>
+                        <action id="0" name="Call function" sid="451935781910323" type="Function">
+                            <param id="0" name="Name">&quot;CreateExplosions&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
                         <action id="-9" name="Destroy" sid="626628436649141" type="Enemies" />
                         <action id="-9" name="Destroy" sid="973816966578927" type="SpecialEnemies" />
                     </actions>
@@ -1487,6 +1555,46 @@
                             <param id="1" name="Height">35</param>
                         </action>
                     </actions>
+                </event-block>
+                <event-block sid="398771536407719">
+                    <conditions>
+                        <condition id="0" name="On function" sid="246422975835861" type="Function">
+                            <param id="0" name="Name">&quot;CreateExplosions&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="339276259130642">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="360913317882255" type="System">
+                                    <param id="0" name="Object">Enemies</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="815007366909524" type="System">
+                                    <param id="0" name="Object to create">explosion</param>
+                                    <param id="1" name="Layer">3</param>
+                                    <param id="2" name="X">Enemies.X</param>
+                                    <param id="3" name="Y">Enemies.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="522804376753339">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="584915945275749" type="System">
+                                    <param id="0" name="Object">SpecialEnemies</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="683556617514852" type="System">
+                                    <param id="0" name="Object to create">explosion</param>
+                                    <param id="1" name="Layer">3</param>
+                                    <param id="2" name="X">SpecialEnemies.X</param>
+                                    <param id="3" name="Y">SpecialEnemies.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
@@ -1939,68 +2047,76 @@
         </event-group>
         <event-group description="" sid="584063121615783" title="Enemies">
             <sub-events>
-                <variable constant="0" name="EnemyType" sid="255564798865113" static="0" type="number">0</variable>
-                <event-block sid="760486196412829">
+                <event-block sid="491695501718742">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="456079109415558" type="Enemies">
+                        <condition id="0" name="On collision with another object" sid="576440322097097" type="EnemiesAbsorb">
                             <param id="0" name="Object">Player</param>
-                        </condition>
-                        <condition id="-14" name="Compare variable" sid="183559301206213" type="System">
-                            <param id="0" name="Variable">IMMUNE</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="400188513856903">
+                        <event-block sid="125381036492136">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="253541131630489" type="Player">
-                                    <param id="0" name="Instance variable">Health</param>
+                                <condition id="-7" name="Compare instance variable" sid="438494425512104" type="EnemiesAbsorb">
+                                    <param id="0" name="Instance variable">Color</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">1</param>
+                                    <param id="2" name="Value">Player.Color</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-12" name="Subtract from" sid="862875903212851" type="Player">
-                                    <param id="0" name="Instance variable">Health</param>
-                                    <param id="1" name="Value">1</param>
+                                <action id="-9" name="Destroy" sid="317136600975172" type="EnemiesAbsorb" />
+                                <action id="-10" name="Add to" sid="562168224846121" type="System">
+                                    <param id="0" name="Variable">GameScore</param>
+                                    <param id="1" name="Value">EnemiesAbsorb.Score</param>
+                                </action>
+                                <action id="0" name="Play" sid="931719708073240" type="Audio">
+                                    <param id="0" name="Audio file">nemico_distrutto</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-15</param>
+                                    <param id="1" name="Tag (optional)">&quot;destroyed_enemy&quot;</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="616511001400736" type="ScoreCenter">
+                                    <param id="0" name="Object">PlusMinusPoints</param>
+                                    <param id="1" name="Layer">&quot;HUD&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Set text" sid="128735183938105" type="PlusMinusPoints">
+                                    <param id="0" name="Text">EnemiesScores.At(EnemiesAbsorb.Score)</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="218130829833790" type="PlusMinusPoints">
+                                    <param id="0" name="Angle">270</param>
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="332210450281323">
+                        <event-block sid="452783352181694">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="612776060198338" type="Player">
-                                    <param id="0" name="Instance variable">Health</param>
-                                    <param id="1" name="Comparison">4</param>
-                                    <param id="2" name="Value">1</param>
-                                </condition>
+                                <condition id="-22" name="Else" sid="404137807697223" type="System" />
                             </conditions>
                             <actions>
-                                <action id="0" name="Play" sid="619631823663649" type="Audio">
+                                <action id="0" name="Play" sid="942656238217999" type="Audio">
                                     <param id="0" name="Audio file">perdita vita giocatore</param>
                                     <param id="2" name="Loop">0</param>
                                     <param id="3" name="Volume">-15</param>
                                     <param id="1" name="Tag (optional)">&quot;player_hit&quot;</param>
                                 </action>
-                                <action id="0" name="Call function" sid="842543071876156" type="Function">
+                                <action id="0" name="Call function" sid="974516059918302" type="Function">
                                     <param id="0" name="Name">&quot;DestroyOneTile&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
-                                <action id="-12" name="Subtract from" sid="432051106078341" type="Player">
+                                <action id="-12" name="Subtract from" sid="393537242321312" type="Player">
                                     <param id="0" name="Instance variable">Health</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
-                                <action id="5" name="Set frame" sid="934544642621506" type="Player">
+                                <action id="5" name="Set frame" sid="787058573144096" type="Player">
                                     <param id="0" name="Frame number">5-Self.Health</param>
                                 </action>
-                                <action id="5" name="Set frame" sid="442802532094854" type="PlayerGlow">
+                                <action id="5" name="Set frame" sid="949804937670415" type="PlayerGlow">
                                     <param id="0" name="Frame number">5 - Player.Health</param>
                                 </action>
-                                <action id="5" name="Set frame" sid="714969697988484" type="PlayerShadow">
+                                <action id="5" name="Set frame" sid="442923559811460" type="PlayerShadow">
                                     <param id="0" name="Frame number">5-Player.Health</param>
                                 </action>
-                                <action id="0" name="Call function" sid="167545148963706" type="Function">
+                                <action id="0" name="Call function" sid="149442284216741" type="Function">
                                     <param id="0" name="Name">&quot;IsHitAnimation&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
@@ -2008,6 +2124,7 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <variable constant="0" name="EnemyType" sid="255564798865113" static="0" type="number">0</variable>
                 <event-block sid="944180472883217">
                     <conditions>
                         <condition id="0" name="On function" sid="767234478552228" type="Function">
@@ -2025,8 +2142,8 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Add to" sid="235660763808323" type="System">
-                                    <param id="0" name="Variable">SpawnCuboRotante</param>
+                                <action id="-9" name="Set value" sid="235660763808323" type="System">
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
@@ -2045,9 +2162,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Add to" sid="612623921100050" type="System">
-                                    <param id="0" name="Variable">SpawnKamikaze</param>
-                                    <param id="1" name="Value">1</param>
+                                <action id="-9" name="Set value" sid="221496066590138" type="System">
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
+                                    <param id="1" name="Value">2</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -2065,9 +2182,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Add to" sid="375994493556250" type="System">
-                                    <param id="0" name="Variable">SpawnShuriken</param>
-                                    <param id="1" name="Value">1</param>
+                                <action id="-9" name="Set value" sid="530729470190096" type="System">
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
+                                    <param id="1" name="Value">3</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -2083,16 +2200,11 @@
                                     <param id="1" name="Comparison">3</param>
                                     <param id="2" name="Second value">TotSpawnChance.At(3, Phase)</param>
                                 </condition>
-                                <condition id="-14" name="Compare variable" sid="219847887122820" type="System">
-                                    <param id="0" name="Variable">SnakeIsActive</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">0</param>
-                                </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Add to" sid="451796890558770" type="System">
-                                    <param id="0" name="Variable">SpawnSnake</param>
-                                    <param id="1" name="Value">1</param>
+                                <action id="-9" name="Set value" sid="195004619879184" type="System">
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
+                                    <param id="1" name="Value">4</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -2110,9 +2222,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Add to" sid="518584635425474" type="System">
-                                    <param id="0" name="Variable">SpawnSlidingDoors</param>
-                                    <param id="1" name="Value">1</param>
+                                <action id="-9" name="Set value" sid="490027365390233" type="System">
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
+                                    <param id="1" name="Value">5</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -2130,9 +2242,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Add to" sid="618333271211187" type="System">
-                                    <param id="0" name="Variable">SpawnRotatingL</param>
-                                    <param id="1" name="Value">1</param>
+                                <action id="-9" name="Set value" sid="533758071456654" type="System">
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
+                                    <param id="1" name="Value">6</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -2150,9 +2262,9 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Add to" sid="113526282267202" type="System">
-                                    <param id="0" name="Variable">SpawnGate</param>
-                                    <param id="1" name="Value">1</param>
+                                <action id="-9" name="Set value" sid="896775216752888" type="System">
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
+                                    <param id="1" name="Value">7</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -2211,14 +2323,6 @@
                         <action id="-10" name="Set value" sid="297586418061857" type="Enemies">
                             <param id="0" name="Instance variable">GlowUID</param>
                             <param id="1" name="Value">ExtGlowCircle.UID</param>
-                        </action>
-                        <action id="0" name="Call function" sid="392002105175260" type="Function">
-                            <param id="0" name="Name">&quot;SetBlurShape&quot;</param>
-                            <param id="1" name="Parameter {n}">Enemies.TypeID{###}Blur.UID</param>
-                        </action>
-                        <action id="-10" name="Set value" sid="693181314779000" type="Enemies">
-                            <param id="0" name="Instance variable">BlurUID</param>
-                            <param id="1" name="Value">Blur.UID</param>
                         </action>
                     </actions>
                 </event-block>
@@ -2559,10 +2663,11 @@
                         <event-block sid="207119484246203">
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="955762360233175" type="System">
-                                    <param id="0" name="Variable">SpawnGate</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">1</param>
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">7</param>
                                 </condition>
+                                <condition id="-4" name="Trigger once while true" sid="102133268819118" type="System" />
                             </conditions>
                             <actions>
                                 <action id="-9" name="Set value" sid="732276043579967" type="System">
@@ -2580,9 +2685,9 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-11" name="Subtract from" sid="290831851159355" type="System">
-                                            <param id="0" name="Variable">SpawnGate</param>
-                                            <param id="1" name="Value">1</param>
+                                        <action id="-9" name="Set value" sid="290831851159355" type="System">
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
+                                            <param id="1" name="Value">0</param>
                                         </action>
                                         <action id="0" name="Spawn another object" sid="477353161430286" type="spawn">
                                             <param id="0" name="Object">gateRay</param>
@@ -2816,10 +2921,11 @@
                         <event-block sid="214873602780541">
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="150366648265150" type="System">
-                                    <param id="0" name="Variable">SpawnRotatingL</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">1</param>
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">7</param>
                                 </condition>
+                                <condition id="-4" name="Trigger once while true" sid="274490136546474" type="System" />
                             </conditions>
                             <actions>
                                 <action id="-9" name="Set value" sid="492181889230136" type="System">
@@ -2837,9 +2943,9 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-11" name="Subtract from" sid="296314275664715" type="System">
-                                            <param id="0" name="Variable">SpawnRotatingL</param>
-                                            <param id="1" name="Value">1</param>
+                                        <action id="-9" name="Set value" sid="296314275664715" type="System">
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
+                                            <param id="1" name="Value">0</param>
                                         </action>
                                         <action id="0" name="Spawn another object" sid="408938858269573" type="spawn">
                                             <param id="0" name="Object">LBase</param>
@@ -2875,6 +2981,10 @@
                                     <param id="0" name="Instance variable">SpriteID</param>
                                     <param id="1" name="Value">L.UID</param>
                                 </action>
+                                <action id="-10" name="Set value" sid="950814402422246" type="L">
+                                    <param id="0" name="Instance variable">EnemyID</param>
+                                    <param id="1" name="Value">6</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="632146212200630">
@@ -2895,9 +3005,9 @@
                         <event-block sid="117122975895892">
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="933325585557112" type="System">
-                                    <param id="0" name="Variable">SpawnSlidingDoors</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">1</param>
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">5</param>
                                 </condition>
                                 <condition id="-4" name="Trigger once while true" sid="523453131932259" type="System" />
                             </conditions>
@@ -2907,6 +3017,10 @@
                                 <event-block sid="514053586366081">
                                     <conditions />
                                     <actions>
+                                        <action id="-9" name="Set value" sid="954908687086439" type="System">
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
                                         <action id="-9" name="Set value" sid="854940789900519" type="System">
                                             <param id="0" name="Variable">GetPair</param>
                                             <param id="1" name="Value">int(random(2))</param>
@@ -2960,15 +3074,6 @@
                                         </action>
                                         <action behavior="Bullet" id="0" name="Set speed" sid="607895021840069" type="slidingDoors">
                                             <param id="0" name="Speed">ParamsDoors.At(1, Phase)</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="528173653650854">
-                                    <conditions />
-                                    <actions>
-                                        <action id="-11" name="Subtract from" sid="954908687086439" type="System">
-                                            <param id="0" name="Variable">SpawnSlidingDoors</param>
-                                            <param id="1" name="Value">1</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -3096,9 +3201,9 @@
                         <event-block sid="413313614815234">
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="798650759749468" type="System">
-                                    <param id="0" name="Variable">SpawnSnake</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">1</param>
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">4</param>
                                 </condition>
                                 <condition id="-4" name="Trigger once while true" sid="665011260145182" type="System" />
                             </conditions>
@@ -3118,26 +3223,21 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-11" name="Subtract from" sid="584979264006481" type="System">
-                                            <param id="0" name="Variable">SpawnSnake</param>
-                                            <param id="1" name="Value">1</param>
+                                        <action id="-9" name="Set value" sid="584979264006481" type="System">
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
+                                            <param id="1" name="Value">0</param>
                                         </action>
-                                        <action id="0" name="Spawn another object" sid="103650159848287" type="spawn">
-                                            <param id="0" name="Object">snakeHead</param>
-                                            <param id="1" name="Layer">3</param>
-                                            <param id="2" name="Image point">1</param>
+                                        <action id="-9" name="Set value" sid="951500555761484" type="System">
+                                            <param id="0" name="Variable">SnakeX</param>
+                                            <param id="1" name="Value">random(400, 1000)</param>
                                         </action>
-                                        <action id="-10" name="Set value" sid="419201922082479" type="snakeHead">
-                                            <param id="0" name="Instance variable">SpawnPointID</param>
-                                            <param id="1" name="Value">SpawnPoint</param>
+                                        <action id="-9" name="Set value" sid="114386199744961" type="System">
+                                            <param id="0" name="Variable">SnakeY</param>
+                                            <param id="1" name="Value">random(200, 500)</param>
                                         </action>
-                                        <action id="-10" name="Set value" sid="274579153915399" type="snakeHead">
-                                            <param id="0" name="Instance variable">InitialX</param>
-                                            <param id="1" name="Value">self.X</param>
-                                        </action>
-                                        <action id="-10" name="Set value" sid="296699521605374" type="snakeHead">
-                                            <param id="0" name="Instance variable">InitialY</param>
-                                            <param id="1" name="Value">self.Y</param>
+                                        <action id="0" name="Call function" sid="103650159848287" type="Function">
+                                            <param id="0" name="Name">&quot;SpawnSnake&quot;</param>
+                                            <param id="1" name="Parameter {n}">spawn.UID</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -3151,35 +3251,13 @@
                                 <action id="-16" name="Wait" sid="763073455674693" type="System">
                                     <param id="0" name="Seconds">2</param>
                                 </action>
-                                <action id="-10" name="Set value" sid="378771410040478" type="snakeHead">
-                                    <param id="0" name="Instance variable">Xtranslation</param>
-                                    <param id="1" name="Value">random(400, 1000)</param>
+                                <action id="-10" name="Set value" sid="598158301458952" type="snakeHead">
+                                    <param id="0" name="Instance variable">InitialY</param>
+                                    <param id="1" name="Value">self.Y</param>
                                 </action>
-                                <action id="-10" name="Set value" sid="300087831724558" type="snakeHead">
-                                    <param id="0" name="Instance variable">Ytranslation</param>
-                                    <param id="1" name="Value">random(200, 500)</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="929258840265012" type="snakeHead">
-                                    <param id="0" name="Instance variable">NextTurnX</param>
-                                    <param id="1" name="Value">self.InitialX - self.Xtranslation</param>
-                                </action>
-                                <action behavior="CustomMovement" id="12" name="Set enabled" sid="274770460373875" type="snakeHead">
-                                    <param id="0" name="State">1</param>
-                                </action>
-                                <action behavior="CustomMovement" id="6" name="Set angle of motion" sid="822471674786639" type="snakeHead">
-                                    <param id="0" name="Angle">0</param>
-                                </action>
-                                <action behavior="CustomMovement" id="2" name="Set speed" sid="923494084598174" type="snakeHead">
-                                    <param id="0" name="Which">1</param>
-                                    <param id="1" name="Speed">-ParamsSnake.At(1, Phase)</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="113414062738177" type="System">
-                                    <param id="0" name="Variable">SnakeIsActive</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                                <action id="0" name="Call function" sid="358058996945514" type="Function">
-                                    <param id="0" name="Name">&quot;SpawnTail&quot;</param>
-                                    <param id="1" name="Parameter {n}"></param>
+                                <action id="-10" name="Set value" sid="242442555941103" type="snakeHead">
+                                    <param id="0" name="Instance variable">TypeID</param>
+                                    <param id="1" name="Value">4</param>
                                 </action>
                             </actions>
                             <sub-events>
@@ -3191,9 +3269,9 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-10" name="Set value" sid="802497289354560" type="snakeHead">
-                                            <param id="0" name="Instance variable">NextTurnY</param>
-                                            <param id="1" name="Value">self.InitialY - self.Ytranslation</param>
+                                        <action id="-9" name="Set value" sid="138706608705482" type="System">
+                                            <param id="0" name="Variable">SnakeVertAngle</param>
+                                            <param id="1" name="Value">270</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -3205,9 +3283,9 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-10" name="Set value" sid="326850740738039" type="snakeHead">
-                                            <param id="0" name="Instance variable">NextTurnY</param>
-                                            <param id="1" name="Value">self.InitialY + self.Ytranslation</param>
+                                        <action id="-9" name="Set value" sid="301470660170142" type="System">
+                                            <param id="0" name="Variable">SnakeVertAngle</param>
+                                            <param id="1" name="Value">90</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -3218,52 +3296,23 @@
                                 <condition id="-11" name="For Each" sid="170761810350024" type="System">
                                     <param id="0" name="Object">snakeHead</param>
                                 </condition>
-                                <condition id="-8" name="Compare two values" sid="278641474794627" type="System">
-                                    <param id="0" name="First value">abs(snakeHead.X - snakeHead.InitialX)</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Second value">snakeHead.Xtranslation</param>
-                                </condition>
                                 <condition id="-7" name="Compare instance variable" sid="799072222591481" type="snakeHead">
                                     <param id="0" name="Instance variable">TravellingDirection</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">0</param>
                                 </condition>
                             </conditions>
-                            <actions>
-                                <action behavior="CustomMovement" id="0" name="Stop" sid="957864475432105" type="snakeHead" />
-                            </actions>
+                            <actions />
                             <sub-events>
                                 <event-block sid="705858164741068">
                                     <conditions>
-                                        <condition id="-2" name="Compare Y" sid="864091827507018" type="snakeHead">
-                                            <param id="0" name="Comparison">5</param>
-                                            <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height/2.0</param>
+                                        <condition id="-1" name="Compare X" sid="864091827507018" type="snakeHead">
+                                            <param id="0" name="Comparison">3</param>
+                                            <param id="1" name="X co-ordinate">LayoutWidth - SnakeX</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action behavior="CustomMovement" id="2" name="Set speed" sid="209933691880612" type="snakeHead">
-                                            <param id="0" name="Which">2</param>
-                                            <param id="1" name="Speed">-ParamsSnake.At(1, Phase)</param>
-                                        </action>
                                         <action id="-10" name="Set value" sid="880150869185928" type="snakeHead">
-                                            <param id="0" name="Instance variable">TravellingDirection</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="622253856037281">
-                                    <conditions>
-                                        <condition id="-2" name="Compare Y" sid="267875384522412" type="snakeHead">
-                                            <param id="0" name="Comparison">2</param>
-                                            <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height/2.0</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action behavior="CustomMovement" id="2" name="Set speed" sid="738377151549689" type="snakeHead">
-                                            <param id="0" name="Which">2</param>
-                                            <param id="1" name="Speed">ParamsSnake.At(1, Phase)</param>
-                                        </action>
-                                        <action id="-10" name="Set value" sid="847572551236282" type="snakeHead">
                                             <param id="0" name="Instance variable">TravellingDirection</param>
                                             <param id="1" name="Value">1</param>
                                         </action>
@@ -3276,33 +3325,35 @@
                                 <condition id="-11" name="For Each" sid="594617483352824" type="System">
                                     <param id="0" name="Object">snakeHead</param>
                                 </condition>
-                                <condition id="-8" name="Compare two values" sid="948181486468872" type="System">
-                                    <param id="0" name="First value">abs(snakeHead.Y - snakeHead.InitialY)</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Second value">snakeHead.Ytranslation</param>
-                                </condition>
                                 <condition id="-7" name="Compare instance variable" sid="596599160792149" type="snakeHead">
                                     <param id="0" name="Instance variable">TravellingDirection</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">1</param>
                                 </condition>
                             </conditions>
-                            <actions>
-                                <action behavior="CustomMovement" id="0" name="Stop" sid="890530733594632" type="snakeHead" />
-                                <action behavior="CustomMovement" id="2" name="Set speed" sid="144635460085917" type="snakeHead">
-                                    <param id="0" name="Which">1</param>
-                                    <param id="1" name="Speed">-ParamsSnake.At(1, Phase)</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="155704287971812" type="snakeHead">
-                                    <param id="0" name="Instance variable">TravellingDirection</param>
-                                    <param id="1" name="Value">0</param>
-                                </action>
-                            </actions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="286544694521222">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="700913878783225" type="System">
+                                            <param id="0" name="First value">abs(snakeHead.Y - snakeHead.InitialY)</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Second value">SnakeY</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="621990986451718" type="snakeHead">
+                                            <param id="0" name="Instance variable">TravellingDirection</param>
+                                            <param id="1" name="Value">-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="309430066523968">
                             <conditions>
                                 <condition id="0" name="On function" sid="886608811881497" type="Function">
-                                    <param id="0" name="Name">&quot;SpawnTail&quot;</param>
+                                    <param id="0" name="Name">&quot;SpawnSnake&quot;</param>
                                 </condition>
                             </conditions>
                             <actions />
@@ -3314,38 +3365,16 @@
                                             <param id="1" name="Start index">1</param>
                                             <param id="2" name="End index">ParamsSnake.At(2, Phase)</param>
                                         </condition>
+                                        <condition id="-14" name="Pick by unique ID" sid="332985987162395" type="spawn">
+                                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                                        </condition>
                                     </conditions>
                                     <actions>
                                         <action id="-16" name="Wait" sid="327045749794265" type="System">
                                             <param id="0" name="Seconds">0.3 * ParamsSnake.At(1, Phase) / 200.0 * loopindex(&quot;TailIDX&quot;)</param>
                                         </action>
-                                        <action id="0" name="Call function" sid="841185559404156" type="Function">
-                                            <param id="0" name="Name">&quot;SpawnTailPiece&quot;</param>
-                                            <param id="1" name="Parameter {n}"></param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                        <event-block sid="787882680139192">
-                            <conditions>
-                                <condition id="0" name="On function" sid="951600008119601" type="Function">
-                                    <param id="0" name="Name">&quot;SpawnTailPiece&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions />
-                            <sub-events>
-                                <event-block sid="109220543404574">
-                                    <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="435824186420166" type="spawn">
-                                            <param id="0" name="Instance variable">ID</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">snakeHead.SpawnPointID</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
                                         <action id="0" name="Spawn another object" sid="290789971916338" type="spawn">
-                                            <param id="0" name="Object">snakeTail</param>
+                                            <param id="0" name="Object">snakeHead</param>
                                             <param id="1" name="Layer">3</param>
                                             <param id="2" name="Image point">1</param>
                                         </action>
@@ -3353,170 +3382,39 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
-                        <event-block sid="128043377350775">
+                        <event-block any="1" sid="268061562834984">
                             <conditions>
-                                <condition id="-18" name="On created" sid="113727894612815" type="snakeTail" />
-                            </conditions>
-                            <actions>
-                                <action id="-16" name="Wait" sid="993483301910467" type="System">
-                                    <param id="0" name="Seconds">0.1</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="535858464674614" type="snakeTail">
-                                    <param id="0" name="Instance variable">SpawnPointID</param>
-                                    <param id="1" name="Value">SpawnPoint</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="698329924969329" type="snakeTail">
-                                    <param id="0" name="Instance variable">InitialX</param>
-                                    <param id="1" name="Value">self.X</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="786429406011894" type="snakeTail">
-                                    <param id="0" name="Instance variable">InitialY</param>
-                                    <param id="1" name="Value">self.Y</param>
-                                </action>
-                                <action behavior="CustomMovement" id="12" name="Set enabled" sid="623056116130203" type="snakeTail">
-                                    <param id="0" name="State">1</param>
-                                </action>
-                                <action behavior="CustomMovement" id="6" name="Set angle of motion" sid="487461012227806" type="snakeTail">
-                                    <param id="0" name="Angle">0</param>
-                                </action>
-                                <action behavior="CustomMovement" id="2" name="Set speed" sid="900306228078380" type="snakeTail">
-                                    <param id="0" name="Which">1</param>
-                                    <param id="1" name="Speed">-ParamsSnake.At(1, Phase)</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="522078443603551" type="snakeTail">
-                                    <param id="0" name="Instance variable">Xtranslation</param>
-                                    <param id="1" name="Value">snakeHead.Xtranslation</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="391060208767024" type="snakeTail">
-                                    <param id="0" name="Instance variable">Ytranslation</param>
-                                    <param id="1" name="Value">snakeHead.Ytranslation</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="468423404013296" type="snakeTail">
-                                    <param id="0" name="Instance variable">NextTurnX</param>
-                                    <param id="1" name="Value">snakeHead.NextTurnX</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="129574427270185" type="snakeTail">
-                                    <param id="0" name="Instance variable">NextTurnY</param>
-                                    <param id="1" name="Value">snakeHead.NextTurnY</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="138951560109629">
-                            <conditions>
-                                <condition id="-11" name="For Each" sid="662343376749254" type="System">
-                                    <param id="0" name="Object">snakeTail</param>
-                                </condition>
-                                <condition id="-8" name="Compare two values" sid="386601907931987" type="System">
-                                    <param id="0" name="First value">abs(snakeTail.X - snakeTail.NextTurnX)</param>
-                                    <param id="1" name="Comparison">3</param>
-                                    <param id="2" name="Second value">3</param>
-                                </condition>
-                                <condition id="-7" name="Compare instance variable" sid="971455432355707" type="snakeTail">
+                                <condition id="-7" name="Compare instance variable" sid="604499031379743" type="snakeHead">
                                     <param id="0" name="Instance variable">TravellingDirection</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">0</param>
                                 </condition>
+                                <condition id="-7" name="Compare instance variable" sid="148162726472788" type="snakeHead">
+                                    <param id="0" name="Instance variable">TravellingDirection</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
                             </conditions>
                             <actions>
-                                <action behavior="CustomMovement" id="0" name="Stop" sid="184847212740008" type="snakeTail" />
+                                <action id="-23" name="Move at angle" sid="645321204814117" type="snakeHead">
+                                    <param id="0" name="Angle">180</param>
+                                    <param id="1" name="Distance">self.Speed</param>
+                                </action>
                             </actions>
-                            <sub-events>
-                                <event-block sid="360229851148091">
-                                    <conditions>
-                                        <condition id="-2" name="Compare Y" sid="624608460652725" type="snakeTail">
-                                            <param id="0" name="Comparison">5</param>
-                                            <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height/2.0</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action behavior="CustomMovement" id="2" name="Set speed" sid="541576279517029" type="snakeTail">
-                                            <param id="0" name="Which">2</param>
-                                            <param id="1" name="Speed">-ParamsSnake.At(1, Phase)</param>
-                                        </action>
-                                        <action id="-10" name="Set value" sid="774776340588795" type="snakeTail">
-                                            <param id="0" name="Instance variable">TravellingDirection</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="242331250758180">
-                                    <conditions>
-                                        <condition id="-2" name="Compare Y" sid="237544995964533" type="snakeTail">
-                                            <param id="0" name="Comparison">2</param>
-                                            <param id="1" name="Y co-ordinate">FRAMEOFFSET + Frame.Height/2.0</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action behavior="CustomMovement" id="2" name="Set speed" sid="119039674352062" type="snakeTail">
-                                            <param id="0" name="Which">2</param>
-                                            <param id="1" name="Speed">ParamsSnake.At(1, Phase)</param>
-                                        </action>
-                                        <action id="-10" name="Set value" sid="241728567085837" type="snakeTail">
-                                            <param id="0" name="Instance variable">TravellingDirection</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
                         </event-block>
-                        <event-block sid="870449769803162">
+                        <event-block sid="313607833675628">
                             <conditions>
-                                <condition id="-11" name="For Each" sid="177876108402786" type="System">
-                                    <param id="0" name="Object">snakeTail</param>
-                                </condition>
-                                <condition id="-8" name="Compare two values" sid="445549250163579" type="System">
-                                    <param id="0" name="First value">abs(snakeTail.Y - snakeTail.NextTurnY)</param>
-                                    <param id="1" name="Comparison">3</param>
-                                    <param id="2" name="Second value">3</param>
-                                </condition>
-                                <condition id="-7" name="Compare instance variable" sid="903416706434567" type="snakeTail">
+                                <condition id="-7" name="Compare instance variable" sid="671667755164301" type="snakeHead">
                                     <param id="0" name="Instance variable">TravellingDirection</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">1</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action behavior="CustomMovement" id="0" name="Stop" sid="455154452841483" type="snakeTail" />
-                                <action behavior="CustomMovement" id="2" name="Set speed" sid="486968726223865" type="snakeTail">
-                                    <param id="0" name="Which">1</param>
-                                    <param id="1" name="Speed">-ParamsSnake.At(1, Phase)</param>
+                                <action id="-23" name="Move at angle" sid="456441032403090" type="snakeHead">
+                                    <param id="0" name="Angle">SnakeVertAngle</param>
+                                    <param id="1" name="Distance">self.Speed</param>
                                 </action>
-                                <action id="-10" name="Set value" sid="848123367187342" type="snakeTail">
-                                    <param id="0" name="Instance variable">TravellingDirection</param>
-                                    <param id="1" name="Value">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="849428054693751">
-                            <conditions>
-                                <condition id="-8" name="Compare two values" sid="908895807161569" type="System">
-                                    <param id="0" name="First value">snakeHead.Count + snakeTail.Count</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Set value" sid="279695801829121" type="System">
-                                    <param id="0" name="Variable">SnakeIsActive</param>
-                                    <param id="1" name="Value">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="292637921565925">
-                            <conditions>
-                                <condition id="-8" name="Compare two values" sid="530809387695312" type="System">
-                                    <param id="0" name="First value">snakeTail.Count</param>
-                                    <param id="1" name="Comparison">4</param>
-                                    <param id="2" name="Second value">0</param>
-                                </condition>
-                                <condition id="-14" name="Compare variable" sid="312766006420669" type="System">
-                                    <param id="0" name="Variable">SnakeIsActive</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Destroy" sid="662341113582337" type="snakeTail" />
                             </actions>
                         </event-block>
                     </sub-events>
@@ -3527,10 +3425,11 @@
                         <event-block sid="226022757231225">
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="296436720034975" type="System">
-                                    <param id="0" name="Variable">SpawnShuriken</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">1</param>
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
                                 </condition>
+                                <condition id="-4" name="Trigger once while true" sid="779859968240971" type="System" />
                             </conditions>
                             <actions>
                                 <action id="-9" name="Set value" sid="443653713403616" type="System">
@@ -3548,9 +3447,9 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-11" name="Subtract from" sid="598025909824704" type="System">
-                                            <param id="0" name="Variable">SpawnShuriken</param>
-                                            <param id="1" name="Value">1</param>
+                                        <action id="-9" name="Set value" sid="598025909824704" type="System">
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
+                                            <param id="1" name="Value">0</param>
                                         </action>
                                         <action id="0" name="Spawn another object" sid="307797892615796" type="LateralSpawningPoints">
                                             <param id="0" name="Object">ShurikenBase</param>
@@ -3589,6 +3488,10 @@
                             <actions>
                                 <action id="-16" name="Wait" sid="742556205465646" type="System">
                                     <param id="0" name="Seconds">2.0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="623745974930421" type="shuriken">
+                                    <param id="0" name="Instance variable">TypeID</param>
+                                    <param id="1" name="Value">3</param>
                                 </action>
                             </actions>
                             <sub-events>
@@ -3710,10 +3613,11 @@
                         <event-block sid="804421677543469">
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="802841283257179" type="System">
-                                    <param id="0" name="Variable">SpawnKamikaze</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">1</param>
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
                                 </condition>
+                                <condition id="-4" name="Trigger once while true" sid="493240942152379" type="System" />
                             </conditions>
                             <actions>
                                 <action id="-9" name="Set value" sid="334635768515077" type="System">
@@ -3731,9 +3635,9 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-11" name="Subtract from" sid="343786631698152" type="System">
-                                            <param id="0" name="Variable">SpawnKamikaze</param>
-                                            <param id="1" name="Value">1</param>
+                                        <action id="-9" name="Set value" sid="343786631698152" type="System">
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
+                                            <param id="1" name="Value">0</param>
                                         </action>
                                         <action id="0" name="Spawn another object" sid="447236105248751" type="spawn">
                                             <param id="0" name="Object">Kamikaze</param>
@@ -3742,6 +3646,10 @@
                                         </action>
                                         <action behavior="Bullet" id="0" name="Set speed" sid="536089353216411" type="Kamikaze">
                                             <param id="0" name="Speed">ParamsKamikaze.At(1, Phase)</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="359428556458739" type="Kamikaze">
+                                            <param id="0" name="Instance variable">TypeID</param>
+                                            <param id="1" name="Value">2</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -3816,7 +3724,7 @@
                         <event-block sid="193540435254123">
                             <conditions>
                                 <condition id="-14" name="Compare variable" sid="439460556548437" type="System">
-                                    <param id="0" name="Variable">SpawnCuboRotante</param>
+                                    <param id="0" name="Variable">SpawnEnemyByID</param>
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">1</param>
                                 </condition>
@@ -3844,6 +3752,10 @@
                                         </condition>
                                     </conditions>
                                     <actions>
+                                        <action id="-9" name="Set value" sid="397117522342021" type="System">
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
                                         <action id="0" name="Spawn another object" sid="319216606625395" type="LateralSpawningPoints">
                                             <param id="0" name="Object">cuboRotanteBase</param>
                                             <param id="1" name="Layer">0</param>
@@ -3864,10 +3776,6 @@
                                         </action>
                                         <action behavior="Bullet" id="0" name="Set speed" sid="707124369567367" type="cuboRotanteBase">
                                             <param id="0" name="Speed">ParamsCuboRotante.At(1, Phase)</param>
-                                        </action>
-                                        <action id="-11" name="Subtract from" sid="397117522342021" type="System">
-                                            <param id="0" name="Variable">SpawnCuboRotante</param>
-                                            <param id="1" name="Value">1</param>
                                         </action>
                                     </actions>
                                     <sub-events>
@@ -3916,9 +3824,6 @@
                             <actions>
                                 <action id="-9" name="Destroy" sid="912550839465398" type="cuboRotanteBase" />
                                 <action id="-9" name="Destroy" sid="615492602339897" type="cuboRotante" />
-                                <action id="6" name="Stop" sid="593122147101554" type="Audio">
-                                    <param id="0" name="Tag">&quot;cubo&quot;</param>
-                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="712894007144416">
@@ -3934,6 +3839,13 @@
                             <actions>
                                 <action id="-9" name="Destroy" sid="754699344607277" type="cuboRotanteBase" />
                                 <action id="-9" name="Destroy" sid="898971790184360" type="cuboRotante" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="262613291000039">
+                            <conditions>
+                                <condition id="-19" name="On destroyed" sid="816283286026308" type="cuboRotante" />
+                            </conditions>
+                            <actions>
                                 <action id="6" name="Stop" sid="368418540615612" type="Audio">
                                     <param id="0" name="Tag">&quot;cubo&quot;</param>
                                 </action>
@@ -4813,7 +4725,7 @@
                                     </conditions>
                                     <actions>
                                         <action id="-9" name="Set value" sid="625005431293789" type="System">
-                                            <param id="0" name="Variable">SpawnCuboRotante</param>
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
                                             <param id="1" name="Value">1</param>
                                         </action>
                                     </actions>
@@ -4828,9 +4740,9 @@
                                         <condition id="-4" name="Trigger once while true" sid="562907135105067" type="System" />
                                     </conditions>
                                     <actions>
-                                        <action id="-9" name="Set value" sid="426562483045466" type="System">
-                                            <param id="0" name="Variable">SpawnKamikaze</param>
-                                            <param id="1" name="Value">1</param>
+                                        <action id="-9" name="Set value" sid="771649575679848" type="System">
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
+                                            <param id="1" name="Value">2</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -4844,9 +4756,9 @@
                                         <condition id="-4" name="Trigger once while true" sid="536848618201688" type="System" />
                                     </conditions>
                                     <actions>
-                                        <action id="-9" name="Set value" sid="427889965521208" type="System">
-                                            <param id="0" name="Variable">SpawnShuriken</param>
-                                            <param id="1" name="Value">1</param>
+                                        <action id="-9" name="Set value" sid="278040045657096" type="System">
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
+                                            <param id="1" name="Value">3</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -4860,9 +4772,9 @@
                                         <condition id="-4" name="Trigger once while true" sid="301753554875006" type="System" />
                                     </conditions>
                                     <actions>
-                                        <action id="-9" name="Set value" sid="725619727619607" type="System">
-                                            <param id="0" name="Variable">SpawnSnake</param>
-                                            <param id="1" name="Value">1</param>
+                                        <action id="-9" name="Set value" sid="613615967822317" type="System">
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
+                                            <param id="1" name="Value">4</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -4876,9 +4788,9 @@
                                         <condition id="-4" name="Trigger once while true" sid="412818726824482" type="System" />
                                     </conditions>
                                     <actions>
-                                        <action id="-9" name="Set value" sid="866373098991191" type="System">
-                                            <param id="0" name="Variable">SpawnSlidingDoors</param>
-                                            <param id="1" name="Value">1</param>
+                                        <action id="-9" name="Set value" sid="754049484667788" type="System">
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
+                                            <param id="1" name="Value">5</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -4892,9 +4804,9 @@
                                         <condition id="-4" name="Trigger once while true" sid="865504503058804" type="System" />
                                     </conditions>
                                     <actions>
-                                        <action id="-9" name="Set value" sid="200814327512573" type="System">
-                                            <param id="0" name="Variable">SpawnRotatingL</param>
-                                            <param id="1" name="Value">1</param>
+                                        <action id="-9" name="Set value" sid="683132567164628" type="System">
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
+                                            <param id="1" name="Value">6</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -4908,9 +4820,9 @@
                                         <condition id="-4" name="Trigger once while true" sid="364440865089095" type="System" />
                                     </conditions>
                                     <actions>
-                                        <action id="-9" name="Set value" sid="286889134141041" type="System">
-                                            <param id="0" name="Variable">SpawnGate</param>
-                                            <param id="1" name="Value">1</param>
+                                        <action id="-9" name="Set value" sid="835450152270954" type="System">
+                                            <param id="0" name="Variable">SpawnEnemyByID</param>
+                                            <param id="1" name="Value">7</param>
                                         </action>
                                     </actions>
                                 </event-block>

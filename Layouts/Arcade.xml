@@ -2398,7 +2398,7 @@
                         <Score>3</Score>
                         <Color>-1</Color>
                         <EnemyID>0</EnemyID>
-                        <Speed>5</Speed>
+                        <Speed>200</Speed>
                         <NbrOfReplicate>5</NbrOfReplicate>
                         <TravellingDirection>0</TravellingDirection>
                         <InitialY>0</InitialY>
@@ -2435,7 +2435,7 @@
                         <Score>3</Score>
                         <Color>-1</Color>
                         <EnemyID>0</EnemyID>
-                        <Speed>5</Speed>
+                        <Speed>200</Speed>
                         <NbrOfReplicate>5</NbrOfReplicate>
                         <TravellingDirection>0</TravellingDirection>
                         <InitialY>0</InitialY>

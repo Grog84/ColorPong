@@ -1708,10 +1708,11 @@
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="902570681252180" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\redo immagini pong\boss.png">
                         <collision-poly>
-                            <point x="0.25" y="0.0512821" />
+                            <point x="0.375" y="0.0512821" />
                             <point x="0.75" y="0.0512821" />
                             <point x="0.75" y="0.948718" />
-                            <point x="0.25" y="0.948718" />
+                            <point x="0.375" y="0.948718" />
+                            <point x="0.25" y="0.5" />
                         </collision-poly>
                     </frame>
                 </animation>

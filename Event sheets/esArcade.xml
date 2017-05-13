@@ -149,6 +149,14 @@
                     <param id="0" name="Name">&quot;GetPhasesParams&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
+                <action id="-10" name="Set value" sid="944092810898380" type="Boss">
+                    <param id="0" name="Instance variable">MaxSpeed</param>
+                    <param id="1" name="Value">BossParams.At(0, Phase)</param>
+                </action>
+                <action id="-10" name="Set value" sid="110841583518477" type="Boss">
+                    <param id="0" name="Instance variable">Accelleration</param>
+                    <param id="1" name="Value">BossParams.At(1, Phase)</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="841105875629573">
@@ -572,6 +580,25 @@
                                             <param id="0" name="X">1</param>
                                             <param id="1" name="Y">XML.j</param>
                                             <param id="2" name="Value">XML.NumberValue(&quot;@DashSpeed&quot;)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="693932864666609">
+                                    <conditions>
+                                        <condition id="0" name="For each node" sid="581996513942719" type="XML">
+                                            <param id="0" name="XPath">&quot;Boss&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="3" name="Set at XY" sid="529323441607166" type="BossParams">
+                                            <param id="0" name="X">0</param>
+                                            <param id="1" name="Y">XML.j</param>
+                                            <param id="2" name="Value">XML.NumberValue(&quot;@MaxSpeed&quot;)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="872668196233207" type="BossParams">
+                                            <param id="0" name="X">1</param>
+                                            <param id="1" name="Y">XML.j</param>
+                                            <param id="2" name="Value">XML.NumberValue(&quot;@Acceleration&quot;)</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -4876,6 +4903,14 @@
                                     <param id="0" name="Instance variable">SpeedDash</param>
                                     <param id="1" name="Value">PlayerParams.At(1, Phase)</param>
                                 </action>
+                                <action id="-10" name="Set value" sid="638711282749905" type="Boss">
+                                    <param id="0" name="Instance variable">MaxSpeed</param>
+                                    <param id="1" name="Value">BossParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="426609670443567" type="Boss">
+                                    <param id="0" name="Instance variable">Accelleration</param>
+                                    <param id="1" name="Value">BossParams.At(1, Phase)</param>
+                                </action>
                                 <action id="-9" name="Set value" sid="889842471547175" type="System">
                                     <param id="0" name="Variable">Soundtrack2Active</param>
                                     <param id="1" name="Value">1</param>
@@ -4903,6 +4938,22 @@
                                 <action id="-10" name="Set value" sid="582018754585823" type="Ball">
                                     <param id="0" name="Instance variable">SpeedXL</param>
                                     <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="861904394491545" type="Player">
+                                    <param id="0" name="Instance variable">SpeedBase</param>
+                                    <param id="1" name="Value">PlayerParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="374786591157119" type="Player">
+                                    <param id="0" name="Instance variable">SpeedDash</param>
+                                    <param id="1" name="Value">PlayerParams.At(1, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="319882580756437" type="Boss">
+                                    <param id="0" name="Instance variable">MaxSpeed</param>
+                                    <param id="1" name="Value">BossParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="565611173659347" type="Boss">
+                                    <param id="0" name="Instance variable">Accelleration</param>
+                                    <param id="1" name="Value">BossParams.At(1, Phase)</param>
                                 </action>
                                 <action id="-9" name="Set value" sid="136466114031737" type="System">
                                     <param id="0" name="Variable">Soundtrack3Active</param>
@@ -4932,6 +4983,22 @@
                                     <param id="0" name="Instance variable">SpeedXL</param>
                                     <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
                                 </action>
+                                <action id="-10" name="Set value" sid="866120965553660" type="Player">
+                                    <param id="0" name="Instance variable">SpeedBase</param>
+                                    <param id="1" name="Value">PlayerParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="118564089883271" type="Player">
+                                    <param id="0" name="Instance variable">SpeedDash</param>
+                                    <param id="1" name="Value">PlayerParams.At(1, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="735506956716978" type="Boss">
+                                    <param id="0" name="Instance variable">MaxSpeed</param>
+                                    <param id="1" name="Value">BossParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="137367288424916" type="Boss">
+                                    <param id="0" name="Instance variable">Accelleration</param>
+                                    <param id="1" name="Value">BossParams.At(1, Phase)</param>
+                                </action>
                                 <action id="-9" name="Set value" sid="132785495581892" type="System">
                                     <param id="0" name="Variable">Soundtrack4Active</param>
                                     <param id="1" name="Value">1</param>
@@ -4960,6 +5027,22 @@
                                     <param id="0" name="Instance variable">SpeedXL</param>
                                     <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
                                 </action>
+                                <action id="-10" name="Set value" sid="223822094720533" type="Player">
+                                    <param id="0" name="Instance variable">SpeedBase</param>
+                                    <param id="1" name="Value">PlayerParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="821601173810191" type="Player">
+                                    <param id="0" name="Instance variable">SpeedDash</param>
+                                    <param id="1" name="Value">PlayerParams.At(1, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="496279526450184" type="Boss">
+                                    <param id="0" name="Instance variable">MaxSpeed</param>
+                                    <param id="1" name="Value">BossParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="992040053143160" type="Boss">
+                                    <param id="0" name="Instance variable">Accelleration</param>
+                                    <param id="1" name="Value">BossParams.At(1, Phase)</param>
+                                </action>
                                 <action id="-9" name="Set value" sid="625565586023428" type="System">
                                     <param id="0" name="Variable">Soundtrack5Active</param>
                                     <param id="1" name="Value">1</param>
@@ -4987,6 +5070,22 @@
                                 <action id="-10" name="Set value" sid="541213347812491" type="Ball">
                                     <param id="0" name="Instance variable">SpeedXL</param>
                                     <param id="1" name="Value">ParamsXLGate.At(2, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="556165321467460" type="Player">
+                                    <param id="0" name="Instance variable">SpeedBase</param>
+                                    <param id="1" name="Value">PlayerParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="767820192781575" type="Player">
+                                    <param id="0" name="Instance variable">SpeedDash</param>
+                                    <param id="1" name="Value">PlayerParams.At(1, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="195938669355581" type="Boss">
+                                    <param id="0" name="Instance variable">MaxSpeed</param>
+                                    <param id="1" name="Value">BossParams.At(0, Phase)</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="475030239192036" type="Boss">
+                                    <param id="0" name="Instance variable">Accelleration</param>
+                                    <param id="1" name="Value">BossParams.At(1, Phase)</param>
                                 </action>
                                 <action id="-9" name="Set value" sid="268848709746654" type="System">
                                     <param id="0" name="Variable">Soundtrack6Active</param>

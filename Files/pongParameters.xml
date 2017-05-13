@@ -44,6 +44,8 @@
 
 <!-- Questi devono coincidere con i valori iniziali messi da construct -->
 
+<Boss MaxSpeed="200" Acceleration="300"/>
+
 
 </phase>
 
@@ -81,6 +83,8 @@
 
 <Player BaseSpeed="5" DashSpeed="15"/>
 
+<Boss MaxSpeed="200" Acceleration="300"/>
+
 </phase>
 
 
@@ -116,6 +120,8 @@
 <Ball speed="450"/>
 
 <Player BaseSpeed="5" DashSpeed="20"/>
+
+<Boss MaxSpeed="200" Acceleration="300"/>
 
 </phase>
 
@@ -153,6 +159,8 @@
 
 <Player BaseSpeed="7" DashSpeed="20"/>
 
+<Boss MaxSpeed="200" Acceleration="300"/>
+
 </phase>
 
 
@@ -189,6 +197,8 @@
 
 <Player BaseSpeed="10" DashSpeed="30"/>
 
+<Boss MaxSpeed="200" Acceleration="300"/>
+
 </phase>
 
 
@@ -224,6 +234,8 @@
 <Ball speed="750"/>
 
 <Player BaseSpeed="12" DashSpeed="40"/>
+
+<Boss MaxSpeed="200" Acceleration="300"/>
 
 </phase>
 

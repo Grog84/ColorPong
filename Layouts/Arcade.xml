@@ -2056,7 +2056,7 @@
                         <TileLength>25</TileLength>
                         <TopTiles>3</TopTiles>
                         <BotTiles>3</BotTiles>
-                        <Accelleration>100</Accelleration>
+                        <Accelleration>300</Accelleration>
                         <MaxSpeed>300</MaxSpeed>
                     </instance-variables>
                     <behavior-instances>
@@ -3772,6 +3772,13 @@
             <properties>
                 <width>3</width>
                 <height>1</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="BossParams" uid="181">
+            <properties>
+                <width>2</width>
+                <height>6</height>
                 <depth>1</depth>
             </properties>
         </instance>

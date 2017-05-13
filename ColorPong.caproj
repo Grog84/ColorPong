@@ -1298,6 +1298,9 @@
             <object-type global="1" name="EnemiesScores" sid="569970950230492">
                 <plugin id="Arr" />
             </object-type>
+            <object-type global="1" name="BossParams" sid="698784347628354">
+                <plugin id="Arr" />
+            </object-type>
         </object-folder>
         <object-folder name="TimerArrays">
             <object-type global="1" name="PhasesTimer" sid="245029530530758">

@@ -1,8 +1,8 @@
-ï»¿<?xml version="1.0"?>
+<?xml version="1.0"?>
 
 <Phases>
 
-<!-- Questo blocco serve a definire i parametri di difficoltÃ  delle varie fasi -->
+<!-- Questo blocco serve a definire i parametri di difficoltà delle varie fasi -->
 
 
 
@@ -16,7 +16,7 @@
 
 <enemy speed="100" spawnRate="8" name="EvilBlock"/>
 
-<!-- Occhio! spawnRate NON Ã¨ spawnChance -->
+<!-- Occhio! spawnRate NON è spawnChance -->
 
 
 <enemy speed="280" name="CuboRotante" spawnChance="15"/>
@@ -35,16 +35,16 @@
 
 </Enemies>
 
-<Ball speed="300"/>
+<Ball speed="400"/>
 
 <!-- Questo deve coincidere con i valori iniziali messi da construct -->
 
 
-<Player BaseSpeed="5" DashSpeed="6"/>
+<Player BaseSpeed="5" DashSpeed="15"/>
 
 <!-- Questi devono coincidere con i valori iniziali messi da construct -->
 
-<Boss MaxSpeed="200" Acceleration="300"/>
+<Boss MaxSpeed="200" Acceleration="350"/>
 
 
 </phase>
@@ -60,7 +60,7 @@
 
 <enemy speed="150" spawnRate="6" name="EvilBlock"/>
 
-<!-- Occhio! spawnRate NON Ã¨ spawnChance -->
+<!-- Occhio! spawnRate NON è spawnChance -->
 
 
 <enemy speed="230" name="CuboRotante" spawnChance="16"/>
@@ -79,11 +79,11 @@
 
 </Enemies>
 
-<Ball speed="350"/>
+<Ball speed="450"/>
 
 <Player BaseSpeed="5" DashSpeed="15"/>
 
-<Boss MaxSpeed="200" Acceleration="300"/>
+<Boss MaxSpeed="250" Acceleration="400"/>
 
 </phase>
 
@@ -98,7 +98,7 @@
 
 <enemy speed="200" spawnRate="4" name="EvilBlock"/>
 
-<!-- Occhio! spawnRate NON Ã¨ spawnChance -->
+<!-- Occhio! spawnRate NON è spawnChance -->
 
 
 <enemy speed="180" name="CuboRotante" spawnChance="8"/>
@@ -117,11 +117,11 @@
 
 </Enemies>
 
-<Ball speed="450"/>
+<Ball speed="550"/>
 
-<Player BaseSpeed="5" DashSpeed="20"/>
+<Player BaseSpeed="5" DashSpeed="15"/>
 
-<Boss MaxSpeed="200" Acceleration="300"/>
+<Boss MaxSpeed="300" Acceleration="470"/>
 
 </phase>
 
@@ -136,7 +136,7 @@
 
 <enemy speed="300" spawnRate="3" name="EvilBlock"/>
 
-<!-- Occhio! spawnRate NON Ã¨ spawnChance -->
+<!-- Occhio! spawnRate NON è spawnChance -->
 
 
 <enemy speed="150" name="CuboRotante" spawnChance="7"/>
@@ -155,11 +155,11 @@
 
 </Enemies>
 
-<Ball speed="550"/>
+<Ball speed="650"/>
 
-<Player BaseSpeed="7" DashSpeed="20"/>
+<Player BaseSpeed="8" DashSpeed="18"/>
 
-<Boss MaxSpeed="200" Acceleration="300"/>
+<Boss MaxSpeed="350" Acceleration="520"/>
 
 </phase>
 
@@ -174,7 +174,7 @@
 
 <enemy speed="400" spawnRate="2" name="EvilBlock"/>
 
-<!-- Occhio! spawnRate NON Ã¨ spawnChance -->
+<!-- Occhio! spawnRate NON è spawnChance -->
 
 
 <enemy speed="120" name="CuboRotante" spawnChance="7"/>
@@ -193,11 +193,11 @@
 
 </Enemies>
 
-<Ball speed="650"/>
+<Ball speed="700"/>
 
-<Player BaseSpeed="10" DashSpeed="30"/>
+<Player BaseSpeed="10" DashSpeed="18"/>
 
-<Boss MaxSpeed="200" Acceleration="300"/>
+<Boss MaxSpeed="400" Acceleration="570"/>
 
 </phase>
 
@@ -212,7 +212,7 @@
 
 <enemy speed="450" spawnRate="2" name="EvilBlock"/>
 
-<!-- Occhio! spawnRate NON Ã¨ spawnChance -->
+<!-- Occhio! spawnRate NON è spawnChance -->
 
 
 <enemy speed="100" name="CuboRotante" spawnChance="7"/>
@@ -233,9 +233,9 @@
 
 <Ball speed="750"/>
 
-<Player BaseSpeed="12" DashSpeed="40"/>
+<Player BaseSpeed="10" DashSpeed="18"/>
 
-<Boss MaxSpeed="200" Acceleration="300"/>
+<Boss MaxSpeed="450" Acceleration="620"/>
 
 </phase>
 

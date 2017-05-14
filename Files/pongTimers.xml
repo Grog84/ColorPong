@@ -11,19 +11,19 @@
 <!-- Questo blocco serve a definire il tempo del primo spawn per il nemico in questione -->
 
 
-<enemy name="EvilBlock" id="0">10</enemy>
+<enemy name="EvilBlock" id="0">7</enemy>
 
-<enemy name="CuboRotante" id="1">30</enemy>
+<enemy name="CuboRotante" id="1">15</enemy>
 
-<enemy name="Kamikaze" id="2">40</enemy>
+<enemy name="Kamikaze" id="2">20</enemy>
 
-<enemy name="Shuriken" id="3">70</enemy>
+<enemy name="Shuriken" id="3">40</enemy>
 
-<enemy name="Snake" id="4">100</enemy>
+<enemy name="Snake" id="4">60</enemy>
 
-<enemy name="SlidingDoors" id="5">80</enemy>
+<enemy name="SlidingDoors" id="5">55</enemy>
 
-<enemy name="RotatingL" id="6">90</enemy>
+<enemy name="RotatingL" id="6">60</enemy>
 
 <enemy name="XLGate" id="7">50</enemy>
 
@@ -42,13 +42,13 @@
 
 <phase id="2">40</phase>
 
-<phase id="3">100</phase>
+<phase id="3">90</phase>
 
-<phase id="4">240</phase>
+<phase id="4">180</phase>
 
-<phase id="5">360</phase>
+<phase id="5">240</phase>
 
-<phase id="6">480</phase>
+<phase id="6">300</phase>
 
 </Phases>
 

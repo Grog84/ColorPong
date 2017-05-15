@@ -142,12 +142,12 @@
                     <effect-instances>
                         <effect-instance type="BlurHorizontal">
                             <parameters>
-                                <intensity>0.8</intensity>
+                                <intensity>0.1</intensity>
                             </parameters>
                         </effect-instance>
                         <effect-instance type="BlurVertical">
                             <parameters>
-                                <intensity>0.8</intensity>
+                                <intensity>0.1</intensity>
                             </parameters>
                         </effect-instance>
                     </effect-instances>

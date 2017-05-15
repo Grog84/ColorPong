@@ -35,7 +35,7 @@
 
 </Enemies>
 
-<Ball speed="400"/>
+<Ball speed="420"/>
 
 <!-- Questo deve coincidere con i valori iniziali messi da construct -->
 
@@ -117,7 +117,7 @@
 
 </Enemies>
 
-<Ball speed="550"/>
+<Ball speed="520"/>
 
 <Player BaseSpeed="5" DashSpeed="15"/>
 
@@ -155,7 +155,7 @@
 
 </Enemies>
 
-<Ball speed="650"/>
+<Ball speed="580"/>
 
 <Player BaseSpeed="8" DashSpeed="18"/>
 
@@ -193,7 +193,7 @@
 
 </Enemies>
 
-<Ball speed="700"/>
+<Ball speed="620"/>
 
 <Player BaseSpeed="10" DashSpeed="18"/>
 
@@ -231,7 +231,7 @@
 
 </Enemies>
 
-<Ball speed="750"/>
+<Ball speed="700"/>
 
 <Player BaseSpeed="10" DashSpeed="18"/>
 

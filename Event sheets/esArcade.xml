@@ -1229,9 +1229,11 @@
                             <param id="0" name="Instance variable">AngleOfMotion</param>
                             <param id="1" name="Value">Ball.Bullet.AngleOfMotion</param>
                         </action>
-                        <action id="0" name="Call function" sid="665349486406751" type="Function">
-                            <param id="0" name="Name">&quot;SetBallFrame&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
+                        <action id="5" name="Set frame" sid="665349486406751" type="Ball">
+                            <param id="0" name="Frame number">BallInteractiveEnemies.AnimationFrame +1</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="842358330779773" type="BallGlow">
+                            <param id="0" name="Frame number">BallInteractiveEnemies.AnimationFrame + 1</param>
                         </action>
                         <action id="0" name="Play" sid="209953700374945" type="Audio">
                             <param id="0" name="Audio file">rimbalzo pallina</param>
@@ -1613,6 +1615,12 @@
                             <param id="0" name="Name">&quot;RespawnBall&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
                         </action>
+                        <action id="0" name="Play" sid="873995793429018" type="Audio">
+                            <param id="0" name="Audio file">Goal</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                         <action id="-10" name="Add to" sid="763783506040335" type="System">
                             <param id="0" name="Variable">GameScore</param>
                             <param id="1" name="Value">10 * Player.PointsMultiplier</param>
@@ -1733,6 +1741,12 @@
                         <condition id="-4" name="Trigger once while true" sid="542072449083294" type="System" />
                     </conditions>
                     <actions>
+                        <action id="0" name="Play" sid="385781650120245" type="Audio">
+                            <param id="0" name="Audio file">GrowUpBall</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-15</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                         <action id="-7" name="Set size" sid="900654574685153" type="Ball">
                             <param id="0" name="Width">52</param>
                             <param id="1" name="Height">52</param>
@@ -2153,12 +2167,21 @@
                         <condition id="-4" name="Trigger once while true" sid="504536816939195" type="System" />
                     </conditions>
                     <actions>
+                        <action id="0" name="Play" sid="608491537073013" type="Audio">
+                            <param id="0" name="Audio file">ScoreMultitimer</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;SM&quot;</param>
+                        </action>
                         <action id="-16" name="Wait" sid="846488233503731" type="System">
                             <param id="0" name="Seconds">Player.GreenBuffDuration</param>
                         </action>
                         <action id="-10" name="Set value" sid="530380721189912" type="Player">
                             <param id="0" name="Instance variable">PointsMultiplier</param>
                             <param id="1" name="Value">1.0</param>
+                        </action>
+                        <action id="6" name="Stop" sid="373318988449866" type="Audio">
+                            <param id="0" name="Tag">&quot;SM&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -3250,6 +3273,17 @@
                                 <action id="-9" name="Destroy" sid="949114404438458" type="L" />
                             </actions>
                         </event-block>
+                        <event-block sid="661774296893576">
+                            <conditions>
+                                <condition id="-3" name="Is on-screen" sid="716996253323288" type="L" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="480722267290341" type="L">
+                                    <param id="0" name="Instance variable">Color</param>
+                                    <param id="1" name="Value">self.AnimationFrame</param>
+                                </action>
+                            </actions>
+                        </event-block>
                     </sub-events>
                 </event-group>
                 <event-group description="" sid="867239374571230" title="SlidingDoors">
@@ -4032,7 +4066,7 @@
                                     <param id="1" name="Value">int(random(LateralSpawningPoints.Count))</param>
                                 </action>
                                 <action id="0" name="Play" sid="339336828605741" type="Audio">
-                                    <param id="0" name="Audio file">cubo_rotante_loop</param>
+                                    <param id="0" name="Audio file">cubo_rotante_loop1</param>
                                     <param id="2" name="Loop">1</param>
                                     <param id="3" name="Volume">-25</param>
                                     <param id="1" name="Tag (optional)">&quot;cubo&quot;</param>
@@ -4727,6 +4761,76 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <event-block sid="397288095066623">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="944874356213859" type="Ball">
+                            <param id="0" name="Instance variable">BlueBuffSize</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="860556684010347" type="Ball">
+                            <param id="0" name="Instance variable">BlueBuffDuration</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="121130694240730">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="984523900921795" type="System">
+                                    <param id="0" name="Interval (seconds)">1.0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="984450067043418" type="System">
+                                    <param id="0" name="Object to create">FrameHighlight</param>
+                                    <param id="1" name="Layer">&quot;HUD&quot;</param>
+                                    <param id="2" name="X">825</param>
+                                    <param id="3" name="Y">775</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="373004064498651" type="FrameHighlight">
+                                    <param id="0" name="Frame number">3</param>
+                                </action>
+                                <action behavior="Fade" id="1" name="Start fade" sid="393325610463129" type="FrameHighlight" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="309615663982867">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="464677424369433" type="Player">
+                            <param id="0" name="Instance variable">GreenBuffDuration</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="366756604316499" type="Player">
+                            <param id="0" name="Instance variable">PointsMultiplier</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2.0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="238452239560699">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="913280422783279" type="System">
+                                    <param id="0" name="Interval (seconds)">1.0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="593689007333211" type="System">
+                                    <param id="0" name="Object to create">FrameHighlight</param>
+                                    <param id="1" name="Layer">&quot;HUD&quot;</param>
+                                    <param id="2" name="X">825</param>
+                                    <param id="3" name="Y">775</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="353452796791399" type="FrameHighlight">
+                                    <param id="0" name="Frame number">2</param>
+                                </action>
+                                <action behavior="Fade" id="1" name="Start fade" sid="144269866431782" type="FrameHighlight" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="565957429746304">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="478757269416300" type="System">
@@ -4758,6 +4862,16 @@
                                     <param id="2" name="X">246</param>
                                     <param id="3" name="Y">248</param>
                                 </action>
+                                <action id="-3" name="Create object" sid="780420091290970" type="System">
+                                    <param id="0" name="Object to create">FrameHighlight</param>
+                                    <param id="1" name="Layer">&quot;HUD&quot;</param>
+                                    <param id="2" name="X">825</param>
+                                    <param id="3" name="Y">775</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="647999849000864" type="ComboHighlight">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                                <action behavior="Fade" id="1" name="Start fade" sid="776083448865766" type="FrameHighlight" />
                             </actions>
                             <sub-events>
                                 <event-block sid="390125503929841">
@@ -4781,6 +4895,10 @@
                                             <param id="0" name="Name">&quot;RedPowerUp&quot;</param>
                                             <param id="1" name="Parameter {n}"></param>
                                         </action>
+                                        <action id="5" name="Set frame" sid="865208371161707" type="FrameHighlight">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action behavior="Fade" id="1" name="Start fade" sid="239203535428851" type="FrameHighlight" />
                                     </actions>
                                 </event-block>
                                 <event-block sid="322718201287658">
@@ -4816,6 +4934,7 @@
                                         <action id="5" name="Set frame" sid="666461425727136" type="ComboHighlight">
                                             <param id="0" name="Frame number">3</param>
                                         </action>
+                                        <action behavior="Fade" id="1" name="Start fade" sid="957789442363134" type="FrameHighlight" />
                                     </actions>
                                 </event-block>
                                 <event-block sid="407786847581072">
@@ -4904,6 +5023,12 @@
                         <action id="-11" name="Add to" sid="153352718308897" type="Player">
                             <param id="0" name="Instance variable">Health</param>
                             <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="209282733583560" type="Audio">
+                            <param id="0" name="Audio file">oneup</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                         <action id="5" name="Set frame" sid="746200267498059" type="Player">
                             <param id="0" name="Frame number">5-Self.Health</param>
@@ -5078,9 +5203,19 @@
                         <event-block sid="443585778995448">
                             <conditions />
                             <actions>
+                                <action id="-3" name="Create object" sid="194456842301422" type="System">
+                                    <param id="0" name="Object to create">FrameHighlight</param>
+                                    <param id="1" name="Layer">&quot;HUD&quot;</param>
+                                    <param id="2" name="X">825</param>
+                                    <param id="3" name="Y">775</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="875709740566476" type="FrameHighlight">
+                                    <param id="0" name="Speed">10</param>
+                                </action>
                                 <action id="-16" name="Wait" sid="348912076566276" type="System">
                                     <param id="0" name="Seconds">Player.AllColorBuffDurationTime</param>
                                 </action>
+                                <action behavior="Fade" id="1" name="Start fade" sid="299731339237122" type="FrameHighlight" />
                                 <action id="-14" name="Toggle boolean" sid="396209420063589" type="Player">
                                     <param id="0" name="Instance variable">AllColorBuffActive</param>
                                 </action>
@@ -6152,7 +6287,7 @@
                                     </conditions>
                                     <actions>
                                         <action id="0" name="Play" sid="864190365245777" type="Audio">
-                                            <param id="0" name="Audio file">cubo_rotante_loop</param>
+                                            <param id="0" name="Audio file">cubo_rotante_loop1</param>
                                             <param id="2" name="Loop">1</param>
                                             <param id="3" name="Volume">-25</param>
                                             <param id="1" name="Tag (optional)">&quot;cubo&quot;</param>

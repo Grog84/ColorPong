@@ -3,13 +3,13 @@
 	
 	<enemy name="EvilBlock">1</enemy> 
 
-		<enemy name="Kamikaze">3</enemy>
+	<enemy name="Kamikaze">3</enemy>
 
-		<enemy name="Shuriken">3</enemy>
+	<enemy name="Shuriken">3</enemy>
 	
 	<enemy name="SnakeHead">2</enemy>
 	
-	<enemy name="SnakeTail">2</enemy>
+	<enemy name="L">2</enemy>
 
 	</Enemies>
 	

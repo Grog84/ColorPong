@@ -138,15 +138,7 @@
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
-                    <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="525901254785271" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\redo immagini pong\cuborotante_bn.png">
-                            <collision-poly>
-                                <point x="0.1" y="0.1" />
-                                <point x="0.9" y="0.1" />
-                                <point x="0.9" y="0.9" />
-                                <point x="0.1" y="0.9" />
-                            </collision-poly>
-                        </frame>
+                    <animation framecount="3" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="525901254785271" speed="3">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\redo immagini pong\cuborotante_red.png">
                             <collision-poly>
                                 <point x="0.1" y="0.1" />
@@ -416,17 +408,7 @@
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
-                    <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="433172027907870" speed="0">
-                        <frame duration="1" hotspotX="0.505882" hotspotY="0.516667" original-source="C:\Users\PU\Downloads\redo immagini pong\L_bn.png">
-                            <collision-poly>
-                                <point x="0.0470588" y="0.05" />
-                                <point x="0.947059" y="0.0583333" />
-                                <point x="0.947059" y="0.313333" />
-                                <point x="0.218432" y="0.310001" />
-                                <point x="0.218432" y="0.95" />
-                                <point x="0.0470588" y="0.941667" />
-                            </collision-poly>
-                        </frame>
+                    <animation framecount="3" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="433172027907870" speed="3">
                         <frame duration="1" hotspotX="0.505882" hotspotY="0.516667" original-source="C:\Users\PU\Downloads\redo immagini pong\L_red.png">
                             <collision-poly>
                                 <point x="0.0470588" y="0.05" />
@@ -497,15 +479,7 @@
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
-                    <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="701410664174161" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\redo immagini pong\slidingdoor_bn.png">
-                            <collision-poly>
-                                <point x="0.25" y="0.0833333" />
-                                <point x="0.75" y="0.0833333" />
-                                <point x="0.75" y="0.916667" />
-                                <point x="0.25" y="0.916667" />
-                            </collision-poly>
-                        </frame>
+                    <animation framecount="3" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="701410664174161" speed="3">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\redo immagini pong\slidingdoor_red.png">
                             <collision-poly>
                                 <point x="0.25" y="0.0833333" />
@@ -550,15 +524,7 @@
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
-                    <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="187598560618972" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\redo immagini pong\slidingdoor_bn.png">
-                            <collision-poly>
-                                <point x="0.25" y="0.0833333" />
-                                <point x="0.75" y="0.0833333" />
-                                <point x="0.75" y="0.916667" />
-                                <point x="0.25" y="0.916667" />
-                            </collision-poly>
-                        </frame>
+                    <animation framecount="3" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="187598560618972" speed="3">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\redo immagini pong\slidingdoor_red.png">
                             <collision-poly>
                                 <point x="0.25" y="0.0833333" />
@@ -706,15 +672,7 @@
             <object-type name="gatePole" sid="864927301970861">
                 <plugin id="Sprite" />
                 <animation-folder>
-                    <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="373147892637770" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.511111" original-source="C:\Users\PU\Downloads\redo immagini pong\gatespole_bn.png">
-                            <collision-poly>
-                                <point x="1" y="0" />
-                                <point x="1" y="1" />
-                                <point x="0" y="1" />
-                                <point x="0" y="0" />
-                            </collision-poly>
-                        </frame>
+                    <animation framecount="3" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="373147892637770" speed="3">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.511111" original-source="C:\Users\PU\Downloads\redo immagini pong\gatespole_red.png">
                             <collision-poly>
                                 <point x="1" y="0" />
@@ -886,6 +844,18 @@
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="717836193198891" speed="5">
                         <frame duration="1" hotspotX="0.500308" hotspotY="0.500541" />
                     </animation>
+                    <animation framecount="2" loop="0" name="FrameRed" pingpong="0" repeatcount="1" repeatto="0" sid="773237422708287" speed="2">
+                        <frame duration="1" hotspotX="0.500308" hotspotY="0.500541" />
+                        <frame duration="1" hotspotX="0.500308" hotspotY="0.500541" />
+                    </animation>
+                    <animation framecount="2" loop="0" name="FrameGreen" pingpong="0" repeatcount="1" repeatto="0" sid="692391401027631" speed="2">
+                        <frame duration="1" hotspotX="0.500308" hotspotY="0.500541" />
+                        <frame duration="1" hotspotX="0.500308" hotspotY="0.500541" />
+                    </animation>
+                    <animation framecount="2" loop="0" name="FrameBlue" pingpong="0" repeatcount="1" repeatto="0" sid="141324840180079" speed="2">
+                        <frame duration="1" hotspotX="0.500308" hotspotY="0.500541" />
+                        <frame duration="1" hotspotX="0.500308" hotspotY="0.500541" />
+                    </animation>
                 </animation-folder>
             </object-type>
             <object-type name="Stripes" sid="483779437006538">
@@ -917,6 +887,61 @@
                                 <point x="0.866667" y="0.0369231" />
                                 <point x="0.866667" y="0.953846" />
                                 <point x="0.133333" y="0.953846" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="FrameHighlight" sid="283371537893501">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Sine" sid="749655557126693">
+                        <behavior id="Sin" />
+                    </behavior-type>
+                    <behavior-type name="Fade" sid="592971141742584">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                </behaviors>
+                <effects>
+                    <effect-type name="BlurHorizontal">
+                        <effect id="blurhorizontal" />
+                    </effect-type>
+                    <effect-type name="BlurVertical">
+                        <effect id="blurvertical" />
+                    </effect-type>
+                </effects>
+                <animation-folder>
+                    <animation framecount="4" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="103384813596345" speed="0">
+                        <frame duration="1" hotspotX="0.500614" hotspotY="0.501075">
+                            <collision-poly>
+                                <point x="0.00122699" y="0.00215054" />
+                                <point x="0.999386" y="0.00215054" />
+                                <point x="0.999386" y="0.998925" />
+                                <point x="0.00122699" y="0.998925" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.500614" hotspotY="0.501075">
+                            <collision-poly>
+                                <point x="0.00122699" y="0.00215054" />
+                                <point x="0.999386" y="0.00215054" />
+                                <point x="0.999386" y="0.998925" />
+                                <point x="0.00122699" y="0.998925" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.500614" hotspotY="0.501075">
+                            <collision-poly>
+                                <point x="0.00122699" y="0.00215054" />
+                                <point x="0.999386" y="0.00215054" />
+                                <point x="0.999386" y="0.998925" />
+                                <point x="0.00122699" y="0.998925" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.500614" hotspotY="0.501075">
+                            <collision-poly>
+                                <point x="0.00122699" y="0.00215054" />
+                                <point x="0.999386" y="0.00215054" />
+                                <point x="0.999386" y="0.998925" />
+                                <point x="0.00122699" y="0.998925" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -2431,7 +2456,18 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="559580868599199" speed="5">
-                    <frame duration="1" hotspotX="0.504762" hotspotY="0.5" original-source="C:\Users\PU\Downloads\screenshoot istruzioni\screen colore giusto.png" />
+                    <frame duration="1" hotspotX="0.506383" hotspotY="0.502128" original-source="D:\Downloads\ULTIME IMMAGINI\screen colore giusto.png">
+                        <collision-poly>
+                            <point x="0.0723404" y="0.0723404" />
+                            <point x="0.497872" y="0.0638298" />
+                            <point x="0.914894" y="0.0851064" />
+                            <point x="0.931915" y="0.497872" />
+                            <point x="0.919149" y="0.919149" />
+                            <point x="0.497872" y="0.940426" />
+                            <point x="0.0680851" y="0.931915" />
+                            <point x="0.0425532" y="0.497872" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -2439,7 +2475,17 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="467675568427272" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.502591" original-source="C:\Users\PU\Downloads\screenshoot istruzioni\screen colore sbagliato.png" />
+                    <frame duration="1" hotspotX="0.502128" hotspotY="0.502128" original-source="D:\Downloads\ULTIME IMMAGINI\screen colore sbagliato.png">
+                        <collision-poly>
+                            <point x="0.0680851" y="0.0680851" />
+                            <point x="0.497872" y="0.0595745" />
+                            <point x="0.919149" y="0.0808511" />
+                            <point x="0.931915" y="0.497872" />
+                            <point x="0.914894" y="0.914894" />
+                            <point x="0.0723404" y="0.92766" />
+                            <point x="0.0382979" y="0.497872" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -2447,41 +2493,14 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="396526824050436" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\screenshoot istruzioni\screen dodge.png" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="rightTick" sid="941895291881815">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="648662187556460" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Pictures\right.png">
+                    <frame duration="1" hotspotX="0.502128" hotspotY="0.502128" original-source="D:\Downloads\ULTIME IMMAGINI\dodge.png">
                         <collision-poly>
-                            <point x="0.461667" y="0.492883" />
-                            <point x="0.5" y="0.439502" />
-                            <point x="0.998333" y="0.00177936" />
-                            <point x="0.611667" y="0.5" />
-                            <point x="0.5" y="0.663701" />
-                            <point x="0.131667" y="0.859431" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="wrong" sid="553360857134035">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="536917203092082" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Pictures\wrong.png">
-                        <collision-poly>
-                            <point x="0.0933333" y="0.137255" />
-                            <point x="0.5" y="0.303922" />
-                            <point x="0.943333" y="0.0833333" />
-                            <point x="0.62" y="0.5" />
-                            <point x="0.853333" y="0.784314" />
-                            <point x="0.5" y="0.816176" />
-                            <point x="0.0433333" y="0.936275" />
-                            <point x="0.263333" y="0.5" />
+                            <point x="0.0680851" y="0.0680851" />
+                            <point x="0.92766" y="0.0723404" />
+                            <point x="0.978723" y="0.497872" />
+                            <point x="0.940426" y="0.940426" />
+                            <point x="0.0553191" y="0.944681" />
+                            <point x="0.0382979" y="0.497872" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -2491,7 +2510,7 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="860096967727377" speed="5">
-                    <frame duration="1" hotspotX="0.503704" hotspotY="0.50211" original-source="C:\Users\PU\Downloads\ULTIME IMMAGINI\whitePong.png" />
+                    <frame duration="1" hotspotX="0.503704" hotspotY="0.50211" original-source="D:\Downloads\ULTIME IMMAGINI\cambio colore.png" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -2499,7 +2518,15 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="524893544509095" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\PU\Downloads\ULTIME IMMAGINI\GreenPong.png" />
+                    <frame duration="1" hotspotX="0.502128" hotspotY="0.502128" original-source="D:\Downloads\ULTIME IMMAGINI\cambio colore.png">
+                        <collision-poly>
+                            <point x="0.0425532" y="0.0425532" />
+                            <point x="0.93617" y="0.0638298" />
+                            <point x="0.948936" y="0.948936" />
+                            <point x="0.0340426" y="0.965957" />
+                            <point x="0" y="0.497872" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -2628,6 +2655,23 @@
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Sprite2" sid="643756717948895">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="441345328078878" speed="5">
+                    <frame duration="1" hotspotX="0.502128" hotspotY="0.502128" original-source="D:\Downloads\ULTIME IMMAGINI\absorb.png">
+                        <collision-poly>
+                            <point x="0.0680851" y="0.0680851" />
+                            <point x="0.92766" y="0.0723404" />
+                            <point x="0.978723" y="0.497872" />
+                            <point x="0.940426" y="0.940426" />
+                            <point x="0.0553191" y="0.944681" />
+                            <point x="0.0382979" y="0.497872" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -2792,6 +2836,16 @@
         <file name="Song_speed5.ogg" />
         <file name="Song_speed6.m4a" />
         <file name="Song_speed6.ogg" />
+        <file name="ScoreMultitimer.m4a" />
+        <file name="ScoreMultitimer.ogg" />
+        <file name="oneup.m4a" />
+        <file name="oneup.ogg" />
+        <file name="GrowUpBall.m4a" />
+        <file name="GrowUpBall.ogg" />
+        <file name="Goal.m4a" />
+        <file name="Goal.ogg" />
+        <file name="cubo_rotante_loop1.m4a" />
+        <file name="cubo_rotante_loop1.ogg" />
     </sounds-folder>
     <music-folder />
     <files-folder>

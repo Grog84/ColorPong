@@ -3175,7 +3175,7 @@
                                 <condition id="-14" name="Compare variable" sid="150366648265150" type="System">
                                     <param id="0" name="Variable">SpawnEnemyByID</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">7</param>
+                                    <param id="2" name="Value">6</param>
                                 </condition>
                                 <condition id="-4" name="Trigger once while true" sid="274490136546474" type="System" />
                             </conditions>

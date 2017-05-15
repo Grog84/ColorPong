@@ -1964,6 +1964,9 @@
                                     <param id="0" name="Comparison">3</param>
                                     <param id="1" name="Y co-ordinate">620</param>
                                 </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="735154516705573" type="Player">
+                                    <param id="0" name="Instance variable">AllColorBuffActive</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="0" name="Call function" sid="486467609061854" type="Function">
@@ -1986,6 +1989,9 @@
                                     <param id="0" name="Comparison">3</param>
                                     <param id="1" name="Y co-ordinate">925</param>
                                 </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="328211152268419" type="Player">
+                                    <param id="0" name="Instance variable">AllColorBuffActive</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="0" name="Call function" sid="703766245230437" type="Function">
@@ -2003,6 +2009,9 @@
                                 <condition id="-2" name="Compare Y" sid="483625276363024" type="Player">
                                     <param id="0" name="Comparison">4</param>
                                     <param id="1" name="Y co-ordinate">925</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="601718618597529" type="Player">
+                                    <param id="0" name="Instance variable">AllColorBuffActive</param>
                                 </condition>
                             </conditions>
                             <actions>

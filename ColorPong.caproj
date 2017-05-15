@@ -1525,6 +1525,9 @@
                 <behavior-type name="Sine" sid="214410773843486">
                     <behavior id="Sin" />
                 </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="150684024043842">
+                    <behavior id="destroy" />
+                </behavior-type>
             </behaviors>
             <animation-folder>
                 <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="583693710898180" speed="0">
@@ -1627,10 +1630,15 @@
                 <instance-variable name="IsPaused" sid="658063035111840" type="boolean" />
                 <instance-variable name="PointsMultiplier" sid="495980599920063" type="number" />
                 <instance-variable name="GreenBuffDuration" sid="833744931013086" type="number" />
+                <instance-variable name="AllColorBuffDurationTime" sid="146177005757620" type="number" />
+                <instance-variable name="AllColorBuffActive" sid="440693183201930" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Flash" sid="330990285266793">
                     <behavior id="Flash" />
+                </behavior-type>
+                <behavior-type name="Sine" sid="991959222876106">
+                    <behavior id="Sin" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
@@ -1677,6 +1685,352 @@
                             <point x="1" y="0.5" />
                             <point x="0.775" y="0.833333" />
                             <point x="0" y="0.925" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667">
+                        <image-point name="TailTop" x="0.516667" y="0.266667" />
+                        <image-point name="TailBot" x="0.516667" y="0.766667" />
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.670833" y="0.208333" />
+                            <point x="0.858333" y="0.508333" />
+                            <point x="0.666667" y="0.808333" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="5" loop="0" name="Red" pingpong="0" repeatcount="1" repeatto="0" sid="485339767348073" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0.0833333" />
+                        <image-point name="TailBot" x="0.5" y="0.916667" />
+                        <collision-poly>
+                            <point x="0" y="0.0458333" />
+                            <point x="0.5" y="0.0833333" />
+                            <point x="1" y="0.5" />
+                            <point x="0.5" y="0.916667" />
+                            <point x="0" y="0.958333" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.4">
+                        <image-point name="TailTop" x="0.5" y="0.1" />
+                        <image-point name="TailBot" x="0.5" y="0.9" />
+                        <collision-poly>
+                            <point x="0" y="0.055" />
+                            <point x="0.6" y="0.1" />
+                            <point x="1" y="0.5" />
+                            <point x="0.6" y="0.9" />
+                            <point x="0" y="0.955" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0.125" />
+                        <image-point name="TailBot" x="0.5" y="0.875" />
+                        <collision-poly>
+                            <point x="0" y="0.06875" />
+                            <point x="0.675" y="0.125" />
+                            <point x="1" y="0.5" />
+                            <point x="0.675" y="0.875" />
+                            <point x="0" y="0.9375" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.333333">
+                        <image-point name="TailTop" x="0.5" y="0.166667" />
+                        <image-point name="TailBot" x="0.5" y="0.833333" />
+                        <collision-poly>
+                            <point x="0" y="0.0916666" />
+                            <point x="0.775" y="0.166667" />
+                            <point x="1" y="0.5" />
+                            <point x="0.775" y="0.833333" />
+                            <point x="0" y="0.925" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667">
+                        <image-point name="TailTop" x="0.516667" y="0.266667" />
+                        <image-point name="TailBot" x="0.516667" y="0.766667" />
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.670833" y="0.208333" />
+                            <point x="0.858333" y="0.508333" />
+                            <point x="0.666667" y="0.808333" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="5" loop="0" name="Green" pingpong="0" repeatcount="1" repeatto="0" sid="550293649565579" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0.0833333" />
+                        <image-point name="TailBot" x="0.5" y="0.916667" />
+                        <collision-poly>
+                            <point x="0" y="0.0458333" />
+                            <point x="0.5" y="0.0833333" />
+                            <point x="1" y="0.5" />
+                            <point x="0.5" y="0.916667" />
+                            <point x="0" y="0.958333" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.4">
+                        <image-point name="TailTop" x="0.5" y="0.1" />
+                        <image-point name="TailBot" x="0.5" y="0.9" />
+                        <collision-poly>
+                            <point x="0" y="0.055" />
+                            <point x="0.6" y="0.1" />
+                            <point x="1" y="0.5" />
+                            <point x="0.6" y="0.9" />
+                            <point x="0" y="0.955" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0.125" />
+                        <image-point name="TailBot" x="0.5" y="0.875" />
+                        <collision-poly>
+                            <point x="0" y="0.06875" />
+                            <point x="0.675" y="0.125" />
+                            <point x="1" y="0.5" />
+                            <point x="0.675" y="0.875" />
+                            <point x="0" y="0.9375" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.333333">
+                        <image-point name="TailTop" x="0.5" y="0.166667" />
+                        <image-point name="TailBot" x="0.5" y="0.833333" />
+                        <collision-poly>
+                            <point x="0" y="0.0916666" />
+                            <point x="0.775" y="0.166667" />
+                            <point x="1" y="0.5" />
+                            <point x="0.775" y="0.833333" />
+                            <point x="0" y="0.925" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667">
+                        <image-point name="TailTop" x="0.516667" y="0.266667" />
+                        <image-point name="TailBot" x="0.516667" y="0.766667" />
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.670833" y="0.208333" />
+                            <point x="0.858333" y="0.508333" />
+                            <point x="0.666667" y="0.808333" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="5" loop="0" name="Blue" pingpong="0" repeatcount="1" repeatto="0" sid="814388324801060" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0.0833333" />
+                        <image-point name="TailBot" x="0.5" y="0.916667" />
+                        <collision-poly>
+                            <point x="0" y="0.0458333" />
+                            <point x="0.5" y="0.0833333" />
+                            <point x="1" y="0.5" />
+                            <point x="0.5" y="0.916667" />
+                            <point x="0" y="0.958333" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.4">
+                        <image-point name="TailTop" x="0.5" y="0.1" />
+                        <image-point name="TailBot" x="0.5" y="0.9" />
+                        <collision-poly>
+                            <point x="0" y="0.055" />
+                            <point x="0.6" y="0.1" />
+                            <point x="1" y="0.5" />
+                            <point x="0.6" y="0.9" />
+                            <point x="0" y="0.955" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0.125" />
+                        <image-point name="TailBot" x="0.5" y="0.875" />
+                        <collision-poly>
+                            <point x="0" y="0.06875" />
+                            <point x="0.675" y="0.125" />
+                            <point x="1" y="0.5" />
+                            <point x="0.675" y="0.875" />
+                            <point x="0" y="0.9375" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.333333">
+                        <image-point name="TailTop" x="0.5" y="0.166667" />
+                        <image-point name="TailBot" x="0.5" y="0.833333" />
+                        <collision-poly>
+                            <point x="0" y="0.0916666" />
+                            <point x="0.775" y="0.166667" />
+                            <point x="1" y="0.5" />
+                            <point x="0.775" y="0.833333" />
+                            <point x="0" y="0.925" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667">
+                        <image-point name="TailTop" x="0.516667" y="0.266667" />
+                        <image-point name="TailBot" x="0.516667" y="0.766667" />
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.670833" y="0.208333" />
+                            <point x="0.858333" y="0.508333" />
+                            <point x="0.666667" y="0.808333" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="3" loop="1" name="5H" pingpong="0" repeatcount="1" repeatto="0" sid="974795585067366" speed="6">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0.0833333" />
+                        <image-point name="TailBot" x="0.5" y="0.916667" />
+                        <collision-poly>
+                            <point x="0" y="0.0458333" />
+                            <point x="0.5" y="0.0833333" />
+                            <point x="1" y="0.5" />
+                            <point x="0.5" y="0.916667" />
+                            <point x="0" y="0.958333" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0.0833333" />
+                        <image-point name="TailBot" x="0.5" y="0.916667" />
+                        <collision-poly>
+                            <point x="0" y="0.0458333" />
+                            <point x="0.5" y="0.0833333" />
+                            <point x="1" y="0.5" />
+                            <point x="0.5" y="0.916667" />
+                            <point x="0" y="0.958333" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0.0833333" />
+                        <image-point name="TailBot" x="0.5" y="0.916667" />
+                        <collision-poly>
+                            <point x="0" y="0.0458333" />
+                            <point x="0.5" y="0.0833333" />
+                            <point x="1" y="0.5" />
+                            <point x="0.5" y="0.916667" />
+                            <point x="0" y="0.958333" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="3" loop="1" name="4H" pingpong="0" repeatcount="1" repeatto="0" sid="583008153033758" speed="6">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.4">
+                        <image-point name="TailTop" x="0.5" y="0.1" />
+                        <image-point name="TailBot" x="0.5" y="0.9" />
+                        <collision-poly>
+                            <point x="0" y="0.055" />
+                            <point x="0.6" y="0.1" />
+                            <point x="1" y="0.5" />
+                            <point x="0.6" y="0.9" />
+                            <point x="0" y="0.955" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.4">
+                        <image-point name="TailTop" x="0.5" y="0.1" />
+                        <image-point name="TailBot" x="0.5" y="0.9" />
+                        <collision-poly>
+                            <point x="0" y="0.055" />
+                            <point x="0.6" y="0.1" />
+                            <point x="1" y="0.5" />
+                            <point x="0.6" y="0.9" />
+                            <point x="0" y="0.955" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.4">
+                        <image-point name="TailTop" x="0.5" y="0.1" />
+                        <image-point name="TailBot" x="0.5" y="0.9" />
+                        <collision-poly>
+                            <point x="0" y="0.055" />
+                            <point x="0.6" y="0.1" />
+                            <point x="1" y="0.5" />
+                            <point x="0.6" y="0.9" />
+                            <point x="0" y="0.955" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="3" loop="1" name="3H" pingpong="0" repeatcount="1" repeatto="0" sid="708604999466754" speed="6">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0.125" />
+                        <image-point name="TailBot" x="0.5" y="0.875" />
+                        <collision-poly>
+                            <point x="0" y="0.06875" />
+                            <point x="0.675" y="0.125" />
+                            <point x="1" y="0.5" />
+                            <point x="0.675" y="0.875" />
+                            <point x="0" y="0.9375" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0.125" />
+                        <image-point name="TailBot" x="0.5" y="0.875" />
+                        <collision-poly>
+                            <point x="0" y="0.06875" />
+                            <point x="0.675" y="0.125" />
+                            <point x="1" y="0.5" />
+                            <point x="0.675" y="0.875" />
+                            <point x="0" y="0.9375" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <image-point name="TailTop" x="0.5" y="0.125" />
+                        <image-point name="TailBot" x="0.5" y="0.875" />
+                        <collision-poly>
+                            <point x="0" y="0.06875" />
+                            <point x="0.675" y="0.125" />
+                            <point x="1" y="0.5" />
+                            <point x="0.675" y="0.875" />
+                            <point x="0" y="0.9375" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="3" loop="1" name="2H" pingpong="0" repeatcount="1" repeatto="0" sid="824854082879677" speed="6">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.333333">
+                        <image-point name="TailTop" x="0.5" y="0.166667" />
+                        <image-point name="TailBot" x="0.5" y="0.833333" />
+                        <collision-poly>
+                            <point x="0" y="0.0916666" />
+                            <point x="0.775" y="0.166667" />
+                            <point x="1" y="0.5" />
+                            <point x="0.775" y="0.833333" />
+                            <point x="0" y="0.925" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.333333">
+                        <image-point name="TailTop" x="0.5" y="0.166667" />
+                        <image-point name="TailBot" x="0.5" y="0.833333" />
+                        <collision-poly>
+                            <point x="0" y="0.0916666" />
+                            <point x="0.775" y="0.166667" />
+                            <point x="1" y="0.5" />
+                            <point x="0.775" y="0.833333" />
+                            <point x="0" y="0.925" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.333333">
+                        <image-point name="TailTop" x="0.5" y="0.166667" />
+                        <image-point name="TailBot" x="0.5" y="0.833333" />
+                        <collision-poly>
+                            <point x="0" y="0.0916666" />
+                            <point x="0.775" y="0.166667" />
+                            <point x="1" y="0.5" />
+                            <point x="0.775" y="0.833333" />
+                            <point x="0" y="0.925" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="3" loop="1" name="1H" pingpong="0" repeatcount="1" repeatto="0" sid="338933514670089" speed="6">
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667">
+                        <image-point name="TailTop" x="0.516667" y="0.266667" />
+                        <image-point name="TailBot" x="0.516667" y="0.766667" />
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.670833" y="0.208333" />
+                            <point x="0.858333" y="0.508333" />
+                            <point x="0.666667" y="0.808333" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.516667" hotspotY="0.516667">
+                        <image-point name="TailTop" x="0.516667" y="0.266667" />
+                        <image-point name="TailBot" x="0.516667" y="0.766667" />
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="0.670833" y="0.208333" />
+                            <point x="0.858333" y="0.508333" />
+                            <point x="0.666667" y="0.808333" />
+                            <point x="0" y="1" />
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.516667" hotspotY="0.516667">

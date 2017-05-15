@@ -14,12 +14,12 @@
 <!-- le spawnChance devono sommarsi a 100 -->
 
 
-<enemy speed="100" spawnRate="8" name="EvilBlock"/>
+<enemy speed="100" spawnRate="5" name="EvilBlock"/>
 
 <!-- Occhio! spawnRate NON è spawnChance -->
 
 
-<enemy speed="280" name="CuboRotante" spawnChance="15"/>
+<enemy speed="280" name="CuboRotante" spawnChance="19"/>
 
 <enemy name="Kamikaze" spawnChance="15" VibrationTime="2" KamikazeDistance="600" KamikazeSpeed="400" BaseSpeed="100"/>
 
@@ -27,7 +27,7 @@
 
 <enemy speed="250" name="Snake" spawnChance="15" NbrOfReplicate="4"/>
 
-<enemy speed="280" name="SlidingDoors" spawnChance="15" WaitTime="0"/>
+<enemy speed="280" name="SlidingDoors" spawnChance="19" WaitTime="0"/>
 
 <enemy speed="500" name="RotatingL" spawnChance="7"/>
 
@@ -58,22 +58,22 @@
 <!-- le spawnChance devono sommarsi a 100 -->
 
 
-<enemy speed="150" spawnRate="6" name="EvilBlock"/>
+<enemy speed="150" spawnRate="4" name="EvilBlock"/>
 
 <!-- Occhio! spawnRate NON è spawnChance -->
 
 
-<enemy speed="230" name="CuboRotante" spawnChance="16"/>
+<enemy speed="230" name="CuboRotante" spawnChance="17"/>
 
 <enemy name="Kamikaze" spawnChance="16" VibrationTime="2" KamikazeDistance="650" KamikazeSpeed="450" BaseSpeed="150"/>
 
-<enemy speed="450" name="Shuriken" spawnChance="13"/>
+<enemy speed="450" name="Shuriken" spawnChance="14"/>
 
-<enemy speed="300" name="Snake" spawnChance="16" NbrOfReplicate="6"/>
+<enemy speed="300" name="Snake" spawnChance="17" NbrOfReplicate="6"/>
 
-<enemy speed="230" name="SlidingDoors" spawnChance="15" WaitTime="1"/>
+<enemy speed="230" name="SlidingDoors" spawnChance="16" WaitTime="1"/>
 
-<enemy speed="500" name="RotatingL" spawnChance="7"/>
+<enemy speed="500" name="RotatingL" spawnChance="8"/>
 
 <enemy speed="230" name="XLGate" spawnChance="12" ballSpeedUp="150"/>
 
@@ -83,7 +83,7 @@
 
 <Player BaseSpeed="5" DashSpeed="15"/>
 
-<Boss MaxSpeed="250" Acceleration="400"/>
+<Boss MaxSpeed="270" Acceleration="400"/>
 
 </phase>
 
@@ -101,7 +101,7 @@
 <!-- Occhio! spawnRate NON è spawnChance -->
 
 
-<enemy speed="180" name="CuboRotante" spawnChance="8"/>
+<enemy speed="180" name="CuboRotante" spawnChance="13"/>
 
 <enemy name="Kamikaze" spawnChance="18" VibrationTime="1" KamikazeDistance="700" KamikazeSpeed="500" BaseSpeed="200"/>
 
@@ -109,9 +109,9 @@
 
 <enemy speed="350" name="Snake" spawnChance="18" NbrOfReplicate="8"/>
 
-<enemy speed="180" name="SlidingDoors" spawnChance="8" WaitTime="2"/>
+<enemy speed="180" name="SlidingDoors" spawnChance="13" WaitTime="2"/>
 
-<enemy speed="550" name="RotatingL" spawnChance="12"/>
+<enemy speed="550" name="RotatingL" spawnChance="10"/>
 
 <enemy speed="180" name="XLGate" spawnChance="12" ballSpeedUp="200"/>
 
@@ -121,7 +121,7 @@
 
 <Player BaseSpeed="5" DashSpeed="15"/>
 
-<Boss MaxSpeed="300" Acceleration="470"/>
+<Boss MaxSpeed="320" Acceleration="470"/>
 
 </phase>
 
@@ -149,9 +149,9 @@
 
 <enemy speed="150" name="SlidingDoors" spawnChance="7" WaitTime="3"/>
 
-<enemy speed="600" name="RotatingL" spawnChance="15"/>
+<enemy speed="600" name="RotatingL" spawnChance="14"/>
 
-<enemy speed="150" name="XLGate" spawnChance="15" ballSpeedUp="250"/>
+<enemy speed="150" name="XLGate" spawnChance="14" ballSpeedUp="250"/>
 
 </Enemies>
 
@@ -159,7 +159,7 @@
 
 <Player BaseSpeed="8" DashSpeed="18"/>
 
-<Boss MaxSpeed="350" Acceleration="520"/>
+<Boss MaxSpeed="370" Acceleration="520"/>
 
 </phase>
 
@@ -187,9 +187,9 @@
 
 <enemy speed="120" name="SlidingDoors" spawnChance="7" WaitTime="3"/>
 
-<enemy speed="650" name="RotatingL" spawnChance="15"/>
+<enemy speed="650" name="RotatingL" spawnChance="14"/>
 
-<enemy speed="150" name="XLGate" spawnChance="15" ballSpeedUp="300"/>
+<enemy speed="150" name="XLGate" spawnChance="14" ballSpeedUp="300"/>
 
 </Enemies>
 
@@ -197,7 +197,7 @@
 
 <Player BaseSpeed="10" DashSpeed="18"/>
 
-<Boss MaxSpeed="400" Acceleration="570"/>
+<Boss MaxSpeed="420" Acceleration="570"/>
 
 </phase>
 
@@ -215,19 +215,19 @@
 <!-- Occhio! spawnRate NON è spawnChance -->
 
 
-<enemy speed="100" name="CuboRotante" spawnChance="7"/>
+<enemy speed="100" name="CuboRotante" spawnChance="5"/>
 
-<enemy name="Kamikaze" spawnChance="20" VibrationTime="0.2" KamikazeDistance="800" KamikazeSpeed="750" BaseSpeed="400"/>
+<enemy name="Kamikaze" spawnChance="22" VibrationTime="0.2" KamikazeDistance="800" KamikazeSpeed="750" BaseSpeed="400"/>
 
 <enemy speed="800" name="Shuriken" spawnChance="18"/>
 
-<enemy speed="600" name="Snake" spawnChance="20" NbrOfReplicate="10"/>
+<enemy speed="600" name="Snake" spawnChance="22" NbrOfReplicate="10"/>
 
-<enemy speed="100" name="SlidingDoors" spawnChance="7" WaitTime="3"/>
+<enemy speed="100" name="SlidingDoors" spawnChance="5" WaitTime="3"/>
 
-<enemy speed="700" name="RotatingL" spawnChance="15"/>
+<enemy speed="700" name="RotatingL" spawnChance="14"/>
 
-<enemy speed="100" name="XLGate" spawnChance="15" ballSpeedUp="400"/>
+<enemy speed="100" name="XLGate" spawnChance="14" ballSpeedUp="400"/>
 
 </Enemies>
 

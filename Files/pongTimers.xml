@@ -19,7 +19,7 @@
 
 <enemy name="Shuriken" id="3">40</enemy>
 
-<enemy name="Snake" id="4">60</enemy>
+<enemy name="Snake" id="4">45</enemy>
 
 <enemy name="SlidingDoors" id="5">55</enemy>
 
